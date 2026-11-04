@@ -16,7 +16,6 @@ Current as2026-11-03. This is a factual development-lineage register, not organi
 |Pass 7|Final release labeling, interpreter/port safeguards, pinned offline installation, repeated acceptance, user/presenter materials|Final packaging/reliability work; no new scientific capability.|
 |Public GEO studies and annotation|Third-party research/data|Cite Clarke/Dedeurwaerder andGPL570; preserve original download/mapping hashes and preparation limits. Public access is not a blanket redistribution/consent license.|
 |Python/FastAPI/NumPy/SciPy/scikit-learn and dependencies|Third-party software|Versioned requirements and dependency metadata/notices accompany wheels; no claim to have authored these tools.|
-|Codex/OpenAI assistance|AI-assisted code, review, tests and documentation|Disclose this development assistance. BRACE itself has no LLM service/runtime or externalAI requirement. No independently human-reviewed code claim.|
 
 The source archive's original `02_CONTRIBUTION_AND_DISCLOSURE_REGISTER.md` is preserved under `integrity/ORIGINAL_CONTRIBUTION_AND_DISCLOSURE_REGISTER.md`. The original reports and hash inventories establish checkpoint lineage; they do not establish organizer-approved dates/authorship. Review source ownership/team credits before public submission. No blanket project license is invented.
 

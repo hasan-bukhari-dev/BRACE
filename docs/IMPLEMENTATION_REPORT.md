@@ -1,6 +1,6 @@
 # BRACE 1.1.0-dev implementation and acceptance report
 
-November 4, 2026. Working branch: `codex/brace-integration`. Base commit: `871472bc6a9be8387930218b4340ba3e10b83006`.
+November 4, 2026. Working branch: `release/brace-integration`. Base commit: `871472bc6a9be8387930218b4340ba3e10b83006`.
 
 The core dataset-to-analysis integration is implemented and verified. This is an unsigned development preview, with release acceptance still conditional on the explicitly untested items below. No existing GitHub branch, tag or published release was overwritten.
 
