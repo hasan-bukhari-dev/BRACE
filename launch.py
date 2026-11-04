@@ -1,6 +1,6 @@
 """Start BRACE on 127.0.0.1 only; never expose the research app to a network."""
 from __future__ import annotations
-import os,threading,webbrowser,socket
+import os,threading,webbrowser,socket,errno
 import uvicorn
 from brace_app.local_settings import local_port
 
@@ -17,7 +17,7 @@ def reserve_port():
             return listener,port
         except OSError as exc:
             listener.close()
-            if exc.errno not in (98,10048) and getattr(exc,'winerror',None)!=10048:
+            if exc.errno not in (errno.EADDRINUSE,10048) and getattr(exc,'winerror',None)!=10048:
                 raise
     raise SystemExit('BRACE could not reserve a local port. Leave other services running; set BRACE_PORT to an unused port and start again. No browser was opened.')
 

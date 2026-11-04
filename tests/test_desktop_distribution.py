@@ -39,3 +39,29 @@ def test_version_and_no_bundled_private_runs():
     assert 'runs/' in ignore and '.venv/' in ignore and '.env' in ignore
     source = (ROOT/'packaging/BRACE.spec').read_text()
     assert "'runs'" not in source and 'user_data' not in source
+
+
+def test_preparation_json_preserves_original_canonical_bytes(tmp_path):
+    spec = importlib.util.spec_from_file_location('brace_prepare',ROOT/'examples/public_er_pair/prepare.py')
+    prepare = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(prepare)
+    path = tmp_path/'record.json'
+    prepare.write_json(path, {'a':1})
+    assert path.read_bytes() == b'{\r\n  "a": 1\r\n}\r\n'
+
+
+def test_platform_address_in_use_can_reserve_next_port(monkeypatch):
+    import errno
+    import launch
+    monkeypatch.delenv('BRACE_PORT',raising=False)
+    attempted=[]
+    class Listener:
+        def setsockopt(self,*args):pass
+        def bind(self,address):
+            attempted.append(address[1])
+            if len(attempted)==1:raise OSError(errno.EADDRINUSE,'occupied')
+        def listen(self,*args):pass
+        def close(self):pass
+    monkeypatch.setattr(launch.socket,'socket',Listener)
+    _,port=launch.reserve_port()
+    assert attempted == [8765,8766] and port==8766

@@ -37,7 +37,11 @@ original=json.loads((pair/'race_final/selected_signature.json').read_text());dif
 baseline=APP/'docs/v6/BASELINE_SCIENCE_SHA256.json';expected=json.loads(baseline.read_text());preserved={}
 for prefix in ('brace_core/','examples/','tests/'):
  paths=[n for n in expected if n.startswith(prefix)]
- for name in paths:assert hashlib.sha256((APP/name).read_bytes()).hexdigest()==expected[name],name
- preserved[prefix]=len(paths)
+ for name in paths:
+  actual=hashlib.sha256((APP/name).read_bytes()).hexdigest()
+  if actual!=expected[name]:
+   patch=json.loads((APP/'docs/release/PORTABILITY_PATCH.json').read_text())['files'][name]
+   assert patch['original_sha256']==expected[name] and patch['current_sha256']==actual,name
+ preserved[prefix]=sum(hashlib.sha256((APP/name).read_bytes()).hexdigest()==expected[name] for name in paths)
 receipt=dict(status='PASS',scope='Independently written SciPy ttest_ind and reverse-rank BH calculation from prepared matrices; not an external human scientific review',source={k:source[k] for k in ('samples','positive','negative')},target={k:target[k] for k in ('samples','positive','negative')},source_family=10000,source_untestable=4,source_q_passing=len(qualifying),selected=len(ids),outcomes=counts,maximum_absolute_discrepancy=errors,tolerances=dict(relative=1e-9,absolute=1e-12),frozen_differing_fields=different,original_software=original['software'],fresh_software=frozen['software'],preserved_baseline_files=preserved,baseline_source_snapshot_sha256=hashlib.sha256(baseline.read_bytes()).hexdigest())
-(OUT/'NUMERICAL_PRESERVATION.json').write_text(json.dumps(receipt,indent=2,default=lambda v:int(v) if isinstance(v,np.integer) else float(v))+'\n');print(json.dumps(receipt,default=lambda v:int(v) if isinstance(v,np.integer) else float(v)))
+(APP/'docs/release/NUMERICAL_PRESERVATION.json').write_text(json.dumps(receipt,indent=2,default=lambda v:int(v) if isinstance(v,np.integer) else float(v))+'\n');print(json.dumps(receipt,default=lambda v:int(v) if isinstance(v,np.integer) else float(v)))

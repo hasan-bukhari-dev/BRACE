@@ -1,0 +1,10 @@
+{
+  "scope": "One preparation-code-only portability patch. Existing prepared data and all scientific core/original tests are unchanged.",
+  "files": {
+    "examples/public_er_pair/prepare.py": {
+      "original_sha256": "e8fcd645e032f7d4dc50b15f837ea118f804a5a24bf3d3011f262ed5ba735400",
+      "current_sha256": "8a8d3ad2c9d3894ae9934119b4888ce5f21c02addc3f80d9d55526ef1aa5d7f6",
+      "reason": "Explicit CRLF for JSON reproduces the existing pinned JSON bytes on Windows, Linux and macOS; TSV values and selection logic unchanged."
+    }
+  }
+}

@@ -37,7 +37,8 @@ def extract_mapping(soft, out):
     assert sha(out)==(HERE/'evidence/GPL570_mapping.sha256').read_text().strip()
 
 def write_json(path, obj):
-    path.write_text(json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=True)+'\n', encoding='utf-8')
+    # Preserve the original prepared JSON bytes on every OS, including POSIX.
+    path.write_text(json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=True)+'\n', encoding='utf-8', newline='\r\n')
 
 def table(path, head, rows):
     with path.open('w', encoding='utf-8', newline='') as f:
