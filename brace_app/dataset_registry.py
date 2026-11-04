@@ -28,6 +28,7 @@ def digest(path: Path) -> str:
 
 def registry_root() -> Path:
     from brace_app import server
+    server.RUNS.mkdir(parents=True, exist_ok=True)
     root = within(server.RUNS, server.RUNS / '_workspace')
     root.mkdir(parents=True, exist_ok=True)
     return root

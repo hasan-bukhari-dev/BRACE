@@ -1,5 +1,5 @@
 #ifndef BuildVersion
-  #define BuildVersion "1.1.0-dev"
+  #define BuildVersion "1.1.0-dev.1"
 #endif
 [Setup]
 AppId=BRACE-Local-Research-Workbench

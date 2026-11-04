@@ -118,4 +118,4 @@ jobs:
         run: git archive --format=zip --prefix=BRACE/ --output=release-assets/BRACE-source.zip HEAD
       - name: Create concrete draft only after verification
         run: |
-          gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "BRACE 1.0 · V6 research preview" --notes-file docs/release/RELEASE_BODY.md release-assets/*
+          gh release create "$RELEASE_TAG" --verify-tag --prerelease --title "BRACE ${RELEASE_TAG#v}" --notes-file docs/release/RELEASE_BODY.md release-assets/*
