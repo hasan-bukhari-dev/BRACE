@@ -28,5 +28,5 @@ exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name='BRACE',
 collection = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, name='BRACE')
 if __import__('sys').platform == 'darwin':
     app = BUNDLE(collection, name='BRACE.app', bundle_identifier='org.brace.workbench',
-                 info_plist={'CFBundleShortVersionString':'1.0.0',
+                 info_plist={'CFBundleShortVersionString':(ROOT/'VERSION').read_text().strip().split('-')[0],
                              'NSHighResolutionCapable':True})

@@ -68,12 +68,17 @@ def public_input(filename:str):
 @router.post('/api/preflight')
 async def preflight(
     mode:Annotated[str,Form()],race_config:Annotated[str,Form()]='{}',
+    name:Annotated[str,Form()]='',schema_version:Annotated[str,Form()]='1.0.0',
     source_expression:Annotated[UploadFile|None,File()]=None,source_metadata:Annotated[UploadFile|None,File()]=None,
     source_manifest:Annotated[UploadFile|None,File()]=None,target_expression:Annotated[UploadFile|None,File()]=None,
     target_metadata:Annotated[UploadFile|None,File()]=None,target_manifest:Annotated[UploadFile|None,File()]=None,
     predictions:Annotated[UploadFile|None,File()]=None,prediction_manifest:Annotated[UploadFile|None,File()]=None,
 ):
     from brace_app import server
+    from brace_app.persistence import require_schema,study_name
+    require_schema(schema_version)
+    try:title=study_name(name,'My prediction evaluation' if mode=='evaluate_predictions' else 'My cohort analysis')
+    except ValueError as exc:raise HTTPException(422,{'code':'INVALID_STUDY','message':str(exc)}) from exc
     if mode not in ('race','evaluate_predictions','train_validate','diagnose_shift'):raise HTTPException(422,'Unsupported task')
     if len(race_config.encode())>65536:raise HTTPException(413,'Settings exceed 64 KiB')
     uploads={'source_expression':source_expression,'source_metadata':source_metadata,'source_manifest':source_manifest,
@@ -108,7 +113,8 @@ async def preflight(
                 if mode!='race':checks['race']=dict(status='not_checked',reason='Gene testing requires explicit biological contrast definitions and its own eligibility check.')
                 return dict(eligible=eligible,status='ready_with_warnings' if eligible and issues else 'ready' if eligible else 'blocked',mode=mode,
                     preview=summaries,issues=[i.to_dict() for i in issues],task_eligibility=checks,note='Input and task checks only; no model fitting or gene association tests executed. A parser verdict does not authenticate acquisition or directly comparable scales.')
-            return await run_in_threadpool(inspect)
+            result=await run_in_threadpool(inspect)
+            return {**result,'schema_version':schema_version,'name':title}
     except RaceBlocked as exc:
         return dict(eligible=False,status='blocked',mode=mode,issues=[i.to_dict() for i in exc.issues])
     except (InputProblem,ValueError) as exc:

@@ -4,7 +4,7 @@
 
 A local research workbench for cross-cohort gene associations, saved-prediction evaluation and reproducible evidence.
 
-[Download Windows app](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.0.0-v6) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
+[Published V6 Windows release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.0.0-v6) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
 
 ![BRACE workbench](docs/images/workbench.png)
 
@@ -17,7 +17,9 @@ From source, use standard 64-bit Python 3.11–3.13:
 - Windows: `SETUP_BRACE_WINDOWS.bat`, then `START_BRACE_WINDOWS.bat`.
 - macOS/Linux: `sh SETUP_BRACE.sh`, then `sh START_BRACE.sh`.
 
-Start with **Open saved public result** to inspect evidence, **Run the public example again** to compute, or **Use my data** for guided inputs.
+In Workbench, choose **Add reviewed public ER datasets**, review their biological contrast and processing caveats, check eligibility, then compute from the registered versions. SPACE acquisitions are registered automatically; supported general matrices have an explicit preparation editor. You can also open the saved public result or use guided private-file inputs.
+
+[Persistent dataset workflow](docs/DATASET_WORKFLOW.md) · [Architecture](docs/ARCHITECTURE.md) · [Integration status and acceptance](docs/IMPLEMENTATION_REPORT.md)
 
 ## Tools
 
@@ -42,7 +44,7 @@ python -m pytest -q
 python scripts/release_smoke.py
 ```
 
-Windows install, computation, export and uninstall checks passed. Source tests passed on Windows, macOS and Linux; macOS/Linux native installers are not released. This is an unsigned research preview. [Build guide](docs/release/RELEASING.md) · [Remaining acceptance](docs/ACCEPTANCE.md).
+This branch is the unsigned **1.1.0-dev integration preview**. Its Windows portable build and source checks are documented in the implementation report. The linked published V6 installer is the earlier release. This version has not undergone installer/uninstall, macOS/Linux or unfamiliar-user acceptance testing. [Build guide](docs/release/RELEASING.md) · [Remaining acceptance](docs/ACCEPTANCE.md).
 
 ## Rights
 

@@ -110,6 +110,15 @@ def step(key,title,status,data,artifacts):return dict(key=key,title=title,status
 @router.get('/api/trace/studies/{study_id}')
 def trace(study_id:str,feature_id:str|None=None,sample_id:str|None=None):
     from brace_app import server
+    from brace_app.dataset_registry import valid_id
+    if valid_id(study_id):
+        root=server.safe_run_dir(study_id)
+        config=obj(root/'run.json')
+        if config.get('mode')=='replay_frozen':
+            from brace_app.frozen_workflow import trace as replay_trace
+            server.run_response(root)
+            if feature_id is not None or sample_id is not None:raise HTTPException(422,'Frozen replay exposes the complete prediction trace; select its run-level record.')
+            return replay_trace(root)
     if feature_id is not None:
         if sample_id is not None:raise HTTPException(422,'Choose a gene or sample, not both')
         result,methods,frozen,cohorts,annotations,preparation=race_context(study_id)
@@ -121,7 +130,7 @@ def trace(study_id:str,feature_id:str|None=None,sample_id:str|None=None):
             url='/api/example/public-er/export/'+name if study_id=='public_er_pass2' else f'/api/runs/{study_id}/export/race/{name}') for name in FILES]
         def links(*names):return [a for a in artifacts if a['path'] in names]
         steps=[
-            step('inputs','Input cohorts','recorded',dict(input_files=methods['input_files'],source=methods['source_manifest'],target=methods['target_manifest'],provenance_authenticated=False),links('race_methods.json')),
+            step('inputs','Input cohorts','recorded',dict(input_files=methods['input_files'],source=methods['source_manifest'],target=methods['target_manifest'],dataset_provenance=config.get('dataset_provenance',{}) if valid_id(study_id) else {},provenance_authenticated=False),links('race_methods.json')),
             step('compatibility','Compatibility','recorded',dict(eligible=result['eligible'],evaluation_role=result['evaluation_role'],warnings=result['warnings'],counts=result['counts'],note='Saved eligibility and warnings, not a new compatibility run or authenticated acquisition.'),links('race_result.json')),
             step('screen','Source screening','computed',dict(family_size=methods['source_family_size'],rule=frozen['selection_rule'],selected_gene_source_record=source,test=methods['test'],multiplicity=methods['multiplicity']),links('source_gene_screen.csv')),
             step('freeze','Frozen signature','recorded',dict(hypothesis_hash=frozen['hypothesis_hash'],selected_feature_ids=[r['feature_id'] for r in frozen['selected']],frozen_before_target_tests=True),links('selected_signature.json')),
@@ -137,7 +146,7 @@ def trace(study_id:str,feature_id:str|None=None,sample_id:str|None=None):
         prediction_links=[r for r in artifacts if r['path']=='sample_level.csv']
     else:
         validation_links=links('validation/validation_result.json');prediction_links=links('validation/sample_level.csv','validation/stage05/target_scored_predictions.csv')
-    input_data=dict(files=c['inputs'],provenance_authenticated=False)
+    input_data=dict(files=c['inputs'],dataset_provenance=c['config'].get('dataset_provenance',{}),provenance_authenticated=False)
     if c['config']['mode']=='diagnose_shift':
         shift=c['shift']
         steps=[step('inputs','Input cohorts','recorded',input_data,[]),

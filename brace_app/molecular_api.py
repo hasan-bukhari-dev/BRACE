@@ -33,6 +33,7 @@ def context(study_id):
         else:
             root=server.safe_run_dir(study_id);folder=root/'race';inputs=root/'input'
             if not (folder/'race_result.json').is_file():raise HTTPException(404,'No RACE evidence for this run')
+            server.finalize_run(root)
             records=obj(root/'reproducibility_manifest.json')['artifacts']
             for name in FILES:
                 if sha(folder/name)!=records[name]['sha256']:raise ValueError('Scientific artifact hash mismatch')

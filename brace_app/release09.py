@@ -15,7 +15,7 @@ from importlib.metadata import version, PackageNotFoundError
 from pathlib import Path
 from typing import Any
 
-RELEASE_VERSION = '1.0.0'
+from brace_app.version import VERSION as RELEASE_VERSION
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_CPTAC = ROOT / 'examples' / 'stage06_cptac_report'
 

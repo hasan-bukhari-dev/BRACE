@@ -164,8 +164,9 @@ def test_api_security_exports_reload_and_blocking(tmp_path,monkeypatch):
     assert client.post('/api/race',data={'race_config':json.dumps(cfg)},files=api_files(),headers={'Origin':'https://evil.example'}).status_code==403
     cfg['design']='paired'
     response=client.post('/api/race',data={'race_config':json.dumps(cfg)},files=api_files());assert response.status_code==422
-    assert len(list(tmp_path.iterdir()))==1
+    # Persistent dataset records are separate from completed analysis directories.
+    assert {path.name for path in tmp_path.iterdir()}=={rid,'_workspace'}
     cfg['design']='unpaired'
     monkeypatch.setattr(server,'MAX_FILE',10)
     assert client.post('/api/race',data={'race_config':json.dumps(cfg)},files=api_files()).status_code==413
-    assert len(list(tmp_path.iterdir()))==1
+    assert {path.name for path in tmp_path.iterdir()}=={rid,'_workspace'}

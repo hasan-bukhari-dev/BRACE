@@ -4,7 +4,7 @@ import csv
 import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED = {'.git','.venv','venv','runs','work','build','dist','release-assets','__pycache__',
+EXCLUDED = {'.git','.venv','venv','runs','work','.work','build','dist','release-assets','__pycache__',
             '.pytest_cache','.mypy_cache','.ruff_cache','node_modules','generated'}
 
 

@@ -25,6 +25,8 @@ from brace_core.intake import InputProblem
 from brace_core import stage06_cli, stage07_cli
 from brace_app.release09 import finalize_run, build_historical_package
 from brace_app.local_settings import local_port
+from brace_app.persistence import atomic_json, study_name, require_schema, run_identity
+from brace_app.version import VERSION
 
 BASE = Path(__file__).resolve().parent.parent
 EXAMPLES = BASE / 'examples'
@@ -42,7 +44,7 @@ ALLOWED_EXPORTS = {
     'frozen_model.json','run_result.json','FILE_SHA256_MANIFEST.csv','research_summary.html','reproducibility_manifest.json'
 }
 
-app = FastAPI(title='BRACE Research Workbench', version='1.0.0', docs_url=None, redoc_url=None)
+app = FastAPI(title='BRACE Research Workbench', version=VERSION, docs_url=None, redoc_url=None)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=['127.0.0.1','localhost','testserver'])
 
 @app.middleware('http')
@@ -53,6 +55,26 @@ async def reject_foreign_write_origins(request, call_next):
         if origin and origin not in (f'http://127.0.0.1:{LOCAL_PORT}',f'http://localhost:{LOCAL_PORT}',
                                       'http://testserver'):
             return PlainTextResponse('Cross-origin writes are not supported',status_code=403)
+        if request.url.path.startswith(('/api/datasets','/api/dataset-analysis','/api/studies')) and request.headers.get('content-type','').startswith('application/json'):
+            total=0;chunks=[]
+            async for chunk in request.stream():
+                total+=len(chunk)
+                if total>2*1024*1024:
+                    return JSONResponse({'detail':{'code':'REQUEST_TOO_LARGE','message':'Preparation and dataset JSON requests must be at most 2 MiB.'}},status_code=413)
+                chunks.append(chunk)
+            body=b''.join(chunks)
+            try:
+                def unique_properties(pairs):
+                    result={}
+                    for key,value in pairs:
+                        if key in result:raise ValueError('Duplicate JSON property: '+key)
+                        result[key]=value
+                    return result
+                def reject_constant(value):raise ValueError('Nonfinite JSON constant: '+value)
+                json.loads(body,object_pairs_hook=unique_properties,parse_constant=reject_constant)
+            except (ValueError,UnicodeError) as exc:
+                return JSONResponse({'detail':{'code':'INVALID_JSON','message':str(exc)}},status_code=422)
+            request._body=body
     return await call_next(request)
 app.mount('/assets', StaticFiles(directory=STATIC), name='assets')
 
@@ -76,9 +98,14 @@ def health():
         public_available=True
     except HTTPException:
         public_available=False
-    return {'status':'ok','version':'1.0.0','scope':'research_only','network':'localhost_only',
+    return {'status':'ok','version':VERSION,'scope':'research_only','network':'localhost_only',
             'geo_expression_data_available':public_available,
             'note':'Approved public ER example is a saved exploratory computation; CPTAC predictions remain archived historical evidence.'}
+
+
+@app.get('/api/schema')
+def api_schema():
+    return app.openapi()
 
 
 def read_json(p:Path):
@@ -148,6 +175,9 @@ def safe_run_dir(run_id):
 
 
 def run_response(root):
+    if (root/'run.json').is_file() and read_json(root/'run.json').get('mode')=='replay_frozen':
+        from brace_app.frozen_workflow import response
+        return response(root)
     if (root/'race'/'race_result.json').is_file():
         return race_response(root)
     val_path=root/'validation'/'validation_result.json'
@@ -167,7 +197,7 @@ def run_response(root):
         raise HTTPException(500,'Run has no scientific results')
     return {'id':config['id'], 'kind':config.get('kind','user_computed'),'name':config['name'],
             'data_label':config.get('data_label','Computed from user-supplied files; provenance declarations are not independently authenticated'),
-            'mode':config['mode'], 'validation':v, 'shift':s,
+            'mode':config['mode'], **run_identity(root, config), 'validation':v, 'shift':s,
             'exports':exports, 'notes':config['notes'], 'provenance':config['input_hashes']}
 
 
@@ -249,10 +279,16 @@ def demo_synthetic():
             'target_expression.csv','target_samples.csv','target_manifest.json')]
         stage06_cli.train(*files,out=root/'validation')
         make_supervised_shift(files,root)
-        (root/'run.json').write_text(json.dumps({'id':run_id,'name':'Synthetic · complete computed workflow',
+        from brace_app.dataset_registry import register_cohort,create_study
+        from brace_app.persistence import utc_now
+        records={role:register_cohort(dict(zip(('expression','metadata','manifest'),files[index*3:index*3+3])),
+            name='Artificial '+role+' cohort',source={'type':'synthetic_example'}) for index,role in enumerate(('source','target'))}
+        study=create_study('Synthetic · complete computed workflow',{role:record['id'] for role,record in records.items()})
+        atomic_json(root/'run.json',{'id':run_id,'name':study['name'],'schema_version':'1.0.0',
+         'study_id':study['id'],'datasets':study['datasets'],'dataset_provenance':records,'created_utc':utc_now(),
          'mode':'train_validate','kind':'synthetic', 'data_label':'Newly computed synthetic demonstration; not biological or patient evidence',
          'notes':['Synthetic measurements; useful for demonstrating computations only.',
-         'Results are NOT discoveries about cancer, genes, or people.'],'input_hashes':{p.name:{'sha256':__import__('hashlib').sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in files}}))
+         'Results are NOT discoveries about cancer, genes, or people.'],'input_hashes':{p.name:{'sha256':__import__('hashlib').sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in files}})
         return run_response(root)
     except Exception:
         shutil.rmtree(root,ignore_errors=True)
@@ -279,6 +315,10 @@ def make_supervised_shift(files,root):
 @app.post('/api/analyze')
 async def analyze(
     mode: Annotated[str,Form()],
+    name: Annotated[str,Form()] = '',
+    schema_version: Annotated[str,Form()] = '1.0.0',
+    study_id: Annotated[str|None,Form()] = None,
+    dataset_ids: Annotated[str,Form()] = '{}',
     source_expression: Annotated[UploadFile|None,File()] = None,
     source_metadata: Annotated[UploadFile|None,File()] = None,
     source_manifest: Annotated[UploadFile|None,File()] = None,
@@ -288,6 +328,13 @@ async def analyze(
     predictions: Annotated[UploadFile|None,File()] = None,
     prediction_manifest: Annotated[UploadFile|None,File()] = None,
 ):
+    require_schema(schema_version)
+    try:
+        title=study_name(name, 'My prediction evaluation' if mode=='evaluate_predictions' else 'My cohort analysis')
+        selected_datasets=json.loads(dataset_ids)
+        if not isinstance(selected_datasets,dict) or any(not isinstance(v,str) for v in selected_datasets.values()):
+            raise ValueError('Dataset references must be an object of stable identifiers.')
+    except ValueError as exc:raise HTTPException(422,{'code':'INVALID_STUDY','message':str(exc)}) from exc
     if mode not in {'evaluate_predictions','train_validate','diagnose_shift'}:
         raise HTTPException(422,{'code':'INVALID_MODE','message':'Choose a supported analysis mode.'})
     run_id=uuid.uuid4().hex
@@ -319,11 +366,13 @@ async def analyze(
                 else:
                     stage06_cli.train(*cohort_args,out=root/'validation')
                     make_supervised_shift(cohort_args,root)
-            config={'id':run_id,'name':'My cohort analysis' if mode!='evaluate_predictions' else 'My prediction evaluation',
+            from brace_app.dataset_registry import register_run_inputs
+            identity=register_run_inputs(paths,file_data,mode,title,study_id,selected_datasets)
+            config={'id':run_id,'name':title, **identity,
                     'mode':mode,'notes':['Source and target provenance is user-declared, not independently verified.',
                                         'Research-only; no medical diagnosis or clinical certification.'],
                     'input_hashes':file_data}
-            (root/'run.json').write_text(json.dumps(config,indent=2))
+            atomic_json(root/'run.json',config)
             return run_response(root)
         return await run_in_threadpool(compute)
     except (InputProblem,ValueError) as exc:
@@ -347,7 +396,8 @@ def race_response(root):
     from brace_app.provenance_origin import identify_public
     public=identify_public(config['input_hashes'])
     finalize_run(root)
-    return {'id':config['id'],'kind':'user_computed','name':'RACE gene replication','mode':'race',
+    return {'id':config['id'],'kind':'user_computed','name':config.get('name','RACE gene replication'),'mode':'race',
+            **run_identity(root,config),
             'input_origin':'verified_public' if public else 'user_declared',
             'data_label':'Fresh computation from byte-matched verified public ER inputs; exploratory only' if public else 'Computed from user-supplied measurements; provenance declarations are not authenticated',
             'race':result,'validation':None,'shift':None,'notes':config['notes'],
@@ -364,9 +414,20 @@ async def race_analyze(
     target_expression: Annotated[UploadFile,File()],
     target_metadata: Annotated[UploadFile,File()],
     target_manifest: Annotated[UploadFile,File()],
+    name: Annotated[str,Form()] = '',
+    schema_version: Annotated[str,Form()] = '1.0.0',
+    study_id: Annotated[str|None,Form()] = None,
+    dataset_ids: Annotated[str,Form()] = '{}',
 ):
     from brace_core.signature import run, settings, RaceBlocked
     from brace_core.intake import parse_cohort
+    require_schema(schema_version)
+    try:
+        title=study_name(name,'RACE gene replication')
+        selected_datasets=json.loads(dataset_ids)
+        if not isinstance(selected_datasets,dict) or any(not isinstance(v,str) for v in selected_datasets.values()):
+            raise ValueError('Dataset references must be an object of stable identifiers.')
+    except ValueError as exc:raise HTTPException(422,{'code':'INVALID_STUDY','message':str(exc)}) from exc
     if len(race_config.encode('utf-8'))>65536:
         raise HTTPException(413,{'code':'CONFIG_TOO_LARGE','message':'RACE settings exceed 64 KiB.'})
     try:
@@ -391,8 +452,10 @@ async def race_analyze(
             cohorts=[parse_cohort(paths[r+'_expression'],paths[r+'_metadata'],paths[r+'_manifest'],r) for r in ('source','target')]
             run(*cohorts,config,root/'race')
             from brace_app.provenance_origin import identify_public,public_preparation
-            (root/'run.json').write_text(json.dumps({'id':run_id,'mode':'race','input_hashes':hashes,'input_origin':'user_declared',**public_preparation(hashes),
-                'notes':['Exploratory unpaired gene association; no clinical, causal or locked-validation claim.']}),encoding='utf-8')
+            from brace_app.dataset_registry import register_run_inputs
+            identity=register_run_inputs(paths,hashes,'race',title,study_id,selected_datasets)
+            atomic_json(root/'run.json',{'id':run_id,'name':title,**identity,'mode':'race','input_hashes':hashes,'input_origin':'user_declared',**public_preparation(hashes),
+                'notes':['Exploratory unpaired gene association; no clinical, causal or locked-validation claim.']})
             return race_response(root)
         return await run_in_threadpool(compute)
     except (RaceBlocked,InputProblem,ValueError) as exc:
@@ -423,3 +486,9 @@ app.include_router(workspace_router)
 
 from brace_app.discovery import router as discovery_router
 app.include_router(discovery_router)
+
+from brace_app.dataset_api import router as dataset_router
+app.include_router(dataset_router)
+
+from brace_app.frozen_workflow import router as frozen_router
+app.include_router(frozen_router)

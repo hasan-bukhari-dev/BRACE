@@ -1,0 +1,62 @@
+{
+  "baseline_commit": "871472bc6a9be8387930218b4340ba3e10b83006",
+  "archive_comparison": {
+    "archive_files": 263,
+    "repository_files": 263,
+    "differences": []
+  },
+  "baseline_environment": "Python 3.11.2, numpy 2.4.6, scipy 1.17.1",
+  "verification_environment": "Python 3.12.10 with requirements-release.txt",
+  "before_hypothesis_hash": "8f17b0e452532a9f0add71d4ce96986315d84a609c709d73c3e35890e04f446f",
+  "after_hypothesis_hash": "dc59df5e69698774f7628fe9ed9ed15c053274898c5e6e89e9066a43ce40e52e",
+  "digest_change_explanation": "The frozen snapshot includes the Python version. Scientific fields and exact inputs are unchanged. Hashes were not substituted or normalized in any run.",
+  "aggregate": {
+    "direction_concordance": 0.95,
+    "direction_denominator": 20,
+    "direction_matching": 19,
+    "indeterminate": 0,
+    "not_statistically_supported": 6,
+    "opposite": 1,
+    "selected": 20,
+    "source_features_screened": 10000,
+    "source_q_passing": 1339,
+    "supported": 14,
+    "target_testable": 20,
+    "untestable": 0
+  },
+  "files": {
+    "race_result.json": {
+      "scientific_fields_byte_identical_after_excluding_software_and_dependent_digests": true,
+      "normalized_sha256": "7c152a0bdd386216bebac56bf1389618d3aba64b0c77c5b22077ed159805ce94",
+      "before_sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2",
+      "after_sha256": "e04216b63da3e481fd9525ed56b40917bafe5c4701014a8474e1207737433d70"
+    },
+    "selected_signature.json": {
+      "scientific_fields_byte_identical_after_excluding_software_and_dependent_digests": true,
+      "normalized_sha256": "81510f52aa98e275fcb591c15b2c24919879ab139104fde288f5ed9fa1d1bfad",
+      "before_sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02",
+      "after_sha256": "ca017a533feeda5424a3f6c18b3de334bdda03ed55643d90a5025595cdd71b52"
+    },
+    "race_methods.json": {
+      "scientific_fields_byte_identical_after_excluding_software_and_dependent_digests": true,
+      "normalized_sha256": "e791c34d7f70b6ed3b4e9846fd5b3ea4c07c3dba135868abe71fa0861e429482",
+      "before_sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2",
+      "after_sha256": "ebad2daa1a3deb585b78d2b81800a4c49ba3bc4a9ed3280c7a1ff8a68a44c8b9"
+    }
+  },
+  "independent_scipy_reference": {
+    "source_effect": 1.0658141036401503e-14,
+    "source_hedges_g": 4.529709940470639e-14,
+    "source_p": 3.608224830031759e-14,
+    "source_q": 3.652633751016765e-14,
+    "source_t": 6.572520305780927e-14,
+    "target_effect": 4.440892098500626e-15,
+    "target_hedges_g": 1.7319479184152442e-14,
+    "target_p": 4.718447854656915e-15,
+    "target_q": 4.9960036108132044e-15,
+    "target_t": 3.730349362740526e-14
+  },
+  "repeated_scientific_files_byte_identical": true,
+  "before_engine_seconds": 6.182198900030926,
+  "after_engine_seconds": 5.080856999964453
+}

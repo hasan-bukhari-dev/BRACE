@@ -22,10 +22,39 @@ from brace_app.evidence_audit import audit
 from brace_core.signature import FILES as RACE_FILES
 from brace_app.presentation import warning_view,uncertainty_view
 
-VERSION='brace-embrace/0.7.3-v6'
+VERSION='brace-embrace/0.8.0'
 REPORT_FILES={'research_summary.html','HTML_PRESENTATION.json','analysis_methods.json','compatibility_summary.json','warning_exclusion_records.json',
               'consistency_audit.json','CSV_TEXT_ENCODING.json','FILE_SHA256_MANIFEST.csv','REPRODUCE.md','PRIVACY.md','race_config.json','confusion_matrix.csv'}
 router=APIRouter()
+
+
+def publish_evidence(root, contents, provenance):
+    """Shared atomic publication for all scientific workflows; manifest commits last."""
+    from brace_app.persistence import atomic_bytes,atomic_json
+    provenance['published_artifact_sha256']={name:record(data) for name,data in contents.items()}
+    staging=within(root,root/'embrace');staging.mkdir(exist_ok=True)
+    for name,data in contents.items():
+        atomic_bytes(within(root,staging/name),data)
+    for name in REPORT_FILES:
+        if name in contents:atomic_bytes(within(root,root/name),contents[name])
+    bundle=within(root,root/'RESEARCH_PACKAGE.zip')
+    temporary=within(root,root/'RESEARCH_PACKAGE.zip.tmp')
+    try:
+        with zipfile.ZipFile(temporary,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
+            for name,data in sorted(contents.items()):
+                info=zipfile.ZipInfo(name,date_time=(1980,1,1,0,0,0))
+                info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
+                archive.writestr(info,data)
+        with zipfile.ZipFile(temporary) as archive:
+            if archive.testzip() is not None:raise ValueError('Evidence ZIP failed CRC')
+            for name,data in contents.items():
+                if record(archive.read(name))!=record(data):raise ValueError('Evidence ZIP failed SHA verification')
+        os.replace(temporary,bundle)
+        atomic_json(root/'reproducibility_manifest.json',provenance)
+        atomic_json(root/'EMBRACE_RECEIPT.json',{'version':VERSION,'bundle':record(bundle.read_bytes())})
+    finally:
+        temporary.unlink(missing_ok=True)
+    return bundle
 def json_bytes(value):return (json.dumps(value,indent=2,sort_keys=True,allow_nan=False,ensure_ascii=False)+'\n').encode('utf-8')
 def record(data):return dict(sha256=hashlib.sha256(data).hexdigest(),bytes=len(data))
 def obj(path):return json.loads(path.read_text(encoding='utf-8')) if path.is_file() else None
@@ -120,9 +149,9 @@ def report(config,validation,shift,race,methods,compat,warnings,check):
     else:
         conclusion=f"{shift['feature_coverage']['shared']} matched features were compared. This unlabeled analysis reports distributions and source-fitted projection, not prediction accuracy or a cause of error."
     brand='BRACE' if generic else 'BRACE · Biological Reliability Assessment across Cohorts and Experiments'
-    sections=[f'<p class="eyebrow">{e(brand)} · {e(kind)} · {e(role)}</p><h1>{question}</h1>',f'<p class="lead">{e(conclusion)}</p>',
+    sections=[f'<p class="eyebrow">{e(brand)} · {e(kind)} · {e(role)}</p><h1>{e(config.get("name",question))}</h1><h2>{question}</h2>',f'<p class="lead">{e(conclusion)}</p>',
         f'<p>{e(config.get("data_label","Computed from supplied evidence; acquisition and evaluation-role declarations are not independently authenticated."))}</p>',
-        table(['Identity','Recorded value'],[['Run ID',config['id']],['Analysis',mode],['Evidence origin',kind],['Evaluation role',role],['Independent provenance authenticated','No']]),
+        table(['Identity','Recorded value'],[['Study',config.get('name',question)],['Study ID',config.get('study_id','Legacy study identity unavailable')],['Run ID',config['id']],['Analysis',mode],['Evidence origin',kind],['Evaluation role',role],['Independent provenance authenticated','No']]),
         ('<p>This evaluation is not certification of a model or a new evaluation population. Original uploaded records and declarations are excluded; input hashes identify the matching originals.</p>' if generic else '<p>Research use only. No clinical certification or causal conclusion is established. Raw uploaded expression/metadata files are excluded; input hashes identify the originals.</p>')]
     if config.get('input_origin')=='verified_public':sections+=['<p><strong>Verified public inputs; fresh computation.</strong> The uploaded expression, sample metadata and declaration bytes match the bundled GSE42568 / GSE20711 ER inputs. This identifies file origin, not independent patient acquisition or clinical validity.</p>']
     if race:
@@ -196,6 +225,9 @@ def finalize(root):
 def _finalize(root):
     root=Path(root).resolve();config=obj(within(root,root/'run.json'))
     if config is None:raise ValueError('Only completed runs can be exported')
+    if config.get('mode')=='replay_frozen':
+        from brace_app.frozen_workflow import finalize as finalize_replay
+        return finalize_replay(root)
     previous=obj(within(root,root/'reproducibility_manifest.json'));verify_previous(root,previous)
     if previous:
         if previous.get('run_id')!=config['id'] or previous.get('mode')!=config['mode']:raise ValueError('Run configuration identity changed')
@@ -230,6 +262,8 @@ def _finalize(root):
     check=audit(root,validation,shift,race)
     methods=dict(export_version=VERSION,software_versions=release.package_versions(),scientific_methods={},input_hashes=config['input_hashes'],
         input_origin=config.get('input_origin','see_evidence_category'),provenance_authenticated=False,evidence_category=config.get('kind','user_computed'),mode=config['mode'])
+    methods['study_identity']={key:config.get(key) for key in ('name','study_id','datasets','created_utc','schema_version')}
+    methods['dataset_provenance']=config.get('dataset_provenance',{})
     warnings=release._warnings(validation,shift,race);compat={};preparation=config.get('public_preparation')
     if race:
         methods['race']=obj(root/'race/race_methods.json');frozen=obj(root/'race/selected_signature.json')
@@ -269,6 +303,8 @@ def _finalize(root):
         'REPRODUCE.md':reproduction(config['mode'],config.get('kind')=='historical').encode(),
         'PRIVACY.md':b'Original uploaded files, environment variables and executable models are excluded. Derived identifiers, scores, saved calculation records and declared provenance remain. Review them before sharing; identifiers/labels can still contain sensitive information. Hashes do not authenticate acquisition, legal permission or row independence.\n'}
     if race:additions['race_config.json']=json_bytes(methods['race']['config'])
+    if config.get('dataset_provenance'):
+        additions['DATASET_LINEAGE.json']=json_bytes(config['dataset_provenance'])
     if config.get('public_data_document'):
         additions['PUBLIC_DATA_PREPARATION.md']=config['public_data_document'].encode('utf-8')
     if race:
@@ -299,11 +335,21 @@ def _finalize(root):
         if changes:
             encoding['confusion_matrix.csv']=changes
             contents['CSV_TEXT_ENCODING.json']=json_bytes(dict(rule='Dangerous text cells have an apostrophe prefix; negative numeric values remain numeric. 1-based row/column records preserve exact originals; JSON is authoritative.',changed_cells=encoding))
+    # Canonical sections; legacy artifact paths remain compatibility aliases.
+    for name,data in list(contents.items()):
+        if name.startswith(('race/','validation/','shift/')):
+            contents['results/'+name]=data
+    contents['summary/report.html']=contents['research_summary.html']
+    contents['methods/analysis_methods.json']=contents['analysis_methods.json']
+    contents['methods/compatibility_summary.json']=contents['compatibility_summary.json']
+    contents['provenance/DATASET_LINEAGE.json']=json_bytes(config.get('dataset_provenance',{}))
+    contents['provenance/study.json']=json_bytes({key:config.get(key) for key in ('schema_version','name','study_id','datasets','created_utc')})
+    contents['integrity/consistency_audit.json']=contents['consistency_audit.json']
     link_names=set(contents)|{'FILE_SHA256_MANIFEST.csv','reproducibility_manifest.json'}
     links='<h2>Inspect the enclosed evidence</h2><ul>'+''.join('<li><a href="'+html.escape(name,quote=True)+'">'+html.escape(name)+'</a></li>' for name in sorted(link_names) if name!='research_summary.html')+'</ul>'
     contents['research_summary.html']=contents['research_summary.html'].replace(b'</main>',links.encode('utf-8')+b'</main>')
     # Runtime manifest checks ORIGINAL files; packaged manifest checks published files.
-    provenance=dict(embrace_version=VERSION,release=release.RELEASE_VERSION,run_id=config['id'],mode=config['mode'],input_origin=config.get('input_origin','see_data_origin'),data_origin=config.get('kind','user_computed'),
+    provenance=dict(embrace_version=VERSION,release=release.RELEASE_VERSION,run_id=config['id'],study_name=config.get('name'),study_id=config.get('study_id'),datasets=config.get('datasets',{}),schema_version=config.get('schema_version','1.0.0'),created_utc=config.get('created_utc'),mode=config['mode'],input_origin=config.get('input_origin','see_data_origin'),data_origin=config.get('kind','user_computed'),
         run_configuration_sha256=record((root/'run.json').read_bytes()),
         evidence_label=config.get('data_label','Computed from supplied files; provenance is not independently authenticated'),
         scientific_role='exploratory' if race else validation['analysis']['evaluation_role'] if validation else 'unlabeled_shift_only',
@@ -334,24 +380,7 @@ def _finalize(root):
     stream=io.StringIO(newline='');w=csv.writer(stream,lineterminator='\n');w.writerow(['path','sha256','bytes'])
     for name,data in sorted(contents.items()):w.writerow([name,record(data)['sha256'],len(data)])
     contents['FILE_SHA256_MANIFEST.csv']=stream.getvalue().encode()
-    provenance['published_artifact_sha256']={n:record(data) for n,data in contents.items()}
-    staging=within(root,root/'embrace');staging.mkdir(exist_ok=True)
-    for name,data in contents.items():
-        path=within(root,staging/name);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    # Retain existing direct report paths for API compatibility.
-    for name in REPORT_FILES:
-        if name in contents:within(root,root/name).write_bytes(contents[name])
-    (root/'reproducibility_manifest.json').write_bytes(json_bytes(provenance))
-    temp=within(root,root/'RESEARCH_PACKAGE.zip.tmp')
-    with zipfile.ZipFile(temp,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
-        for name,data in sorted(contents.items()):
-            info=zipfile.ZipInfo(name,date_time=(1980,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;z.writestr(info,data)
-    with zipfile.ZipFile(temp) as z:
-        if z.testzip() is not None:raise ValueError('Evidence ZIP failed CRC')
-        for name,data in contents.items():
-            if record(z.read(name))!=record(data):raise ValueError('Evidence ZIP failed SHA verification')
-    os.replace(temp,bundle);receipt_path.write_bytes(json_bytes(dict(version=VERSION,bundle=record(bundle.read_bytes()))))
-    return bundle
+    return publish_evidence(root,contents,provenance)
 
 def exported_path(root,path):
     root=Path(root).resolve();path=within(root,path)

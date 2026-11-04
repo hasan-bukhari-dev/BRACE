@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "platform": "Windows x64 portable",
+  "health": {
+    "status": "ok",
+    "version": "1.1.0-dev",
+    "scope": "research_only",
+    "network": "localhost_only",
+    "geo_expression_data_available": true,
+    "note": "Approved public ER example is a saved exploratory computation; CPTAC predictions remain archived historical evidence."
+  },
+  "executable_sha256": "ad88db67b14db540b614f9f4a09e21c9142d3fded02c6789764ad4056c20211f",
+  "public_aggregate": {
+    "direction_concordance": 0.95,
+    "direction_denominator": 20,
+    "direction_matching": 19,
+    "indeterminate": 0,
+    "not_statistically_supported": 6,
+    "opposite": 1,
+    "selected": 20,
+    "source_features_screened": 10000,
+    "source_q_passing": 1339,
+    "supported": 14,
+    "target_testable": 20,
+    "untestable": 0
+  },
+  "public_face_and_trace": true,
+  "export_all_member_hashes_verified": true,
+  "reopens_after_process_restart": true,
+  "original_acquisition_ancestor_receipts_included": true,
+  "synthetic_freeze_keeps_artificial_provenance": true,
+  "elapsed_seconds": 37.65766710008029,
+  "not_tested": [
+    "Installer registration/uninstall",
+    "macOS/Linux binaries",
+    "Human usability acceptance"
+  ]
+}

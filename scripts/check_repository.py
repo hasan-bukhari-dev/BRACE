@@ -4,7 +4,7 @@ import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-BLOCKED = {'.venv','venv','runs','work','build','dist','release-assets','__pycache__','.pytest_cache'}
+BLOCKED = {'.venv','venv','runs','work','.work','build','dist','release-assets','__pycache__','.pytest_cache'}
 PATTERNS = [re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
             re.compile(rb'gh[pousr]_[A-Za-z0-9]{30,}'),
             re.compile(rb'github_pat_[A-Za-z0-9_]{40,}'),

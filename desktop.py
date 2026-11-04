@@ -14,7 +14,7 @@ import sys
 import threading
 import webbrowser
 
-VERSION = '1.0.0-v6'
+from brace_app.version import VERSION
 
 
 def data_directory(environ=None, platform=None, home=None):

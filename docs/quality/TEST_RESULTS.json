@@ -1,0 +1,11 @@
+{
+  "tests": 336,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 526.273,
+  "command": "python -m pytest -q --brace-clean-temp",
+  "python": "3.12.10",
+  "dependencies": "requirements-release.txt",
+  "warning": "Starlette test-client deprecation for httpx; existing pinned dependency set"
+}

@@ -20,3 +20,14 @@
 .matrix-wrap{max-height:420px;overflow:auto}.matrix thead th{position:sticky;top:0;z-index:2;background:var(--raised)}.matrix thead th:first-child{left:0;z-index:3}.ace-overview .accuracy-panel{align-self:start}.table-scroll:has(#ace-per-class){max-height:450px;overflow:auto}#sample-title{overflow-wrap:anywhere}
 
 .inclusion-rail{display:flex!important;height:5px;border-radius:3px;overflow:hidden;margin:9px 0 5px}.inclusion-rail i{height:100%;display:block}.experiment-bridge .sample-exclusions{font-size:10px;max-width:100%;margin:0;padding:0;border:0}.sample-exclusions summary{font-size:10px}.sample-exclusions .exclusion-records{font-size:11px}.sample-exclusions .table-scroll{max-height:220px}.sample-exclusions table{font-size:10px}.sample-exclusions button{font-size:10px;min-height:32px;padding:6px 9px}.sample-exclusions[open]{grid-column:1/-1}
+/* The dataset library shares the existing workbench typography and controls. */
+#workspace-datasets{margin:36px 0 24px;padding-top:12px;border-top:1px solid var(--line)}
+#workspace-datasets form{margin:18px 0}
+#workspace-datasets textarea{box-sizing:border-box;width:100%;max-width:100%;font:13px/1.5 monospace}
+#workspace-datasets td{vertical-align:top;overflow-wrap:anywhere}
+.dataset-id{display:block;font:11px/1.5 monospace;overflow-wrap:anywhere;max-width:22rem}
+#registry-detail pre{max-height:380px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+#registry-checks{margin-top:18px}
+body #context:not([hidden]){display:flex}
+#status-live[data-state=ready]:not(:empty){display:block}
+@media(max-width:600px){#workspace-datasets .actions{display:flex;flex-direction:column;align-items:stretch}}

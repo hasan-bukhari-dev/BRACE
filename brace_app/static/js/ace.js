@@ -1,3 +1,4 @@
+import {renderReplay} from './replay-view.js';
 import {confidenceChart} from './charts.js';
 import {arrangeEvaluation,recordFilterReceipt} from './ace-design.js';
 import {state,save} from './state.js';
@@ -41,6 +42,7 @@ function renderPredictionField(){
 
 export async function renderValidation(){
  const d=state.data,host=$('#validation-content'),token=++requestNumber;$('#validation-source-pill').textContent=d?.kind==='historical'?'Historical CancerShift predictions':d?.kind==='synthetic'?'Synthetic computation · artificial records':d?.validation?'Supplied classification records':'';
+ if(d?.replay){renderReplay(host,d);return}
  if(!d?.validation){host.innerHTML=`<div class="empty-instrument"><h2>What predictions do you have?</h2><p>${d?.shift?'This run compares measurements without evaluating labeled predictions. No target accuracy is available.':'Provide known labels and saved predicted classes, or use the supported source-only expression baseline.'}</p><div class="actions"><button id="ace-import" class="primary">Choose saved classification predictions</button><button id="ace-train">Choose source expression training</button>${d?.shift?'<button id="shift-trace">View this distribution comparison</button>':''}</div><div class="schema-preview"><strong>Saved prediction table</strong><code>sample_id &nbsp; true_label &nbsp; predicted_label &nbsp; [class scores]</code><span>One record per row. Classification only; no model files or raw media.</span></div><button id="ace-archive" class="text-button">Open historical CancerShift predictions</button></div>`;$('#ace-archive').onclick=()=>document.dispatchEvent(new CustomEvent('brace:historical'));$('#ace-import').onclick=()=>document.dispatchEvent(new CustomEvent('brace:task',{detail:'evaluate_predictions'}));$('#ace-train').onclick=()=>document.dispatchEvent(new CustomEvent('brace:task',{detail:'train_validate'}));$('#shift-trace')?.addEventListener('click',()=>navigate('shift'));return}
  host.innerHTML='<p role="status">Checking saved prediction evidence…</p>';
  try{const info=cacheId===d.id?cache:await request(endpoint(d.id));if(token!==requestNumber||state.data?.id!==d.id||state.view!=='ace')return;cache=info;cacheId=d.id;d.validation=info.validation;const v=d.validation,m=v.metrics,hasProb=v.threshold_curve.length>0;

@@ -10,7 +10,13 @@ from typing import Literal
 from fastapi import APIRouter,HTTPException
 from fastapi.responses import FileResponse,Response
 from pydantic import BaseModel,ConfigDict,Field
+from brace_app.persistence import atomic_json
 router=APIRouter();_lock=threading.Lock();_last=0.;TTL=86400;MAX_DOWNLOAD=25*1024*1024
+# Reviewed demonstration original, 25.65 MiB. This exception permits only the
+# exact pinned bytes from the exact verified official URL, never a larger file.
+REVIEWED_OVERSIZE={
+ 'https://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20711/matrix/GSE20711_series_matrix.txt.gz':
+ {'bytes':26895121,'sha256':'14d4f4ae57234d1e8deaeed9131d40b98664866f462eaab2b0309a9f96e107c1'}}
 POLICY='https://www.ncbi.nlm.nih.gov/home/about/policies/'
 class Query(BaseModel):
  model_config=ConfigDict(extra='forbid')
@@ -105,22 +111,34 @@ def matrix_files(accession):
  raw=public_bytes(url,1024*1024);p=Links();p.feed(raw.decode('utf-8',errors='replace'));files=[]
  for href in p.hrefs:
   name=href.split('/')[-1]
-  if re.fullmatch(re.escape(accession)+r'(?:-[A-Za-z0-9_]+)?_series_matrix\.txt\.gz',name):files.append({'filename':name,'url':url+name})
+  if re.fullmatch(re.escape(accession)+r'(?:-[A-Za-z0-9_]+)?_series_matrix\.txt\.gz',name):
+   pinned=REVIEWED_OVERSIZE.get(url+name)
+   files.append({'filename':name,'url':url+name,'acquisition_limit_bytes':pinned['bytes'] if pinned else MAX_DOWNLOAD,
+                 'acquisition_policy':'Exact size and SHA-256 of the reviewed original only' if pinned else 'Generic 25 MiB acquisition limit'})
  return {'accession':accession,'retrieved_utc':now(),'files':files,'sources':[source(url,raw)],'stage':'file_links_verified','eligible':False,'note':'The filenames were found in the official directory. Matrix content, sample labels and biological compatibility still require review. GEO Series Matrix/SOFT format is not directly a BRACE prepared input.'}
 @router.get('/api/discovery/study/{accession}')
 def study(accession:str):
- key='matrix:'+accession;old=cached(key)
+ key='matrix:2:'+accession;old=cached(key)
  if old:return old
  return store(key,matrix_files(accession))
 @router.post('/api/discovery/acquire')
 def acquire(q:Acquisition):
  listing=matrix_files(q.accession);file=next((f for f in listing['files'] if f['filename']==q.filename),None)
  if not file:raise HTTPException(404,'That file was not found in the official directory. No guessed download path was used.')
- data=public_bytes(file['url'],MAX_DOWNLOAD)
+ pinned=REVIEWED_OVERSIZE.get(file['url'])
+ data=public_bytes(file['url'],pinned['bytes'] if pinned else MAX_DOWNLOAD)
+ if pinned and (len(data)!=pinned['bytes'] or sha(data)!=pinned['sha256']):
+  raise HTTPException(409,{'code':'PUBLIC_PIN_MISMATCH','message':'The reviewed original differs from its exact expected size or SHA-256. No oversized dataset was registered. Restore the pinned original or supply a documented prepared input.'})
  if not data.startswith(b'\x1f\x8b'):raise HTTPException(502,'The public response was not a gzip matrix file. Nothing was accepted as data.')
- token=sha(data);root=cache_root();dest=root/(token+'.gz');dest.write_bytes(data)
+ token=sha(data);root=cache_root();dest=root/(token+'.gz')
+ temporary=root/(token+'.'+uuid.uuid4().hex+'.tmp')
+ try:
+  temporary.write_bytes(data);temporary.replace(dest)
+ finally:temporary.unlink(missing_ok=True)
  receipt={'token':token,'accession':q.accession,'filename':q.filename,'url':file['url'],'bytes':len(data),'sha256':token,'retrieved_utc':now(),'stage':'original_file_acquired','eligible':False,'note':'Original compressed public matrix only; not normalized, label-curated or prepared for BRACE. Decompressed/prepared inputs must independently satisfy intake limits.','download_url':'/api/discovery/acquired/'+token}
- (root/(token+'.receipt.json')).write_text(json.dumps(receipt));return receipt
+ from brace_app.dataset_api import register_acquisition
+ receipt['dataset_id']=register_acquisition(receipt,dest)['id']
+ atomic_json(root/(token+'.receipt.json'),receipt);return receipt
 @router.get('/api/discovery/acquired/{token}')
 def acquired(token:str):
  if not re.fullmatch(r'[0-9a-f]{64}',token):raise HTTPException(404,'Public acquisition not found')

@@ -17,3 +17,7 @@ Generated runs and logs remain outside installed resources and survive uninstall
 Bundled examples work offline after dependencies are installed. Initial source setup and uncached SPACE queries need internet. Private files must be reselected after a full browser reload.
 
 `packaging/source-manifest.csv` records current source integrity; `verify_release.py` checks it. Run `scripts/seal_source.py` only after reviewed changes. Git excludes environments, private runs, credentials, caches and build products.
+
+## Integration registry and evidence format
+
+Version 1.1.0-dev stores immutable dataset assets and a transactional SQLite registry under the runs directory. Stop the app before backing up the whole directory. Run provenance snapshots include parent acquisition URLs/hashes and transformation history. Shift-only snapshots omit phenotype values/counts recursively. EMBRACE 0.8.0 publishes conventional summary/results/methods/provenance/integrity sections, retaining old paths as compatibility aliases. Original uploads remain excluded; matching assets are still needed to rerun. See [dataset workflow](DATASET_WORKFLOW.md), [architecture](ARCHITECTURE.md) and [acceptance evidence](IMPLEMENTATION_REPORT.md).

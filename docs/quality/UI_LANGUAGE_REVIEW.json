@@ -1,5 +1,17 @@
 [
   {
+    "source_file": "brace_app/dataset_registry.py",
+    "literal_sha256": "dfa306f386ddd87e387751ef16af0dfbf8ed9b4229e5a579e00c9b46597c7bfb",
+    "decision": "keep_with_context",
+    "reason": "Rejected schema or dataset-role value; this names the exact input capability boundary and never describes a scientific conclusion."
+  },
+  {
+    "source_file": "brace_app/dataset_registry.py",
+    "literal_sha256": "576237d9df218e81378f7639bf61a6622f1222bce2f86cdad53ca38fb6d40d5b",
+    "decision": "keep_with_context",
+    "reason": "Rejected schema or dataset-role value; this names the exact input capability boundary and never describes a scientific conclusion."
+  },
+  {
     "source_file": "brace_app/embrace.py",
     "literal_sha256": "4eeea9a6049e4c37c8ae7360ea09e42e4a86ec3bd04380a0b20c8b389a887c6a",
     "decision": "keep_with_context",
@@ -10,6 +22,24 @@
     "literal_sha256": "ab21308375d0ce67a095596325d069023cf67211b7a77df94fbf3b6c65b52643",
     "decision": "keep_with_context",
     "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
+  },
+  {
+    "source_file": "brace_app/persistence.py",
+    "literal_sha256": "ca57e4add96c0aa2787613844e60762ecf1386ec65d0e553eb15abf766fb7f4c",
+    "decision": "keep_with_context",
+    "reason": "Rejected application schema version, with the supported version stated at the request boundary; existing records fail predictably instead of being guessed or silently migrated."
+  },
+  {
+    "source_file": "brace_app/persistence.py",
+    "literal_sha256": "78072e7a65bb6e0b559a09bce70514758d11b2e77920e6556165d43b12bc7518",
+    "decision": "keep_with_context",
+    "reason": "Rejected application schema version, with the supported version stated at the request boundary; existing records fail predictably instead of being guessed or silently migrated."
+  },
+  {
+    "source_file": "brace_app/preparation.py",
+    "literal_sha256": "4d3de8e569b93a435f68fe10ee219fa9eeebf0a4f8706b730678368626018dcb",
+    "decision": "keep_with_context",
+    "reason": "The bounded GEO parser rejected a specific format or numeric defect. The recovery instruction preserves the original acquisition and requests documented canonical inputs."
   },
   {
     "source_file": "brace_app/release09.py",
@@ -25,15 +55,21 @@
   },
   {
     "source_file": "brace_app/static/app.js",
-    "literal_sha256": "839f0ff2b3e2ea308c1fbd9a14bce03d8c5bea810c10ac620a0546db657c8ccb",
+    "literal_sha256": "e59512c946226115b45dec77bf535ad03d06c34138f6d84eedd0c51467cef4b1",
     "decision": "keep_with_context",
-    "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
+    "reason": "Completed refers to the presence of saved scientific output files. The history row is disabled when those files are absent, and opening still verifies their hashes."
   },
   {
     "source_file": "brace_app/static/app.js",
     "literal_sha256": "f41e6a001a2a1532b8ea7d634749331034108fd35c3f80e6f816d82206bd2add",
     "decision": "keep_with_context",
     "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
+  },
+  {
+    "source_file": "brace_app/static/js/datasets.js",
+    "literal_sha256": "3c744500eb4dcc8b404a11d1ffe9c460a48c382dcd94dbc256ba4c7d44d60940",
+    "decision": "keep_with_context",
+    "reason": "The parser error is shown explicitly before a preparation recovery instruction; no scientific unsuitability or successful preparation is inferred from a format rejection."
   },
   {
     "source_file": "brace_app/static/js/guide.js",

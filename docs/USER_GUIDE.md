@@ -43,3 +43,7 @@ Return to dataset descriptions to correct declarations; unaffected selected file
 If you leave a view during computation, BRACE keeps the current view and offers the newly completed result. The method diagram explains the algorithm; it is not a live step-by-step progress monitor. A request's busy state lasts until a real response/error; there is no invented percentage or cancel promise.
 
 Local computation and bundled examples do not need external network access after dependencies are installed. SPACE sends only the public search fields you explicitly submit to NCBI; matrices, private labels and uploaded records are not included. Its cache is local. A network failure does not disable the bundled example.
+
+## Persistent workbench integration
+
+For reusable datasets, begin with **Study datasets** in Workbench. SPACE acquisitions register automatically; reviewed preparation and explicit general preparation create versioned assets. Check the selected task, then compute without re-uploading. Existing studies and frozen-baseline application are available in the same library. See [the dataset workflow](DATASET_WORKFLOW.md) for public, private, phenotype-mapping and replay instructions.

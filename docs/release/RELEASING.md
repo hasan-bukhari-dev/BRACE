@@ -33,3 +33,7 @@ Initial binaries are unsigned unless an actual signing process is configured and
 `python scripts/seal_source.py` regenerates the source release inventories intentionally. Run it after final documentation/evidence changes and before committing; do not regenerate an inventory to bless unexplained changed scientific files. Release verification receipts stay outside their own hash inventory to avoid circular hashes.
 
 Dependencies are pinned by version, but binary bit-for-bit reproducibility across runners, timestamps and toolchains is not claimed. Record the exact tagged commit, package hashes, platform, Python and installed dependency licence metadata for each release.
+
+## 1.1.0-dev integration preview
+
+The application version is read from VERSION through brace_app/version.py. Existing scientific method versions remain unchanged. Build with the pinned runtime/build dependencies, run the complete regression suite, then run scripts/verify_portable.py against the bundled executable in a new isolated output directory. A portable verification is not installer/uninstall acceptance. Do not replace the published V6 tag/assets. New platform binaries, installer lifecycle and human accessibility/usability acceptance require their own receipts before promoting this preview. See ../IMPLEMENTATION_REPORT.md for actual completed checks and remaining gates.

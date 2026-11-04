@@ -57,6 +57,20 @@ def test_acquisition_is_exact_bounded_public_file_and_tamper_checked(client,monk
 
 def test_non_gzip_response_is_not_accepted(client,monkeypatch):
  monkeypatch.setattr(discovery,'public_bytes',lambda url,*a,**k:b'<a href="GSE42568_series_matrix.txt.gz">matrix</a>' if url.endswith('/') else b'captcha');assert client.post('/api/discovery/acquire',json={'accession':'GSE42568','filename':'GSE42568_series_matrix.txt.gz'}).status_code==502
+
+def test_reviewed_target_size_exception_requires_exact_pinned_bytes(client,monkeypatch):
+ data=(A/'examples/public_er_pair/raw/GSE20711_series_matrix.txt.gz').read_bytes();limits=[]
+ def fake(url,limit=0):
+  if url.endswith('/'):return b'<a href="GSE20711_series_matrix.txt.gz">matrix</a>'
+  limits.append(limit);return data
+ monkeypatch.setattr(discovery,'public_bytes',fake)
+ response=client.post('/api/discovery/acquire',json={'accession':'GSE20711','filename':'GSE20711_series_matrix.txt.gz'})
+ assert response.status_code==200,response.text
+ assert limits==[26895121] and response.json()['bytes']==26895121 and response.json()['dataset_id']
+ assert discovery.MAX_DOWNLOAD==25*1024*1024
+ monkeypatch.setattr(discovery,'public_bytes',lambda url,limit=0:b'<a href="GSE20711_series_matrix.txt.gz">matrix</a>' if url.endswith('/') else data[:-1])
+ rejected=client.post('/api/discovery/acquire',json={'accession':'GSE20711','filename':'GSE20711_series_matrix.txt.gz'})
+ assert rejected.status_code==409 and rejected.json()['detail']['code']=='PUBLIC_PIN_MISMATCH'
 @pytest.mark.parametrize('url',['http://ftp.ncbi.nlm.nih.gov/file','https://evil.test/file','https://ftp.ncbi.nlm.nih.gov:443/file','https://user@ftp.ncbi.nlm.nih.gov/file'])
 def test_public_fetch_cannot_be_arbitrary_proxy(url):
  with pytest.raises(ValueError):discovery.public_bytes(url)
