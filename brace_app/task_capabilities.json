@@ -1,0 +1,43 @@
+{
+  "schema_version": "brace.tasks/1.0",
+  "tasks": {
+    "race": {
+      "label": "Test gene-expression associations",
+      "description": "Select genes using one eligible expression study, freeze that selection, then test the same biological contrast in a second study.",
+      "action": "Test selected associations",
+      "destination": "race",
+      "domain": "biological_expression",
+      "files": ["source_expression", "source_metadata", "source_manifest", "target_expression", "target_metadata", "target_manifest"],
+      "boundary": "Exploratory unpaired processed microarrays. No paired, covariate-adjusted or clinical inference."
+    },
+    "evaluate_predictions": {
+      "label": "Evaluate saved classification predictions",
+      "description": "Compare saved predicted classes with known labels. Include class probabilities to inspect confidence and retained coverage.",
+      "action": "Evaluate prediction records",
+      "destination": "ace",
+      "domain": "structured_classification",
+      "files": ["predictions", "prediction_manifest"],
+      "boundary": "Labeled CSV/TSV records and a JSON class/column manifest. No organism, expression files or executable models required."
+    },
+    "train_validate": {
+      "label": "Train a baseline on source expression data",
+      "description": "Fit the existing binary logistic baseline using source data only; record source cross-validation separately from target scoring.",
+      "action": "Train source baseline and score target",
+      "destination": "ace",
+      "domain": "biological_expression",
+      "files": ["source_expression", "source_metadata", "source_manifest", "target_expression", "target_metadata", "target_manifest"],
+      "boundary": "The baseline requires normal/tumor labels and eligible processed expression measurements. The public ER study is not approved for model transfer."
+    },
+    "diagnose_shift": {
+      "label": "Compare dataset measurements",
+      "description": "Compare distributions and project target measurements into a source-fitted PCA space. Outcome labels are not used.",
+      "action": "Compare measured distributions",
+      "destination": "cohorts",
+      "domain": "supported_expression_measurements",
+      "files": ["source_expression", "source_metadata", "source_manifest", "target_expression", "target_metadata", "target_manifest"],
+      "boundary": "Current intake accepts declared compatible processed expression types and biological identifiers, not arbitrary numeric tables. No accuracy or causal explanation without suitable evidence."
+    }
+  },
+  "unsupported": ["Regression targets", "Raw images, audio or text", "Executable model files or model endpoints", "Raw counts, FASTQ, single-cell and methylation inference"],
+  "limits": {"upload_bytes": 26214400, "cohort_features": 25000, "cohort_samples": 500, "prediction_records": 50000}
+}

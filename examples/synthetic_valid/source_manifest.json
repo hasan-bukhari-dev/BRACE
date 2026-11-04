@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "cohort_id": "SYNTHETIC_SOURCE",
+  "role": "source",
+  "organism": "Homo sapiens",
+  "feature_namespace": "entrez_gene",
+  "measurement_type": "microarray_log2_normalized",
+  "processing_description": "SYNTHETIC Gaussian log2-like data; NOT derived from GEO",
+  "labels": "binary",
+  "independence_declaration": "unknown",
+  "platform": "SYNTHETIC_ONLY",
+  "sample_origin_notes": "Fictional samples and genes for software tests. Never interpret as patient results."
+}

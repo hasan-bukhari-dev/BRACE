@@ -1,0 +1,20 @@
+{
+  "browser_checks": {
+    "docs/v4/after/browser_receipt.json": 72,
+    "docs/v4/review/focused_receipt.json": 98,
+    "docs/v4/review/last_receipt.json": 40,
+    "docs/v4/review/native_zoom_receipt.json": 20,
+    "docs/v4/review/bins_receipt.json": 2,
+    "docs/v4/review/geometry_receipt.json": 9
+  },
+  "screenshot_files": {
+    "before": 28,
+    "comparison": 28,
+    "after": 60,
+    "review": 112
+  },
+  "contrast_audited_states": 26,
+  "text_instances_measured": 5912,
+  "minimum_normal_text_ratio": 5.05,
+  "decorative_separator_reviews": 94
+}

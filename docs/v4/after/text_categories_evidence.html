@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><title>BRACE · EMBRACE scientific evidence</title><style>body{font:15px/1.55 system-ui,sans-serif;color:#142b38;background:#fff;margin:0}main{max-width:1100px;margin:auto;padding:28px}h1{font-size:30px}.lead{font-size:20px;line-height:1.5;max-width:980px}h2{margin-top:32px}h3{margin-top:24px}.eyebrow{font-size:12px;color:#315f62}.warning{border-left:4px solid #916400;padding:12px;background:#fff7df}.scroll{max-width:100%;overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px;text-align:left;border-bottom:1px solid #b8c6ca}th{background:#edf2f3}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f5;padding:16px;font-size:12px}code{overflow-wrap:anywhere}@media print{main{padding:0}h2{break-after:avoid}.scroll{overflow:visible}table{font-size:9px}}</style></head><body><main><p class="eyebrow">BRACE · Evidence package · user_computed · external_exploratory</p><h1>Classification predictions against known labels</h1><p class="lead">4 correct predictions among 6 evaluated records; 2 incorrect. Accuracy applies to the supplied labels and records, not an untested population.</p><p>Computed from supplied evidence; acquisition and evaluation-role declarations are not independently authenticated.</p><div class="scroll"><table><thead><tr><th>Identity</th><th>Recorded value</th></tr></thead><tbody><tr><td>Run ID</td><td>c6a40a2471ff4354b4abd3b9b75f5272</td></tr><tr><td>Analysis</td><td>evaluate_predictions</td></tr><tr><td>Evidence origin</td><td>user_computed</td></tr><tr><td>Evaluation role</td><td>external_exploratory</td></tr><tr><td>Independent provenance authenticated</td><td>No</td></tr></tbody></table></div><p>This evaluation is not certification of a model or a new evaluation population. Original uploaded records and declarations are excluded; input hashes identify the matching originals.</p><h2>Record inputs and evaluation role</h2><p>Supplied labels, class mapping and input hashes describe this evaluation; they do not reconstruct an original training dataset.</p><p>Only the supplied prediction records were evaluated. Group IDs in those rows do not authenticate an original training or evaluation split.</p><details><summary>Complete task checks and input declarations</summary><pre>{
+  &quot;note&quot;: &quot;This evaluation checks supplied labels and predictions; original training measurements are not reconstructed.&quot;,
+  &quot;declared_prediction_provenance&quot;: {
+    &quot;input_files&quot;: {
+      &quot;predictions&quot;: {
+        &quot;name&quot;: &quot;predictions.csv&quot;,
+        &quot;bytes&quot;: 270,
+        &quot;sha256&quot;: &quot;dbb9af69da4346f65ecad20d0019f85476ab1f8228842a00595b4a48d88ab5d7&quot;
+      },
+      &quot;manifest&quot;: {
+        &quot;name&quot;: &quot;prediction_manifest.json&quot;,
+        &quot;bytes&quot;: 603,
+        &quot;sha256&quot;: &quot;07afe79771ef4ae40e7afc3d63f7265cd6d386ec2bc35f89b9d0f4b4a40b4c07&quot;
+      }
+    },
+    &quot;prediction_manifest&quot;: {
+      &quot;schema_version&quot;: &quot;1.0.0&quot;,
+      &quot;dataset_id&quot;: &quot;text_categories_controlled_software_fixture&quot;,
+      &quot;model_id&quot;: &quot;supplied_test_records_no_model_executed&quot;,
+      &quot;classes&quot;: [
+        &quot;science&quot;,
+        &quot;business&quot;,
+        &quot;sports&quot;
+      ],
+      &quot;probability_columns&quot;: {
+        &quot;science&quot;: &quot;prob_science&quot;,
+        &quot;business&quot;: &quot;prob_business&quot;,
+        &quot;sports&quot;: &quot;prob_sports&quot;
+      },
+      &quot;prediction_origin&quot;: &quot;external_model&quot;,
+      &quot;evaluation_role&quot;: &quot;external_exploratory&quot;,
+      &quot;independence_declaration&quot;: &quot;unknown&quot;,
+      &quot;label_source_description&quot;: &quot;Controlled non-biological software fixture; not independently validated field data.&quot;
+    },
+    &quot;warning&quot;: &quot;The input independence declaration is user-supplied, not audited by BRACE.&quot;
+  },
+  &quot;source_cv_available&quot;: false
+}</pre></details><h2>Full evaluation and class support</h2><p>Source cross-validation is unavailable for these supplied/archived predictions. Original training and preprocessing are declared or absent, not performed by this evaluation.</p><h3>Target / supplied prediction evaluation</h3><div class="scroll"><table><thead><tr><th>Evaluated</th><th>Correct</th><th>Incorrect</th><th>Accuracy fraction</th><th>Balanced accuracy fraction</th><th>Supported macro-F1</th><th>Supported classes</th><th>Absent true classes</th></tr></thead><tbody><tr><td>6</td><td>4</td><td>2</td><td>0.6666666666666666</td><td>0.6666666666666666</td><td>0.6666666666666666</td><td>3</td><td>None</td></tr></tbody></table></div><p>Accuracy = correct/all evaluated. Balanced accuracy is mean recall over true-supported classes; supported-class macro-F1 is mean F1 over those same classes. Missing true classes are not evaluated.</p><h3>Confusion matrix — true rows, predicted columns</h3><div class="scroll"><table><thead><tr><th>True / Predicted</th><th>science</th><th>business</th><th>sports</th></tr></thead><tbody><tr><td>science</td><td>2</td><td>0</td><td>0</td></tr><tr><td>business</td><td>0</td><td>1</td><td>1</td></tr><tr><td>sports</td><td>0</td><td>1</td><td>1</td></tr></tbody></table></div><h3>Per-class support and undefined denominators</h3><div class="scroll"><table><thead><tr><th>Class</th><th>Support</th><th>Predicted count</th><th>TP</th><th>Precision</th><th>Recall</th><th>F1</th><th>Undefined reasons</th></tr></thead><tbody><tr><td>science</td><td>2</td><td>2</td><td>2</td><td>1.0</td><td>1.0</td><td>1.0</td><td>{&#x27;precision&#x27;: None, &#x27;recall&#x27;: None, &#x27;f1&#x27;: None}</td></tr><tr><td>business</td><td>2</td><td>2</td><td>1</td><td>0.5</td><td>0.5</td><td>0.5</td><td>{&#x27;precision&#x27;: None, &#x27;recall&#x27;: None, &#x27;f1&#x27;: None}</td></tr><tr><td>sports</td><td>2</td><td>2</td><td>1</td><td>0.5</td><td>0.5</td><td>0.5</td><td>{&#x27;precision&#x27;: None, &#x27;recall&#x27;: None, &#x27;f1&#x27;: None}</td></tr></tbody></table></div><h3>Saved uncertainty</h3><pre>{
+  &quot;accuracy_wilson_95&quot;: {
+    &quot;lower&quot;: 0.2999933151383921,
+    &quot;upper&quot;: 0.9032285888942196,
+    &quot;method&quot;: &quot;Wilson score&quot;,
+    &quot;confidence_level&quot;: 0.95,
+    &quot;numerator&quot;: 4,
+    &quot;denominator&quot;: 6,
+    &quot;assumption&quot;: &quot;Independent Bernoulli observations; descriptive if independence is unverified&quot;
+  },
+  &quot;macro_f1_bootstrap_95&quot;: {
+    &quot;lower&quot;: null,
+    &quot;upper&quot;: null,
+    &quot;method&quot;: &quot;stratified percentile bootstrap&quot;,
+    &quot;undefined_reason&quot;: &quot;INSUFFICIENT_SUPPORT_FOR_BOOTSTRAP&quot;,
+    &quot;replicates&quot;: 0
+  }
+}</pre><p>Intervals assume independent rows and do not correct grouped or batch dependence. Unavailable intervals and reasons remain explicit.</p><h2>Confidence and coverage at the saved reference</h2><p>Adjusting the threshold does not retrain the model. Retain when confidence ≥ cutoff. The maximum supplied class probability is not automatically calibrated probability of correctness; non-reference curve points are exploratory.</p><div class="scroll"><table><thead><tr><th>Reference threshold</th><th>Retained</th><th>Withheld</th><th>Coverage fraction</th><th>Correct retained</th><th>Incorrect retained</th><th>Selective accuracy</th><th>Selective risk</th></tr></thead><tbody><tr><td>0.95</td><td>2</td><td>4</td><td>0.3333333333333333</td><td>1</td><td>1</td><td>0.5</td><td>0.5</td></tr></tbody></table></div><p>Selective accuracy applies only to retained predictions, not withheld cases.</p><h3>Every observed error</h3><div class="scroll"><table><thead><tr><th>Record ID</th><th>Recorded group</th><th>True label</th><th>Predicted label</th><th>Maximum class probability</th><th>Retained at reference</th></tr></thead><tbody><tr><td>T2</td><td></td><td>business</td><td>sports</td><td>0.9</td><td>False</td></tr><tr><td>T6</td><td></td><td>sports</td><td>business</td><td>0.98</td><td>True</td></tr></tbody></table></div><p>Complete rows, class vectors, confidence bins, descriptive ECE and all curve points are in validation/*.json/CSV. An absent expression/shift result must not be inferred from these model errors.</p><h2>Warnings and restrictions</h2><ul><li><strong>TARGET_INDEPENDENCE_UNKNOWN</strong> · Independent sample acquisition is not documented by this manifest</li><li><strong>INDEPENDENCE_NOT_ESTABLISHED</strong> · Record independence is not documented; row-level intervals do not account for correlated groups or batches.</li><li><strong>SMALL_EVALUATION_SET</strong> · Fewer than 30 prediction records; interval estimates will be imprecise.</li><li><strong>MACRO_F1_INTERVAL_UNAVAILABLE</strong> · Too few cases for the pre-specified class-stratified bootstrap; point estimate remains available.</li><li><strong>NOT_LOCKED_INDEPENDENT_VALIDATION</strong> · The supplied study role is not locked independent evaluation; do not represent these results as a new blind test.</li><li><strong>UNCALIBRATED_MODEL_CONFIDENCE</strong> · Confidence scores and expected calibration error are descriptive; clinical calibration is not demonstrated.</li></ul><h2>Methods, provenance, exclusions and reproduction</h2><p>See analysis_methods.json, compatibility_summary.json and warning_exclusion_records.json for full recorded context. Exclusions before uploaded files are unknown unless a verified preparation record is supplied. No imputation or silent exclusion is added by this export.</p><p>Read REPRODUCE.md and PRIVACY.md. Input file hashes identify original measurements; raw data must be acquired separately. CSV_TEXT_ENCODING.json records spreadsheet-safe text encoding without changing JSON identifiers. FILE_SHA256_MANIFEST.csv and reproducibility_manifest.json cover the published evidence.</p><h2>Consistency audit</h2><pre>{
+  &quot;status&quot;: &quot;PASS&quot;,
+  &quot;checks&quot;: {
+    &quot;ace&quot;: {
+      &quot;evaluation_rows&quot;: 6,
+      &quot;correct&quot;: 4,
+      &quot;errors&quot;: 2,
+      &quot;threshold_points&quot;: 101,
+      &quot;class_support&quot;: &quot;reconciled&quot;,
+      &quot;source_oof_audited&quot;: false
+    }
+  },
+  &quot;note&quot;: &quot;Independent count/formula/CSV/JSON/freeze audit; no model refit, threshold tuning or replacement of scientific estimates.&quot;
+}</pre><h2>Inspect the enclosed evidence</h2><ul><li><a href="CSV_TEXT_ENCODING.json">CSV_TEXT_ENCODING.json</a></li><li><a href="FILE_SHA256_MANIFEST.csv">FILE_SHA256_MANIFEST.csv</a></li><li><a href="HTML_PRESENTATION.json">HTML_PRESENTATION.json</a></li><li><a href="PRIVACY.md">PRIVACY.md</a></li><li><a href="REPRODUCE.md">REPRODUCE.md</a></li><li><a href="analysis_methods.json">analysis_methods.json</a></li><li><a href="compatibility_summary.json">compatibility_summary.json</a></li><li><a href="confusion_matrix.csv">confusion_matrix.csv</a></li><li><a href="consistency_audit.json">consistency_audit.json</a></li><li><a href="reproducibility_manifest.json">reproducibility_manifest.json</a></li><li><a href="validation/FILE_SHA256_MANIFEST.csv">validation/FILE_SHA256_MANIFEST.csv</a></li><li><a href="validation/confidence_bins.csv">validation/confidence_bins.csv</a></li><li><a href="validation/error_cases.csv">validation/error_cases.csv</a></li><li><a href="validation/per_class.csv">validation/per_class.csv</a></li><li><a href="validation/run_report.html">validation/run_report.html</a></li><li><a href="validation/sample_level.csv">validation/sample_level.csv</a></li><li><a href="validation/study_summary.csv">validation/study_summary.csv</a></li><li><a href="validation/threshold_curve.csv">validation/threshold_curve.csv</a></li><li><a href="validation/validation_result.json">validation/validation_result.json</a></li><li><a href="warning_exclusion_records.json">warning_exclusion_records.json</a></li></ul></main></body></html>

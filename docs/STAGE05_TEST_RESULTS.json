@@ -1,0 +1,49 @@
+{
+  "stage": "05",
+  "run_environment": {
+    "platform": "Linux",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0",
+    "pytest": "9.0.2"
+  },
+  "automated_tests_passed": 77,
+  "demo_runs": [
+    "train synthetic baseline",
+    "replay synthetic baseline",
+    "evaluate synthetic predictions",
+    "evaluate historical CancerShift CPTAC v08"
+  ],
+  "files": {
+    "examples/synthetic_baseline_output/run_result.json": {
+      "mode": "train_validate",
+      "status": "completed_with_warnings",
+      "source_cv_accuracy": 0.65,
+      "external_accuracy": 0.7857142857142857
+    },
+    "examples/synthetic_replay_output/run_result.json": {
+      "mode": "replay_frozen",
+      "status": "completed_with_warnings",
+      "source_cv_accuracy": null,
+      "external_accuracy": 0.7857142857142857
+    },
+    "examples/synthetic_evaluation_output/run_result.json": {
+      "mode": "evaluate_predictions",
+      "status": "completed_with_warnings",
+      "source_cv_accuracy": null,
+      "external_accuracy": 0.7857142857142857
+    },
+    "examples/cancershift_historical_evaluation/run_result.json": {
+      "mode": "evaluate_predictions",
+      "status": "completed_with_warnings",
+      "source_cv_accuracy": null,
+      "external_accuracy": 0.9823529411764705
+    }
+  },
+  "limitations": [
+    "Real GSE42568/GSE29431 expression matrices not present; Stage 03 acquisition remains open",
+    "Windows GUI not executed in this environment",
+    "Historical CancerShift scoring rows are old model outputs, not fresh model inference"
+  ]
+}

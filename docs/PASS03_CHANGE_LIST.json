@@ -1,0 +1,40 @@
+{
+  "changed": [
+    "CHECKPOINT_SHA256.json",
+    "FILE_SHA256_MANIFEST.csv",
+    "README_START_HERE.md",
+    "brace_app/server.py",
+    "brace_app/static/app.js",
+    "brace_app/static/index.html",
+    "brace_app/static/style.css",
+    "tests/test_stage08_app.py"
+  ],
+  "added": [
+    "PASS_03_REPORT.md",
+    "brace_app/study_api.py",
+    "brace_app/static/js/api.js",
+    "brace_app/static/js/inspector.js",
+    "brace_app/static/js/legacy-results.js",
+    "brace_app/static/js/state.js",
+    "brace_app/static/js/study.js",
+    "brace_app/static/js/ui.js",
+    "docs/PASS03_BASELINE_SHA256.csv",
+    "docs/PASS03_BROWSER_RESULTS.json",
+    "docs/PASS03_CHANGE_LIST.json",
+    "docs/PASS03_DESIGN.md",
+    "docs/PASS03_PUBLIC_REFERENCE.json",
+    "docs/PASS03_TEST_ENVIRONMENT.txt",
+    "docs/pass03_screenshots/before_1440.png",
+    "docs/pass03_screenshots/blocked_1440.png",
+    "docs/pass03_screenshots/landing_1280.png",
+    "docs/pass03_screenshots/landing_1440.png",
+    "docs/pass03_screenshots/landing_390.png",
+    "docs/pass03_screenshots/race_1280.png",
+    "docs/pass03_screenshots/race_1440.png",
+    "docs/pass03_screenshots/race_390.png",
+    "docs/pass03_screenshots/study_inputs_1440.png",
+    "tests/browser_host.py",
+    "tests/browser_pass03.py",
+    "tests/test_study_api.py"
+  ]
+}

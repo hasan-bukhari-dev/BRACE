@@ -1,0 +1,29 @@
+{
+  "note": "Actual checked endpoint snapshots and existing engine-generated bundles. Synthetic/fixture files are software evidence, not new biology. Snapshot URL run IDs refer to developer test runs; bundles are review artifacts, not installed runtime history.",
+  "files": {
+    "synthetic_model_RESEARCH_PACKAGE.zip": {
+      "sha256": "9bd9f56e8efc93ffef9719251ef3a0405cb1bd3d560ee3d7d19aceeacb02c944",
+      "bytes": 61471
+    },
+    "trace_historical_error.json": {
+      "sha256": "c0e579793d1ae6a65f9c096875c11b4b794d4dd7216dcf6eefee7141dbabd7a4",
+      "bytes": 19803
+    },
+    "trace_public_gene_135112.json": {
+      "sha256": "84e27f8b248ec7eb81475b34262109ace04d0e8a93d82e18ee07b974f22bbf0e",
+      "bytes": 14624
+    },
+    "trace_synthetic_model.json": {
+      "sha256": "422aa821732e57b2d40b0138f518d3d537892616a5153536632e08ec62cbf6e6",
+      "bytes": 25338
+    },
+    "trace_unlabeled_fixture.json": {
+      "sha256": "3064a5d679bbf28786af39a46cc9482244d5473b1481fea2916f1e294bf96e2d",
+      "bytes": 14532
+    },
+    "unlabeled_fixture_RESEARCH_PACKAGE.zip": {
+      "sha256": "3e02e1d7984c29e952006e8b5c2465fbf2d6525650291d59a319e2b11d2adc55",
+      "bytes": 29593
+    }
+  }
+}

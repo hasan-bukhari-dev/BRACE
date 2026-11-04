@@ -1,0 +1,79 @@
+{
+  "evidence": "Actual first measured public RACE run, rendered by the final report exporter; no science rerun during this view refresh.",
+  "files": {
+    "CSV_TEXT_ENCODING.json": {
+      "bytes": 320,
+      "sha256": "a2ebdb14f8984e4327946125dc762b86fefa9e1da7d379a142b623b45fb08e5a"
+    },
+    "FILE_SHA256_MANIFEST.csv": {
+      "bytes": 1621,
+      "sha256": "dded0bc178baf29b06a0854f9bd9a157758e1cec196d94b11790f218c00c803b"
+    },
+    "PRIVACY.md": {
+      "bytes": 388,
+      "sha256": "e6de48c3d7289489f576cf02fce14c80f385a55974f6ebc00016807817f2d8db"
+    },
+    "PUBLIC_DATA_PREPARATION.md": {
+      "bytes": 10111,
+      "sha256": "ba305353e0410df91087e9547aaae3c60a8ee869fe502eb4681f723ac8efe2a0"
+    },
+    "REPRODUCE.md": {
+      "bytes": 2787,
+      "sha256": "662d893e37cae536f2b4800978bc603f2f8dc49f7d849859d82d718419778a39"
+    },
+    "analysis_methods.json": {
+      "bytes": 16738,
+      "sha256": "1a06c7823719c02bd1c4119b4acfb8b2734e8843f076f115427c632ad999093a"
+    },
+    "compatibility_summary.json": {
+      "bytes": 4064,
+      "sha256": "bbcf66507857da68cb1eb092466159677a44af515a5b8b2a3868c0829a40b5ac"
+    },
+    "consistency_audit.json": {
+      "bytes": 416,
+      "sha256": "b469ec016ff371dd4c916c319c23f4d74547a087d5de56b6da1804281d9b6d27"
+    },
+    "race/FILE_SHA256_MANIFEST.csv": {
+      "bytes": 485,
+      "sha256": "c2d429f2d93858798f9cf79fea4eb081eb622844225bb3e90c9e6c3302f1679c"
+    },
+    "race/race_methods.json": {
+      "bytes": 4284,
+      "sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2"
+    },
+    "race/race_result.json": {
+      "bytes": 4696803,
+      "sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2"
+    },
+    "race/replication_genes.csv": {
+      "bytes": 6669,
+      "sha256": "5b19e1da08829768bb4d887369c9c8237d5ef60e9e9085977cdb538ed4e2957a"
+    },
+    "race/selected_signature.json": {
+      "bytes": 3475739,
+      "sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02"
+    },
+    "race/source_gene_screen.csv": {
+      "bytes": 1827593,
+      "sha256": "afd119b4e49ce281194c36878fb4f08b06a848b42a9f4b72290393338e01a2c2"
+    },
+    "race_config.json": {
+      "bytes": 502,
+      "sha256": "531ed286d6a7ac2fb289342a239b91dceca436b67082913662d7a4167c9abea2"
+    },
+    "reproducibility_manifest.json": {
+      "bytes": 11933,
+      "sha256": "6099438d06cb642a7851dae6b6c3f930fb638e18a4b00236e2d8e0e9984805aa"
+    },
+    "research_summary.html": {
+      "bytes": 19144,
+      "sha256": "7078c78b46d973d0d332ec0e5bccb4fe1bb1ad25c0b470cc5aedb6c24251b623"
+    },
+    "warning_exclusion_records.json": {
+      "bytes": 2114,
+      "sha256": "35afb9d3c4dccb749ec60fa1e8e3eeedbce4f3da55b4f2a633a1e0c087f64ac9"
+    }
+  },
+  "bytes": 2708610,
+  "sha256": "3363616fd6d7b4db6531853850a3e59f30f602ccd184f0f2ba7946080b518c88"
+}

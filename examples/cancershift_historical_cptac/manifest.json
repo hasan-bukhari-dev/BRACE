@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "CancerShift_CPTAC_GDC_v08_historical",
+  "model_id": "CancerShift_frozen_ranked_ensemble_055_045",
+  "classes": [
+    "breast",
+    "colorectal",
+    "lung",
+    "ovary",
+    "prostate"
+  ],
+  "probability_columns": {
+    "breast": "prob_breast",
+    "colorectal": "prob_colorectal",
+    "lung": "prob_lung",
+    "ovary": "prob_ovary",
+    "prostate": "prob_prostate"
+  },
+  "prediction_origin": "historical_reference",
+  "evaluation_role": "historical_reference",
+  "independence_declaration": "unknown",
+  "primary_confidence_threshold": 0.95,
+  "label_source_description": "Archived CancerShift v08 CPTAC-GDC research labels (historical one-shot evaluation); no new model inference."
+}

@@ -1,0 +1,159 @@
+{
+  "stage": "04",
+  "science_version": "brace-intake/0.4.0",
+  "mode": "train_validate",
+  "verdict": "compatible_with_caveats",
+  "eligible": true,
+  "note": "Preflight only: no classifier has been trained; no reliability, accuracy, or causal inference has been measured.",
+  "counts": {
+    "source_samples": 101,
+    "target_samples": 87,
+    "source_features": 10000,
+    "target_features": 10000,
+    "shared_features": 10000,
+    "source_only_features": 0,
+    "target_only_features": 0,
+    "source_overlap_fraction": 1.0,
+    "target_overlap_fraction": 1.0
+  },
+  "source": {
+    "cohort_id": "GSE42568_ER",
+    "role": "source",
+    "n_samples": 101,
+    "n_features": 10000,
+    "feature_namespace": "entrez_gene",
+    "measurement_type": "microarray_log2_normalized",
+    "platform": "GPL570",
+    "processing_description": "GEO deposited log2 GC-RMA signals; no additional normalization",
+    "independence_declaration": "unknown",
+    "labels_declared": "binary",
+    "observed_conditions": {
+      "ER_positive": 67,
+      "ER_negative": 34
+    },
+    "patient_ids_reported": 0,
+    "study_ids": [
+      "GSE42568"
+    ],
+    "numeric_summary": {
+      "min": 2.312812,
+      "median": 6.059286,
+      "max": 16.046903,
+      "p95": 9.795924
+    },
+    "input_files": {
+      "expression": {
+        "name": "source_expression.tsv",
+        "bytes": 12069487,
+        "sha256": "12b583bde1db053b9df81c61c837ee8362afcc3cd18d6ed41135b5c009c7807c"
+      },
+      "metadata": {
+        "name": "source_metadata.tsv",
+        "bytes": 36338,
+        "sha256": "3fab1cc3b806daf61fbe61c7a37513d8ddc49bc5a143550b176d2c6a3fa33e3a"
+      },
+      "manifest": {
+        "name": "source_manifest.json",
+        "bytes": 610,
+        "sha256": "86caf39e0ea64c4a217d9ed5c3401a0269e8b857877c0a408edb69b5a266e219"
+      }
+    }
+  },
+  "target": {
+    "cohort_id": "GSE20711_ER",
+    "role": "target",
+    "n_samples": 87,
+    "n_features": 10000,
+    "feature_namespace": "entrez_gene",
+    "measurement_type": "microarray_log2_normalized",
+    "platform": "GPL570",
+    "processing_description": "GEO deposited RMA Bioconductor default parameters and log2 transformation; no additional normalization",
+    "independence_declaration": "unknown",
+    "labels_declared": "binary",
+    "observed_conditions": {
+      "ER_negative": 45,
+      "ER_positive": 42
+    },
+    "patient_ids_reported": 87,
+    "study_ids": [
+      "GSE20711"
+    ],
+    "numeric_summary": {
+      "min": 1.68698,
+      "median": 7.216628,
+      "max": 14.736284,
+      "p95": 10.105478
+    },
+    "input_files": {
+      "expression": {
+        "name": "target_expression.tsv",
+        "bytes": 10402456,
+        "sha256": "117ee0f84c2b711e55deba4592e25c07fa45d96e3a562df6fa0532d91b997e79"
+      },
+      "metadata": {
+        "name": "target_metadata.tsv",
+        "bytes": 34209,
+        "sha256": "28b81795c4eaa1fb3155ba2bfb41ff66cb1d410a6d5af6decd9cd41f27d5f6e0"
+      },
+      "manifest": {
+        "name": "target_manifest.json",
+        "bytes": 650,
+        "sha256": "f8794853579d40297909d1d17e1c61c74a4740f78e772c2cc0858d778ac9efdf"
+      }
+    }
+  },
+  "shared_feature_preview": [
+    "1",
+    "10",
+    "100",
+    "1000",
+    "10000",
+    "10001",
+    "10002",
+    "100049716",
+    "10005",
+    "10006",
+    "10007",
+    "10008",
+    "10009",
+    "1001",
+    "10010",
+    "10011",
+    "100113407",
+    "100124700",
+    "100126791",
+    "100127972"
+  ],
+  "issues": [
+    {
+      "code": "PROCESSING_DIFFERENCE",
+      "severity": "warning",
+      "field": "manifest.processing_description",
+      "message": "The cohorts declare different processing methods; shared measurement types do not guarantee directly comparable scales",
+      "next_action": "Inspect processing provenance and interpret shifts cautiously; no correction applied"
+    },
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "severity": "warning",
+      "field": "manifest.independence_declaration",
+      "message": "Independent cohort acquisition is not documented for both cohorts",
+      "next_action": "Document non-overlapping study/patient provenance or retain exploratory reporting"
+    },
+    {
+      "code": "PATIENT_IDENTIFIERS_ABSENT",
+      "severity": "warning",
+      "field": "metadata.patient_id",
+      "message": "Patient IDs are absent in one or both cohorts; cannot rule out overlapping subjects using identifiers alone",
+      "next_action": "Provide patient-level provenance or maintain unverified independence statement"
+    }
+  ],
+  "rules": {
+    "no_automatic_normalization": true,
+    "no_target_label_use": true,
+    "feature_order": "lexicographic by original feature identifier",
+    "input_format": "features by samples; canonical internal array is samples by features"
+  },
+  "locked_eligible": false,
+  "scientific_scope": "Exploratory within-cohort gene associations only; parser eligibility does not approve model transfer.",
+  "duplicate_expression_vectors": 0
+}

@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "race": {
+      "frozen": 20,
+      "hypothesis_hash": "8f17b0e452532a9f0add71d4ce96986315d84a609c709d73c3e35890e04f446f",
+      "source_screened": 10000,
+      "supported": 14,
+      "target_testable": 20,
+      "untestable": 0
+    }
+  },
+  "note": "Independent count/formula/CSV/JSON/freeze audit; no model refit, threshold tuning or replacement of scientific estimates.",
+  "status": "PASS"
+}

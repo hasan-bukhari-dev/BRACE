@@ -1,0 +1,7 @@
+sample_id,true_label,predicted_label,prob_healthy,prob_fault
+E1,healthy,healthy,0.95,0.05
+E2,fault,fault,0.2,0.8
+E3,fault,healthy,0.99,0.01
+E4,healthy,healthy,0.6,0.4
+E5,fault,fault,0.45,0.55
+E6,healthy,fault,0.3,0.7

@@ -1,0 +1,33 @@
+{
+  "release": "0.9.0-rc1",
+  "date": "2026-11-02",
+  "source_manifest_files": 120,
+  "test_count": 151,
+  "pytest": "151 passed",
+  "clean_extraction_checks": [
+    {
+      "cmd": "verify_release.py",
+      "passed": true,
+      "output_tail": "BRACE release verification: 120/120 files verified\n"
+    },
+    {
+      "cmd": "-m pytest -q",
+      "passed": true,
+      "output_tail": "........................................................................ [ 47%]\n........................................................................ [ 95%]\n.......                                                                  [100%]\n151 passed in 8.71s\n"
+    },
+    {
+      "cmd": "scripts/release_smoke.py",
+      "passed": true,
+      "output_tail": "BRACE offline scientific smoke: historical=680/668; synthetic full compute=PASS; reproducibility ZIP=PASS\n"
+    },
+    {
+      "cmd": "independent localhost HTTP server startup",
+      "passed": true,
+      "port": "ephemeral localhost"
+    }
+  ],
+  "real_GEO_expression": "not acquired",
+  "Windows_actual_gui": "not tested",
+  "Chromium_managed_policy": "blocked",
+  "offline_runtime": "tested with preinstalled local Python dependencies; clean Windows offline setup not verified"
+}

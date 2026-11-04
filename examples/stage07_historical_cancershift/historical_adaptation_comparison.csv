@@ -1,0 +1,5 @@
+method,gse2109_macro_f1_historical,gse2109_accuracy_historical,gse2109_balanced_accuracy_historical,cohort_detectability_auroc_historical,cohort_detection_n,study_role
+combat_style_gene_location_scale,0.9026274521008708,0.908675799086758,0.9064287688136996,0.6876898076615696,548,exploratory_development
+quantile_gene_mapping,0.8832943353745086,0.891324200913242,0.8946778486548862,0.5154776493153604,548,exploratory_development
+baseline_ranked,0.8576465281301798,0.8712328767123287,0.8894487776008535,1.0,548,exploratory_development
+robust_gene_alignment,0.7901224431217494,0.7844748858447489,0.8174790233211,1.0,548,exploratory_development

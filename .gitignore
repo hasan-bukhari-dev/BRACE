@@ -1,0 +1,31 @@
+# Local dependencies and private/generated research work
+.venv/
+venv/
+runs/
+work/
+_discovery/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Rebuildable distribution artifacts
+build/
+dist/
+release-assets/
+packaging/generated/
+*.egg-info/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

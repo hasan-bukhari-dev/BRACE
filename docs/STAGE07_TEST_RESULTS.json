@@ -1,0 +1,14 @@
+{
+  "stage": "07",
+  "environment": "Local Linux Python runtime; Windows GUI untested",
+  "tests_run": 129,
+  "passed": 129,
+  "failed": 0,
+  "inherited_stage04_05_06_tests": 102,
+  "stage07_tests": 27,
+  "real_expression_cohort_analysis": false,
+  "real_cancershift_prediction_evidence_inherited": true,
+  "new_expression_computation": "synthetic test cohorts only",
+  "historical_adaptation_case": "preserved reference table, not recomputed",
+  "result_status": "scientific engine working; real cohort and Windows acceptance pending"
+}

@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>BRACE Stage 05</title><style>body{font:16px/1.5 system-ui;background:#0e1726;color:#ecf3fa;max-width:920px;margin:auto;padding:38px}pre{background:#17283f;padding:20px;white-space:pre-wrap;overflow:auto;border-radius:9px}h1{margin:0}p{color:#aabbd0}</style><h1>BRACE · Model integration</h1><p>Mode: evaluate_predictions · Status: completed_with_warnings · Research only</p><p>Source-only training and model replay are separate from target-label scoring. This is not a clinical diagnostic result.</p><h2>Computed evidence</h2><pre>{
+  &quot;metrics&quot;: {
+    &quot;n&quot;: 680,
+    &quot;n_correct&quot;: 668,
+    &quot;accuracy&quot;: 0.9823529411764705,
+    &quot;class_order&quot;: [
+      &quot;breast&quot;,
+      &quot;colorectal&quot;,
+      &quot;lung&quot;,
+      &quot;ovary&quot;,
+      &quot;prostate&quot;
+    ],
+    &quot;confusion_matrix&quot;: [
+      [
+        131,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        105,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        4,
+        333,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        99,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    &quot;per_class&quot;: [
+      {
+        &quot;class&quot;: &quot;breast&quot;,
+        &quot;support&quot;: 133,
+        &quot;predicted_count&quot;: 135,
+        &quot;tp&quot;: 131,
+        &quot;precision&quot;: 0.9703703703703703,
+        &quot;recall&quot;: 0.9849624060150376,
+        &quot;f1&quot;: 0.9776119402985075,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      },
+      {
+        &quot;class&quot;: &quot;colorectal&quot;,
+        &quot;support&quot;: 105,
+        &quot;predicted_count&quot;: 109,
+        &quot;tp&quot;: 105,
+        &quot;precision&quot;: 0.963302752293578,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 0.9813084112149533,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      },
+      {
+        &quot;class&quot;: &quot;lung&quot;,
+        &quot;support&quot;: 341,
+        &quot;predicted_count&quot;: 334,
+        &quot;tp&quot;: 333,
+        &quot;precision&quot;: 0.9970059880239521,
+        &quot;recall&quot;: 0.9765395894428153,
+        &quot;f1&quot;: 0.9866666666666667,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      },
+      {
+        &quot;class&quot;: &quot;ovary&quot;,
+        &quot;support&quot;: 101,
+        &quot;predicted_count&quot;: 100,
+        &quot;tp&quot;: 99,
+        &quot;precision&quot;: 0.99,
+        &quot;recall&quot;: 0.9801980198019802,
+        &quot;f1&quot;: 0.9850746268656716,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      },
+      {
+        &quot;class&quot;: &quot;prostate&quot;,
+        &quot;support&quot;: 0,
+        &quot;predicted_count&quot;: 2,
+        &quot;tp&quot;: 0,
+        &quot;precision&quot;: 0.0,
+        &quot;recall&quot;: null,
+        &quot;f1&quot;: null,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: &quot;NO_TRUE_SUPPORT&quot;,
+          &quot;f1&quot;: &quot;NO_TRUE_SUPPORT&quot;
+        }
+      }
+    ],
+    &quot;observed_true_classes&quot;: [
+      &quot;breast&quot;,
+      &quot;colorectal&quot;,
+      &quot;lung&quot;,
+      &quot;ovary&quot;
+    ],
+    &quot;absent_true_classes&quot;: [
+      &quot;prostate&quot;
+    ],
+    &quot;supported_class_macro_f1&quot;: 0.9826654112614497,
+    &quot;balanced_accuracy_observed&quot;: 0.9854250038149582,
+    &quot;macro_denominator&quot;: 4,
+    &quot;comparison_scope&quot;: &quot;limited_class_support&quot;,
+    &quot;selective&quot;: {
+      &quot;threshold&quot;: 0.95,
+      &quot;retained&quot;: 584,
+      &quot;coverage&quot;: 0.8588235294117647,
+      &quot;retained_errors&quot;: 1,
+      &quot;selective_accuracy&quot;: 0.9982876712328768,
+      &quot;undefined_reason&quot;: null,
+      &quot;interpretation&quot;: &quot;Threshold is predeclared; model confidence is not clinically calibrated certainty.&quot;
+    }
+  },
+  &quot;n_samples&quot;: 680
+}</pre><h2>Warnings</h2><pre>[
+  {
+    &quot;code&quot;: &quot;TARGET_INDEPENDENCE_UNKNOWN&quot;,
+    &quot;severity&quot;: &quot;warning&quot;,
+    &quot;field&quot;: &quot;manifest.independence_declaration&quot;,
+    &quot;message&quot;: &quot;Independent sample acquisition is not documented by this manifest&quot;,
+    &quot;next_action&quot;: &quot;Document provenance or retain exploratory interpretation&quot;
+  },
+  {
+    &quot;code&quot;: &quot;LIMITED_CLASS_SUPPORT&quot;,
+    &quot;severity&quot;: &quot;warning&quot;,
+    &quot;message&quot;: &quot;Some declared true classes are absent; supported-class macro F1 is not a full class-universe estimate.&quot;
+  }
+]</pre><h2>Integrity &amp; freeze</h2><pre>{
+  &quot;configuration_sha256&quot;: &quot;19b3852ac9709ef8ddff2c0321d3ab109a55c202f81d671c088b29f76ddad4e8&quot;,
+  &quot;primary_confidence_threshold&quot;: 0.95,
+  &quot;label_use&quot;: &quot;evaluation_only&quot;,
+  &quot;evaluation_role&quot;: &quot;historical_reference&quot;,
+  &quot;origin_attestation&quot;: &quot;User-declared metadata, not independently verified&quot;
+}</pre></html>

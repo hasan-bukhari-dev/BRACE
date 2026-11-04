@@ -1,0 +1,42 @@
+{
+  "browser": "156.0.8078.80",
+  "checks": [
+    "All 20 visible rows match backend IDs, symbols, effects and q-values within documented rounding",
+    "Outcome filters include negative and unavailable categories without changing summary denominators",
+    "Source/target effects and q-values sort numerically with stable feature-ID ties",
+    "Keyboard selection opens FACE with all 101 source and 87 target raw observations on separate axes",
+    "Trace retains exact gene, source/target identity and frozen run hash; closing FACE restores row focus",
+    "Opposite gene remains inspectable through filters, Evidence navigation and refresh",
+    "Delayed older gene response cannot replace the latest selected gene",
+    "Failed detail requests show no fabricated plot and offer a working retry",
+    "1280\u00d7720 and 390\u00d7844 layouts have no page overflow; reduced motion and Escape work",
+    "An actually omitted target feature produces an untestable row and no target distribution; new runs reset filters",
+    "UI-only long literal feature-ID fixture is escaped and remains inside the scrollable table"
+  ],
+  "uncaught_errors": [],
+  "screen_sizes": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "screenshots": [
+    "face_1280.png",
+    "face_390.png",
+    "face_source_1440.png",
+    "face_target_1440.png",
+    "missing_target_1440.png",
+    "missing_target_detail.png",
+    "trace_1440.png",
+    "unsupported_1440.png"
+  ],
+  "fixtures": "Real pinned public study; actual RACE run with one target feature intentionally omitted; UI-only delayed/error response and long-label tests explicitly separated."
+}

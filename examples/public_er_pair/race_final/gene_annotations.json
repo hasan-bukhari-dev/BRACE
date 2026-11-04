@@ -1,0 +1,122 @@
+[
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "135112",
+    "gene_symbol": "NCOA7",
+    "probe_id": "225344_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "7091",
+    "gene_symbol": "TLE4",
+    "probe_id": "204872_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "29968",
+    "gene_symbol": "PSAT1",
+    "probe_id": "223062_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "56935",
+    "gene_symbol": "SMCO4",
+    "probe_id": "219806_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "10477",
+    "gene_symbol": "UBE2E3",
+    "probe_id": "210024_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "140885",
+    "gene_symbol": "SIRPA",
+    "probe_id": "202897_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "5336",
+    "gene_symbol": "PLCG2",
+    "probe_id": "204613_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "5621",
+    "gene_symbol": "PRNP",
+    "probe_id": "201300_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "84441",
+    "gene_symbol": "MAML2",
+    "probe_id": "235457_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "55816",
+    "gene_symbol": "DOK5",
+    "probe_id": "214844_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "5997",
+    "gene_symbol": "RGS2",
+    "probe_id": "202388_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "4067",
+    "gene_symbol": "LYN",
+    "probe_id": "202626_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "10402",
+    "gene_symbol": "ST3GAL6",
+    "probe_id": "213355_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "54947",
+    "gene_symbol": "LPCAT2",
+    "probe_id": "227889_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "157506",
+    "gene_symbol": "RDH10",
+    "probe_id": "226021_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "51191",
+    "gene_symbol": "HERC5",
+    "probe_id": "219863_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "834",
+    "gene_symbol": "CASP1",
+    "probe_id": "211368_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "29015",
+    "gene_symbol": "SLC43A3",
+    "probe_id": "213113_s_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "5918",
+    "gene_symbol": "RARRES1",
+    "probe_id": "221872_at"
+  },
+  {
+    "annotation_source": "Pinned GPL570 platform snapshot; not independently validated current nomenclature",
+    "feature_id": "8424",
+    "gene_symbol": "BBOX1",
+    "probe_id": "205363_at"
+  }
+]

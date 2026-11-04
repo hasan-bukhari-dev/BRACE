@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "id": "LARGE_CLASS_ONLY_COUNTS_NO_FALSE_SCORE_BINS",
+      "status": "PASS"
+    },
+    {
+      "id": "LARGE_SCORED_COUNTS_WITH_APPROPRIATE_BIN_LEGEND",
+      "status": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "status": "PASS"
+}

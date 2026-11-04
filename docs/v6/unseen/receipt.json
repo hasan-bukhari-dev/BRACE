@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "checks": [
+    "2 classes: exact metrics, correct operation, compact no-score note, keyboard matrix",
+    "2_1280_light: no page overflow",
+    "2_390_light: no page overflow",
+    "2_1280_dark: no page overflow",
+    "2_390_dark: no page overflow",
+    "2 classes: long-ID inspector and Back from TRACE",
+    "3 classes: exact metrics, correct operation, compact no-score note, keyboard matrix",
+    "3_1280_light: no page overflow",
+    "3_390_light: no page overflow",
+    "3_1280_dark: no page overflow",
+    "3_390_dark: no page overflow",
+    "3 classes: long-ID inspector and Back from TRACE",
+    "10 classes: exact metrics, correct operation, compact no-score note, keyboard matrix",
+    "10_1280_light: no page overflow",
+    "10_390_light: no page overflow",
+    "10_1280_dark: no page overflow",
+    "10_390_dark: no page overflow",
+    "10 classes: long-ID inspector and Back from TRACE",
+    "30 classes: exact metrics, correct operation, compact no-score note, keyboard matrix",
+    "30_1280_light: no page overflow",
+    "30_390_light: no page overflow",
+    "30_1280_dark: no page overflow",
+    "30_390_dark: no page overflow",
+    "30 classes: long-ID inspector and Back from TRACE"
+  ],
+  "errors": [],
+  "scope": "New artificial technical inputs only; not biological validation"
+}

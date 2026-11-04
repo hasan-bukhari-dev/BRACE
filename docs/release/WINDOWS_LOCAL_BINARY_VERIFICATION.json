@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "executable_sha256": "67ab53f844c8603596dd23bf35b5b9ac2648c469d00c2703c570b9596fa8f30c",
+  "checks": [
+    "Bundled runtime starts from unrelated writable cwd with project Python paths removed",
+    "Pinned real public result available: 14/20",
+    "Original historical prediction evidence: 668/680",
+    "Frozen scientific stack performs actual synthetic source-CV/model/target/shift computation",
+    "Actual computed EMBRACE ZIP CRC and every recorded artifact SHA-256 agree",
+    "Public preparation and additive V6 endpoints present"
+  ],
+  "scope": "Actual current-OS bundled backend; no physical-device or native GUI acceptance implied"
+}

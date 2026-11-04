@@ -1,0 +1,30 @@
+{
+  "GSE20711": {
+    "downloaded_samples": 90,
+    "exclusions": {
+      "ER_missing": 1,
+      "non_tumor": 2
+    },
+    "included": 87,
+    "input_features": 54675,
+    "labels": {
+      "ER_negative": 45,
+      "ER_positive": 42
+    },
+    "prepared_features": 10000
+  },
+  "GSE42568": {
+    "downloaded_samples": 121,
+    "exclusions": {
+      "ER_missing": 3,
+      "non_tumor": 17
+    },
+    "included": 101,
+    "input_features": 54675,
+    "labels": {
+      "ER_negative": 34,
+      "ER_positive": 67
+    },
+    "prepared_features": 10000
+  }
+}

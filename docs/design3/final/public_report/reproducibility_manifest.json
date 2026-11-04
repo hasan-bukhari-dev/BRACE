@@ -1,0 +1,342 @@
+{
+  "analysis_parameters": {
+    "class_order": null,
+    "confidence_threshold_curve_is_post_hoc": true,
+    "fixed_threshold": null,
+    "frozen_baseline_configuration": null,
+    "source_fitted_pca": null
+  },
+  "artifact_sha256": {
+    "CSV_TEXT_ENCODING.json": {
+      "bytes": 320,
+      "sha256": "a2ebdb14f8984e4327946125dc762b86fefa9e1da7d379a142b623b45fb08e5a"
+    },
+    "PRIVACY.md": {
+      "bytes": 336,
+      "sha256": "9d933ec451271bf75524d1445905706302f9f9cfd4301fc5326dfd1820aa4489"
+    },
+    "PUBLIC_DATA_PREPARATION.md": {
+      "bytes": 10111,
+      "sha256": "ba305353e0410df91087e9547aaae3c60a8ee869fe502eb4681f723ac8efe2a0"
+    },
+    "REPRODUCE.md": {
+      "bytes": 1812,
+      "sha256": "e772dfe46366ccd5232afbb24da498517a964d0d1cd99a81b2cd507041880169"
+    },
+    "analysis_methods.json": {
+      "bytes": 16742,
+      "sha256": "4f77b042562ed09ac4d07eb27b9533be8725eeac775c05f9c4385bffa42e51c1"
+    },
+    "compatibility_summary.json": {
+      "bytes": 4064,
+      "sha256": "bbcf66507857da68cb1eb092466159677a44af515a5b8b2a3868c0829a40b5ac"
+    },
+    "consistency_audit.json": {
+      "bytes": 416,
+      "sha256": "b469ec016ff371dd4c916c319c23f4d74547a087d5de56b6da1804281d9b6d27"
+    },
+    "race/FILE_SHA256_MANIFEST.csv": {
+      "bytes": 485,
+      "sha256": "c2d429f2d93858798f9cf79fea4eb081eb622844225bb3e90c9e6c3302f1679c"
+    },
+    "race/race_methods.json": {
+      "bytes": 4284,
+      "sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2"
+    },
+    "race/race_result.json": {
+      "bytes": 4696803,
+      "sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2"
+    },
+    "race/replication_genes.csv": {
+      "bytes": 6669,
+      "sha256": "5b19e1da08829768bb4d887369c9c8237d5ef60e9e9085977cdb538ed4e2957a"
+    },
+    "race/selected_signature.json": {
+      "bytes": 3475739,
+      "sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02"
+    },
+    "race/source_gene_screen.csv": {
+      "bytes": 1827593,
+      "sha256": "afd119b4e49ce281194c36878fb4f08b06a848b42a9f4b72290393338e01a2c2"
+    },
+    "race_config.json": {
+      "bytes": 502,
+      "sha256": "531ed286d6a7ac2fb289342a239b91dceca436b67082913662d7a4167c9abea2"
+    },
+    "research_summary.html": {
+      "bytes": 19383,
+      "sha256": "38a0a4a3c13356600a10fd0387152517bf06d47ca0557687c0ea139a44206339"
+    },
+    "warning_exclusion_records.json": {
+      "bytes": 2114,
+      "sha256": "35afb9d3c4dccb749ec60fa1e8e3eeedbce4f3da55b4f2a633a1e0c087f64ac9"
+    }
+  },
+  "artifacts": {
+    "race_methods.json": {
+      "bytes": 4284,
+      "sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2"
+    },
+    "race_result.json": {
+      "bytes": 4696803,
+      "sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2"
+    },
+    "replication_genes.csv": {
+      "bytes": 6669,
+      "sha256": "5b19e1da08829768bb4d887369c9c8237d5ef60e9e9085977cdb538ed4e2957a"
+    },
+    "selected_signature.json": {
+      "bytes": 3475739,
+      "sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02"
+    },
+    "source_gene_screen.csv": {
+      "bytes": 1827593,
+      "sha256": "afd119b4e49ce281194c36878fb4f08b06a848b42a9f4b72290393338e01a2c2"
+    }
+  },
+  "data_origin": "public_computed",
+  "declared_study_metadata": {
+    "source_manifest": {
+      "accession": "GSE42568",
+      "cohort_id": "GSE42568_ER",
+      "feature_namespace": "entrez_gene",
+      "independence_declaration": "unknown",
+      "labels": "binary",
+      "measurement_type": "microarray_log2_normalized",
+      "organism": "Homo sapiens",
+      "platform": "GPL570",
+      "processing_description": "GEO deposited log2 GC-RMA signals; no additional normalization",
+      "role": "source"
+    },
+    "target_manifest": {
+      "accession": "GSE20711",
+      "cohort_id": "GSE20711_ER",
+      "feature_namespace": "entrez_gene",
+      "independence_declaration": "unknown",
+      "labels": "binary",
+      "measurement_type": "microarray_log2_normalized",
+      "organism": "Homo sapiens",
+      "platform": "GPL570",
+      "processing_description": "GEO deposited RMA Bioconductor default parameters and log2 transformation; no additional normalization",
+      "role": "target"
+    }
+  },
+  "embrace_version": "brace-embrace/0.7.1-design3",
+  "evaluation_role": "exploratory",
+  "evidence_label": "Saved public-cohort computation: GSE42568 source → GSE20711 target; exploratory ER association, not locked or clinical validation.",
+  "independence_declaration": "unknown",
+  "input_file_hashes_and_descriptions": {
+    "source": {
+      "expression": {
+        "bytes": 12069487,
+        "name": "source_expression.tsv",
+        "sha256": "12b583bde1db053b9df81c61c837ee8362afcc3cd18d6ed41135b5c009c7807c"
+      },
+      "manifest": {
+        "bytes": 610,
+        "name": "source_manifest.json",
+        "sha256": "86caf39e0ea64c4a217d9ed5c3401a0269e8b857877c0a408edb69b5a266e219"
+      },
+      "metadata": {
+        "bytes": 36338,
+        "name": "source_metadata.tsv",
+        "sha256": "3fab1cc3b806daf61fbe61c7a37513d8ddc49bc5a143550b176d2c6a3fa33e3a"
+      }
+    },
+    "target": {
+      "expression": {
+        "bytes": 10402456,
+        "name": "target_expression.tsv",
+        "sha256": "117ee0f84c2b711e55deba4592e25c07fa45d96e3a562df6fa0532d91b997e79"
+      },
+      "manifest": {
+        "bytes": 650,
+        "name": "target_manifest.json",
+        "sha256": "f8794853579d40297909d1d17e1c61c74a4740f78e772c2cc0858d778ac9efdf"
+      },
+      "metadata": {
+        "bytes": 34209,
+        "name": "target_metadata.tsv",
+        "sha256": "28b81795c4eaa1fb3155ba2bfb41ff66cb1d410a6d5af6decd9cd41f27d5f6e0"
+      }
+    }
+  },
+  "input_hashes": {
+    "source": {
+      "expression": {
+        "bytes": 12069487,
+        "name": "source_expression.tsv",
+        "sha256": "12b583bde1db053b9df81c61c837ee8362afcc3cd18d6ed41135b5c009c7807c"
+      },
+      "manifest": {
+        "bytes": 610,
+        "name": "source_manifest.json",
+        "sha256": "86caf39e0ea64c4a217d9ed5c3401a0269e8b857877c0a408edb69b5a266e219"
+      },
+      "metadata": {
+        "bytes": 36338,
+        "name": "source_metadata.tsv",
+        "sha256": "3fab1cc3b806daf61fbe61c7a37513d8ddc49bc5a143550b176d2c6a3fa33e3a"
+      }
+    },
+    "target": {
+      "expression": {
+        "bytes": 10402456,
+        "name": "target_expression.tsv",
+        "sha256": "117ee0f84c2b711e55deba4592e25c07fa45d96e3a562df6fa0532d91b997e79"
+      },
+      "manifest": {
+        "bytes": 650,
+        "name": "target_manifest.json",
+        "sha256": "f8794853579d40297909d1d17e1c61c74a4740f78e772c2cc0858d778ac9efdf"
+      },
+      "metadata": {
+        "bytes": 34209,
+        "name": "target_metadata.tsv",
+        "sha256": "28b81795c4eaa1fb3155ba2bfb41ff66cb1d410a6d5af6decd9cd41f27d5f6e0"
+      }
+    }
+  },
+  "limitations": [
+    "Acquisition and observation independence are not independently authenticated.",
+    "Descriptive associations do not establish cause or use in an untested population.",
+    "Non-reference confidence thresholds are post hoc. Row uncertainty does not resolve grouped dependence."
+  ],
+  "mode": "race",
+  "model_frozen_before_external_evaluation": false,
+  "provenance_authenticated": false,
+  "published_artifact_sha256": {
+    "CSV_TEXT_ENCODING.json": {
+      "bytes": 320,
+      "sha256": "a2ebdb14f8984e4327946125dc762b86fefa9e1da7d379a142b623b45fb08e5a"
+    },
+    "PRIVACY.md": {
+      "bytes": 336,
+      "sha256": "9d933ec451271bf75524d1445905706302f9f9cfd4301fc5326dfd1820aa4489"
+    },
+    "PUBLIC_DATA_PREPARATION.md": {
+      "bytes": 10111,
+      "sha256": "ba305353e0410df91087e9547aaae3c60a8ee869fe502eb4681f723ac8efe2a0"
+    },
+    "REPRODUCE.md": {
+      "bytes": 1812,
+      "sha256": "e772dfe46366ccd5232afbb24da498517a964d0d1cd99a81b2cd507041880169"
+    },
+    "analysis_methods.json": {
+      "bytes": 16742,
+      "sha256": "4f77b042562ed09ac4d07eb27b9533be8725eeac775c05f9c4385bffa42e51c1"
+    },
+    "compatibility_summary.json": {
+      "bytes": 4064,
+      "sha256": "bbcf66507857da68cb1eb092466159677a44af515a5b8b2a3868c0829a40b5ac"
+    },
+    "consistency_audit.json": {
+      "bytes": 416,
+      "sha256": "b469ec016ff371dd4c916c319c23f4d74547a087d5de56b6da1804281d9b6d27"
+    },
+    "race/FILE_SHA256_MANIFEST.csv": {
+      "bytes": 485,
+      "sha256": "c2d429f2d93858798f9cf79fea4eb081eb622844225bb3e90c9e6c3302f1679c"
+    },
+    "race/race_methods.json": {
+      "bytes": 4284,
+      "sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2"
+    },
+    "race/race_result.json": {
+      "bytes": 4696803,
+      "sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2"
+    },
+    "race/replication_genes.csv": {
+      "bytes": 6669,
+      "sha256": "5b19e1da08829768bb4d887369c9c8237d5ef60e9e9085977cdb538ed4e2957a"
+    },
+    "race/selected_signature.json": {
+      "bytes": 3475739,
+      "sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02"
+    },
+    "race/source_gene_screen.csv": {
+      "bytes": 1827593,
+      "sha256": "afd119b4e49ce281194c36878fb4f08b06a848b42a9f4b72290393338e01a2c2"
+    },
+    "race_config.json": {
+      "bytes": 502,
+      "sha256": "531ed286d6a7ac2fb289342a239b91dceca436b67082913662d7a4167c9abea2"
+    },
+    "research_summary.html": {
+      "bytes": 19383,
+      "sha256": "38a0a4a3c13356600a10fd0387152517bf06d47ca0557687c0ea139a44206339"
+    },
+    "warning_exclusion_records.json": {
+      "bytes": 2114,
+      "sha256": "35afb9d3c4dccb749ec60fa1e8e3eeedbce4f3da55b4f2a633a1e0c087f64ac9"
+    }
+  },
+  "release": "1.0.0",
+  "run_configuration_sha256": {
+    "bytes": 12248,
+    "sha256": "56b2f35c8a8dfbca7a7a68957c598b8cc616195c120830295bbee1f001c3ace9"
+  },
+  "run_id": "public_er_pass2",
+  "scientific_artifact_sha256": {
+    "race/race_methods.json": {
+      "bytes": 4284,
+      "sha256": "d119364ffb18754c2bba753cfdbf666cd0d2cfeb4769fc11b16931d7cfe3a8d2"
+    },
+    "race/race_result.json": {
+      "bytes": 4696803,
+      "sha256": "ee012a56de09364500774020fc1400f07a0dcde1bca0d2788d98e45109958ba2"
+    },
+    "race/replication_genes.csv": {
+      "bytes": 6669,
+      "sha256": "5b19e1da08829768bb4d887369c9c8237d5ef60e9e9085977cdb538ed4e2957a"
+    },
+    "race/selected_signature.json": {
+      "bytes": 3475739,
+      "sha256": "5874d63f496aad9aebbdef973bc8de880d02cefc948815840650aae0897cae02"
+    },
+    "race/source_gene_screen.csv": {
+      "bytes": 1827593,
+      "sha256": "afd119b4e49ce281194c36878fb4f08b06a848b42a9f4b72290393338e01a2c2"
+    }
+  },
+  "scientific_method_versions": {
+    "race": "brace-race/0.1.0",
+    "shift": null,
+    "validation": null
+  },
+  "scientific_role": "exploratory",
+  "software_versions": {
+    "brace": "1.0.0",
+    "fastapi": "0.162.0",
+    "numpy": "2.4.6",
+    "pandas": "not-installed",
+    "python": "3.11.9",
+    "python-multipart": "0.0.33",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "uvicorn": "0.54.0"
+  },
+  "validated_evidence_claim": false,
+  "warnings": [
+    {
+      "code": "PROCESSING_DIFFERENCE",
+      "message": "The cohorts declare different processing methods; shared measurement types do not guarantee directly comparable scales",
+      "severity": "warning"
+    },
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "message": "Independent cohort acquisition is not documented for both cohorts",
+      "severity": "warning"
+    },
+    {
+      "code": "PATIENT_IDENTIFIERS_ABSENT",
+      "message": "Patient IDs are absent in one or both cohorts; cannot rule out overlapping subjects using identifiers alone",
+      "severity": "warning"
+    },
+    {
+      "code": "EXPLORATORY_ONLY",
+      "message": "Acquisition, patient independence and phenotype equivalence are declarations, not authenticated facts. No locked or clinical validation claim.",
+      "severity": "warning"
+    }
+  ]
+}

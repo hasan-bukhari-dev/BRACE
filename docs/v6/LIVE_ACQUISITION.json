@@ -1,0 +1,16 @@
+{
+  "status": 200,
+  "receipt": {
+    "token": "43b93f72f1d81838dcd2a5b6ccc3bc1875e46230dad0d7346236773a99e32b76",
+    "accession": "GSE42568",
+    "filename": "GSE42568_series_matrix.txt.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42568/matrix/GSE42568_series_matrix.txt.gz",
+    "bytes": 22565943,
+    "sha256": "43b93f72f1d81838dcd2a5b6ccc3bc1875e46230dad0d7346236773a99e32b76",
+    "retrieved_utc": "2026-11-04T05:45:46.034321+00:00",
+    "stage": "original_file_acquired",
+    "eligible": false,
+    "note": "Original compressed public matrix only; not normalized, label-curated or prepared for BRACE. Decompressed/prepared inputs must independently satisfy intake limits.",
+    "download_url": "/api/discovery/acquired/43b93f72f1d81838dcd2a5b6ccc3bc1875e46230dad0d7346236773a99e32b76"
+  }
+}

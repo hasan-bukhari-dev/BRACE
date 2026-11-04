@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>BRACE Stage 05</title><style>body{font:16px/1.5 system-ui;background:#0e1726;color:#ecf3fa;max-width:920px;margin:auto;padding:38px}pre{background:#17283f;padding:20px;white-space:pre-wrap;overflow:auto;border-radius:9px}h1{margin:0}p{color:#aabbd0}</style><h1>BRACE · Model integration</h1><p>Mode: evaluate_predictions · Status: completed_with_warnings · Research only</p><p>Source-only training and model replay are separate from target-label scoring. This is not a clinical diagnostic result.</p><h2>Computed evidence</h2><pre>{
+  &quot;metrics&quot;: {
+    &quot;n&quot;: 14,
+    &quot;n_correct&quot;: 11,
+    &quot;accuracy&quot;: 0.7857142857142857,
+    &quot;class_order&quot;: [
+      &quot;normal&quot;,
+      &quot;tumor&quot;
+    ],
+    &quot;confusion_matrix&quot;: [
+      [
+        4,
+        3
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    &quot;per_class&quot;: [
+      {
+        &quot;class&quot;: &quot;normal&quot;,
+        &quot;support&quot;: 7,
+        &quot;predicted_count&quot;: 4,
+        &quot;tp&quot;: 4,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 0.5714285714285714,
+        &quot;f1&quot;: 0.7272727272727273,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      },
+      {
+        &quot;class&quot;: &quot;tumor&quot;,
+        &quot;support&quot;: 7,
+        &quot;predicted_count&quot;: 10,
+        &quot;tp&quot;: 7,
+        &quot;precision&quot;: 0.7,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 0.8235294117647058,
+        &quot;undefined_reasons&quot;: {
+          &quot;precision&quot;: null,
+          &quot;recall&quot;: null,
+          &quot;f1&quot;: null
+        }
+      }
+    ],
+    &quot;observed_true_classes&quot;: [
+      &quot;normal&quot;,
+      &quot;tumor&quot;
+    ],
+    &quot;absent_true_classes&quot;: [],
+    &quot;supported_class_macro_f1&quot;: 0.7754010695187166,
+    &quot;balanced_accuracy_observed&quot;: 0.7857142857142857,
+    &quot;macro_denominator&quot;: 2,
+    &quot;comparison_scope&quot;: &quot;all_declared_classes&quot;,
+    &quot;selective&quot;: {
+      &quot;threshold&quot;: 0.95,
+      &quot;retained&quot;: 1,
+      &quot;coverage&quot;: 0.07142857142857142,
+      &quot;retained_errors&quot;: 0,
+      &quot;selective_accuracy&quot;: 1.0,
+      &quot;undefined_reason&quot;: null,
+      &quot;interpretation&quot;: &quot;Threshold is predeclared; model confidence is not clinically calibrated certainty.&quot;
+    }
+  },
+  &quot;n_samples&quot;: 14
+}</pre><h2>Warnings</h2><pre>[
+  {
+    &quot;code&quot;: &quot;TARGET_INDEPENDENCE_UNKNOWN&quot;,
+    &quot;severity&quot;: &quot;warning&quot;,
+    &quot;field&quot;: &quot;manifest.independence_declaration&quot;,
+    &quot;message&quot;: &quot;Independent sample acquisition is not documented by this manifest&quot;,
+    &quot;next_action&quot;: &quot;Document provenance or retain exploratory interpretation&quot;
+  }
+]</pre><h2>Integrity &amp; freeze</h2><pre>{
+  &quot;configuration_sha256&quot;: &quot;331505791f53866bce161ad3fd1f43cf72b00340de2c2b048b9ba532b391717c&quot;,
+  &quot;primary_confidence_threshold&quot;: 0.95,
+  &quot;label_use&quot;: &quot;evaluation_only&quot;,
+  &quot;evaluation_role&quot;: &quot;external_exploratory&quot;,
+  &quot;origin_attestation&quot;: &quot;User-declared metadata, not independently verified&quot;
+}</pre></html>

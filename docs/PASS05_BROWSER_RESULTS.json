@@ -1,0 +1,57 @@
+{
+  "browser": "156.0.8078.74",
+  "checks": [
+    "Historical metrics show 680 evaluated, 668 correct, 12 errors, support-based balanced accuracy/F1 and no fabricated source CV",
+    "Every displayed confusion cell and per-class support/precision/recall/F1 reconciles with saved evidence; absent prostate scores remain undefined",
+    "Reference 0.95 retains 584, withholds 96, keeps 583 correct and 1 error; plotted selected point matches saved coverage and accuracy",
+    "Keyboard threshold edges 0 and 1, empty sets, selective risk, exploratory role and exact-reference reset work without retraining",
+    "Actual 99.87%-score breast\u2192ovary error opens by keyboard, restores focus, and traces its archived row without unrelated expression evidence",
+    "TRACE artifact links download the selected run\u2019s actual full-precision evidence",
+    "Selected sample/run and exploratory threshold persist through TRACE, return and reload",
+    "Failed sample retrieval clears previous scores and retry restores checked evidence",
+    "A delayed older sample response cannot overwrite the currently selected prediction",
+    "ACE reflows at 1280\u00d7720 and 390\u00d7844 without page overflow and respects reduced motion",
+    "Actual imported-score run retains equality at exact 0.955; new-run context resets and does not inherit historical/public cohort identities",
+    "Missing probabilities disable confidence controls; undefined classes and hostile literal sample text render honestly",
+    "Actual synthetic Mode B shows stored source OOF and target metrics separately and traces its frozen source model with same-run sample shift data",
+    "Mode C retains source-fitted shift diagnostics and TRACE with no labeled model metrics or outcome-conditioned results",
+    "Real public RACE/FACE trace follows inputs\u2192compatibility\u2192source screen\u2192freeze\u2192target tests\u2192selected gene and returns to its measured expression"
+  ],
+  "uncaught_errors": [],
+  "external_application_requests": [],
+  "sizes": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "screenshots": [
+    "ace_historical_1280.png",
+    "ace_historical_1440.png",
+    "ace_historical_390.png",
+    "ace_source_target_synthetic.png",
+    "confidence_empty.png",
+    "confidence_exploratory.png",
+    "confidence_reference.png",
+    "historical_high_confidence_error.png",
+    "no_probabilities_fixture.png",
+    "trace_historical_sample.png",
+    "trace_mode_c.png",
+    "trace_race_gene.png",
+    "trace_source_model_synthetic.png"
+  ],
+  "threshold_interaction_observations_ms": [
+    19.678999960888177,
+    17.61340000666678
+  ],
+  "performance_note": "Developer Chrome automation round-trip observations only, not controlled hardware benchmarks or unfamiliar-user timings.",
+  "fixtures": "Archived CPTAC is real preserved evidence. Other Mode A scores and Mode B/C expression data are explicit software fixtures. Failure/delay injection is UI-only. Public RACE measurements remain real."
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "SYNTHETIC_TARGET",
+  "model_id": "SYNTHETIC_SOURCE_LOGISTIC_05",
+  "classes": ["normal", "tumor"],
+  "probability_columns": {"normal": "prob_normal", "tumor": "prob_tumor"},
+  "prediction_origin": "external_model",
+  "evaluation_role": "external_exploratory",
+  "independence_declaration": "unknown",
+  "primary_confidence_threshold": 0.95,
+  "label_source_description": "Fictional labels generated for software contract tests. NO patient data."
+}

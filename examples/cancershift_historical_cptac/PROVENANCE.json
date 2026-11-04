@@ -1,0 +1,8 @@
+{
+  "source_archive_filename": "CANCERSHIFT.zip",
+  "original_scored_tsv_entry": "CancerShift_FINAL_v1.0.0/evidence/v08/scoring/scored_predictions.tsv",
+  "original_scored_tsv_sha256": "915d3fef7eafde02cca094463baba2d0400aa5d0837e8d358af6a55624cccdd7",
+  "converted_predictions_sha256": "3c81eba80625784d1c0642b234ba0558c83f7928daeaae39c0ba964680a98a94",
+  "rows": 680,
+  "note": "Reference conversion from previously completed research; not BRACE-trained inference. Preserve source release lock and class limitations."
+}

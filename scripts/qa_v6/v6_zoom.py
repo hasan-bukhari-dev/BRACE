@@ -1,0 +1,14 @@
+"""Native Chrome 200% zoom, isolated QA profile; CDP captures the true viewport."""
+from pathlib import Path
+import math,json,base64
+from playwright.sync_api import sync_playwright,expect
+R=Path(__file__).resolve().parents[2];O=R/'docs/v6/zoom';O.mkdir(exist_ok=True);profile=R/'work/v6_zoom/Default';profile.mkdir(parents=True,exist_ok=True);(profile/'Preferences').write_text(json.dumps({'partition':{'default_zoom_level':{'x':math.log(2)/math.log(1.2)}}}))
+d={'checks':[],'screens':[],'errors':[],'method':'Native Chrome default zoom 200%; isolated profile; Page.captureScreenshot fromSurface true captureBeyondViewport false. Not CSS/device/pinch scaling.'}
+with sync_playwright() as p:
+ c=p.chromium.launch_persistent_context(str(profile.parent),channel='chrome',headless=True,no_viewport=True,reduced_motion='reduce',args=['--window-size=1440,1000']);pg=c.pages[0];pg.on('pageerror',lambda e:d['errors'].append(str(e)));expect.set_options(timeout=40000)
+ def shot(name):
+  for theme in ['light','dark']:
+   pg.evaluate("t=>{const e=document.querySelector('#theme');e.value=t;e.dispatchEvent(new Event('change'))}",theme);pg.mouse.move(1,1);pg.wait_for_timeout(180);v=pg.evaluate('({width:innerWidth,outer:outerWidth,scroll:document.documentElement.scrollWidth,dpr:devicePixelRatio,pinch:visualViewport.scale})');assert v['dpr']==2 and v['pinch']==1 and v['width']<v['outer']*.51 and v['scroll']<=v['width']+1,(name,v);d['checks'].append({'id':name+'_'+theme+'_200_PERCENT_REFLOW','status':'PASS','sizes':v});cdp=c.new_cdp_session(pg);(O/(name+'_'+theme+'.png')).write_bytes(base64.b64decode(cdp.send('Page.captureScreenshot',{'format':'png','fromSurface':True,'captureBeyondViewport':False})['data']));cdp.detach();d['screens'].append(name+'_'+theme+'.png')
+ try:
+  pg.goto('http://127.0.0.1:8787');pg.wait_for_function("document.documentElement.dataset.ready==='true'");shot('home');pg.locator('#explore-public').click();expect(pg.locator('#paired-effect-chart .scatterlayer')).to_be_visible();shot('race');pg.locator('#preview-measurements').click();expect(pg.locator('#expression-source .scatterlayer')).to_be_visible();shot('face');pg.locator('#trace-gene').click();expect(pg.locator('[data-trace-step]')).to_have_count(6);shot('trace');pg.locator('[data-evidence-tab="report"]').click();expect(pg.locator('#report-frame')).to_be_visible();shot('evidence');pg.locator('#wordmark [data-view="study"]').click();pg.locator('#other-examples').evaluate('e=>e.open=true');pg.locator('#historical-demo').click();expect(pg.locator('#confidence-chart .scatterlayer')).to_be_visible();shot('ace');pg.locator('#overview-error').click();shot('record');pg.keyboard.press('Escape');pg.locator('#wordmark [data-view="study"]').click();pg.locator('#new-data').click();pg.locator('[data-start-task="race"]').click();shot('setup');assert not d['errors'];d['status']='PASS'
+ finally:(O/'receipt.json').write_text(json.dumps(d,indent=2));c.close()

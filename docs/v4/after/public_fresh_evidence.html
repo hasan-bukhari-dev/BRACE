@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><title>BRACE · EMBRACE scientific evidence</title><style>body{font:15px/1.55 system-ui,sans-serif;color:#142b38;background:#fff;margin:0}main{max-width:1100px;margin:auto;padding:28px}h1{font-size:30px}.lead{font-size:20px;line-height:1.5;max-width:980px}h2{margin-top:32px}h3{margin-top:24px}.eyebrow{font-size:12px;color:#315f62}.warning{border-left:4px solid #916400;padding:12px;background:#fff7df}.scroll{max-width:100%;overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px;text-align:left;border-bottom:1px solid #b8c6ca}th{background:#edf2f3}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f4f5;padding:16px;font-size:12px}code{overflow-wrap:anywhere}@media print{main{padding:0}h2{break-after:avoid}.scroll{overflow:visible}table{font-size:9px}}</style></head><body><main><p class="eyebrow">BRACE · Evidence package · user_computed · exploratory</p><h1>Gene-expression associations: source selection and target tests</h1><p class="lead">14 of 20 source-selected associations had target statistical support in the same direction; 20 were testable. Support requires target BH q ≤ 0.05 across the full frozen family.</p><p>Computed from supplied evidence; acquisition and evaluation-role declarations are not independently authenticated.</p><div class="scroll"><table><thead><tr><th>Identity</th><th>Recorded value</th></tr></thead><tbody><tr><td>Run ID</td><td>54dbf6cf0fd74a0dada61ede6a1e454e</td></tr><tr><td>Analysis</td><td>race</td></tr><tr><td>Evidence origin</td><td>user_computed</td></tr><tr><td>Evaluation role</td><td>exploratory</td></tr><tr><td>Independent provenance authenticated</td><td>No</td></tr></tbody></table></div><p>Research use only. No clinical certification or causal conclusion is established. Raw uploaded expression/metadata files are excluded; input hashes identify the originals.</p><h2>Study inputs and task eligibility</h2><p>Recorded declarations, counts and task-specific restrictions; declarations are not acquisition audits.</p><div class="scroll"><table><thead><tr><th>Recorded field</th><th>Source</th><th>Target</th></tr></thead><tbody><tr><td>Cohort identity</td><td>GSE42568_ER</td><td>GSE20711_ER</td></tr><tr><td>Accession</td><td>GSE42568</td><td>GSE20711</td></tr><tr><td>Included samples</td><td>101</td><td>87</td></tr><tr><td>Features</td><td>10000</td><td>10000</td></tr><tr><td>Observed class support</td><td>{&#x27;ER_negative&#x27;: 34, &#x27;ER_positive&#x27;: 67}</td><td>{&#x27;ER_negative&#x27;: 45, &#x27;ER_positive&#x27;: 42}</td></tr><tr><td>Platform</td><td>GPL570</td><td>GPL570</td></tr><tr><td>Measurement units/type</td><td>microarray_log2_normalized</td><td>microarray_log2_normalized</td></tr><tr><td>Deposited processing</td><td>GEO deposited log2 GC-RMA signals; no additional normalization</td><td>GEO deposited RMA Bioconductor default parameters and log2 transformation; no additional normalization</td></tr><tr><td>Independence declaration</td><td>unknown</td><td>unknown</td></tr></tbody></table></div><details><summary>Complete task checks and input declarations</summary><pre>{
+  &quot;eligible&quot;: true,
+  &quot;evaluation_role&quot;: &quot;exploratory&quot;,
+  &quot;counts&quot;: {
+    &quot;source&quot;: {
+      &quot;conditions&quot;: {
+        &quot;ER_negative&quot;: 34,
+        &quot;ER_positive&quot;: 67
+      },
+      &quot;features&quot;: 10000,
+      &quot;patient_ids_available&quot;: 0,
+      &quot;samples&quot;: 101
+    },
+    &quot;target&quot;: {
+      &quot;conditions&quot;: {
+        &quot;ER_negative&quot;: 45,
+        &quot;ER_positive&quot;: 42
+      },
+      &quot;features&quot;: 10000,
+      &quot;patient_ids_available&quot;: 87,
+      &quot;samples&quot;: 87
+    }
+  },
+  &quot;feature_coverage&quot;: {
+    &quot;shared&quot;: 10000,
+    &quot;source_fraction&quot;: 1.0,
+    &quot;source_total&quot;: 10000,
+    &quot;target_fraction&quot;: 1.0,
+    &quot;target_total&quot;: 10000
+  },
+  &quot;warnings&quot;: [
+    {
+      &quot;code&quot;: &quot;PROCESSING_DIFFERENCE&quot;,
+      &quot;field&quot;: &quot;manifest.processing_description&quot;,
+      &quot;message&quot;: &quot;The cohorts declare different processing methods; shared measurement types do not guarantee directly comparable scales&quot;,
+      &quot;next_action&quot;: &quot;Inspect processing provenance and interpret shifts cautiously; no correction applied&quot;,
+      &quot;severity&quot;: &quot;warning&quot;
+    },
+    {
+      &quot;code&quot;: &quot;TARGET_INDEPENDENCE_UNKNOWN&quot;,
+      &quot;field&quot;: &quot;manifest.independence_declaration&quot;,
+      &quot;message&quot;: &quot;Independent cohort acquisition is not documented for both cohorts&quot;,
+      &quot;next_action&quot;: &quot;Document non-overlapping study/patient provenance or retain exploratory reporting&quot;,
+      &quot;severity&quot;: &quot;warning&quot;
+    },
+    {
+      &quot;code&quot;: &quot;PATIENT_IDENTIFIERS_ABSENT&quot;,
+      &quot;field&quot;: &quot;metadata.patient_id&quot;,
+      &quot;message&quot;: &quot;Patient IDs are absent in one or both cohorts; cannot rule out overlapping subjects using identifiers alone&quot;,
+      &quot;next_action&quot;: &quot;Provide patient-level provenance or maintain unverified independence statement&quot;,
+      &quot;severity&quot;: &quot;warning&quot;
+    },
+    {
+      &quot;code&quot;: &quot;EXPLORATORY_ONLY&quot;,
+      &quot;field&quot;: &quot;race&quot;,
+      &quot;message&quot;: &quot;Acquisition, patient independence and phenotype equivalence are declarations, not authenticated facts. No locked or clinical validation claim.&quot;,
+      &quot;next_action&quot;: &quot;Review study design, labels and provenance before rerunning.&quot;,
+      &quot;severity&quot;: &quot;warning&quot;
+    }
+  ],
+  &quot;declarations&quot;: {
+    &quot;source&quot;: {
+      &quot;accession&quot;: &quot;GSE42568&quot;,
+      &quot;cohort_id&quot;: &quot;GSE42568_ER&quot;,
+      &quot;feature_namespace&quot;: &quot;entrez_gene&quot;,
+      &quot;independence_declaration&quot;: &quot;unknown&quot;,
+      &quot;labels&quot;: &quot;binary&quot;,
+      &quot;measurement_type&quot;: &quot;microarray_log2_normalized&quot;,
+      &quot;organism&quot;: &quot;Homo sapiens&quot;,
+      &quot;platform&quot;: &quot;GPL570&quot;,
+      &quot;processing_description&quot;: &quot;GEO deposited log2 GC-RMA signals; no additional normalization&quot;,
+      &quot;role&quot;: &quot;source&quot;,
+      &quot;sample_origin_notes&quot;: &quot;Tumors only; ER clinical annotations; exploratory independent-study comparison. See README for independence and assay limitations.&quot;,
+      &quot;schema_version&quot;: &quot;1.0.0&quot;,
+      &quot;study_id&quot;: &quot;GSE42568&quot;
+    },
+    &quot;target&quot;: {
+      &quot;accession&quot;: &quot;GSE20711&quot;,
+      &quot;cohort_id&quot;: &quot;GSE20711_ER&quot;,
+      &quot;feature_namespace&quot;: &quot;entrez_gene&quot;,
+      &quot;independence_declaration&quot;: &quot;unknown&quot;,
+      &quot;labels&quot;: &quot;binary&quot;,
+      &quot;measurement_type&quot;: &quot;microarray_log2_normalized&quot;,
+      &quot;organism&quot;: &quot;Homo sapiens&quot;,
+      &quot;platform&quot;: &quot;GPL570&quot;,
+      &quot;processing_description&quot;: &quot;GEO deposited RMA Bioconductor default parameters and log2 transformation; no additional normalization&quot;,
+      &quot;role&quot;: &quot;target&quot;,
+      &quot;sample_origin_notes&quot;: &quot;Tumors only; ER clinical annotations; exploratory independent-study comparison. See README for independence and assay limitations.&quot;,
+      &quot;schema_version&quot;: &quot;1.0.0&quot;,
+      &quot;study_id&quot;: &quot;GSE20711&quot;
+    }
+  },
+  &quot;preparation&quot;: null
+}</pre></details><h2>Source screen and frozen target family</h2><div class="scroll"><table><thead><tr><th>Quantity</th><th>Count</th></tr></thead><tbody><tr><td>Source features screened</td><td>10000</td></tr><tr><td>Source BH q ≤ 0.05</td><td>1339</td></tr><tr><td>Frozen selected genes</td><td>20</td></tr><tr><td>Testable in target</td><td>20</td></tr><tr><td>Matching + target BH support</td><td>14</td></tr><tr><td>Matching without sufficient support</td><td>5</td></tr><tr><td>Opposite estimates</td><td>1</td></tr><tr><td>Untestable</td><td>0</td></tr><tr><td>Direction denominator</td><td>20</td></tr></tbody></table></div><p>Contrast: {&#x27;ER_negative&#x27;: &#x27;Clinically ER-negative primary breast tumor&#x27;, &#x27;ER_positive&#x27;: &#x27;Clinically ER-positive primary breast tumor&#x27;}. Signed effect is positive-group mean minus negative-group mean in each cohort’s deposited normalized log-intensity units. Absolute source/target scales are not assumed comparable.</p><p>Source BH correction covers the entire screened family; target BH correction covers every frozen hypothesis, including missing tests as p=1 for correction and displayed q=null. Matching without support is inconclusive; opposite signs alone do not establish effect reversal.</p><p>Frozen hypothesis SHA-256: <code>c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24</code>. Source-only selection settings: {&#x27;max_genes&#x27;: 20, &#x27;rank&#x27;: &#x27;descending absolute Hedges g, then feature ID&#x27;, &#x27;source_bh_q_max&#x27;: 0.05}.</p><h2>Every selected association, including threshold-not-met and unavailable outcomes</h2><div class="scroll"><table><thead><tr><th>Rank</th><th>Feature ID</th><th>Source effect</th><th>Source p</th><th>Source q</th><th>Target effect</th><th>Target p</th><th>Target q</th><th>Direction</th><th>Evidence / reason</th></tr></thead><tbody><tr><td>1</td><td>135112</td><td>-1.5656843680992107</td><td>6.606687896479625e-11</td><td>6.606687896479625e-07</td><td>-0.5915192438634893</td><td>0.0019810642785575154</td><td>0.005660183653021472</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>2</td><td>7091</td><td>-1.2123939866935913</td><td>1.643178310589727e-09</td><td>8.215891552948635e-06</td><td>-0.3956866160746042</td><td>0.006020286098264572</td><td>0.010945974724117404</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>3</td><td>29968</td><td>-2.504760134847674</td><td>1.1705102832788857e-07</td><td>0.00015072860036690158</td><td>-2.434493945692064</td><td>1.2000443168994843e-07</td><td>2.4000886337989688e-06</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>4</td><td>56935</td><td>-1.7320985613582085</td><td>3.538138890966689e-09</td><td>8.845347227416722e-06</td><td>-0.7800428881476211</td><td>3.451915659361692e-07</td><td>3.0792434547195223e-06</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>5</td><td>10477</td><td>-1.7049495736690101</td><td>2.53020227901173e-09</td><td>8.434007596705767e-06</td><td>-0.7609911575269841</td><td>1.820175430299317e-05</td><td>9.100877151496584e-05</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>6</td><td>140885</td><td>-1.2849330898485531</td><td>1.7148304296876163e-06</td><td>0.0004512711657072674</td><td>-0.3294232904158756</td><td>0.007382750937810231</td><td>0.012304584896350385</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>7</td><td>5336</td><td>-1.4769432295640907</td><td>4.565032493197977e-07</td><td>0.00025361291628877647</td><td>-0.6385266318285723</td><td>0.0022797182784417016</td><td>0.005699295696104254</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>8</td><td>5621</td><td>-1.408887546945122</td><td>6.3357396437549594e-09</td><td>1.267147928750992e-05</td><td>-0.3967059930015857</td><td>0.009787535935749887</td><td>0.01398219419392841</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>9</td><td>84441</td><td>-1.53074354409131</td><td>2.3373098975134298e-07</td><td>0.0001797930690394946</td><td>-0.4413349670650808</td><td>0.009494487650521029</td><td>0.01398219419392841</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>10</td><td>55816</td><td>-1.550158714732221</td><td>3.1467611808754485e-05</td><td>0.0024584071725589443</td><td>-0.16886908899682318</td><td>0.3709647300401912</td><td>0.4121830333779902</td><td>True</td><td>matching_direction_without_support</td></tr><tr><td>11</td><td>5997</td><td>-1.5419161381782267</td><td>3.4866735635892614e-07</td><td>0.0002198758900780919</td><td>-0.32713889236983995</td><td>0.13419202270619823</td><td>0.17892269694159765</td><td>True</td><td>matching_direction_without_support</td></tr><tr><td>12</td><td>4067</td><td>-1.618448105134327</td><td>1.5653518752565659e-07</td><td>0.00015276751397267892</td><td>-0.47909278845079495</td><td>0.0037119186290388035</td><td>0.008248708064530673</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>13</td><td>10402</td><td>-1.4398429128854273</td><td>6.901011597370724e-06</td><td>0.0010101367783978338</td><td>-0.2024709523206356</td><td>0.20751886965199348</td><td>0.2441398466494041</td><td>True</td><td>matching_direction_without_support</td></tr><tr><td>14</td><td>54947</td><td>-1.105397366864354</td><td>3.4873315326805203e-06</td><td>0.0007265274026417751</td><td>0.25492376222222024</td><td>0.1434853893477173</td><td>0.1793567366846466</td><td>False</td><td>opposite_direction</td></tr><tr><td>15</td><td>157506</td><td>-1.7566425173968394</td><td>1.3676557771532736e-05</td><td>0.001519617530170304</td><td>-1.382056932206349</td><td>4.618865182079283e-07</td><td>3.0792434547195223e-06</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>16</td><td>51191</td><td>-1.5464366724416152</td><td>2.184653844489341e-07</td><td>0.0001797930690394946</td><td>-0.1646639437730153</td><td>0.4985016159246367</td><td>0.5247385430785649</td><td>True</td><td>matching_direction_without_support</td></tr><tr><td>17</td><td>834</td><td>-1.6125131128612828</td><td>7.282016006219228e-07</td><td>0.00029699094432303086</td><td>-0.08977279632539492</td><td>0.6383149397296727</td><td>0.6383149397296727</td><td>True</td><td>matching_direction_without_support</td></tr><tr><td>18</td><td>29015</td><td>-1.1797020130175602</td><td>4.6432533806874985e-06</td><td>0.0008291523894084818</td><td>-0.5529787691698402</td><td>0.0012447791607018653</td><td>0.004149263869006218</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>19</td><td>5918</td><td>-2.613861278781826</td><td>1.5796668302762965e-06</td><td>0.00044031458499384636</td><td>-1.067867543080954</td><td>0.005731681804330497</td><td>0.010945974724117404</td><td>True</td><td>supported_matching_direction</td></tr><tr><td>20</td><td>8424</td><td>-1.9275273564784894</td><td>4.16426330018243e-05</td><td>0.0028522351371112536</td><td>-1.6597479584365074</td><td>5.5159670511596764e-05</td><td>0.00022063868204638708</td><td>True</td><td>supported_matching_direction</td></tr></tbody></table></div><p>None means unavailable, never an assumed zero. Exact source/target group sizes, Hedges’ g, pointwise intervals and reasons remain in race/*.json and CSV. Pointwise intervals are not simultaneous or adjusted for source selection. No model transfer is established.</p><h2>Warnings and restrictions</h2><ul><li><strong>PROCESSING_DIFFERENCE</strong> · The cohorts declare different processing methods; shared measurement types do not guarantee directly comparable scales</li><li><strong>TARGET_INDEPENDENCE_UNKNOWN</strong> · Independent cohort acquisition is not documented for both cohorts</li><li><strong>PATIENT_IDENTIFIERS_ABSENT</strong> · Patient IDs are absent in one or both cohorts; cannot rule out overlapping subjects using identifiers alone</li><li><strong>EXPLORATORY_ONLY</strong> · Acquisition, patient independence and phenotype equivalence are declarations, not authenticated facts. No locked or clinical validation claim.</li></ul><h2>Methods, provenance, exclusions and reproduction</h2><p>See analysis_methods.json, compatibility_summary.json and warning_exclusion_records.json for full recorded context. Exclusions before uploaded files are unknown unless a verified preparation record is supplied. No imputation or silent exclusion is added by this export.</p><p>Read REPRODUCE.md and PRIVACY.md. Input file hashes identify original measurements; raw data must be acquired separately. CSV_TEXT_ENCODING.json records spreadsheet-safe text encoding without changing JSON identifiers. FILE_SHA256_MANIFEST.csv and reproducibility_manifest.json cover the published evidence.</p><h2>Consistency audit</h2><pre>{
+  &quot;status&quot;: &quot;PASS&quot;,
+  &quot;checks&quot;: {
+    &quot;race&quot;: {
+      &quot;source_screened&quot;: 10000,
+      &quot;frozen&quot;: 20,
+      &quot;target_testable&quot;: 20,
+      &quot;supported&quot;: 14,
+      &quot;untestable&quot;: 0,
+      &quot;hypothesis_hash&quot;: &quot;c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24&quot;
+    }
+  },
+  &quot;note&quot;: &quot;Independent count/formula/CSV/JSON/freeze audit; no model refit, threshold tuning or replacement of scientific estimates.&quot;
+}</pre><h2>Inspect the enclosed evidence</h2><ul><li><a href="CSV_TEXT_ENCODING.json">CSV_TEXT_ENCODING.json</a></li><li><a href="FILE_SHA256_MANIFEST.csv">FILE_SHA256_MANIFEST.csv</a></li><li><a href="PRIVACY.md">PRIVACY.md</a></li><li><a href="REPRODUCE.md">REPRODUCE.md</a></li><li><a href="analysis_methods.json">analysis_methods.json</a></li><li><a href="compatibility_summary.json">compatibility_summary.json</a></li><li><a href="consistency_audit.json">consistency_audit.json</a></li><li><a href="race/FILE_SHA256_MANIFEST.csv">race/FILE_SHA256_MANIFEST.csv</a></li><li><a href="race/race_methods.json">race/race_methods.json</a></li><li><a href="race/race_result.json">race/race_result.json</a></li><li><a href="race/replication_genes.csv">race/replication_genes.csv</a></li><li><a href="race/selected_signature.json">race/selected_signature.json</a></li><li><a href="race/source_gene_screen.csv">race/source_gene_screen.csv</a></li><li><a href="race_config.json">race_config.json</a></li><li><a href="reproducibility_manifest.json">reproducibility_manifest.json</a></li><li><a href="warning_exclusion_records.json">warning_exclusion_records.json</a></li></ul></main></body></html>

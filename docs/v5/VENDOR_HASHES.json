@@ -1,0 +1,26 @@
+{
+  "Manrope-Variable.ttf": {
+    "bytes": 164700,
+    "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+  },
+  "MANROPE_OFL.txt": {
+    "bytes": 4387,
+    "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+  },
+  "papaparse-5.5.3.min.js": {
+    "bytes": 19419,
+    "sha256": "3553fb8bdf5b8004ce5531e6827e81c8b34e7b3992677967754544064e97b016"
+  },
+  "PAPAPARSE_LICENSE.txt": {
+    "bytes": 1079,
+    "sha256": "99aa68e4b42758b09828a46515f70369e5463458ab7a990189f641af2b8d9b4e"
+  },
+  "plotly-cartesian-3.3.0.min.js": {
+    "bytes": 1408974,
+    "sha256": "aef95e195e709a9c898b755da422e9cb92c42987d23ec4494aee8a24f00880ed"
+  },
+  "PLOTLY_LICENSE.txt": {
+    "bytes": 1086,
+    "sha256": "8c45d9eaf50c2f72dd9c7ab9ef440788ba58a3538484b5c51c1f17d5128752e7"
+  }
+}

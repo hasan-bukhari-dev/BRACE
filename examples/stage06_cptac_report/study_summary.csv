@@ -1,0 +1,6 @@
+study_id,n,accuracy,observed_class_macro_f1,macro_denominator,class_support_json
+breast_cptac_gdc,133,0.9849624060150376,0.9924242424242424,1,"{""breast"": 133, ""colorectal"": 0, ""lung"": 0, ""ovary"": 0, ""prostate"": 0}"
+coad_cptac_gdc,105,1.0,1.0,1,"{""breast"": 0, ""colorectal"": 105, ""lung"": 0, ""ovary"": 0, ""prostate"": 0}"
+luad_cptac_gdc,231,0.9826839826839827,0.9912663755458515,1,"{""breast"": 0, ""colorectal"": 0, ""lung"": 231, ""ovary"": 0, ""prostate"": 0}"
+lusc_cptac_gdc,110,0.9636363636363636,0.9814814814814815,1,"{""breast"": 0, ""colorectal"": 0, ""lung"": 110, ""ovary"": 0, ""prostate"": 0}"
+ovary_cptac_gdc,101,0.9801980198019802,0.99,1,"{""breast"": 0, ""colorectal"": 0, ""lung"": 0, ""ovary"": 101, ""prostate"": 0}"

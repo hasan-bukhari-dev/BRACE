@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-03",
+  "pytest": {
+    "passed": 211,
+    "warnings": 1,
+    "seconds": 63.78,
+    "retained_tests": 199,
+    "new_tests": 12
+  },
+  "focused_api": {
+    "passed": 12,
+    "warnings": 1,
+    "seconds": 6.29
+  },
+  "browser_checks": {
+    "PASS05_BROWSER_RESULTS.json": {
+      "checks": 15,
+      "uncaught_errors": []
+    },
+    "PASS05_LEGACY_BROWSER_RESULTS.json": {
+      "checks": 20,
+      "uncaught_errors": []
+    },
+    "PASS05_RACE_BROWSER_RESULTS.json": {
+      "checks": 11,
+      "uncaught_errors": []
+    }
+  },
+  "scientific_smoke": {
+    "exit_code": 0,
+    "historical_n": 680,
+    "historical_correct": 668,
+    "synthetic_compute": "PASS",
+    "reproducibility_zip": "PASS"
+  },
+  "byte_identical_preservation": [
+    "brace_core/",
+    "examples/",
+    "all previously existing tests",
+    "prior-pass review evidence"
+  ],
+  "note": "Full Python regression ran after the final backend change. Later JavaScript/CSS refinements were verified by rendered browser checks. No new runtime dependency, independent-human test or clinical validation claim.",
+  "not_run": [
+    "screen-reader software",
+    "other browser engines",
+    "clean-device cold install",
+    "projector operation",
+    "unfamiliar-user timings",
+    "controlled startup/memory benchmarks"
+  ]
+}

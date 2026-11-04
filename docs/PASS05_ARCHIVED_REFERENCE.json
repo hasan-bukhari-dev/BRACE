@@ -1,0 +1,46 @@
+{
+  "examples/cancershift_historical_cptac/manifest.json": {
+    "sha256": "820c21225d88357afab3d437242a91d1f43062217166fb2e6df3d84958353b8b",
+    "bytes": 737
+  },
+  "examples/cancershift_historical_cptac/predictions.tsv": {
+    "sha256": "3c81eba80625784d1c0642b234ba0558c83f7928daeaae39c0ba964680a98a94",
+    "bytes": 96452
+  },
+  "examples/cancershift_historical_cptac/PROVENANCE.json": {
+    "sha256": "52ba6243850363badfa105ec3464527ff7f1fcad9a94e6945ce452f3af668969",
+    "bytes": 522
+  },
+  "examples/stage06_cptac_report/confidence_bins.csv": {
+    "sha256": "86a76f332da1ef6baacda69e655956ef6b73ec818866843f31d6e5fa119a5703",
+    "bytes": 495
+  },
+  "examples/stage06_cptac_report/error_cases.csv": {
+    "sha256": "65091eafcd1ec97c9eb0001911f25df9e1dbd073cae27efe5c45f5e58456f1c8",
+    "bytes": 1976
+  },
+  "examples/stage06_cptac_report/per_class.csv": {
+    "sha256": "bb62f086aaf184053b4927164d3d8d828fe0774109011009087baf5dbac86e61",
+    "bytes": 737
+  },
+  "examples/stage06_cptac_report/run_report.html": {
+    "sha256": "3974a100455ca8f7e1da0ce7bca37f31a1c98e8e475c20f4cd657cf66ebac056",
+    "bytes": 31637
+  },
+  "examples/stage06_cptac_report/sample_level.csv": {
+    "sha256": "2b975f401d86b0514492edf3bec02c86b046a07cda25cd201a14e995a318b68b",
+    "bytes": 107985
+  },
+  "examples/stage06_cptac_report/study_summary.csv": {
+    "sha256": "36dc60414a578621820de8a49fff939e16e6185cbb2ac5ad2ad996cdde40c142",
+    "bytes": 756
+  },
+  "examples/stage06_cptac_report/threshold_curve.csv": {
+    "sha256": "923cea7693a4b8e4d480a4056cde51c0d9216961863c316f052f826bd64d0792",
+    "bytes": 9127
+  },
+  "examples/stage06_cptac_report/validation_result.json": {
+    "sha256": "cec422400eade9afd4030c7f0709aa77729844a1021b8fcd5d74cc90d7756353",
+    "bytes": 402609
+  }
+}

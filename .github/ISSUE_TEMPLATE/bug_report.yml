@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible problem without private research data.
+body:
+  - type: markdown
+    attributes:
+      value: "Do not upload patient data, original private files, credentials or unreviewed evidence bundles. Use the public example or a small artificial reproduction."
+  - type: input
+    id: version
+    attributes:
+      label: BRACE version and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and expected versus observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Non-sensitive error message

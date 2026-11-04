@@ -1,0 +1,214 @@
+{
+  "status": "VERIFIED",
+  "consecutive_successes": 10,
+  "failures": 0,
+  "browser": "156.0.8078.80",
+  "iterations": [
+    {
+      "iteration": 1,
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "VERIFIED",
+      "run_id": "93808569ee124fa1aa246ddff49891f6",
+      "saved_example_s": 0.7620641000103205,
+      "preflight_s": 2.496168099984061,
+      "fresh_race_s": 8.745387500035577,
+      "gene_inspection_s": 0.8399982000119053,
+      "automated_journey_s": 21.246942600002512,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "bdf2c0bdf5d77cc33d8dcf061396274851440818a79dc16aa8b75558426ebeb5",
+      "zip_bytes": 2703224,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 2,
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "VERIFIED",
+      "run_id": "c4ff83ce3e474bb2b4dd2f8cf0714213",
+      "saved_example_s": 0.5990430999663658,
+      "preflight_s": 1.9175307999830693,
+      "fresh_race_s": 8.534938600030728,
+      "gene_inspection_s": 0.8502700000535697,
+      "automated_journey_s": 19.517903300002217,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "e74c326aea1551929637d1cd932933e3ce4b7ffd23f785a268a60856910b1039",
+      "zip_bytes": 2703224,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 3,
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "VERIFIED",
+      "run_id": "dc97db37b27149a7bfb2d18c66773676",
+      "saved_example_s": 0.5695039000129327,
+      "preflight_s": 1.9194613000145182,
+      "fresh_race_s": 9.47088249999797,
+      "gene_inspection_s": 0.8343209999729879,
+      "automated_journey_s": 20.43864000000758,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "e031c15f8e79b8be1c4c1a0d90106a9bbbc44e2a94f4025b4aa8e374792d1822",
+      "zip_bytes": 2703224,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 4,
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "VERIFIED",
+      "run_id": "04eee1eaca75488fb34f01b05de3942e",
+      "saved_example_s": 0.551355900010094,
+      "preflight_s": 1.9206495000398718,
+      "fresh_race_s": 9.287424699985422,
+      "gene_inspection_s": 0.8481790999649093,
+      "automated_journey_s": 20.427636500040535,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "2fe40576b5c93e8efaccac6d307fe6da6f471817d238741f39b90bf1d24d71ed",
+      "zip_bytes": 2703220,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 5,
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "VERIFIED",
+      "run_id": "57206b5492d94759801413fbd8c3b6c7",
+      "saved_example_s": 0.5845734000322409,
+      "preflight_s": 1.3994064999860711,
+      "fresh_race_s": 10.583107900049072,
+      "gene_inspection_s": 0.8653775000129826,
+      "automated_journey_s": 21.19436720001977,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "fbc90bb1743ba36c31f43e9fb9d56284c71191cbc141610dde155b94c3c9f6fd",
+      "zip_bytes": 2703226,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 6,
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "VERIFIED",
+      "run_id": "45a5cd50b64c4b9e860a8709b1a425f3",
+      "saved_example_s": 0.5240458000334911,
+      "preflight_s": 1.930484600015916,
+      "fresh_race_s": 12.495699499966577,
+      "gene_inspection_s": 0.8470915000070818,
+      "automated_journey_s": 23.464673899987247,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "92254d82b726e90809c105486069d5c4a91120c47158deca8438f37a2f2d945a",
+      "zip_bytes": 2703224,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 7,
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "VERIFIED",
+      "run_id": "88d83aa47d02405693a826294b0170fe",
+      "saved_example_s": 0.5922925000195391,
+      "preflight_s": 1.9286479000002146,
+      "fresh_race_s": 8.765403600002173,
+      "gene_inspection_s": 0.8575141000328586,
+      "automated_journey_s": 19.731202099996153,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "e67c5117e0873e7ef300ac8fecc1357cf87cc587816b4c52111cb32b6dc3474f",
+      "zip_bytes": 2703218,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 8,
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "VERIFIED",
+      "run_id": "16ef44d5ecbc4ccba15fb39dfae175cd",
+      "saved_example_s": 0.6237703000078909,
+      "preflight_s": 2.441520099993795,
+      "fresh_race_s": 10.210497399966698,
+      "gene_inspection_s": 0.8505204999819398,
+      "automated_journey_s": 22.56676920002792,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "6395b7b5e902295f083eabba62ec976354e59ca0237128c7b323221408f96d86",
+      "zip_bytes": 2703220,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 9,
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "VERIFIED",
+      "run_id": "10f13855640b4fe3bd4cb57216bdd866",
+      "saved_example_s": 0.6244543999782763,
+      "preflight_s": 2.440663199988194,
+      "fresh_race_s": 10.17286500002956,
+      "gene_inspection_s": 0.8366426000138745,
+      "automated_journey_s": 21.299730199971236,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "bb648c9000bc3385c0655756c3544df37a8b4e777ddab52d260e811f9aa2c6cc",
+      "zip_bytes": 2703221,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    },
+    {
+      "iteration": 10,
+      "viewport": [
+        1440,
+        900
+      ],
+      "status": "VERIFIED",
+      "run_id": "95cc6c5d4194489c9c815104bb401c4f",
+      "saved_example_s": 0.5445475000306033,
+      "preflight_s": 2.433640100003686,
+      "fresh_race_s": 10.343696700001601,
+      "gene_inspection_s": 0.8484884999925271,
+      "automated_journey_s": 22.098535700002685,
+      "scientific_fingerprint": "216779071147826c0c5426bc9429233b81a66f91c28598d9f5262bc8c5f3dd22",
+      "frozen_hypothesis_sha256": "c021f44e383273761f3906dba8e82f2ee42d891ffdc022c60684bd3119212a24",
+      "zip_sha256": "12a5a0e1e4ca001303ef8d2543d548812c22fed6900be6a704d9c3a656e18edf",
+      "zip_bytes": 2703215,
+      "reload_context_preserved": true,
+      "offline_html_opened": true
+    }
+  ],
+  "uncaught_errors": [],
+  "external_http_attempts": [],
+  "scope": "Ten automated developer walkthroughs, fresh real intake/RACE each time; alternating two desktop viewports. Application non-loopback sockets denied separately. No physical Wi-Fi/projector or unfamiliar-user claim.",
+  "prior_numerical_agreement": true,
+  "repeated_numerical_identity": true,
+  "version_note": "Fresh standard Python 3.11.9 changes software provenance and frozen digest from archived Python3.11.2; numeric outputs agree. Saved historical/public evidence remains unchanged."
+}

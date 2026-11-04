@@ -1,0 +1,116 @@
+{
+  "stage": "05",
+  "mode": "evaluate_predictions",
+  "result_origin": "new_computation",
+  "software_version": "brace-model/0.5.0",
+  "science_version": "brace-science/0.2.0",
+  "status": "completed_with_warnings",
+  "inputs": {
+    "predictions": {
+      "name": "predictions.csv",
+      "bytes": 882,
+      "sha256": "7f89042a50a6f5f787706b5adca5a5f43417e443e780951db1d1203b9de9ada5"
+    },
+    "manifest": {
+      "name": "manifest.json",
+      "bytes": 496,
+      "sha256": "6969280d1fe8692ebf6c1ae4f8b4da2af48d95b74265cc4b4047fd1b36aed88d"
+    }
+  },
+  "freeze": {
+    "configuration_sha256": "331505791f53866bce161ad3fd1f43cf72b00340de2c2b048b9ba532b391717c",
+    "primary_confidence_threshold": 0.95,
+    "label_use": "evaluation_only",
+    "evaluation_role": "external_exploratory",
+    "origin_attestation": "User-declared metadata, not independently verified"
+  },
+  "outputs": {
+    "metrics": {
+      "n": 14,
+      "n_correct": 11,
+      "accuracy": 0.7857142857142857,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 7,
+          "predicted_count": 4,
+          "tp": 4,
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1": 0.7272727272727273,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 7,
+          "predicted_count": 10,
+          "tp": 7,
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235294117647058,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.7754010695187166,
+      "balanced_accuracy_observed": 0.7857142857142857,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 1,
+        "coverage": 0.07142857142857142,
+        "retained_errors": 0,
+        "selective_accuracy": 1.0,
+        "undefined_reason": null,
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty."
+      }
+    },
+    "n_samples": 14
+  },
+  "warnings": [
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "severity": "warning",
+      "field": "manifest.independence_declaration",
+      "message": "Independent sample acquisition is not documented by this manifest",
+      "next_action": "Document provenance or retain exploratory interpretation"
+    }
+  ],
+  "files": {
+    "evaluated_predictions.csv": {
+      "sha256": "71a48a593b349cd0c4fce9be40e190c9038b0842082bad81c8fefae5c60a08fd",
+      "bytes": 632
+    },
+    "run_report.html": {
+      "sha256": "d59137f4a6d21d3ccf48521e24f6e2cc1c88f8d0aff2bcdd34c59c0c89f021fb",
+      "bytes": 3509
+    }
+  }
+}

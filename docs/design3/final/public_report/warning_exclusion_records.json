@@ -1,0 +1,75 @@
+{
+  "preparation": {
+    "GSE20711": {
+      "downloaded_samples": 90,
+      "exclusions": {
+        "ER_missing": 1,
+        "non_tumor": 2
+      },
+      "included": 87,
+      "input_features": 54675,
+      "labels": {
+        "ER_negative": 45,
+        "ER_positive": 42
+      },
+      "prepared_features": 10000
+    },
+    "GSE42568": {
+      "downloaded_samples": 121,
+      "exclusions": {
+        "ER_missing": 3,
+        "non_tumor": 17
+      },
+      "included": 101,
+      "input_features": 54675,
+      "labels": {
+        "ER_negative": 34,
+        "ER_positive": 67
+      },
+      "prepared_features": 10000
+    }
+  },
+  "prior_upload_exclusions_known": true,
+  "source_untestable": [
+    {
+      "feature_id": "4632",
+      "reason": "zero_within_group_variance"
+    },
+    {
+      "feature_id": "4633",
+      "reason": "zero_within_group_variance"
+    },
+    {
+      "feature_id": "64579",
+      "reason": "zero_within_group_variance"
+    },
+    {
+      "feature_id": "6698",
+      "reason": "zero_within_group_variance"
+    }
+  ],
+  "target_untestable": [],
+  "unknown_exclusions_note": "BRACE includes the supplied valid finite cells; exclusions before those inputs are unknown unless documented in the verified public preparation.",
+  "warnings": [
+    {
+      "code": "PROCESSING_DIFFERENCE",
+      "message": "The cohorts declare different processing methods; shared measurement types do not guarantee directly comparable scales",
+      "severity": "warning"
+    },
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "message": "Independent cohort acquisition is not documented for both cohorts",
+      "severity": "warning"
+    },
+    {
+      "code": "PATIENT_IDENTIFIERS_ABSENT",
+      "message": "Patient IDs are absent in one or both cohorts; cannot rule out overlapping subjects using identifiers alone",
+      "severity": "warning"
+    },
+    {
+      "code": "EXPLORATORY_ONLY",
+      "message": "Acquisition, patient independence and phenotype equivalence are declarations, not authenticated facts. No locked or clinical validation claim.",
+      "severity": "warning"
+    }
+  ]
+}

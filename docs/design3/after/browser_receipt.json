@@ -1,0 +1,541 @@
+{
+  "checks": [
+    {
+      "id": "HOME_TWO_ACTIONS_NO_SIDEBAR",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_light_study",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_light_study",
+      "status": "PASS",
+      "details": {
+        "left": -0.005645751953125,
+        "right": -0.224395751953125,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_light_race",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_light_race",
+      "status": "PASS",
+      "details": {
+        "left": -0.0496826171875,
+        "right": -0.2215576171875,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_light_ace",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_light_ace",
+      "status": "PASS",
+      "details": {
+        "left": -0.0927734375,
+        "right": -0.2177734375,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_light_cohorts",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_light_cohorts",
+      "status": "PASS",
+      "details": {
+        "left": -0.13916015625,
+        "right": -0.21728515625,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_light_evidence",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_light_evidence",
+      "status": "PASS",
+      "details": {
+        "left": -0.185791015625,
+        "right": -0.217041015625,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "PREVIEW_CANCEL_light",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_dark_study",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_dark_study",
+      "status": "PASS",
+      "details": {
+        "left": -0.005645751953125,
+        "right": -0.224395751953125,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_dark_race",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_dark_race",
+      "status": "PASS",
+      "details": {
+        "left": -0.0496826171875,
+        "right": -0.2215576171875,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_dark_ace",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_dark_ace",
+      "status": "PASS",
+      "details": {
+        "left": -0.0927734375,
+        "right": -0.2177734375,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_dark_cohorts",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_dark_cohorts",
+      "status": "PASS",
+      "details": {
+        "left": -0.13916015625,
+        "right": -0.21728515625,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "NAV_FIXED_GLYPHS_dark_evidence",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NAV_SUFFIX_GEOMETRY_dark_evidence",
+      "status": "PASS",
+      "details": {
+        "left": -0.185791015625,
+        "right": -0.217041015625,
+        "top": 0,
+        "bottom": -0.03125
+      }
+    },
+    {
+      "id": "PREVIEW_CANCEL_dark",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "KEYBOARD_ARROWS_HOME_END_ESCAPE_ENTER",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "TASK_DIALOG_ESCAPE_RETURN",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "HOME_REFLOW_1440",
+      "status": "PASS",
+      "details": {
+        "w": 1440,
+        "scroll": 1425
+      }
+    },
+    {
+      "id": "HOME_REFLOW_390",
+      "status": "PASS",
+      "details": {
+        "w": 390,
+        "scroll": 375
+      }
+    },
+    {
+      "id": "HOME_REFLOW_200pct_equivalent",
+      "status": "PASS",
+      "details": {
+        "w": 720,
+        "scroll": 705
+      }
+    },
+    {
+      "id": "PUBLIC_SAVED_FULL_FAMILY_AND_DENOMINATORS",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "FACE_REAL_188_MEASUREMENTS_SEPARATE_AXES_AND_FOCUS",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "FACE_INCONCLUSIVE_AND_OPPOSITE_EXPLICIT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "HOME_PRESERVES_RUN_FILTER_SELECTION",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PUBLIC_EXPORT_ZIP_CRC_AND_ALL_HASHES",
+      "status": "PASS",
+      "details": "public_saved_evidence.zip"
+    },
+    {
+      "id": "TRACE_RETURN_EXACT_GENE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "FACE_ERROR_RETRY_PRESERVES_SELECTED_GENE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PURPOSE_CHANGE_REUSES_FILES_BUT_RECHECKS_AND_BLOCKS_ER_BASELINE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "FRESH_REAL_PUBLIC_UI_INTAKE_AND_RACE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "FRESH_PUBLIC_RESULT_EXPORT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NEUTRAL_equipment_faults_THRESHOLDS_EQUALITY_EMPTY_INVALID",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NEUTRAL_equipment_faults_RECORD_TRACE_EXPORT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NEUTRAL_text_categories_THRESHOLDS_EQUALITY_EMPTY_INVALID",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NEUTRAL_text_categories_RECORD_TRACE_EXPORT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "DUPLICATE_INPUT_ERROR_RETAINED_MANIFEST_AND_RECOVERY",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "MODE_B_SOURCE_OOF_SEPARATE_FROM_TARGET",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SAME_RUN_CE_SOURCE_FITTED_COORDINATES_AND_FEATURE_INSPECTOR",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "MODE_C_UNLABELED_NO_INVENTED_ACCURACY",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "HISTORICAL_680_668_THRESHOLDS_AND_EXACT_WRONG_RECORD_TRACE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "LOCAL_HISTORY_OPENS_INTEGRITY_CHECKED_REAL_RUN",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "THEME_AND_RUN_PERSIST_AFTER_RELOAD",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SYSTEM_THEME_FOLLOWS_OS",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1280_race",
+      "status": "PASS",
+      "details": {
+        "w": 1280,
+        "scroll": 1265
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1280_ace",
+      "status": "PASS",
+      "details": {
+        "w": 1280,
+        "scroll": 1265
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1280_cohorts",
+      "status": "PASS",
+      "details": {
+        "w": 1280,
+        "scroll": 1265
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1280_evidence",
+      "status": "PASS",
+      "details": {
+        "w": 1280,
+        "scroll": 1265
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1440_race",
+      "status": "PASS",
+      "details": {
+        "w": 1440,
+        "scroll": 1425
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1440_ace",
+      "status": "PASS",
+      "details": {
+        "w": 1440,
+        "scroll": 1425
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1440_cohorts",
+      "status": "PASS",
+      "details": {
+        "w": 1440,
+        "scroll": 1425
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_1440_evidence",
+      "status": "PASS",
+      "details": {
+        "w": 1440,
+        "scroll": 1425
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_390_race",
+      "status": "PASS",
+      "details": {
+        "w": 390,
+        "scroll": 375
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_390_ace",
+      "status": "PASS",
+      "details": {
+        "w": 390,
+        "scroll": 375
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_390_cohorts",
+      "status": "PASS",
+      "details": {
+        "w": 390,
+        "scroll": 375
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_390_evidence",
+      "status": "PASS",
+      "details": {
+        "w": 390,
+        "scroll": 375
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_200pct_equivalent_race",
+      "status": "PASS",
+      "details": {
+        "w": 720,
+        "scroll": 705
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_200pct_equivalent_ace",
+      "status": "PASS",
+      "details": {
+        "w": 720,
+        "scroll": 705
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_200pct_equivalent_cohorts",
+      "status": "PASS",
+      "details": {
+        "w": 720,
+        "scroll": 705
+      }
+    },
+    {
+      "id": "OPERATIONAL_REFLOW_200pct_equivalent_evidence",
+      "status": "PASS",
+      "details": {
+        "w": 720,
+        "scroll": 705
+      }
+    },
+    {
+      "id": "FORCED_COLORS_AND_SPACE_COMMIT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "INTERRUPTED_25_PREVIEWS_CPU_4X_NO_ROUTE_MUTATION",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "TOUCH_COMMITS_CE",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "NO_PAGE_ERRORS",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "id": "NO_UNEXPECTED_HTTP_ERRORS",
+      "status": "PASS",
+      "details": []
+    }
+  ],
+  "screenshots": [
+    "home_light.png",
+    "preview_study_light.png",
+    "preview_race_light.png",
+    "preview_ace_light.png",
+    "preview_cohorts_light.png",
+    "preview_evidence_light.png",
+    "home_dark.png",
+    "preview_study_dark.png",
+    "preview_race_dark.png",
+    "preview_ace_dark.png",
+    "preview_cohorts_dark.png",
+    "preview_evidence_dark.png",
+    "empty_race_dark.png",
+    "empty_ace_dark.png",
+    "empty_cohorts_dark.png",
+    "empty_evidence_dark.png",
+    "home_dark_1440.png",
+    "home_dark_390.png",
+    "home_dark_200pct_equivalent.png",
+    "race_light.png",
+    "face_supported_light.png",
+    "face_statistics_light.png",
+    "race_dark.png",
+    "face_supported_dark.png",
+    "face_statistics_dark.png",
+    "face_55816_dark.png",
+    "face_54947_dark.png",
+    "trace_race_dark.png",
+    "controlled_face_error_dark.png",
+    "public_preflight_valid_dark.png",
+    "public_preflight_baseline_blocked_dark.png",
+    "equipment_faults_dark.png",
+    "trace_equipment_faults_dark.png",
+    "text_categories_dark.png",
+    "trace_text_categories_dark.png",
+    "invalid_input_dark.png",
+    "baseline_source_target_dark.png",
+    "ce_shift_dark.png",
+    "ce_feature_dark.png",
+    "ce_unlabeled_light.png",
+    "evidence_shift_light.png",
+    "ce_unlabeled_dark.png",
+    "evidence_shift_dark.png",
+    "ace_historical_light.png",
+    "ace_historical_dark.png",
+    "historical_high_confidence_error_dark.png",
+    "history_dark.png",
+    "race_light_390.png",
+    "ace_light_390.png",
+    "cohorts_light_390.png",
+    "evidence_light_390.png",
+    "race_light_200pct_equivalent.png",
+    "ace_light_200pct_equivalent.png",
+    "cohorts_light_200pct_equivalent.png",
+    "evidence_light_200pct_equivalent.png",
+    "forced_colors_home.png"
+  ],
+  "page_errors": [],
+  "unexpected_http_errors": [],
+  "environment": {
+    "browser": "156.0.8078.80",
+    "viewport": [
+      1280,
+      720
+    ],
+    "runtime": "actual production launch.py at 127.0.0.1:8766",
+    "started_utc": "2026-11-03T16:25:25Z"
+  },
+  "controlled_failure_requests": [],
+  "saved_example_seconds": 5.047,
+  "expect_failure": false,
+  "fresh_public_computation_seconds": 23.397,
+  "status": "PASS",
+  "duration_seconds": 103.423
+}

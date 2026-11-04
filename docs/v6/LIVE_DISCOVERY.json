@@ -1,0 +1,80 @@
+[
+  {
+    "path": "/api/discovery/search",
+    "status": 200,
+    "response": {
+      "query": {
+        "question": "GSE42568",
+        "tissue": "",
+        "organism": "Homo sapiens",
+        "assay": "microarray",
+        "task": "race"
+      },
+      "retrieved_utc": "2026-11-04T05:42:25.915407+00:00",
+      "total_matches": 1,
+      "candidates": [
+        {
+          "accession": "GSE42568",
+          "title": "Breast Cancer Gene Expression Analysis",
+          "summary": "Analysis of 104 breast cancer biopsies (removed prior to any treatment with tamoxifen or chemotherapeutic agents) from patients aged between 31 years and 89 years at the time of diagnosis (mean age = 58 years). Twenty were less than 50 years and seventy-seven women were 50 years, or older, at diagnosis. The size of the tumours ranged between 0.6 cm and 8.0 cm (mean = 2.79 cm). Eighteen tumours were T1 (<2 cm) in maximal dimension; 83 were T2 (2\u20135 cm) and 3 tumours were T3 (>5 cm). Eighty-two were invasive ductal carcinoma, 17 were invasive lobular and five were tumours of special type (two tubular and three mucinous). Eleven tumours were grade 1; 40 were grade 2; and 53 were grade 3. Sixty-seven tumours were oestrogen receptor (ER) positive and 34 were ER negative (ER status was determined by Enzyme Immuno-Assay (EIA); a positive result was defined as more than 200 fmol/g protein). ER status was not available for 3 patients. Forty-five tumours had no axillary metastases and 59 tumours had metastasised to axillary lymph nodes. Sixty-nine women were treated with post-operative tamoxifen; 26 did not receive tamoxifen. Fifty patients were treated with adjuvant systemic chemotherapy (CMF +/\u2212 adriamycin); 45 patients did not receive chemotherapy. Details regarding tamoxifen and systemic chemotherapy were not available for 9 patients. Maximal follow-up was 3,026 days with a mean follow-up of 1,887 days. 17 normal breast tissues were also assayed.",
+          "organism": "Homo sapiens",
+          "samples": 121,
+          "platforms": "570",
+          "publication_ids": [
+            "23740839"
+          ],
+          "source_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42568",
+          "stage": "metadata_found",
+          "eligible": false,
+          "unknowns": [
+            "Phenotype/group definitions and group counts",
+            "Processing and normalization equivalence",
+            "Patient independence and overlap",
+            "Feature mapping and original-file integrity",
+            "Licensing and task-specific preparation"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&retmode=json&retmax=6&term=%28GSE42568%29+AND+%22Homo+sapiens%22%5BOrganism%5D+AND+gse%5BETYP%5D+AND+%22expression+profiling+by+array%22%5BDataSet+Type%5D&tool=BRACE",
+          "sha256": "4d9321d2df36f37740e52f7fed0e20f6f4ace4f8847a36dc99ae92018b4136f4",
+          "bytes": 674
+        },
+        {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&retmode=json&id=200042568&tool=BRACE",
+          "sha256": "1f707fcc13d09b2718c7af98c0ca9a00c40b95d5114ea36c5b5fe45459331baf",
+          "bytes": 9954
+        }
+      ],
+      "scope": "Official public metadata only. Candidates are not prepared inputs or scientifically approved pairs.",
+      "policy_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "cached": false
+    }
+  },
+  {
+    "path": "/api/discovery/study/GSE42568",
+    "status": 200,
+    "response": {
+      "accession": "GSE42568",
+      "retrieved_utc": "2026-11-04T05:42:26.332022+00:00",
+      "files": [
+        {
+          "filename": "GSE42568_series_matrix.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42568/matrix/GSE42568_series_matrix.txt.gz"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42568/matrix/",
+          "sha256": "537c99ac6e48eb2bfeb3beb536b465c1cc1a80ae448e1046884b9a81b02e3502",
+          "bytes": 590
+        }
+      ],
+      "stage": "file_links_verified",
+      "eligible": false,
+      "note": "The filenames were found in the official directory. Matrix content, sample labels and biological compatibility still require review. GEO Series Matrix/SOFT format is not directly a BRACE prepared input.",
+      "cached": false
+    }
+  }
+]

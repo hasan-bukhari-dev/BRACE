@@ -1,0 +1,4 @@
+sample_id,study_id,true_label,predicted_label,correct,model_confidence,retained_at_frozen_threshold,prob_normal,prob_tumor
+T000,,normal,tumor,0,0.7785537329815247,0,0.22144626701847525,0.7785537329815247
+T005,,normal,tumor,0,0.7551882444630168,0,0.2448117555369832,0.7551882444630168
+T006,,normal,tumor,0,0.8455933454727107,0,0.1544066545272893,0.8455933454727107

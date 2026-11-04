@@ -1,0 +1,201 @@
+{
+  "checks": [
+    {
+      "id": "home_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "home_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "race_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "race_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "face_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "face_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "trace_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "trace_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "evidence_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "evidence_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ace_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ace_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "record_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "record_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "setup_light_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "setup_dark_200_PERCENT_REFLOW",
+      "status": "PASS",
+      "sizes": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 711,
+        "dpr": 2,
+        "pinch": 1
+      }
+    }
+  ],
+  "screens": [
+    "home_light.png",
+    "home_dark.png",
+    "race_light.png",
+    "race_dark.png",
+    "face_light.png",
+    "face_dark.png",
+    "trace_light.png",
+    "trace_dark.png",
+    "evidence_light.png",
+    "evidence_dark.png",
+    "ace_light.png",
+    "ace_dark.png",
+    "record_light.png",
+    "record_dark.png",
+    "setup_light.png",
+    "setup_dark.png"
+  ],
+  "errors": [],
+  "method": "Native Chrome default zoom 200%; isolated profile; Page.captureScreenshot fromSurface true captureBeyondViewport false. Not CSS/device/pinch scaling.",
+  "status": "PASS"
+}

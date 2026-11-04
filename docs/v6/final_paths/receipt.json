@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    "source_exclusions_and_download",
+    "target_exclusions_and_download",
+    "method_sequence_is_visible_without_running_again",
+    "TRACE_actual_source_frozen_and_target_counts",
+    "report_iframe_link_download_exact_zip_member",
+    "historical_method_is_evaluation_not_RACE",
+    "no_page_errors"
+  ],
+  "errors": [],
+  "controlled_failure_tests": [
+    "503 preserves public query, offers retry and bundled offline alternative"
+  ]
+}

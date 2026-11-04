@@ -1,0 +1,15 @@
+{
+  "accession": "GSE20711",
+  "cohort_id": "GSE20711_ER",
+  "feature_namespace": "entrez_gene",
+  "independence_declaration": "unknown",
+  "labels": "binary",
+  "measurement_type": "microarray_log2_normalized",
+  "organism": "Homo sapiens",
+  "platform": "GPL570",
+  "processing_description": "GEO deposited RMA Bioconductor default parameters and log2 transformation; no additional normalization",
+  "role": "target",
+  "sample_origin_notes": "Tumors only; ER clinical annotations; exploratory independent-study comparison. See README for independence and assay limitations.",
+  "schema_version": "1.0.0",
+  "study_id": "GSE20711"
+}

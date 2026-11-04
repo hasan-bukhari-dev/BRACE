@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "text_categories_controlled_software_fixture",
+  "model_id": "supplied_test_records_no_model_executed",
+  "classes": [
+    "science",
+    "business",
+    "sports"
+  ],
+  "probability_columns": {
+    "science": "prob_science",
+    "business": "prob_business",
+    "sports": "prob_sports"
+  },
+  "prediction_origin": "external_model",
+  "evaluation_role": "external_exploratory",
+  "independence_declaration": "unknown",
+  "label_source_description": "Controlled non-biological software fixture; not independently validated field data."
+}

@@ -1,0 +1,129 @@
+{
+  "stage": "05",
+  "mode": "replay_frozen",
+  "result_origin": "new_computation",
+  "software_version": "brace-model/0.5.0",
+  "science_version": "brace-science/0.2.0",
+  "status": "completed_with_warnings",
+  "inputs": {
+    "target": {
+      "expression": {
+        "name": "target_expression.csv",
+        "bytes": 15146,
+        "sha256": "4ecce6c06d232485fa62802b527ca6eb69cd24edcb85e24df9e027bc57430ab4"
+      },
+      "metadata": {
+        "name": "target_samples.csv",
+        "bytes": 542,
+        "sha256": "507b8a27b1e84fa85251e7500dedd9ad70a0ddf74e5cb805e5c94125c89a9bbf"
+      },
+      "manifest": {
+        "name": "target_manifest.json",
+        "bytes": 501,
+        "sha256": "69b3d641753444c4954415f692a468fb06abddcb5f44e24d441767e2f288033d"
+      }
+    },
+    "frozen_model": {
+      "sha256": "73516a778167c9de6d5caf6b296fe9a8935ffb4504e531091fafa1909b41bc2c",
+      "bytes": 13297
+    }
+  },
+  "freeze": {
+    "model_sha256": "d1b7741b9165c1dca62ebd190e7fa99979a0dca5f96c7cac32d8a0c18061a1b5",
+    "configuration_sha256": "f16cfe49b83fef76bb1ca34d927db64fc8efe6cda3469ba4d366e7f32712a02e",
+    "target_labels_used_for_model_selection": false,
+    "target_expression_used_for_fitting": false
+  },
+  "outputs": {
+    "n_samples": 14,
+    "external": {
+      "n": 14,
+      "n_correct": 11,
+      "accuracy": 0.7857142857142857,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 7,
+          "predicted_count": 4,
+          "tp": 4,
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1": 0.7272727272727273,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 7,
+          "predicted_count": 10,
+          "tp": 7,
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235294117647058,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.7754010695187166,
+      "balanced_accuracy_observed": 0.7857142857142857,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 1,
+        "coverage": 0.07142857142857142,
+        "retained_errors": 0,
+        "selective_accuracy": 1.0,
+        "undefined_reason": null,
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty."
+      }
+    },
+    "evaluation_possible": true
+  },
+  "warnings": [
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "severity": "warning",
+      "message": "Independent acquisition has not been established."
+    }
+  ],
+  "files": {
+    "run_report.html": {
+      "sha256": "3bc47e12cf8fd650004c412d44738cbe7ceaa674ddd641468f85258bb00e0a17",
+      "bytes": 3316
+    },
+    "target_predictions_unlabeled.csv": {
+      "sha256": "b129f57bbc15da4b344236e880d9692933eda2b744be26a8d6ccd327f21e8352",
+      "bytes": 780
+    },
+    "target_scored_predictions.csv": {
+      "sha256": "7f89042a50a6f5f787706b5adca5a5f43417e443e780951db1d1203b9de9ada5",
+      "bytes": 882
+    }
+  }
+}

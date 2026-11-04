@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use BRACE, cite the software version and the original datasets/publications separately."
+title: "BRACE: Biological Reliability Assessment across Cohorts and Experiments"
+type: software
+authors:
+  - name: "BRACE contributors"
+version: "1.0.0-v6"
+repository-code: "https://github.com/hasan-bukhari-dev/BRACE"
+url: "https://github.com/hasan-bukhari-dev/BRACE"
+abstract: "Local exploratory cross-cohort gene-association testing, saved-prediction evaluation and reproducible evidence export."

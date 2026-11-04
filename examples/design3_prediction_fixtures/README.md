@@ -1,0 +1,3 @@
+# Controlled non-biological classification fixtures
+
+Equipment-fault classes and text-category classes are artificial technical fixtures, not collected equipment data or a trained text model. Both contain six records/four correct/two incorrect. The ordinary record ID is stored in the existing sample_id contract field. No organism/platform/expression fields are needed. At the declared default0.95 cutoff, each retains2records/1correct; threshold1retainsnone. Probability maxima agree with predicted classes; one high-scoring incorrect prediction is intentionally retained. These validate domain-neutral supported classification intake/metrics/export, not scientific validity across domains. Regression/raw text/model execution are not supported.

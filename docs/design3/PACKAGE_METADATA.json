@@ -1,0 +1,33 @@
+{
+  "product": "BRACE 1.0 / Product Design 3",
+  "revision": "v1",
+  "baseline_zip_sha256": "5bb0de16f470488cf2a536fe29f86a3fd202355b200d6ae9cb5a2d44050750c3",
+  "disposition": "CONDITIONAL: mandatory human comprehension and hardware/screen-reader acceptance remain untested",
+  "runtime_dependencies_changed": false,
+  "scientific_core_changed": false,
+  "full_pytest": {
+    "passed": 262,
+    "failed": 0,
+    "skipped": 0,
+    "known_warnings": 1,
+    "seconds": 224.5
+  },
+  "final_targeted_language": {
+    "passed": 4,
+    "seconds": 3.64
+  },
+  "primary_browser": {
+    "passed": 71,
+    "seconds": 103.423
+  },
+  "scope": "Stop after authorized Product Design 3; no next pass started",
+  "excluded": [
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "runs",
+    "wheelhouse",
+    "work"
+  ]
+}

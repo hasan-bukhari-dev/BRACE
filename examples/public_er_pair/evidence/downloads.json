@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42568/matrix/GSE42568_series_matrix.txt.gz",
+    "file": "GSE42568_series_matrix.txt.gz",
+    "bytes": 22565943,
+    "sha256": "43b93f72f1d81838dcd2a5b6ccc3bc1875e46230dad0d7346236773a99e32b76"
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42568/soft/GSE42568_family.soft.gz",
+    "file": "GSE42568_family.soft.gz",
+    "bytes": 59874216,
+    "sha256": "e7692c6f8b78ed4a46f3a574de79fb120a2f59960406cba7b896efdb90f55679"
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE29nnn/GSE29431/matrix/GSE29431_series_matrix.txt.gz",
+    "file": "GSE29431_series_matrix.txt.gz",
+    "bytes": 8181340,
+    "sha256": "9ad76f66469ae1fc44381af277662ad9beaa0bebd806279d98b33a7bdb301fa6"
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE29nnn/GSE29431/soft/GSE29431_family.soft.gz",
+    "file": "GSE29431_family.soft.gz",
+    "bytes": 30131956,
+    "sha256": "7814b76c17740bec30034388a59c8a9b894cd100e3e58395e3316b7648c1fd0e"
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20711/matrix/GSE20711_series_matrix.txt.gz",
+    "file": "GSE20711_series_matrix.txt.gz",
+    "bytes": 26895121,
+    "sha256": "14d4f4ae57234d1e8deaeed9131d40b98664866f462eaab2b0309a9f96e107c1"
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20711/soft/GSE20711_family.soft.gz",
+    "file": "GSE20711_family.soft.gz",
+    "bytes": 53610604,
+    "sha256": "e19a891cc7fb738cca420b55012e70d427fbd175a97f917cc4f34f8d09ddc380"
+  },
+  {
+    "file": "PMC3377115.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3377115/fullTextXML",
+    "bytes": 135045,
+    "sha256": "630a2e1d8d3af5bc5b373b31d417f27e5caa79a84c2d393ee81d0c1847921a92"
+  },
+  {
+    "file": "GSE20711_README.txt",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE20nnn/GSE20711/suppl/GSE20711_README.txt",
+    "bytes": 2552,
+    "sha256": "5be4b3f411866bde789220fda1fccde46ddebb741f9ce077399cadb59cd26643"
+  }
+]

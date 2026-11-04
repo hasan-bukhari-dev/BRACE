@@ -1,0 +1,236 @@
+{
+  "stage": "05",
+  "mode": "train_validate",
+  "result_origin": "new_computation",
+  "software_version": "brace-model/0.5.0",
+  "science_version": "brace-science/0.2.0",
+  "status": "completed_with_warnings",
+  "inputs": {
+    "source": {
+      "expression": {
+        "name": "source_expression.csv",
+        "bytes": 20910,
+        "sha256": "35497baed56594f5e1ce0ca3d6abc519a531871d1831579c4d100ed5bc631ed9"
+      },
+      "metadata": {
+        "name": "source_samples.csv",
+        "bytes": 761,
+        "sha256": "15954925c0e1345f0f39191436c85995ea723be2dae46f08237cb419314c36d2"
+      },
+      "manifest": {
+        "name": "source_manifest.json",
+        "bytes": 501,
+        "sha256": "d5616c57426700f1dee597d302746d47856c7d5cc81473b54aece836b2b5f18c"
+      }
+    },
+    "target": {
+      "expression": {
+        "name": "target_expression.csv",
+        "bytes": 15146,
+        "sha256": "4ecce6c06d232485fa62802b527ca6eb69cd24edcb85e24df9e027bc57430ab4"
+      },
+      "metadata": {
+        "name": "target_samples.csv",
+        "bytes": 542,
+        "sha256": "507b8a27b1e84fa85251e7500dedd9ad70a0ddf74e5cb805e5c94125c89a9bbf"
+      },
+      "manifest": {
+        "name": "target_manifest.json",
+        "bytes": 501,
+        "sha256": "69b3d641753444c4954415f692a468fb06abddcb5f44e24d441767e2f288033d"
+      }
+    }
+  },
+  "freeze": {
+    "configuration_sha256": "f16cfe49b83fef76bb1ca34d927db64fc8efe6cda3469ba4d366e7f32712a02e",
+    "frozen_model_sha256": "d1b7741b9165c1dca62ebd190e7fa99979a0dca5f96c7cac32d8a0c18061a1b5",
+    "target_labels_used_for_model_selection": false,
+    "primary_confidence_threshold": 0.95,
+    "scientific_role": "external_exploratory",
+    "source_cv_folds": 5,
+    "target_feature_presence_consulted": true,
+    "target_expression_used_for_fitting": false,
+    "target_labels_used_for_fitting": false
+  },
+  "outputs": {
+    "source_cv": {
+      "n": 20,
+      "n_correct": 13,
+      "accuracy": 0.65,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          7,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 10,
+          "predicted_count": 11,
+          "tp": 7,
+          "precision": 0.6363636363636364,
+          "recall": 0.7,
+          "f1": 0.6666666666666666,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 10,
+          "predicted_count": 9,
+          "tp": 6,
+          "precision": 0.6666666666666666,
+          "recall": 0.6,
+          "f1": 0.631578947368421,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.6491228070175439,
+      "balanced_accuracy_observed": 0.6499999999999999,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 0,
+        "coverage": 0.0,
+        "retained_errors": 0,
+        "selective_accuracy": null,
+        "undefined_reason": "EMPTY_RETAINED_SET",
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty."
+      }
+    },
+    "external": {
+      "n": 14,
+      "n_correct": 11,
+      "accuracy": 0.7857142857142857,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 7,
+          "predicted_count": 4,
+          "tp": 4,
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1": 0.7272727272727273,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 7,
+          "predicted_count": 10,
+          "tp": 7,
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235294117647058,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.7754010695187166,
+      "balanced_accuracy_observed": 0.7857142857142857,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 1,
+        "coverage": 0.07142857142857142,
+        "retained_errors": 0,
+        "selective_accuracy": 1.0,
+        "undefined_reason": null,
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty."
+      }
+    },
+    "n_features_aligned": 120,
+    "n_features_after_source_variance_filter": 120,
+    "classes": [
+      "normal",
+      "tumor"
+    ],
+    "source_cv_method": "StratifiedKFold"
+  },
+  "warnings": [
+    {
+      "code": "TARGET_INDEPENDENCE_UNKNOWN",
+      "severity": "warning",
+      "field": "manifest.independence_declaration",
+      "message": "Independent cohort acquisition is not documented for both cohorts",
+      "next_action": "Document non-overlapping study/patient provenance or retain exploratory reporting"
+    },
+    {
+      "code": "LOW_CLASS_SUPPORT",
+      "severity": "warning",
+      "field": "metadata.condition",
+      "message": "target class counts below 10: {'normal': 7, 'tumor': 7}",
+      "next_action": "Use cautious interpretation and report exact denominators"
+    }
+  ],
+  "files": {
+    "frozen_model.json": {
+      "sha256": "73516a778167c9de6d5caf6b296fe9a8935ffb4504e531091fafa1909b41bc2c",
+      "bytes": 13297
+    },
+    "run_report.html": {
+      "sha256": "4a0ea9ec7321b4bcfde0d3659d9121606724c5771883eaecc3efa5cef92de984",
+      "bytes": 6374
+    },
+    "source_oof_predictions.csv": {
+      "sha256": "055145899b0042be068f9b4c9ecfaf4a3b40b86985b4c9e6bdc658f68fec875a",
+      "bytes": 1287
+    },
+    "target_predictions_unlabeled.csv": {
+      "sha256": "b129f57bbc15da4b344236e880d9692933eda2b744be26a8d6ccd327f21e8352",
+      "bytes": 780
+    },
+    "target_scored_predictions.csv": {
+      "sha256": "7f89042a50a6f5f787706b5adca5a5f43417e443e780951db1d1203b9de9ada5",
+      "bytes": 882
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "accession": "GSE42568",
+  "cohort_id": "GSE42568_ER",
+  "feature_namespace": "entrez_gene",
+  "independence_declaration": "unknown",
+  "labels": "binary",
+  "measurement_type": "microarray_log2_normalized",
+  "organism": "Homo sapiens",
+  "platform": "GPL570",
+  "processing_description": "GEO deposited log2 GC-RMA signals; no additional normalization",
+  "role": "source",
+  "sample_origin_notes": "Tumors only; ER clinical annotations; exploratory independent-study comparison. See README for independence and assay limitations.",
+  "schema_version": "1.0.0",
+  "study_id": "GSE42568"
+}

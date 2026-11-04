@@ -1,0 +1,1 @@
+Original uploaded files, environment variables and executable models are excluded. Derived identifiers, scores, saved calculation records and declared provenance remain. Review them before sharing; identifiers/labels can still contain sensitive information. Hashes do not authenticate acquisition, legal permission or row independence.

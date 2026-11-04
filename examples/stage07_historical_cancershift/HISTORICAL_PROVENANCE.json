@@ -1,0 +1,12 @@
+{
+  "data_origin": "Historical CancerShift adaptation comparison as carried in prior CancerShift Hatchathon Workbench 0.1.0; NOT a freshly calculated BRACE Stage 07 result.",
+  "derived_from_archive": "CancerShift_Hatchathon_Workbench_v0.1.0.zip",
+  "source_inside_archive": "CancerShift_Hatchathon_Workbench/app/data.js: methods",
+  "app_data_js_sha256": "65b5060658391799bb3e36b59dd6461732b9f8bdc3828a3ea0531766b94c5daa",
+  "cohort": "GSE2109",
+  "study_role": "exploratory adaptation development; labels were used to compare and choose methods after label-free fitting",
+  "cohort_detectability": "Cohort-classification AUROC; 0.5 indicates poor detectability but does not prove biological signal retained.",
+  "not_available": "No original raw expression matrices or trained models in Stage 06 package; historical adaptation cannot be recomputed from this package.",
+  "research_caution": "Do not treat this as independent validation, new inference, a clinical safety finding or a causal attribution.",
+  "source_research": "CancerShift original protocol_v06 and manuscript supplementary adaptation table; values are copied from an earlier derived workbench, not revalidated against raw expressions."
+}

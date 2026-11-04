@@ -1,0 +1,242 @@
+{
+  "checks": [
+    {
+      "id": "home_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "home_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "race_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "race_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "face_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "face_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ZOOM_DIALOG_ACTUALLY_IN_VIEW_AND_HIT_TESTS",
+      "status": "PASS",
+      "details": {
+        "top": 16,
+        "bottom": 436,
+        "height": 452,
+        "hit": true
+      }
+    },
+    {
+      "id": "evidence_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "evidence_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ace_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ace_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "input_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "input_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "two_dataset_input_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "two_dataset_input_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ce_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ce_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ce_features_light_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "ce_features_dark_NATIVE_200_PERCENT",
+      "status": "PASS",
+      "details": {
+        "width": 711,
+        "outer": 1440,
+        "scroll": 703,
+        "dpr": 2,
+        "pinch": 1
+      }
+    },
+    {
+      "id": "NO_PAGE_ERRORS",
+      "status": "PASS",
+      "details": []
+    }
+  ],
+  "screenshots": [
+    "home_native200_light.png",
+    "home_native200_dark.png",
+    "race_native200_light.png",
+    "race_native200_dark.png",
+    "face_native200_light.png",
+    "face_native200_dark.png",
+    "evidence_native200_light.png",
+    "evidence_native200_dark.png",
+    "ace_native200_light.png",
+    "ace_native200_dark.png",
+    "input_native200_light.png",
+    "input_native200_dark.png",
+    "two_dataset_input_native200_light.png",
+    "two_dataset_input_native200_dark.png",
+    "ce_native200_light.png",
+    "ce_native200_dark.png",
+    "ce_features_native200_light.png",
+    "ce_features_native200_dark.png"
+  ],
+  "page_errors": [],
+  "method": "Chrome native default page zoom in isolated profile; not CSS zoom, device emulation or pinch zoom. Chromium ChromeZoomLevelPrefs storage-partition dictionary x.",
+  "capture": "Direct Chrome Page.captureScreenshot, fromSurface=true, captureBeyondViewport=false. Playwright default clip mis-scales native-zoom screenshots; discarded those captures after visual inspection.",
+  "method_source": "https://raw.githubusercontent.com/chromium/chromium/main/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc",
+  "status": "PASS"
+}

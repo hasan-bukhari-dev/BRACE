@@ -1,0 +1,36 @@
+{
+  "baseline": "BRACE_PASS03_v1",
+  "changed": [
+    "CHECKPOINT_SHA256.json",
+    "FILE_SHA256_MANIFEST.csv",
+    "README_START_HERE.md",
+    "brace_app/server.py",
+    "brace_app/static/app.js",
+    "brace_app/static/index.html",
+    "brace_app/static/js/state.js",
+    "brace_app/static/style.css"
+  ],
+  "added": [
+    "PASS_04_REPORT.md",
+    "brace_app/molecular_api.py",
+    "brace_app/static/js/race.js",
+    "docs/PASS04_BASELINE_SHA256.csv",
+    "docs/PASS04_BROWSER_RESULTS.json",
+    "docs/PASS04_CHANGE_LIST.json",
+    "docs/PASS04_DATA_CONTRACT.md",
+    "docs/PASS04_LEGACY_BROWSER_RESULTS.json",
+    "docs/PASS04_VERIFICATION.json",
+    "docs/pass04_screenshots/face_1280.png",
+    "docs/pass04_screenshots/face_390.png",
+    "docs/pass04_screenshots/face_source_1440.png",
+    "docs/pass04_screenshots/face_target_1440.png",
+    "docs/pass04_screenshots/missing_target_1440.png",
+    "docs/pass04_screenshots/missing_target_detail.png",
+    "docs/pass04_screenshots/trace_1440.png",
+    "docs/pass04_screenshots/unsupported_1440.png",
+    "tests/browser_pass04.py",
+    "tests/test_molecular_api.py"
+  ],
+  "removed": [],
+  "scientific_core_and_evidence_unchanged": true
+}

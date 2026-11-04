@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "published_ace_runs": [
+    {
+      "run_id": "055788e4bde648b78e0671c61ec8f56e",
+      "evaluation_rows": 14,
+      "per_class_rows": 2,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "176bd4deb2194a61bbee7e3a6c32df3a",
+      "evaluation_rows": 3,
+      "per_class_rows": 3,
+      "threshold_points": 102,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "4d4a4279cd8c4c749adc5b55b034ef98",
+      "evaluation_rows": 14,
+      "per_class_rows": 2,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "5e14a9e6a4134adb8cc1f18b4f7306b9",
+      "evaluation_rows": 2,
+      "per_class_rows": 2,
+      "threshold_points": 0,
+      "confidence_bins": 0,
+      "study_rows": 0
+    },
+    {
+      "run_id": "6e14931bb82a43cfa8a7725b82bd7ae6",
+      "evaluation_rows": 14,
+      "per_class_rows": 2,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "historical_cptac",
+      "evaluation_rows": 680,
+      "per_class_rows": 5,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 5
+    },
+    {
+      "run_id": "c66e7df182df4c6ca436898bcc9c73fe",
+      "evaluation_rows": 14,
+      "per_class_rows": 2,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "dbf6242f57af47ca9a96bffd6546bbb9",
+      "evaluation_rows": 14,
+      "per_class_rows": 2,
+      "threshold_points": 101,
+      "confidence_bins": 10,
+      "study_rows": 0
+    },
+    {
+      "run_id": "df4e93d3d20e42b3ba25bfaaa72bed77",
+      "evaluation_rows": 2,
+      "per_class_rows": 3,
+      "threshold_points": 0,
+      "confidence_bins": 0,
+      "study_rows": 0
+    }
+  ],
+  "independently_referenced_shift_features": 840,
+  "pca_csv_json_points_reconciled": 238,
+  "note": "Independent Python counts/formulas for class support, confidence, calibration and study summaries; SciPy KS/BH and NumPy moment references on the actual known synthetic shift fixtures. PCA CSV coordinates/identities reconciled to saved calculations. No result modification or clinical claim."
+}

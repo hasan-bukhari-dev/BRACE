@@ -1,0 +1,1659 @@
+{
+  "stage": "06",
+  "analysis": {
+    "method_version": "brace-reliability/0.6.0",
+    "n": 14,
+    "class_order": [
+      "normal",
+      "tumor"
+    ],
+    "evaluation_role": "external_exploratory",
+    "independence_declaration": "unknown",
+    "origin": "external_model",
+    "metrics": {
+      "n": 14,
+      "n_correct": 11,
+      "accuracy": 0.7857142857142857,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 7,
+          "predicted_count": 4,
+          "tp": 4,
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1": 0.7272727272727273,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "recall_wilson_95": {
+            "lower": 0.25045836452765724,
+            "upper": 0.8417801447485302,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 4,
+            "denominator": 7,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          },
+          "precision_wilson_95": {
+            "lower": 0.5101091635454027,
+            "upper": 1.0,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 4,
+            "denominator": 4,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 7,
+          "predicted_count": 10,
+          "tp": 7,
+          "precision": 0.7,
+          "recall": 1.0,
+          "f1": 0.8235294117647058,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "recall_wilson_95": {
+            "lower": 0.6456695649333126,
+            "upper": 1.0,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 7,
+            "denominator": 7,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          },
+          "precision_wilson_95": {
+            "lower": 0.39677814746114537,
+            "upper": 0.8922087325936989,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 7,
+            "denominator": 10,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.7754010695187166,
+      "balanced_accuracy_observed": 0.7857142857142857,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 1,
+        "coverage": 0.07142857142857142,
+        "retained_errors": 0,
+        "selective_accuracy": 1.0,
+        "undefined_reason": null,
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty.",
+        "coverage_wilson_95": {
+          "lower": 0.012722215247890911,
+          "upper": 0.31468704424151117,
+          "method": "Wilson score",
+          "confidence_level": 0.95,
+          "numerator": 1,
+          "denominator": 14,
+          "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+        },
+        "accuracy_wilson_95": {
+          "lower": 0.20654931437723745,
+          "upper": 1.0,
+          "method": "Wilson score",
+          "confidence_level": 0.95,
+          "numerator": 1,
+          "denominator": 1,
+          "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+        }
+      },
+      "accuracy_wilson_95": {
+        "lower": 0.5241076941339972,
+        "upper": 0.9242861328730684,
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "numerator": 11,
+        "denominator": 14,
+        "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+      },
+      "macro_f1_bootstrap_95": {
+        "lower": null,
+        "upper": null,
+        "method": "stratified percentile bootstrap",
+        "undefined_reason": "INSUFFICIENT_SUPPORT_FOR_BOOTSTRAP",
+        "replicates": 0
+      }
+    },
+    "fixed_threshold": 0.95,
+    "frozen_threshold_result": {
+      "threshold": 0.95,
+      "retained": 1,
+      "correct": 1,
+      "errors": 0,
+      "coverage": 0.07142857142857142,
+      "selective_accuracy": 1.0,
+      "selective_risk": 0.0,
+      "empty_reason": null,
+      "threshold_role": "predeclared_reference"
+    },
+    "threshold_curve": [
+      {
+        "threshold": 0.0,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.01,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.02,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.03,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.04,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.05,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.06,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.07,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.08,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.09,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.1,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.11,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.12,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.13,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.14,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.15,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.16,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.17,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.18,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.19,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.2,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.21,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.22,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.23,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.24,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.25,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.26,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.27,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.28,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.29,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.3,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.31,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.32,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.33,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.34,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.35,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.36,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.37,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.38,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.39,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.4,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.41,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.42,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.43,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.44,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.45,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.46,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.47,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.48,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.49,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.5,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.51,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.52,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.53,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.54,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.55,
+        "retained": 14,
+        "correct": 11,
+        "errors": 3,
+        "coverage": 1.0,
+        "selective_accuracy": 0.7857142857142857,
+        "selective_risk": 0.21428571428571427,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.56,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.57,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.58,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.59,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.6,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.61,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.62,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.63,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.64,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.65,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.66,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.67,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.68,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.69,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.7,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.71,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.72,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.73,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.74,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.75,
+        "retained": 13,
+        "correct": 10,
+        "errors": 3,
+        "coverage": 0.9285714285714286,
+        "selective_accuracy": 0.7692307692307693,
+        "selective_risk": 0.23076923076923078,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.76,
+        "retained": 11,
+        "correct": 9,
+        "errors": 2,
+        "coverage": 0.7857142857142857,
+        "selective_accuracy": 0.8181818181818182,
+        "selective_risk": 0.18181818181818182,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.77,
+        "retained": 9,
+        "correct": 7,
+        "errors": 2,
+        "coverage": 0.6428571428571429,
+        "selective_accuracy": 0.7777777777777778,
+        "selective_risk": 0.2222222222222222,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.78,
+        "retained": 8,
+        "correct": 7,
+        "errors": 1,
+        "coverage": 0.5714285714285714,
+        "selective_accuracy": 0.875,
+        "selective_risk": 0.125,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.79,
+        "retained": 8,
+        "correct": 7,
+        "errors": 1,
+        "coverage": 0.5714285714285714,
+        "selective_accuracy": 0.875,
+        "selective_risk": 0.125,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.8,
+        "retained": 8,
+        "correct": 7,
+        "errors": 1,
+        "coverage": 0.5714285714285714,
+        "selective_accuracy": 0.875,
+        "selective_risk": 0.125,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.81,
+        "retained": 6,
+        "correct": 5,
+        "errors": 1,
+        "coverage": 0.42857142857142855,
+        "selective_accuracy": 0.8333333333333334,
+        "selective_risk": 0.16666666666666666,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.82,
+        "retained": 6,
+        "correct": 5,
+        "errors": 1,
+        "coverage": 0.42857142857142855,
+        "selective_accuracy": 0.8333333333333334,
+        "selective_risk": 0.16666666666666666,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.83,
+        "retained": 6,
+        "correct": 5,
+        "errors": 1,
+        "coverage": 0.42857142857142855,
+        "selective_accuracy": 0.8333333333333334,
+        "selective_risk": 0.16666666666666666,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.84,
+        "retained": 6,
+        "correct": 5,
+        "errors": 1,
+        "coverage": 0.42857142857142855,
+        "selective_accuracy": 0.8333333333333334,
+        "selective_risk": 0.16666666666666666,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.85,
+        "retained": 5,
+        "correct": 5,
+        "errors": 0,
+        "coverage": 0.35714285714285715,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.86,
+        "retained": 5,
+        "correct": 5,
+        "errors": 0,
+        "coverage": 0.35714285714285715,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.87,
+        "retained": 5,
+        "correct": 5,
+        "errors": 0,
+        "coverage": 0.35714285714285715,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.88,
+        "retained": 4,
+        "correct": 4,
+        "errors": 0,
+        "coverage": 0.2857142857142857,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.89,
+        "retained": 3,
+        "correct": 3,
+        "errors": 0,
+        "coverage": 0.21428571428571427,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.9,
+        "retained": 3,
+        "correct": 3,
+        "errors": 0,
+        "coverage": 0.21428571428571427,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.91,
+        "retained": 3,
+        "correct": 3,
+        "errors": 0,
+        "coverage": 0.21428571428571427,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.92,
+        "retained": 2,
+        "correct": 2,
+        "errors": 0,
+        "coverage": 0.14285714285714285,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.93,
+        "retained": 2,
+        "correct": 2,
+        "errors": 0,
+        "coverage": 0.14285714285714285,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.94,
+        "retained": 2,
+        "correct": 2,
+        "errors": 0,
+        "coverage": 0.14285714285714285,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.95,
+        "retained": 1,
+        "correct": 1,
+        "errors": 0,
+        "coverage": 0.07142857142857142,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "predeclared_reference"
+      },
+      {
+        "threshold": 0.96,
+        "retained": 1,
+        "correct": 1,
+        "errors": 0,
+        "coverage": 0.07142857142857142,
+        "selective_accuracy": 1.0,
+        "selective_risk": 0.0,
+        "empty_reason": null,
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.97,
+        "retained": 0,
+        "correct": 0,
+        "errors": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null,
+        "selective_risk": null,
+        "empty_reason": "EMPTY_RETAINED_SET",
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.98,
+        "retained": 0,
+        "correct": 0,
+        "errors": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null,
+        "selective_risk": null,
+        "empty_reason": "EMPTY_RETAINED_SET",
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 0.99,
+        "retained": 0,
+        "correct": 0,
+        "errors": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null,
+        "selective_risk": null,
+        "empty_reason": "EMPTY_RETAINED_SET",
+        "threshold_role": "exploratory_display"
+      },
+      {
+        "threshold": 1.0,
+        "retained": 0,
+        "correct": 0,
+        "errors": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null,
+        "selective_risk": null,
+        "empty_reason": "EMPTY_RETAINED_SET",
+        "threshold_role": "exploratory_display"
+      }
+    ],
+    "confidence_bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 1,
+        "accuracy": 1.0,
+        "mean_confidence": 0.5591561354919627,
+        "absolute_gap": 0.44084386450803725
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 0,
+        "accuracy": null,
+        "mean_confidence": null,
+        "absolute_gap": null
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 5,
+        "accuracy": 0.6,
+        "mean_confidence": 0.7647365722989704,
+        "absolute_gap": 0.16473657229897043
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 5,
+        "accuracy": 0.8,
+        "mean_confidence": 0.844608708297646,
+        "absolute_gap": 0.04460870829764596
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "count": 3,
+        "accuracy": 1.0,
+        "mean_confidence": 0.9417401375873814,
+        "absolute_gap": 0.0582598624126186
+      }
+    ],
+    "expected_calibration_error_10bin": 0.11873927533778394,
+    "study_summaries": [],
+    "errors": [
+      {
+        "sample_id": "T000",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.7785537329815247,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.22144626701847525,
+          "tumor": 0.7785537329815247
+        }
+      },
+      {
+        "sample_id": "T005",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.7551882444630168,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.2448117555369832,
+          "tumor": 0.7551882444630168
+        }
+      },
+      {
+        "sample_id": "T006",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.8455933454727107,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.1544066545272893,
+          "tumor": 0.8455933454727107
+        }
+      }
+    ],
+    "records": [
+      {
+        "sample_id": "T000",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.7785537329815247,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.22144626701847525,
+          "tumor": 0.7785537329815247
+        }
+      },
+      {
+        "sample_id": "T001",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "correct": true,
+        "confidence": 0.7564942138925784,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.7564942138925784,
+          "tumor": 0.24350578610742155
+        }
+      },
+      {
+        "sample_id": "T002",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "correct": true,
+        "confidence": 0.8077496281203881,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.8077496281203881,
+          "tumor": 0.1922503718796119
+        }
+      },
+      {
+        "sample_id": "T003",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "correct": true,
+        "confidence": 0.9171583872723398,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.9171583872723398,
+          "tumor": 0.08284161272766026
+        }
+      },
+      {
+        "sample_id": "T004",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "correct": true,
+        "confidence": 0.5591561354919627,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.5591561354919627,
+          "tumor": 0.4408438645080373
+        }
+      },
+      {
+        "sample_id": "T005",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.7551882444630168,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.2448117555369832,
+          "tumor": 0.7551882444630168
+        }
+      },
+      {
+        "sample_id": "T006",
+        "true_label": "normal",
+        "predicted_label": "tumor",
+        "correct": false,
+        "confidence": 0.8455933454727107,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.1544066545272893,
+          "tumor": 0.8455933454727107
+        }
+      },
+      {
+        "sample_id": "T007",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.8727591954704729,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.12724080452952713,
+          "tumor": 0.8727591954704729
+        }
+      },
+      {
+        "sample_id": "T008",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.7679736315941261,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.23202636840587387,
+          "tumor": 0.7679736315941261
+        }
+      },
+      {
+        "sample_id": "T009",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.9659345665627921,
+        "retained_at_frozen_threshold": true,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.034065433437207915,
+          "tumor": 0.9659345665627921
+        }
+      },
+      {
+        "sample_id": "T010",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.8076332207367574,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.19236677926324264,
+          "tumor": 0.8076332207367574
+        }
+      },
+      {
+        "sample_id": "T011",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.8893081516879008,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.11069184831209922,
+          "tumor": 0.8893081516879008
+        }
+      },
+      {
+        "sample_id": "T012",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.7654730385636059,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.23452696143639407,
+          "tumor": 0.7654730385636059
+        }
+      },
+      {
+        "sample_id": "T013",
+        "true_label": "tumor",
+        "predicted_label": "tumor",
+        "correct": true,
+        "confidence": 0.9421274589270126,
+        "retained_at_frozen_threshold": false,
+        "study_id": "",
+        "probabilities": {
+          "normal": 0.05787254107298745,
+          "tumor": 0.9421274589270126
+        }
+      }
+    ],
+    "warnings": [
+      {
+        "code": "TARGET_INDEPENDENCE_UNKNOWN",
+        "severity": "warning",
+        "field": "manifest.independence_declaration",
+        "message": "Independent sample acquisition is not documented by this manifest",
+        "next_action": "Document provenance or retain exploratory interpretation"
+      },
+      {
+        "code": "INDEPENDENCE_NOT_ESTABLISHED",
+        "severity": "warning",
+        "message": "Sample independence is not documented; row-level intervals do not account for correlated patients or batches."
+      },
+      {
+        "code": "SMALL_EVALUATION_SET",
+        "severity": "warning",
+        "message": "Fewer than 30 prediction records; interval estimates will be imprecise."
+      },
+      {
+        "code": "MACRO_F1_INTERVAL_UNAVAILABLE",
+        "severity": "info",
+        "message": "Too few cases for the pre-specified class-stratified bootstrap; point estimate remains available."
+      },
+      {
+        "code": "NOT_LOCKED_INDEPENDENT_VALIDATION",
+        "severity": "info",
+        "message": "The supplied study role is not locked independent evaluation; do not represent these results as a new blind test."
+      },
+      {
+        "code": "UNCALIBRATED_MODEL_CONFIDENCE",
+        "severity": "info",
+        "message": "Confidence scores and expected calibration error are descriptive; clinical calibration is not demonstrated."
+      }
+    ],
+    "interpretation": {
+      "frozen_threshold": "Frozen reference if predeclared in input manifest or source config; historical references are not newly blinded.",
+      "exploratory_thresholds": "All other cutoffs are post hoc displays of the same predictions; their apparent performance must not be claimed as independent confirmation.",
+      "intervals": "Wilson scores and stratified bootstrap describe sample-level uncertainty under independence assumptions; neither accounts for unmeasured study, batch, or patient clustering.",
+      "performance": "External accuracy is conditional on the observed cohort and class support, not universal clinical transportability."
+    }
+  },
+  "provenance": {
+    "input_files": {
+      "predictions": {
+        "name": "predictions.csv",
+        "bytes": 882,
+        "sha256": "7f89042a50a6f5f787706b5adca5a5f43417e443e780951db1d1203b9de9ada5"
+      },
+      "manifest": {
+        "name": "manifest.json",
+        "bytes": 496,
+        "sha256": "6969280d1fe8692ebf6c1ae4f8b4da2af48d95b74265cc4b4047fd1b36aed88d"
+      }
+    },
+    "prediction_manifest": {
+      "schema_version": "1.0.0",
+      "dataset_id": "SYNTHETIC_TARGET",
+      "model_id": "SYNTHETIC_SOURCE_LOGISTIC_05",
+      "classes": [
+        "normal",
+        "tumor"
+      ],
+      "probability_columns": {
+        "normal": "prob_normal",
+        "tumor": "prob_tumor"
+      },
+      "prediction_origin": "external_model",
+      "evaluation_role": "external_exploratory",
+      "independence_declaration": "unknown",
+      "primary_confidence_threshold": 0.95,
+      "label_source_description": "Fictional labels generated for software contract tests. NO patient data."
+    },
+    "warning": "The input independence declaration is user-supplied, not audited by BRACE."
+  },
+  "interpretation": "Scientific research only. This tool evaluates supplied labels and predictions; it does not certify clinical reliability."
+}

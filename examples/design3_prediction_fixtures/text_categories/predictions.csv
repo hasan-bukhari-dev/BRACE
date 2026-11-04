@@ -1,0 +1,7 @@
+sample_id,true_label,predicted_label,prob_science,prob_business,prob_sports
+T1,science,science,0.8,0.1,0.1
+T2,business,sports,0.05,0.05,0.9
+T3,sports,sports,0.2,0.2,0.6
+T4,science,science,0.7,0.2,0.1
+T5,business,business,0.03,0.95,0.02
+T6,sports,business,0.01,0.98,0.01

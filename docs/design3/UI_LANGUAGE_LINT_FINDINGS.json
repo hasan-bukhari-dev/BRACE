@@ -1,0 +1,242 @@
+[
+  {
+    "source": "brace_app/embrace.py:49",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "Completed evidence changed: ",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/embrace.py:198",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "Only completed runs can be exported",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/release09.py:88",
+    "matches": [
+      "run"
+    ],
+    "literal_or_template": "Run",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/app.js:46",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "<div class=\"table-scroll\"><table><thead><tr><th>Task</th><th>Required data</th><th>Implemented boundary</th></tr></thead><tbody>${tasks.map(t=>`<tr><th>${esc(t.label)}</th><td>${t.files.length} files \u00b7 ${esc(t.domain.replaceAll('_',' '))}</td><td>${esc(t.boundary)}</td></tr>`).join('')}<tr><th>Not implemented</th><td colspan=\"2\">${capabilities.unsupported.map(esc).join('; ')}.</td></tr></tbody></table></div>",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/app.js:61",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "<div class=\"local-run-row\"><div><strong>${esc(r.name)}</strong><small>${esc(capabilities.tasks[r.mode]?.label||r.mode)} \u00b7 ${esc(r.kind)} \u00b7 ${esc(r.id)}</small><small>Integrity checked on open \u00b7 ${r.folder_modified_utc?'Folder modified '+esc(new Date(r.folder_modified_utc).toLocaleString()):'Save date not recorded'}</small></div><button data-open-run=\"${r.id}\" ${!r.has_result?'disabled':''}>${r.has_result?'Open result':'No completed result'}</button>${r.has_result?`<a href=\"/api/embrace/${r.id}\" download>Export ZIP</a>`:''}</div>",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/app.js:61",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "No completed result",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/js/guide.js:15",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "unsupported-data",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/js/journey.js:6",
+    "matches": [
+      "run"
+    ],
+    "literal_or_template": "run",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/js/journey.js:7",
+    "matches": [
+      "run"
+    ],
+    "literal_or_template": "run",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/study_api.py:77",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported task",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/baseline05.py:63",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported model freeze format",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/cli.py:13",
+    "matches": [
+      "run"
+    ],
+    "literal_or_template": "run",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/compatibility.py:27",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "f'Unsupported measurement comparison: {s_meas} vs {t_meas}'",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/compatibility.py:90",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Use StratifiedGroupKFold or block unsupported training in Stage 05",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/intake.py:64",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Correct required and unsupported fields",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/intake.py:64",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "f'Manifest fields: missing={sorted(missing)}, unsupported={sorted(unknown)}'",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/intake.py:69",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "f'{k} has unsupported value {manifest[k]!r}'",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/prediction_io.py:46",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Prediction manifest has missing/unsupported fields",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/shift07.py:182",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported mode",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/signature.py:33",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported RACE configuration fields",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/signature.py:58",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported organism",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/signature.py:62",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Repeated subjects require an unsupported paired or clustered method",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/signature.py:76",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Ambiguous feature mapping is unsupported",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/signature.py:218",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "completed",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage05_cli.py:64",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "completed",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage05_cli.py:97",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "completed",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage05_cli.py:142",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "completed",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage06_cli.py:128",
+    "matches": [
+      "confident"
+    ],
+    "literal_or_template": "<h2>Most confident observed errors</h2><p class=\"note\">Up to 30 shown here; export contains all cases.</p>",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage06_cli.py:173",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported stage 05 mode",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_core/stage06_cli.py:233",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "completed",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  }
+]
