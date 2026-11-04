@@ -1,0 +1,17 @@
+[
+  {
+    "mode": "evaluate_predictions",
+    "fixture": "examples\\design3_prediction_fixtures\\equipment_faults",
+    "status": "PASS"
+  },
+  {
+    "mode": "diagnose_shift",
+    "fixture": "examples\\synthetic_valid",
+    "status": "PASS"
+  },
+  {
+    "mode": "train_validate",
+    "fixture": "examples\\synthetic_valid",
+    "status": "PASS"
+  }
+]

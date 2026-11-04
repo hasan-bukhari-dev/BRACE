@@ -1,0 +1,59 @@
+{
+  "refs": {
+    "v6": "31e753e0149c1cc688980499a5ed1bbbe612fde9",
+    "main": "871472bc6a9be8387930218b4340ba3e10b83006",
+    "dev": "af1181677703fd4469cf1a0e914b4c844eac3ec3",
+    "dev2": "74dba02fb153e6f883f9c1a25a4c04c60b3be2e1"
+  },
+  "counts": {
+    "v6": 1273,
+    "main": 263,
+    "dev": 286,
+    "dev2": 286
+  },
+  "dev2_files_deleted": [],
+  "frontend_byte_identical_to_main": [
+    "brace_app/static/brand-interlock.svg",
+    "brace_app/static/design-tokens.css",
+    "brace_app/static/interlock.svg",
+    "brace_app/static/js/ace-design.js",
+    "brace_app/static/js/api.js",
+    "brace_app/static/js/charts.js",
+    "brace_app/static/js/export.js",
+    "brace_app/static/js/family.js",
+    "brace_app/static/js/guide.js",
+    "brace_app/static/js/inspector.js",
+    "brace_app/static/js/journey.js",
+    "brace_app/static/js/legacy-results.js",
+    "brace_app/static/js/operation.js",
+    "brace_app/static/js/prediction-declaration.js",
+    "brace_app/static/js/race.js",
+    "brace_app/static/js/setup.js",
+    "brace_app/static/js/theme-init.js",
+    "brace_app/static/js/theme.js",
+    "brace_app/static/js/trace.js",
+    "brace_app/static/js/ui.js",
+    "brace_app/static/js/wordmark.js",
+    "brace_app/static/ribbons.svg",
+    "brace_app/static/style.css",
+    "brace_app/static/v4.css",
+    "brace_app/static/vendor/MANROPE_OFL.txt",
+    "brace_app/static/vendor/Manrope-Variable.ttf",
+    "brace_app/static/vendor/PAPAPARSE_LICENSE.txt",
+    "brace_app/static/vendor/PLOTLY_LICENSE.txt",
+    "brace_app/static/vendor/papaparse-5.5.3.min.js",
+    "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js"
+  ],
+  "frontend_modified_from_main": [
+    "brace_app/static/app.js",
+    "brace_app/static/index.html",
+    "brace_app/static/js/ace.js",
+    "brace_app/static/js/cohort-declaration.js",
+    "brace_app/static/js/evidence-design.js",
+    "brace_app/static/js/space.js",
+    "brace_app/static/js/state.js",
+    "brace_app/static/js/study.js",
+    "brace_app/static/v6.css"
+  ],
+  "scientific_changed_from_dev2": []
+}
