@@ -7,8 +7,10 @@ datas += [(str(ROOT/'brace_app/static'), 'brace_app/static'),
           (str(ROOT/'brace_app/task_capabilities.json'), 'brace_app'),
           (str(ROOT/'packaging/brace.ico'), '.'),
           (str(ROOT/'packaging/generated'), 'distribution-notices')]
-for name in ('LICENSE', 'THIRD_PARTY_NOTICES.md', 'DATA_SOURCES.md', 'VERSION'):
+for name in ('LICENSE', 'VERSION'):
     datas.append((str(ROOT/name), '.'))
+for name in ('THIRD_PARTY_NOTICES.md', 'DATA_SOURCES.md'):
+    datas.append((str(ROOT/'docs'/name), 'docs'))
 for name in ('PASS03_PUBLIC_REFERENCE.json', 'PASS05_ARCHIVED_REFERENCE.json'):
     datas.append((str(ROOT/'docs'/name), 'docs'))
 for line in (ROOT/'requirements-release.txt').read_text().splitlines():

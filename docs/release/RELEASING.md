@@ -6,7 +6,7 @@ The repository is `https://github.com/hasan-bukhari-dev/BRACE`. BRACE-authored m
 
 Use standard 64-bit CPython 3.11.9 for a matching build, in an isolated virtual environment. Run `python -m pip install -r requirements-release.txt -r requirements-build.txt`. Keep native Tk support: the minimal NuGet runtime used for earlier engine tests lacks Tk and must not be used to freeze the native launcher.
 
-Run `python -m pytest -q`, `python scripts/release_smoke.py`, `python verify_release.py` and `python scripts/check_repository.py`. The latter checks Git's exact payload, not private untracked runs. Scientific core/examples/original-test hashes remain pinned in `docs/v6/BASELINE_SCIENCE_SHA256.json`.
+Run `python -m pytest -q`, `python scripts/release_smoke.py`, `python verify_release.py` and `python scripts/check_repository.py`. The latter checks Git's exact payload, not private untracked runs. Core hashes remain in `docs/quality/BASELINE_CODE_SHA256.json`; public-data hashes remain with the example.
 
 ## Build the actual app
 

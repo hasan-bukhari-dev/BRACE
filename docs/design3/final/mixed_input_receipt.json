@@ -1,1 +1,0 @@
-{"status": "PASS", "checks": ["Keyboard focus overrides stationary pointer preview", "Enter commits actual focused task without stale hover selection"]}

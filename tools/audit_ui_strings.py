@@ -35,7 +35,7 @@ POLICIES.update({
 })
 
 def source_files():
-    # Third-party bundles are separately licensed and SHA-inventoried in docs/v5/VENDOR_HASHES.json.
+    # Third-party bundles are separately licensed and SHA-inventoried in docs/quality/VENDOR_HASHES.json.
     # Audit every authored source literal, without parsing minified library internals.
     return sorted([p for folder in ('brace_app','brace_core') for p in (ROOT/folder).rglob('*') if p.suffix in {'.py','.js','.html','.json','.css'} and '__pycache__' not in p.parts and 'vendor' not in p.parts])
 def js_literals(s):
@@ -151,8 +151,8 @@ def findings(rows):
             found.append({'source':r['evidence_source'].split(';')[0],'matches':matches,'literal_or_template':r['literal_or_template'],'review':'Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement.'})
     return found
 def generate():
-    rows,coverage=inventory();out=ROOT/'docs/design3';out.mkdir(parents=True,exist_ok=True)
-    with (ROOT/'UI_STRING_LEDGER.csv').open('w',newline='',encoding='utf-8') as f:w=csv.DictWriter(f,FIELDS);w.writeheader();w.writerows(rows)
+    rows,coverage=inventory();out=ROOT/'docs/quality';out.mkdir(parents=True,exist_ok=True)
+    with (ROOT/'docs/quality/UI_STRING_LEDGER.csv').open('w',newline='',encoding='utf-8') as f:w=csv.DictWriter(f,FIELDS);w.writeheader();w.writerows(rows)
     (out/'STRING_SOURCE_COVERAGE.json').write_text(json.dumps(coverage,indent=2,sort_keys=True)+'\n',encoding='utf-8')
     (out/'UI_LANGUAGE_LINT_FINDINGS.json').write_text(json.dumps(findings(rows),indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'ledger_rows':len(rows),'source_files':len(coverage),'lint_findings':len(findings(rows))}))

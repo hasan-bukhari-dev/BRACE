@@ -1,41 +1,45 @@
-# BRACE — Design 3 user guide
+# BRACE V6 — start with your question
 
-Test gene-expression associations across studies, or evaluate saved classification predictions against known labels. Supplied manifests do not authenticate acquisition or independence. Follow README_START_HERE.md for standard 64-bit Python setup, release checks and START_BRACE_WINDOWS.bat. The installed app/data require no account, API key or outside network.
+BRACE means **Biological Reliability Assessment across Cohorts and Experiments**. It is a local research workbench. It does not discover a disease mechanism or establish clinical validity.
 
-The five letters are navigation buttons: B home, R gene associations, A classification predictions, C dataset checks/distributions, E methods/history/exports. Plain task captions accompany each letter. Hover/focus previews; click/tap/Enter/Space commits. Escape cancels preview or closes an inspector. Home and theme changes retain the current analysis. System, Light and Dark are available.
+## Try the real public example
 
-## Real public example
+1. Start `START_BRACE_WINDOWS.bat`; use the address printed in its window.
+2. **Open saved public result** reads the included exploratory GSE42568 → GSE20711 evidence. It does not run a new experiment.
+3. Select a gene in the signature or table. **FACE · Gene measurements** shows the included measurements by condition in each study. The cohorts have separate expression axes.
+4. **TRACE · Trace result** explains the source test, frozen selection and target test. **Return to gene measurements** restores the same gene. Browser Back/Forward and the workbench Back control preserve context.
+5. **E · Evidence** opens the readable report, calculation record and exact downloads. HTML links work beside the files in the extracted EMBRACE ZIP. Download the ZIP when sharing the complete record.
 
-Choose **Open a public gene-expression example**. This opens saved exploratory GSE42568→GSE20711 ER-status results, not a fresh calculation: 101/87 tumors and 10,000 prepared features. All 20 source-frozen associations remain: 14 matching with target BH support, five matching without the target threshold, one opposite estimate. Nonsupport does not establish absence; an opposite estimate does not establish reversal.
+To compute again, use **Run the public example again**. Review the loaded files, ER definitions and processing differences; confirm the scientific declarations, check inputs, then compute. The origin remains verified public data, while execution is recorded as fresh. Download the complete input bundle if you want to inspect or reproduce the files independently.
 
-Select 135112/NCOA7 for 188 actual measurements in FACE. Source/target axes stay separate because GC-RMA/RMA absolute scales are not approved for comparison. 55816/DOK5 illustrates insufficient support; 54947/LPCAT2 an opposite estimate. Exact values, effects, q-values, pointwise intervals, mapping and exclusions are available. **Trace result** opens this exact selection's recorded methods; returning restores it. ER ascertainment, confounding and unknown donor independence remain limitations.
+The example tests ER-positive minus ER-negative tumors: source 101 tumors (67/34), target 87 (42/45), 10,000 source-filtered features. The verified preparation starts from 121 and 90 matrix samples respectively; excluded sample IDs and reasons are available from each cohort's inclusion summary. Original study totals are not analysis denominators.
 
-## Fresh expression analysis
+## Choose the route that matches your files
 
-1. **Use my data** (or **Use another dataset**) → **Test gene-expression associations**.
-2. Select six files in examples/public_er_pair/prepared: source/target expression TSV, metadata TSV and manifest JSON. Assay/identifier declaration is required inside each dataset disclosure.
-3. Positive label ER_positive, definition Clinically ER-positive primary breast tumor; negative ER_negative, definition Clinically ER-negative primary breast tumor.
-4. Review provenance, equivalence and exploratory processing before checking their acknowledgements. **Check files for this task**, inspect counts/warnings, then **Test selected associations**.
-5. Uploaded files are labeled user-supplied computation even when they match bundled public inputs; verified annotation is hash-linked. This ER pair is blocked for the normal/tumor baseline.
+| What you have | Choose | What happens |
+|---|---|---|
+| Two processed expression matrices and sample annotations, with equivalent supported conditions | Test gene-expression associations / RACE | Source-only selection, frozen gene list, independent-study target association testing |
+| Saved predictions and known reference labels | Evaluate saved predictions / ACE | Scores your supplied predictions; does not execute or retrain your model |
+| Supported normal/tumor expression cohorts | Train and evaluate a baseline / ACE | Fits the specific source-only logistic-regression pipeline; separates source CV from target evaluation |
+| Compatible expression cohorts, possibly without target labels | Compare distributions / CE | Descriptive feature differences and source-fitted PCA; no target prediction accuracy |
+| Only a public research question | SPACE · Find public datasets | Searches official GEO metadata, checks actual matrix filenames and can acquire bounded original gzip files; preparation remains a separate scientific task |
 
-Changing task retains selected files within the tab, invalidates prior checking and requires a new task-specific check. Limits remain 25 MiB/file, 25,000 expression features and 500 samples/dataset. IDs must align. Resolve an input blocker and check again; no silent normalization or exclusion is added.
+Expression intake needs one genes-by-samples CSV/TSV matrix and one sample metadata table per cohort, plus dataset declarations. Guided forms can create declarations; existing JSON can also be loaded. Prediction intake needs `sample_id`, `true_label`, `predicted_label` and the model's declared class list. Probability columns are optional, but if present must be complete and valid. **? · Help** contains small format examples. See the preserved [data guide](DATA_GUIDE.md) for exact schemas.
 
-## Predictions and distributions
+The API limits remain 25 MiB per input, 25,000 features, 500 samples per cohort and 50,000 prediction records. BRACE expects appropriately processed expression data. It is not a FASTQ/CEL preprocessing or general RNA-seq differential-expression tool.
 
-**Saved classification predictions:** choose that task, then a CSV/TSV table and JSON class/column manifest. The internal sample_id is a record key, not necessarily a biological sample. No expression or organism files are required. Maximum 50,000 records. Complete valid probability vectors are optional but required for confidence analysis. Two artificial non-biological fixtures under examples/design3_prediction_fixtures exercise format/computation; they are not real field studies.
+## Read results without overclaiming
 
-ACE shows correct/all evaluated, true-row/predicted-column confusion, supported-class metrics and uncertainty. Confidence is maximum supplied class probability. Retention uses >= cutoff. Slider/numeric input choose saved 0.01 curve points plus the exact reference. Other cutoffs show an error without changing results. Zero retained means undefined selective accuracy/risk. Post-outcome cutoff choices are exploratory, do not retrain and do not establish calibration. Select a record for actual scores and TRACE; unrelated gene measurements are absent.
+- **Matching direction + target support** requires both the same estimated sign and the configured target BH threshold. The public example has 14/20 such associations.
+- Five matching estimates lack target statistical support; that is inconclusive, not proof of no effect. The opposite estimate is not a demonstrated biological reversal.
+- Source effects are selected and may be inflated. Differences in GC-RMA/RMA processing, ER assays and unauthenticated donor independence limit the public experiment. Do not pool absolute expression scales or call it locked clinical validation/model-transfer evidence.
+- Prediction accuracy always needs its denominator. Confidence filtering changes retained records and coverage; it does not retrain a model or establish calibrated probabilities. Unsupported classes remain unevaluated.
+- Historical CancerShift predictions are archived evidence. The synthetic baseline is artificial software demonstration data. Neither is a fresh execution of the historical classifier.
 
-**Source baseline:** choose **Train a baseline on source expression data**, with six eligible files and normal/tumor labels. Source OOF and target scoring appear separately. The synthetic expression example verifies software without biological claims.
+## Recovery and privacy
 
-**Unlabeled comparison:** choose **Compare dataset measurements**. C/CE shows KS/BH, medians/source IQR and source-fitted PCA with exact tables. Labels are excluded; no accuracy or causal error explanation is produced. Existing expression/biological identifier contracts remain; arbitrary numeric tables are not silently accepted. Same-run diagnostics are available only when actually computed.
+Return to dataset descriptions to correct declarations; unaffected selected files remain in the current page session. Editing invalidates earlier checks. After a full reload, browsers cannot silently restore local file permissions: reselect original uploads when needed. Saved results remain reopenable from Evidence.
 
-**Historical predictions:** B → **Historical research and software examples** → **Open historical predictions**. CPTAC: 668/680 correct; at .95, 583/584 retained correct; at .99, 431/432, still one error. Search cfc121b5 to inspect the actual breast→ovary error with maximum score 0.998692106. Original weights are unavailable; no new original-classifier inference is claimed. GSE2109 is a separately labeled recorded method table.
+If you leave a view during computation, BRACE keeps the current view and offers the newly completed result. The method diagram explains the algorithm; it is not a live step-by-step progress monitor. A request's busy state lasts until a real response/error; there is no invented percentage or cancel promise.
 
-## Evidence and recovery
-
-E → **Export evidence ZIP**. Extract and open research_summary.html for the result-first report, limits, full tables, methods, local links and hashes. Derived identifiers/scores can be sensitive. Original uploads are excluded: reproduction needs matching hashed originals and software. Hashes do not authenticate acquisition, consent or redistribution rights. Spreadsheet-safe CSV has a reversible encoding ledger; JSON retains exact IDs.
-
-**Saved local analyses** lists up to 50 actual generated folders, with integrity checked when opened. Small per-run filters/selections restore after refresh; File objects do not. Reselect and check before another upload. Interrupted requests are never automatically rerun; check saved analyses because their outcome may be uncertain. If integrity fails, restore matching originals/results; do not edit hashes to bypass rejection.
-
-Actual screen-reader use, unfamiliar-user comprehension, physical touch/projector and narrated demo acceptance remain untested. Current verification is in PRODUCT_DESIGN_V3_REPORT.md; earlier pass documents are historical snapshots.
+Local computation and bundled examples do not need external network access after dependencies are installed. SPACE sends only the public search fields you explicitly submit to NCBI; matrices, private labels and uploaded records are not included. Its cache is local. A network failure does not disable the bundled example.

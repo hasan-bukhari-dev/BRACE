@@ -3,7 +3,7 @@ import csv
 import hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-INDEX=ROOT/'FILE_SHA256_MANIFEST.csv'
+INDEX=ROOT/'packaging/source-manifest.csv'
 
 def main():
     rows=list(csv.DictReader(INDEX.open(encoding='utf-8',newline='')))

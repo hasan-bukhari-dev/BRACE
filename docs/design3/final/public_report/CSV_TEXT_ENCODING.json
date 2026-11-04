@@ -1,4 +1,0 @@
-{
-  "changed_cells": {},
-  "rule": "Only dangerous text cells are apostrophe-prefixed in the published CSV view. Rows/columns are 1-based including headers. Exact originals remain here and in JSON. Negative numeric values stay numeric. RACE also retains its pre-existing apostrophe encoding of dangerous identifiers."
-}

@@ -1,5 +1,0 @@
-# Real-data EMBRACE example
-
-BRACE_EMBRACE_PUBLIC_ER_RELEASE.zip is the tenth successful fresh six-file public-data upload in release acceptance. Its API origin is correctly user_computed because it used the normal upload workflow. It contains real GEO measurements' calculated evidence, not synthetic biological results. Source101/target87;10,000 features screened;20 frozen;14 matching+support,5 matching insufficient,1 opposite nonsignificant estimate. No raw input matrices are inside the ZIP.
-
-Extract and open research_summary.html. The original acquisition/citation/redistribution and preparation record is PUBLIC_DATA_PREPARATION.md beside this example, with exact matrices/maps/ledgers under examples/public_er_pair in the complete release. docs/PASS07_EXAMPLE_INVENTORY.json records the ZIP and every member hash. Software provenance is Python3.11.9; its frozen digest legitimately differs from the preserved saved Python3.11.2 example. All numerical findings agree. Research use only; processing/ER/donor limitations remain.
