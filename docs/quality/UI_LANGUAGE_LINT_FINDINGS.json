@@ -1,6 +1,6 @@
 [
   {
-    "source": "brace_app/dataset_registry.py:78",
+    "source": "brace_app/dataset_registry.py:79",
     "matches": [
       "unsupported"
     ],
@@ -8,7 +8,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/dataset_registry.py:203",
+    "source": "brace_app/dataset_registry.py:204",
     "matches": [
       "unsupported"
     ],
