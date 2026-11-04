@@ -31,6 +31,8 @@ def main():
     receipt.write_text(json.dumps({'version':version,'status':'PASS','scope':'Archive integrity and source/bundle static equality; installer acceptance separate',
         'static_assets':verified,'portable_sha256':digest(portable),'source_sha256':digest(source)},indent=2),encoding='utf-8')
     names=[portable,source,receipt]
+    for p in (portable,source):
+        (assets/(p.name+'.sha256')).write_text(digest(p)+'  '+p.name+'\n',encoding='utf-8')
     (assets/f'BRACE-{version}-SHA256SUMS.txt').write_text(''.join(digest(p)+'  '+p.name+'\n' for p in names),encoding='utf-8')
     print('\n'.join(str(p) for p in names))
 

@@ -106,6 +106,8 @@ python scripts/recovery_inventory.py
 The initial full regression run produced **337 passed, 1 failed**. The failure is
 the required UI source ledger becoming stale after source changes; the ledger is
 regenerated and its checks rerun separately. No numerical regression failed.
+The final focused audit/startup/distribution retest passed **14 tests**;
+its receipt is `recovery/evidence/final-retest.xml`.
 The independent public-data calculation selected 20 associations, with 19 matching
 directions and 14 target-supported associations. Repeated scientific output files
 were byte-identical. Vectorized SciPy reference comparisons passed the existing
