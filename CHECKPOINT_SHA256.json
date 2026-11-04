@@ -8,12 +8,12 @@
     "sha256": "2cd46f9ed89baeb03694db02be0cea0eabe18a6b52f12805f83a2aa1e89607c9"
   },
   ".github/workflows/build-release.yml": {
-    "bytes": 5527,
-    "sha256": "d7c2fb73f0a0674078fd8542b7960fdee644e59e8c4cea148ac19591e241a63a"
+    "bytes": 5766,
+    "sha256": "57299c50bc0529eece8f121bade6ee2d9b9cbe3cfff2fd56b4fec1eebeb0b4f5"
   },
   ".github/workflows/verify.yml": {
-    "bytes": 1002,
-    "sha256": "208cc39496588a457d793ebfce4ac8cfc3d1ea42529b167ac2b244e7d054f775"
+    "bytes": 1241,
+    "sha256": "edbc27d8698b0032ed4be08bc781eb30b1ab4c901f0142117835140933fe2b27"
   },
   ".gitignore": {
     "bytes": 363,
