@@ -1,4 +1,4 @@
-BRACE 1.1.0-dev.1 - Integrated research workbench
+BRACE 1.1.0-dev.2 - Integrated research workbench
 
 Persistent datasets, reviewed preparation, versioned studies,
 reproducible analysis, lineage, and scientific evidence export.
