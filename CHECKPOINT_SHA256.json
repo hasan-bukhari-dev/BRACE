@@ -4992,8 +4992,8 @@
     "sha256": "fa38f8f2d616b8400679edc6f2a4595d657ce6ccfd4858274c32c473d673537c"
   },
   "tests/test_desktop_distribution.py": {
-    "bytes": 2775,
-    "sha256": "8dbdf8a7bc01ae475e8c1c06a7f1fe5cc44c2189765c030c663ff2d8a26f6b77"
+    "bytes": 2813,
+    "sha256": "81bd45643dda90c9a3c28797f0235a821cd88387d3b3ee3632b3561d0bcb1bae"
   },
   "tests/test_embrace.py": {
     "bytes": 17937,

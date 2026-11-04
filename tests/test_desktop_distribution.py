@@ -56,6 +56,7 @@ def test_platform_address_in_use_can_reserve_next_port(monkeypatch):
     monkeypatch.delenv('BRACE_PORT',raising=False)
     attempted=[]
     class Listener:
+        def __init__(self,*args):pass
         def setsockopt(self,*args):pass
         def bind(self,address):
             attempted.append(address[1])
