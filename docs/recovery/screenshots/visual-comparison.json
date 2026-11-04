@@ -1,0 +1,15 @@
+{
+  "saved_run_counts": {
+    "original": 2,
+    "recovered": 2
+  },
+  "sizes": [
+    1440,
+    390
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "baseline": "Exact main static bytes, same live dev.2 backend; no API mocks"
+}

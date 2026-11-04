@@ -76,7 +76,22 @@ async def reject_foreign_write_origins(request, call_next):
                 return JSONResponse({'detail':{'code':'INVALID_JSON','message':str(exc)}},status_code=422)
             request._body=body
     return await call_next(request)
-app.mount('/assets', StaticFiles(directory=STATIC), name='assets')
+class WorkbenchAssets(StaticFiles):
+    async def get_response(self, path, scope):
+        response = await super().get_response(path, scope)
+        # Local releases share an origin. Never mix cached modules from an older
+        # installation, or trust Windows registry MIME overrides for ES modules.
+        response.headers['Cache-Control'] = 'no-store'
+        suffix = Path(path).suffix.lower()
+        if suffix in ('.js', '.css'):
+            response.headers['Content-Type'] = {
+                '.js': 'text/javascript; charset=utf-8',
+                '.css': 'text/css; charset=utf-8',
+            }[suffix]
+        return response
+
+
+app.mount('/assets', WorkbenchAssets(directory=STATIC), name='assets')
 
 
 @app.get('/')

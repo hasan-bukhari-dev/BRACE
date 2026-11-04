@@ -17,7 +17,7 @@ From source, use standard 64-bit Python 3.11–3.13:
 - Windows: `SETUP_BRACE_WINDOWS.bat`, then `START_BRACE_WINDOWS.bat`.
 - macOS/Linux: `sh SETUP_BRACE.sh`, then `sh START_BRACE.sh`.
 
-In Workbench, choose **Add reviewed public ER datasets**, review their biological contrast and processing caveats, check eligibility, then compute from the registered versions. SPACE acquisitions are registered automatically; supported general matrices have an explicit preparation editor. You can also open the saved public result or use guided private-file inputs.
+The original V6 Workbench is preserved. Choose **Study datasets** (also under CE) for **Add reviewed public ER datasets**, review the biological contrast and processing caveats, check eligibility, then compute from the registered versions. SPACE acquisitions are registered automatically; supported general matrices have an explicit preparation editor. You can also open the saved public result or use guided private-file inputs.
 
 [Persistent dataset workflow](docs/DATASET_WORKFLOW.md) · [Architecture](docs/ARCHITECTURE.md) · [Integration status and acceptance](docs/IMPLEMENTATION_REPORT.md)
 
@@ -44,7 +44,7 @@ python -m pytest -q
 python scripts/release_smoke.py
 ```
 
-This branch is the unsigned **1.1.0-dev integration preview**. Its Windows portable build and source checks are documented in the implementation report. The linked published V6 installer is the earlier release. This version has not undergone installer/uninstall, macOS/Linux or unfamiliar-user acceptance testing. [Build guide](docs/release/RELEASING.md) · [Remaining acceptance](docs/ACCEPTANCE.md).
+This branch is the unsigned **1.1.0-recovery.1 acceptance candidate**, preserving the original frontend and dev.2 functionality. It is not a published release. See the [recovery report and verification evidence](docs/RECOVERY.md). Installer/uninstall, macOS/Linux and unfamiliar-user acceptance remain separate gates. The linked published V6 installer is the earlier release. [Build guide](docs/release/RELEASING.md).
 
 ## Rights
 

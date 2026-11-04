@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:8915",
+  "passed": [
+    "SPACE toolbar click, initial focus, Escape and focus restoration",
+    "Reviewed public registry \u2192 declared contrast \u2192 eligibility \u2192 real RACE computation",
+    "Original navigation and real EMBRACE export",
+    "Saved result restoration after reload",
+    "Injected missing app.js: SPACE still opens; startup failure visible"
+  ],
+  "page_errors": [],
+  "scope": "Real backend; baseline swaps only exact main static assets. Live GEO and installer acceptance are separate."
+}

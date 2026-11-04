@@ -73,7 +73,8 @@ jobs:
         run: |
           $compiler='C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
           if(-not(Test-Path -LiteralPath $compiler)){throw 'Inno Setup 6 is required; no unverified installer fallback'}
-          & $compiler packaging/windows.iss
+          $version=(Get-Content -LiteralPath VERSION -Raw).Trim()
+          & $compiler "/DBuildVersion=$version" packaging/windows.iss
           if($LASTEXITCODE -ne 0){throw 'Installer compile failed'}
           $setup=(Get-ChildItem release-assets/*-setup.exe).FullName
           $destination=Join-Path $env:RUNNER_TEMP 'BRACE-installed-check'
@@ -118,4 +119,4 @@ jobs:
         run: git archive --format=zip --prefix=BRACE/ --output=release-assets/BRACE-source.zip HEAD
       - name: Create concrete draft only after verification
         run: |
-          gh release create "$RELEASE_TAG" --verify-tag --prerelease --title "BRACE ${RELEASE_TAG#v}" --notes-file docs/release/RELEASE_BODY.md release-assets/*
+          gh release create "$RELEASE_TAG" --verify-tag --draft --prerelease --title "BRACE ${RELEASE_TAG#v}" --notes-file docs/release/RELEASE_BODY.md release-assets/*

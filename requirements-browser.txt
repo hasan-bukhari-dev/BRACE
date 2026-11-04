@@ -1,0 +1,2 @@
+# Optional release-acceptance tooling; never bundled into BRACE.
+playwright==1.64.1

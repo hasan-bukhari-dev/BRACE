@@ -1,0 +1,55 @@
+{
+  "version": "1.1.0-recovery.1",
+  "publication_allowed": false,
+  "gates": [
+    {
+      "gate": 1,
+      "status": "PASS",
+      "verification": "GitHub refs verified; four Git trees compared; no dev.2 deletions; code provenance recorded",
+      "evidence": "docs/recovery/file-provenance.csv",
+      "remaining": "First-ever introduction is not established by shallow history; inventory records reference-tree provenance."
+    },
+    {
+      "gate": 2,
+      "status": "PASS",
+      "verification": "Original homepage actions/branding/navigation restored; reviewed 1440/390 light/dark comparisons; registry remains reachable in CE",
+      "evidence": "docs/recovery/screenshots/visual-comparison.json",
+      "remaining": "Full pixel-by-pixel comparison of every populated/error screen is not performed."
+    },
+    {
+      "gate": 3,
+      "status": "BLOCKED",
+      "verification": "Dev.2 preserved; regression suite, public registry browser flow, three original upload workflows and frozen replay/restart verification executed",
+      "evidence": "docs/recovery/evidence/binary-uploads.json",
+      "remaining": "General preparation, phenotype reconciliation and frozen replay need complete browser acceptance, beyond existing API regression coverage."
+    },
+    {
+      "gate": 4,
+      "status": "BLOCKED",
+      "verification": "Published dev.2 hash verified; SPACE opens there; early-click fault reproduced and fixed; source live GEO acquisition and registry handoff pass; binary SPACE fault-injection passes",
+      "evidence": "docs/recovery/evidence/binary-browser.json",
+      "remaining": "Exact reported installed-app failure is not reproduced. Repeat live acquisition through preparation and analysis against packaged recovery."
+    },
+    {
+      "gate": 5,
+      "status": "PASS",
+      "verification": "Scientific core unchanged; independent SciPy comparison and deterministic public result agree; all numerical regression tests pass",
+      "evidence": "docs/recovery/evidence/scientific.json",
+      "remaining": null
+    },
+    {
+      "gate": 6,
+      "status": "BLOCKED",
+      "verification": "Actual binary public RACE, ACE saved predictions, CE, source baseline, navigation, reload, export, restart and frozen replay tested",
+      "evidence": "docs/recovery/evidence/binary-restart.json",
+      "remaining": "Complete all-control/error-state/keyboard/responsive acceptance and general preparation UI coverage."
+    },
+    {
+      "gate": 7,
+      "status": "BLOCKED",
+      "verification": "Windows executable built; browser, restart, FACE/TRACE API and export hashes verified; portable/source candidates packaged separately",
+      "evidence": "docs/recovery/evidence/binary-restart.json",
+      "remaining": "Inno Setup compiler is absent locally. No recovery installer or fresh Windows install/uninstall acceptance; no release publication."
+    }
+  ]
+}
