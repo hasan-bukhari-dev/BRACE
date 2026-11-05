@@ -49,12 +49,6 @@
   },
   {
     "source_file": "brace_app/static/app.js",
-    "literal_sha256": "a1ac1625672d0bebdab714cf656e47dbe5125ae7e170f9db98359acc75f7a4da",
-    "decision": "keep_with_context",
-    "reason": "The match is an internal JSON property. Rendered heading is Not implemented and the actual unsupported capability list follows."
-  },
-  {
-    "source_file": "brace_app/static/app.js",
     "literal_sha256": "e59512c946226115b45dec77bf535ad03d06c34138f6d84eedd0c51467cef4b1",
     "decision": "keep_with_context",
     "reason": "Completed refers to the presence of saved scientific output files. The history row is disabled when those files are absent, and opening still verifies their hashes."
@@ -220,5 +214,11 @@
     "literal_sha256": "4ddb3e96801a1ee2b77dc5247c0db478d5f97a93b90e7cdb09f5f51d43764b08",
     "decision": "keep_with_context",
     "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
+  },
+  {
+    "source_file": "brace_app/static/app.js",
+    "literal_sha256": "7c4836fbc086ec41ae13e55f55ffff3c39726c206296b110fed447e762ae97a4",
+    "decision": "keep_with_context",
+    "reason": "Reviewed the capability table after adding keyboard-focus attributes. The match remains the internal capabilities.unsupported property; the rendered Not implemented heading lists enforced input boundaries, not a scientific result or a vague promise."
   }
 ]

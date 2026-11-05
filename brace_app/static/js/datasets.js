@@ -144,7 +144,7 @@ export async function refreshDatasets() {
         .join("");
   const host = $("#registry-list");
   host.innerHTML = records.length
-    ? `<div class="table-scroll"><table><thead><tr><th>Dataset version</th><th>Preparation</th><th>Evidence</th><th>Actions</th></tr></thead><tbody>${records.map((record) => `<tr><th>${esc(record.name)}<small class="dataset-id">${esc(record.id)}</small></th><td>${record.status === "prepared" ? "Prepared · task checks required" : "Original acquired · preparation required"}${record.summary?.n_samples ? `<br>${record.summary.n_samples} samples · ${record.summary.n_features.toLocaleString()} features` : ""}</td><td>${esc(record.source.accession || record.source.type)}${record.summary?.measurement_type ? "<br>" + esc(record.summary.measurement_type) : ""}</td><td><button type="button" data-inspect-dataset="${record.id}">Inspect ${record.status === "acquired" ? "& prepare" : "record"}</button><button type="button" data-rename-dataset="${record.id}">Rename</button></td></tr>`).join("")}</tbody></table></div>`
+    ? `<div class="table-scroll" tabindex="0" role="group" aria-label="Scrollable data table"><table><thead><tr><th>Dataset version</th><th>Preparation</th><th>Evidence</th><th>Actions</th></tr></thead><tbody>${records.map((record) => `<tr data-dataset-id="${esc(record.id)}"><th scope="row">${esc(record.name)}</th><td>${record.status === "prepared" ? "Prepared · task checks required" : "Original acquired · preparation required"}${record.summary?.n_samples ? `<br>${record.summary.n_samples} samples · ${record.summary.n_features.toLocaleString()} features` : ""}</td><td>${esc(record.source.accession || record.source.type.replaceAll("_", " "))}${record.summary?.measurement_type ? "<br>" + esc(record.summary.measurement_type.replaceAll("_", " ")) : ""}</td><td><button type="button" data-inspect-dataset="${record.id}">Inspect ${record.status === "acquired" ? "& prepare" : "record"}</button><button type="button" data-rename-dataset="${record.id}">Rename</button></td></tr>`).join("")}</tbody></table></div>`
     : "<p>No datasets registered yet. Add the reviewed example, acquire a public original in SPACE, or import prepared files.</p>";
   host
     .querySelectorAll("[data-inspect-dataset]")
@@ -157,7 +157,19 @@ export async function refreshDatasets() {
     .forEach(
       (button) => (button.onclick = () => rename(button.dataset.renameDataset)),
     );
+  filterDatasetRows();
   taskChanged();
+}
+function filterDatasetRows() {
+  const query = $("#registry-search").value.trim().toLowerCase(), status = $("#registry-status").value;
+  let count = 0;
+  document.querySelectorAll("#registry-list [data-dataset-id]").forEach(row => {
+    const record = records.find(item => item.id === row.dataset.datasetId);
+    const match = (!status || record.status === status) && (row.textContent + " " + record.id).toLowerCase().includes(query);
+    row.hidden = !match; if (match) count++;
+  });
+  $("#registry-count").textContent = count + " / " + records.length + " dataset versions";
+  $("#registry-no-match").hidden = count > 0 || records.length === 0;
 }
 async function rename(id) {
   const record = records.find((row) => row.id === id),
@@ -182,7 +194,7 @@ async function rename(id) {
 async function inspect(id) {
   const record = records.find((row) => row.id === id),
     host = $("#registry-detail");
-  host.innerHTML = `<h3>${esc(record.name)}</h3><details open><summary>Dataset identity, assets and preparation lineage</summary><pre>${esc(JSON.stringify(record, null, 2))}</pre></details>`;
+  host.innerHTML = `<h3>${esc(record.name)}</h3><p class="help">${record.status === "prepared" ? "Prepared version · task checks required" : "Acquired original · preparation required"}${record.summary?.n_samples ? " · " + record.summary.n_samples + " samples · " + record.summary.n_features.toLocaleString() + " features" : ""}</p><details><summary>Dataset identity, assets and preparation lineage</summary><pre>${esc(JSON.stringify(record, null, 2))}</pre></details>`;
   if (record.status !== "acquired") {
     request("/api/datasets/" + id + "/checks")
       .then((checks) => {
@@ -312,13 +324,15 @@ async function inspect(id) {
 export function initDatasets(callbacks) {
   hooks = callbacks;
   const host = $("#workspace-datasets");
-  host.innerHTML = `<div class="section-rule"><span>STUDY DATASETS</span></div><h2>Prepare → check → analyze</h2><p>Dataset versions and study results are saved locally. Task eligibility is checked against the selected pair and contrast.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><p class="help">Reviewed example: GSE42568 → GSE20711, ER-positive versus ER-negative tumors. Processing and ER assays differ; donor independence remains unknown. Suitable for exploratory association testing, not normal/tumor baseline training.</p><div id="registry-list" aria-live="polite"></div><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Analyze registered datasets</h3><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
+  host.innerHTML = `<h2>Dataset library</h2><p>Dataset versions and study results are saved locally. Task eligibility is checked against the selected pair and contrast.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><p class="help">Reviewed example: GSE42568 → GSE20711, ER-positive versus ER-negative tumors. Processing and ER assays differ; donor independence remains unknown. Suitable for exploratory association testing, not normal/tumor baseline training.</p><div class="registry-filters"><label for="registry-search">Find a dataset<input id="registry-search" type="search" placeholder="Name, accession or version ID"></label><label for="registry-status">Preparation<select id="registry-status"><option value="">All versions</option><option value="prepared">Prepared</option><option value="acquired">Acquired originals</option></select></label><p id="registry-count" role="status"></p></div><div id="registry-list"></div><p id="registry-no-match" hidden>No dataset versions match. Clear the search or change the preparation filter.</p><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Analyze registered datasets</h3><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
     label,
   )
     .map(([key, text]) => `<option value="${key}">${text}</option>`)
     .join(
       "",
     )}</select><div class="cohort-grid"><div><label for="registry-source">Source / prediction dataset</label><select id="registry-source"></select></div><div id="registry-target-field"><label for="registry-target">Target dataset</label><select id="registry-target"></select></div></div><details id="registry-race"><summary>Review biological contrast and exploratory processing policy</summary><p>Use exact prepared metadata labels for the same biological contrast in both studies. Create a reviewed phenotype version first if the vocabularies differ.</p><div class="cohort-grid"><div><label for="registry-positive">Positive-group label</label><input id="registry-positive"><label for="registry-positive-definition">Positive-group biological definition</label><input id="registry-positive-definition"></div><div><label for="registry-negative">Negative-group label</label><input id="registry-negative"><label for="registry-negative-definition">Negative-group biological definition</label><input id="registry-negative-definition"></div></div><label class="check"><input id="registry-processing-review" type="checkbox">I accept exploratory within-study effect comparisons despite declared processing differences.</label><label for="registry-selection-count">Source selection cap</label><input id="registry-selection-count" type="number" min="1" max="1000" step="1" value="20"><p class="help">Freeze up to this many source features with BH q ≤ 0.05, ranked by absolute Hedges’ g. 20 preserves the historical example. Choose before inspecting the target; the 1–1000 range is a software limit, not a biological optimum.</p><label class="check"><input id="registry-review" type="checkbox">I reviewed the source and target biological group definitions and processing limitations.</label></details><div class="actions"><button id="registry-check" type="submit">Check selected datasets</button><button id="registry-run" type="button" class="primary" disabled>Compute checked analysis</button></div></form><div id="registry-checks" aria-live="polite"></div><details><summary>Apply a previously frozen BRACE baseline</summary><p>Reuses an existing source-trained JSON freeze. No fitting on the new target. Unlabeled targets produce predictions with no accuracy metrics.</p><form id="registry-replay"><label for="registry-replay-name">Replay study name</label><input id="registry-replay-name" required maxlength="200"><label for="registry-freeze">Original source-trained run</label><select id="registry-freeze" required></select><label for="registry-replay-target">Target dataset version</label><select id="registry-replay-target" required></select><button>Apply frozen baseline</button></form></details>`;
+  $("#registry-search").oninput = filterDatasetRows;
+  $("#registry-status").onchange = filterDatasetRows;
   $("#registry-analysis").addEventListener("input", invalidate);
   $("#registry-task").onchange = taskChanged;
   $("#registry-study").onchange = () => {
@@ -327,14 +341,8 @@ export function initDatasets(callbacks) {
     $("#registry-name").readOnly = !!study;
     if (study) {
       $("#registry-name").value = study.name;
-      if (study.datasets.predictions)
-        $("#registry-task").value = "evaluate_predictions";
-      else if ($("#registry-task").value === "evaluate_predictions")
-        $("#registry-study").value = "";
-      $("#registry-name").readOnly = false;
-      $("#registry-source").disabled = false;
-      $("#registry-target").disabled = false;
-      $("#registry-task").value = "race";
+      const currentTask = $("#registry-task").value;
+      $("#registry-task").value = taskForStudy(study, currentTask);
       taskChanged();
       $("#registry-source").value =
         study.datasets.source || study.datasets.predictions || "";
@@ -481,4 +489,9 @@ export function initDatasets(callbacks) {
     refreshDatasets().catch((error) => hooks.message(error.message, "failed")),
   );
   refreshDatasets().catch((error) => hooks.message(error.message, "failed"));
+}
+
+export function taskForStudy(study, currentTask) {
+  if (study.datasets.predictions) return "evaluate_predictions";
+  return currentTask === "evaluate_predictions" ? "race" : currentTask;
 }

@@ -119,7 +119,7 @@ Artificial fixtures exercise source-only logistic training, cross-validation and
 
 ## Verification and performance
 
-The final exact automated count and check statuses are recorded in **quality/FINAL_VERIFICATION.json** and the actual JUnit output at `work/ui-ready-tests.xml`. The final run passed **351/351 tests**, with zero failures, errors or skips, in **207.539 seconds**. One pinned Starlette/httpx deprecation warning remains. The actual navigation/state/operation module checks independently passed 3/3. `pip check` reported no broken requirements, and the standard-Python launcher guard passed.
+The final exact automated count and check statuses are recorded in **quality/FINAL_VERIFICATION.json** and the actual JUnit output at `work/full-unslop-final-tests.xml`. The final run passed **352/352 tests**, with zero failures, errors or skips, in **217.612 seconds**. One pinned Starlette/httpx deprecation warning remains. The actual navigation/state/operation module checks independently passed 4/4. `pip check` reported no broken requirements, and the standard-Python launcher guard passed.
 
 Agent-led browser checks covered the live SPACE acquisition and preparation flow, guided public input loading/checking/computation, persisted run restoration, opposite-estimate filtering, gene measurements and dialogs, result-specific TRACE, archived prediction counts and high-score error inspection, confidence extremes/empty selection, CE projection and withheld inference, narrow 1024×768 RACE layout, and clearly marked artificial zero-selection/untestable-target results. Those artificial boundary fixtures are software checks, not biological evidence. The default desktop capture was about 1536×633. Screenshots and captured API outputs are real application evidence.
 
@@ -171,13 +171,27 @@ Documentation was checked during this work; these references are comparative or 
 - [Galaxy](https://usegalaxy.org) and [cBioPortal](https://www.cbioportal.org): study selection, inspection and history conventions informed the existing registry/workbench approach; BRACE does not clone their feature scope.
 - [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene/135112): dated, source-linked functional context remains separate from experimental evidence; twenty records are pinned in `brace_app/gene_context.json`.
 
-## UI refinement for GitHub review
+## Full UI cleanup — November 5, 2026
 
-The supplied Unslop 2.3.0 skill was read from the user-provided archive. Its prose-preservation rules informed the review; scientific explanations and numerical claims were retained. The actual product work is in `brace_app/static/workbench.css`, loaded after the existing theme: flatter surfaces, consistent controls, readable table typography, sticky table headings, keyboard focus, reduced motion, print handling, compact study summaries, and responsive layouts. The shared BRACE name-family rectangle is retained at the user's explicit request. Active-tool labels and the SPACE/FACE/TRACE names keep their full identity and purpose visible; family colors supplement the words.
+The supplied Unslop 2.3.0 skill guided a source and rendered-screen review. Twelve confirmed wording defects were repaired, including slogan headings, a misleading paired-effect label and an empty-state reassurance. Formal statistical names, thresholds, numerical claims and scientific limitations were preserved. The shared BRACE rectangle and the BRACE, RACE, ACE, CE, SPACE, FACE, TRACE and EMBRACE identities remain visible.
 
-The new stylesheet is a single documented layer over the established interface, preserving existing selectors, handlers and scientific engines. `family.js` adds a name attribute for semantic family styling; `wordmark.js` names the BRACE workspace and EMBRACE reports explicitly. Layout checks covered 1536-pixel desktop, 1024-pixel laptop and 390-pixel narrow views, both themes, prediction error inspection, SPACE, FACE, evidence navigation and Escape focus restoration. The direct browser-upload and installer limitations above still apply. Current polish evidence is under `work/screenshots/unslop-*.jpg`; older screenshots record the preceding reconstruction.
+| Surface | Completed changes and observed checks |
+|---|---|
+| BRACE | Compact first-use screen; direct entries for all three analytical questions; dataset/saved-analysis shortcuts; duplicate headings and saved-analysis link removed. |
+| RACE | Source/target effects named accurately; FACE and TRACE actions moved above the plot. Removing sticky preview positioning fixes controls clipped below short windows; actual mouse and keyboard activation checked. |
+| ACE | Accuracy and its denominator are directly readable; redundant accuracy ring removed. Confusion counts, missing-class support, confidence extremes and high-score-error access remain functional. Prediction-format help opens the correct guide. |
+| Dataset library | Search by name, accession or version; original/prepared filters; empty search recovery; compact rows and collapsed technical lineage. Selecting a saved prediction study retains ACE evaluation instead of silently switching to RACE. |
+| CE | Actual source/target overview for saved comparisons; the active projection or feature view uses the full width. The q filter is disabled when inference is withheld. Reusing registered cohorts opens their assigned versions without another upload; the ER example remains correctly blocked for normal/tumor baseline training. |
+| SPACE | Flat candidate/result surfaces, consistent forms, preserved review requirements. Official GSE21653 search/shortlisting and invalid-accession recovery were exercised. |
+| FACE / TRACE | Measured cohort distributions and references retained; readable modal typography and close controls; TRACE steps form a compact navigation list beside the selected step and its actual artifacts. |
+| EMBRACE | Report, calculation and file views share consistent controls; redundant run framing removed; readable report verified visible. File links and download handlers retained. |
+| Shared UI | Consistent control sizing, table typography and focus states; scrollable tables accept keyboard focus; reduced-motion and print rules; mobile captions wrap instead of colliding. |
 
-The source remains in the independent working copy. Runtime data, the supplied skill archive contents and screenshots stay excluded from the Git payload. No remote push or release is part of this preparation.
+The final full suite passed **352 tests**, with one existing Starlette/httpx deprecation warning. Eight focused language/state/dataset-routing checks also pass. Scientific engine files are unchanged in this UI pass; prior independent numerical validation remains applicable. Desktop, laptop and 390-pixel narrow layouts were inspected in light and dark themes. This remains agent-led verification, with the human and installer limits below.
+
+The skill's strict preservation and banned-phrase checks passed for the edited labels (zero hard phrase hits). It extracted no numerical constraints from those short headings; this is not numerical validation. Its prose structure, readability and edit-percentage warnings treat unrelated UI labels as a continuous article. These were reviewed as genre mismatches in the actual screens, not presented as a universal quality score. The exact edits and tool outputs remain at `work/unslop-copy-review.json` and `work/unslop-copy-validation.json`.
+
+[Current public workbench preview](images/workbench-current.jpg) is included in the source payload and README. Local screenshots for landing, library, setup, confidence, CE, FACE, TRACE, discovery and responsive layouts are under `work/screenshots/full-unslop-*.jpg`. Runtime datasets, archival identifiers in local screenshots and skill-tool files remain excluded from Git. No remote push or release was performed.
 
 ## Remaining limits and priority follow-up
 

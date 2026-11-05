@@ -76,24 +76,24 @@
     "sha256": "3716e1711b84683624189eeb5d265800e5f33343f61747b2a1626ab177563680"
   },
   "brace_app/static/app.js": {
-    "literal_count": 385,
-    "sha256": "b112c48a2de4cc49c690e270693962efcd533c02730ec925f6b9ac75637f365f"
+    "literal_count": 434,
+    "sha256": "b84470c98b6ad78f4481a23ee5529bde97d6ff7a726a52bf6f5c526c7d403fd3"
   },
   "brace_app/static/design-tokens.css": {
     "literal_count": 0,
     "sha256": "7759bd267975c8909a3c7dba7e47186c9222c3165432a4cdaf7e0c95d00941d8"
   },
   "brace_app/static/index.html": {
-    "literal_count": 142,
-    "sha256": "7ce1b755a2d11f397b09a9b4246bb361a8046ad26c8cd2ec59d244822e9f160c"
+    "literal_count": 146,
+    "sha256": "1cd8a327a99703dba84f7a6cda7a3efe59816f6344fcfd73a51156d558269573"
   },
   "brace_app/static/js/ace-design.js": {
-    "literal_count": 90,
-    "sha256": "97f2a335187a90fc63cde93c29bed691ae81f6ac6a43ec9f4fc5f2d86b2c5a9f"
+    "literal_count": 91,
+    "sha256": "238dbe06957f8ec3722b1a873cde6a817cc5f6c531479000c675a0d57dca5501"
   },
   "brace_app/static/js/ace.js": {
     "literal_count": 290,
-    "sha256": "84ab5e7fc341025a2cd36048dc60857f35d9f235ac2e2a4cf81377b1aa874f1c"
+    "sha256": "b21855f48ed8935a3f41b00429f3dff29545f39b8f2df5601a01e17b8aa14e49"
   },
   "brace_app/static/js/api.js": {
     "literal_count": 8,
@@ -108,12 +108,12 @@
     "sha256": "c706d98212928af96de030ff418440a085a82d95c5bbbfac3b0224dfa1c76db4"
   },
   "brace_app/static/js/datasets.js": {
-    "literal_count": 256,
-    "sha256": "3a2064193cebee5bedc7a829d06045bc96f7a809455c188cd7b9304cec1c7cb0"
+    "literal_count": 271,
+    "sha256": "4a3f834ea2b3d3b47a7590b7febfe0be03f92734083984d24a0f5176689e27f2"
   },
   "brace_app/static/js/evidence-design.js": {
     "literal_count": 79,
-    "sha256": "694fd25f68fdc98d883ecddc293af5d58a1664655f84797fd100390d6234be65"
+    "sha256": "8610481661c283e1abb0e1c076a2a04dc8c797b0c5c76e1035bbc3910c5ae345"
   },
   "brace_app/static/js/export.js": {
     "literal_count": 30,
@@ -125,7 +125,7 @@
   },
   "brace_app/static/js/guide.js": {
     "literal_count": 106,
-    "sha256": "5d8bdd639c331e02d80a3246bf5b046d9b20bd6cafab4791ceda806229180d45"
+    "sha256": "3cc51de3f63fe121ef2ca758c35e931bca0b2ec500ca7e11ac0a3fd4677f051b"
   },
   "brace_app/static/js/inspector.js": {
     "literal_count": 30,
@@ -136,12 +136,12 @@
     "sha256": "b224ae416d493c1fde9f36b3c42d83bfcc3e02a8289ccf6c1c5ce81ad7193fde"
   },
   "brace_app/static/js/legacy-results.js": {
-    "literal_count": 115,
-    "sha256": "5483086aa31a8c27bdd06701f5b83250008d591948786c7d69b7bfe0513594e4"
+    "literal_count": 123,
+    "sha256": "bfd1e2a0d928798032867d00ae2cd4a2aa46e64fc997a186c4ccf9ab6e17a6f5"
   },
   "brace_app/static/js/operation.js": {
-    "literal_count": 59,
-    "sha256": "02fdb6b9f9306e5515209c938757ce3796a53dbe52a375fabfdad941bacceac0"
+    "literal_count": 83,
+    "sha256": "b9f73880bb5ba738c73a86f1f769452617925b58538dee52ea3a83f0de6dd1a7"
   },
   "brace_app/static/js/prediction-declaration.js": {
     "literal_count": 55,
@@ -149,15 +149,15 @@
   },
   "brace_app/static/js/race.js": {
     "literal_count": 242,
-    "sha256": "9ac2e04dd9a9b5dfb699a43c4296760c987afc6f24b48229703f1560549d9d7b"
+    "sha256": "05a2ac9f894349f8315f2921f4ac687c2158d82eb428e90683280916cdb40c81"
   },
   "brace_app/static/js/replay-view.js": {
     "literal_count": 19,
-    "sha256": "c45c7bf8fdcaec5243bae10a03422fd9901fa3ccb3e20ba6e9ecfc2adc6dab65"
+    "sha256": "249bc43317a6d3b1d8385b5246b2825d5ac50afa065e3112ff801eda2d79597c"
   },
   "brace_app/static/js/setup.js": {
     "literal_count": 223,
-    "sha256": "d1cc56a3f33d02f8cdf2965287c27bfd7092b2e0d06719321dd2b071a13d1189"
+    "sha256": "54d60d160b4eb2d23639848a3b002bf9f1d9bc1c568db2c3ac6df680ce7718c0"
   },
   "brace_app/static/js/space.js": {
     "literal_count": 136,
@@ -181,7 +181,7 @@
   },
   "brace_app/static/js/trace.js": {
     "literal_count": 88,
-    "sha256": "393935cdf839bb92e2dcbbf6fe43d67ed961d336a42fd8538de1d4b160c9fb1b"
+    "sha256": "54442fd256e76e05c31a749ace2e583595436889202b75a3980fd0726ba6eae1"
   },
   "brace_app/static/js/ui.js": {
     "literal_count": 14,
@@ -204,8 +204,8 @@
     "sha256": "e081121518ff3b52dccf937dce62f0c6b95b454b723420d7cf98c5065b5d8d25"
   },
   "brace_app/static/workbench.css": {
-    "literal_count": 4,
-    "sha256": "35f2095468721235df569b52227d793738bd61179e8fef268910556bc7a13cba"
+    "literal_count": 5,
+    "sha256": "1fb09514aecf2eb2e7a7223e9b4b59094faa50ed538959bc0edde057cdf6bfe4"
   },
   "brace_app/study_api.py": {
     "literal_count": 138,

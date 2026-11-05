@@ -1,5 +1,5 @@
 {
-  "recorded_utc": "2026-11-05T03:05:25.392536+00:00",
+  "recorded_utc": "2026-11-05T07:19:19.578294+00:00",
   "scope": "Agent-led scientific, browser and software verification of the isolated source application; no human usability, clinical or installer certification.",
   "baseline": {
     "commit": "1d31e7136636913f999faa09f7f029be6cac2818",
@@ -10,35 +10,36 @@
   "automated": {
     "status": "PASS",
     "pytest": {
-      "tests": 351,
+      "tests": 352,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
-      "seconds": 207.539,
-      "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/ui-ready-tests.xml",
+      "seconds": 217.612,
+      "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/full-unslop-final-tests.xml",
       "python": "3.12.10 x64",
       "dependencies": "requirements-release.txt",
       "warning": "One Starlette test-client httpx deprecation warning in the pinned dependency set.",
-      "junit": "work/ui-ready-tests.xml",
-      "log": "work/ui-ready-tests.log",
+      "junit": "work/full-unslop-final-tests.xml",
+      "log": "work/full-unslop-final-tests.log",
       "scope": "Final isolated research source copy; not an installer test."
     },
     "actual_javascript_state_navigation_operation_tests": {
-      "passed": 3,
+      "passed": 4,
       "failed": 0,
       "included_in_pytest": true
     },
     "dependency_check": "PASS: no broken requirements",
     "standard_python_launcher_guard": "PASS",
-    "repository_tracked_payload_check": "PASS: 295 staged/tracked source payload files, including the manifest",
+    "repository_tracked_payload_check": "PASS: 296 source payload files including manifest; staged payload rechecked before commit",
     "whitespace_check": "PASS: CRLF-aware Git policy"
   },
   "matrix": {
     "A_software_correctness": {
       "status": "PASS",
       "evidence": [
-        "work/final-tests.xml",
-        "work/final-tests.log"
+        "work/full-unslop-final-tests.xml",
+        "work/full-unslop-final-tests.log",
+        "work/full-unslop-focused.xml"
       ]
     },
     "B_scientific_correctness": {
@@ -94,7 +95,7 @@
     }
   },
   "ui_audit": {
-    "generated_rows": 8608,
+    "generated_rows": 8689,
     "source_files": 72,
     "lint_findings": 37,
     "review_records": 37,
@@ -125,26 +126,45 @@
   "source_seal": {
     "status": "PASS",
     "manifest": "packaging/source-manifest.csv",
-    "files": 294,
+    "files": 295,
     "verification_command": ".venv\\Scripts\\python.exe verify_release.py",
     "payload_scan": "PASS: all manifest files, including new untracked source; runtime/private paths excluded; no credential patterns found.",
     "note": "Manifest resealed and verified after this record was finalized; manifest excludes itself."
   },
   "report": "docs/RESEARCH_FINAL.md",
   "ui_refinement": {
-    "status": "PASS",
+    "status": "PASS: full UI pass completed",
     "shared_rectangle": "Retained at explicit user request",
     "identity": "Full family names, purpose labels and semantic family colors; no scientific calculation changes in this pass.",
     "browser_checks": [
-      "Desktop and laptop layouts; 390-pixel narrow view without page overflow",
-      "Light and dark themes",
-      "Prediction error inspection; FACE measurements; SPACE dialog; evidence navigation",
-      "Escape closes search and restores trigger focus"
+      "BRACE: first-use entry points for RACE, ACE and CE; dataset and saved-analysis shortcuts; less repeated framing.",
+      "RACE: unchanged 14/20 outcome; FACE and TRACE above the plot; mouse activation verified after removing sticky-preview clipping.",
+      "ACE: 668/680 accuracy and confusion overview; 0 retained at cutoff 1 and 583/584 retained correct at 0.95; source training and frozen application remain distinct.",
+      "CE: source/target overview; full-width distribution view; withheld-q filter disabled; actual sample counts retained.",
+      "Dataset library: name/status search, empty search recovery, compact immutable identity, correct saved-prediction study task, and registered cohort reuse without reupload.",
+      "Eligibility recovery: reused ER-labeled public pair correctly blocked for normal/tumor baseline training; no model was fitted.",
+      "SPACE: official GSE21653 candidate and shortlist; invalid accession error; candidate status does not imply eligibility.",
+      "FACE: measured source/target distributions, exact statistics, biological references and modal close.",
+      "TRACE: real calculation steps, artifact links, step selection, and side-by-side record detail.",
+      "EMBRACE: readable saved report iframe and evidence/file views; saved report verified visible.",
+      "Guided setup: missing-file failure; method row matches CE; help uses the prediction guide for prediction formats.",
+      "Responsive checks: desktop, laptop and 390px narrow view; mobile navigation captions wrap without overlap; no observed page-wide horizontal overflow.",
+      "Keyboard: focus indicators, Escape recovery, TRACE activation and focusable scrollable data tables.",
+      "Saved artificial source baseline and frozen application reopened with distinct methods; frozen target has 14 predictions and 11 correct."
     ],
-    "screenshots": "work/screenshots/unslop-*.jpg",
-    "focused_regressions": "7 passed; work/ui-focused-tests.xml",
-    "final_suite": "351 passed; work/ui-ready-tests.xml",
+    "screenshots": "work/screenshots/full-unslop-*.jpg; docs/images/workbench-current.jpg",
+    "focused_regressions": "8 passed on frozen UI; work/full-unslop-focused.xml",
+    "final_suite": "352 passed; work/full-unslop-final-tests.xml",
     "push": "Not performed",
-    "limits": "Earlier browser-upload, human usability, capacity and installer gaps remain."
-  }
+    "limits": "Earlier browser-upload, human usability, capacity and installer gaps remain.",
+    "date": "2026-11-05",
+    "scientific_scope": "No scientific engine or calculation changes in this UI pass.",
+    "copy_review": {
+      "confirmed_repairs": 12,
+      "evidence": "work/unslop-copy-review.json and work/unslop-copy-validation.json",
+      "hard_phrase_hits": 0,
+      "limits": "Preservation and phrase tools cover the edited labels, not independent scientific verification. Prose structure/readability/diff metrics flag concatenated independent UI labels; those genre-mismatched flags were reviewed in rendered context rather than used as a quality score."
+    }
+  },
+  "readiness": "SOURCE_READY_FOR_REVIEW; no remote push or installer certification"
 }

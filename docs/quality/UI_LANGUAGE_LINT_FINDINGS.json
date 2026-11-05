@@ -68,11 +68,11 @@
     "matches": [
       "unsupported"
     ],
-    "literal_or_template": "<div class=\"table-scroll\"><table><thead><tr><th>Task</th><th>Required data</th><th>Implemented boundary</th></tr></thead><tbody>${tasks.map(t=>`<tr><th>${esc(t.label)}</th><td>${t.files.length} files \u00b7 ${esc(t.domain.replaceAll('_',' '))}</td><td>${esc(t.boundary)}</td></tr>`).join('')}<tr><th>Not implemented</th><td colspan=\"2\">${capabilities.unsupported.map(esc).join('; ')}.</td></tr></tbody></table></div>",
+    "literal_or_template": "<div class=\"table-scroll\" tabindex=\"0\" role=\"group\" aria-label=\"Scrollable data table\"><table><thead><tr><th>Task</th><th>Required data</th><th>Implemented boundary</th></tr></thead><tbody>${tasks.map(t=>`<tr><th>${esc(t.label)}</th><td>${t.files.length} files \u00b7 ${esc(t.domain.replaceAll('_',' '))}</td><td>${esc(t.boundary)}</td></tr>`).join('')}<tr><th>Not implemented</th><td colspan=\"2\">${capabilities.unsupported.map(esc).join('; ')}.</td></tr></tbody></table></div>",
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/app.js:63",
+    "source": "brace_app/static/app.js:75",
     "matches": [
       "completed"
     ],
@@ -80,7 +80,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/app.js:63",
+    "source": "brace_app/static/app.js:75",
     "matches": [
       "completed"
     ],
@@ -88,7 +88,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/js/datasets.js:308",
+    "source": "brace_app/static/js/datasets.js:320",
     "matches": [
       "unsupported"
     ],

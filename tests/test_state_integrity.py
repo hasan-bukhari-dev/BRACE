@@ -50,6 +50,11 @@ const host={firstElementChild:{}};
 testState.data={id:'evaluation',validation:{},mode:'evaluate_predictions'};operationSummary(host);assert.match(host.innerHTML,/Saved prediction evaluation/);
 testState.data={id:'training',validation:{},mode:'train_validate'};operationSummary(host);assert.match(host.innerHTML,/Source-trained expression baseline/);
 testState.data={id:'replay',validation:{},replay:{},mode:'replay_frozen'};operationSummary(host);assert.match(host.innerHTML,/Frozen baseline application/);assert.doesNotMatch(host.innerHTML,/Saved prediction evaluation/);
+testState.data={id:'race',race:{}};operationSummary(host);assert.match(host.innerHTML,/Saved prediction evaluation/);assert.doesNotMatch(host.innerHTML,/RACE/);
+testState.view='cohorts';testState.ceTab='inputs';operationSummary(host);assert.match(host.innerHTML,/Dataset checks/);assert.doesNotMatch(host.innerHTML,/Gene-association testing/);
+testState.ceTab='shift';operationSummary(host);assert.match(host.innerHTML,/Distribution comparison/);
+testState.view='evidence';testState.data=null;operationSummary(host);assert.match(host.innerHTML,/EMBRACE/);
+testState.view='cohorts';testState.entry=true;testState.mode='train_validate';operationSummary(host);assert.match(host.innerHTML,/Source-trained expression baseline/);
 console.log('Actual operation module: three scientific operations remain distinct');
 ''',encoding='utf-8')
     result=subprocess.run([node,str(script),str(source)],capture_output=True,text=True,timeout=20)
@@ -80,6 +85,29 @@ assert.equal(state.cohortIds,null);
 activate({id:'C',mode:'evaluate_predictions'});
 assert.equal(state.activeCohortIds,null);
 console.log('Actual state module: identity isolation passed');
+''', encoding='utf-8')
+    result = subprocess.run([node, str(script), str(source)], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+
+
+def test_saved_dataset_study_retains_its_task_kind(tmp_path):
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required to execute the dataset module')
+    source = Path(__file__).resolve().parents[1] / 'brace_app/static/js/datasets.js'
+    script = tmp_path / 'dataset-task-integrity.mjs'
+    script.write_text('''
+import fs from 'node:fs';import assert from 'node:assert/strict';
+let code=fs.readFileSync(process.argv[2],'utf8')
+ .replace('import { $, esc } from "./ui.js";', 'const $=()=>{},esc=String;')
+ .replace('import { request } from "./api.js";', 'const request=()=>{};');
+const {taskForStudy}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const predictions={datasets:{predictions:'saved-prediction-version'}};
+for(const task of ['race','diagnose_shift','train_validate','evaluate_predictions'])
+ assert.equal(taskForStudy(predictions,task),'evaluate_predictions');
+const expression={datasets:{source:'source-version',target:'target-version'}};
+for(const task of ['race','diagnose_shift','train_validate'])assert.equal(taskForStudy(expression,task),task);
+assert.equal(taskForStudy(expression,'evaluate_predictions'),'race');
 ''', encoding='utf-8')
     result = subprocess.run([node, str(script), str(source)], capture_output=True, text=True, timeout=20)
     assert result.returncode == 0, result.stderr

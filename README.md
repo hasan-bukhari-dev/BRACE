@@ -8,7 +8,7 @@ This isolated research working copy is based on `main` at `1d31e71`. Open **OPEN
 
 [Published V6 Windows release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.0.0-v6) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
 
-![BRACE workbench](docs/images/workbench.png)
+![BRACE workbench](docs/images/workbench-current.jpg)
 
 ## Start
 
