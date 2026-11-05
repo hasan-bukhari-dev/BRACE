@@ -1,6 +1,6 @@
 # BRACE 1.0 — frozen scientific scope
 
-This release packages the existing methods; it does not add statistical capabilities. Method-version fields retain their original identifiers even though the application release is1.0.0. Original research and newly computed evidence remain distinct.
+This release packages the existing methods; it does not add statistical capabilities. Method-version fields retain their original identifiers independently of the current application release. This document records the 1.0 scope; later scientific repairs are enumerated in [the change register](quality/SCIENTIFIC_CHANGE_REGISTER.json). Original research and newly computed evidence remain distinct.
 
 |Capability|Implemented boundary|Authoritative protocol|
 |---|---|---|
@@ -19,4 +19,4 @@ Numerical references and leakage/adversarial tests are in the supplied full suit
 
 ## Persistent integration
 
-The integration branch preserves existing scientific engine bytes. A persistent registry and explicit preparation services connect SPACE to existing ACE/CE/RACE calculations. Frozen-model replay now has a distinct application workflow; unlabeled targets produce predictions without accuracy. [Workflow](DATASET_WORKFLOW.md) · [Architecture](ARCHITECTURE.md) · [Recorded numerical comparison](quality/INTEGRATION_REGRESSION.json).
+The 1.2.3 maintenance update preserves scientific engine bytes relative to 1.2.2 (`19e2aeb`). Earlier repairs relative to `1d31e71` remain documented in the change register. A persistent registry and explicit preparation services connect SPACE to existing ACE/CE/RACE calculations. Frozen-model replay now has a distinct application workflow; unlabeled targets produce predictions without accuracy. [Workflow](DATASET_WORKFLOW.md) · [Architecture](ARCHITECTURE.md) · [Recorded numerical comparison](quality/INTEGRATION_REGRESSION.json).

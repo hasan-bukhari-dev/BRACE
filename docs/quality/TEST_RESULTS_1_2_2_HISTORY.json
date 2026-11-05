@@ -1,0 +1,11 @@
+{
+  "release": "1.2.2",
+  "local_focused": {
+    "passed": 23,
+    "failed": 0,
+    "warning": "Pinned Starlette/httpx deprecation"
+  },
+  "full_suite": "The exact-tag full suite is executed by GitHub Actions; see TEST_RESULTS-Windows.xml in the release assets and Verify source run logs.",
+  "dom_handler_test": "PASS; tools/verify_workflow_dom.mjs",
+  "visual_acceptance": "BLOCKED; not implied by automated tests"
+}

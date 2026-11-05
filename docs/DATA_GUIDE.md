@@ -1,8 +1,6 @@
-# Start with the files you have
+# Input formats
 
-**Learn the workflow:** start BRACE and choose **Explore the public study**. This opens saved exploratory ER-association evidence from real GEO measurements; it does not launch a fresh test. Select a gene tile, inspect its measured values, then open Evidence for the report and downloads.
-
-**Recompute the real example:** Use my data → Expression + sample labels → Load example files. Review the two group definitions and processing differences, confirm the review checkboxes, then Check inputs → Test selected associations. Back revisits the actual dataset descriptions. Checks do not authenticate donor independence.
+For the connected workflow, use the [quick start](QUICK_START.md) and [new-data guide](NEW_DATA.md).
 
 **Use two expression studies:** provide four UTF-8 CSV/TSV files: source expression, source sample metadata, target expression and target sample metadata. Matrix rows are features; columns are samples; first header is feature_id. Metadata has sample_id and, for gene testing or training, condition. Within each study, sample IDs must match the matrix exactly. Feature IDs must be unique, declared in the same namespace, and meaningful across both studies. Do not rename unrelated probes to manufacture overlap.
 

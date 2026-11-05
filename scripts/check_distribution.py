@@ -52,6 +52,9 @@ def main():
             assert health['geo_expression_data_available']
             checks.append('Bundled runtime starts from unrelated writable cwd with project Python paths removed')
             assert b'BRACE' in get('/') and b'wordmark' in get('/assets/js/wordmark.js')
+            assert b'href="/manual"' in get('/')
+            assert get('/manual').startswith(b'%PDF-')
+            checks.append('Versioned illustrated manual is bundled and served locally')
             public = json.loads(get('/api/example/public-er'))
             assert public['race']['aggregate']['supported'] == 14 and public['race']['aggregate']['selected'] == 20
             checks.append('Pinned real public result available: 14/20')

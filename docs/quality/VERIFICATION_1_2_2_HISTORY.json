@@ -1,0 +1,34 @@
+{
+  "release": "1.2.2",
+  "status": "CONDITIONAL",
+  "scientific_engines": "unchanged",
+  "source_manifest": "packaging/source-manifest.csv",
+  "non_demo_acceptance": "NON_DEMO_ACCEPTANCE.json",
+  "local_focused_tests": {
+    "passed": 23,
+    "failed": 0
+  },
+  "dom_handlers": {
+    "status": "PASS",
+    "tool": "tools/verify_workflow_dom.mjs",
+    "scope": "Actual modules in jsdom; not rendered visual acceptance"
+  },
+  "visual_review": {
+    "status": "BLOCKED",
+    "reason": "Computer Use could not verify the active Windows browser URL and stopped UI control; not bypassed."
+  },
+  "independent_human_usability": "NOT RUN",
+  "screen_reader": "NOT RUN",
+  "release_gates": "Exact tagged source, full pytest JUnit, cross-platform source checks, DOM handlers, bundled executable, real-data restart, native launcher, installed executable and uninstall must pass in GitHub Actions. Release assets are the authoritative post-build receipts.",
+  "previous_verification": "VERIFICATION_1_1_HISTORY.json",
+  "backup_and_export_regressions": {
+    "status": "PASS",
+    "tests": 40,
+    "reference_cache_restored_offline": true
+  },
+  "cached_reference_export_refresh": {
+    "status": "PASS",
+    "scientific_files_unchanged": true,
+    "regression": "tests/test_product_consolidation.py::test_lookup_refreshes_cached_export_without_changing_statistics"
+  }
+}

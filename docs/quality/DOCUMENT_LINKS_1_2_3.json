@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "sources": 30,
+  "local_references": 123,
+  "missing": [],
+  "scope": "Local Markdown file targets; remote URLs and heading anchors are not network-verified."
+}

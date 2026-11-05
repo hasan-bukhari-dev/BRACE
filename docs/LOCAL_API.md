@@ -1,4 +1,4 @@
-# Local API reference (Stage 08)
+# Local API reference
 
 BRACE runs on **127.0.0.1:8765**. The server allows only localhost Host values and blocks foreign-browser write origins. It has no external account or cloud connection.
 
@@ -7,6 +7,7 @@ BRACE runs on **127.0.0.1:8765**. The server allows only localhost Host values a
 | Endpoint | Purpose |
 |---|---|
 | `GET /` | Application interface |
+| `GET /manual` | Packaged illustrated PDF manual |
 | `GET /api/health` | Version, scope and real-data availability flag |
 | `GET /api/example/cptac` | Real archived CPTAC predictions and calculated reliability summary |
 | `GET /api/example/historical-shift` | Historical GSE2109 adaptation comparison |
@@ -55,7 +56,7 @@ Provenance declarations are user supplied unless expressly identified as reviewe
 | `POST /api/dataset-analysis/preflight` | `{name,mode,datasets:{source:id,target:id},race_config:{...},study_id:null}`; prediction mode instead uses `{predictions:id}` |
 | `POST /api/dataset-analysis/run` | Same contract; copies verified assets server-side and delegates to the existing scientific route |
 | `POST /api/dataset-analysis/replay` | `{name,frozen_run_id,target_dataset_id}`; only verified existing BRACE source-baseline freezes |
-| `GET /api/runs` | Newest 50 by `created_utc`; legacy timestamp source is explicit |
+| `GET /api/runs` | All saved analyses ordered by `created_utc`; legacy timestamp source is explicit |
 | `GET /api/runs/{id}` | Verifies and reopens exact run; includes study, dataset and cohort identities |
 
 Preparation/dataset JSON requests are bounded to 2 MiB. Uploads and generic acquisitions remain limited to 25 MiB. The reviewed GSE20711 original alone may be exactly 26,895,121 bytes and must match its pinned SHA-256; this is not a configurable general size increase. Foreign-origin writes are rejected. SPACE sends only explicitly submitted public search fields to approved NCBI endpoints. No model binaries or arbitrary remote URLs are accepted.
@@ -63,3 +64,5 @@ Preparation/dataset JSON requests are bounded to 2 MiB. Uploads and generic acqu
 Errors retain HTTP status and a code/message where applicable: 413 resource violation; 422 invalid/unsupported input or scientific blocker; 409 missing/changed evidence or incompatible saved identity; 404 unavailable record; existing 429/502/503 discovery responses distinguish remote failure. A blocked preparation preserves its original acquisition. Schema/version errors do not silently upgrade a dataset.
 
 The registry record schema includes `schema_version`, immutable `id`, editable `name`, `source`, hashed `assets`, `status`, validated `summary`, preprocessing history, parents and timestamps. Studies have immutable IDs, names, timestamps and role assignments. Runs snapshot study/dataset IDs, original filenames/hashes, parameters and provenance in atomic `run.json` records. Exact scientific contracts remain in the preserved core models. See [dataset workflow](DATASET_WORKFLOW.md).
+
+The generated [OpenAPI snapshot](API_SCHEMA.json) lists registered routes for this source release. Historical scientific method versions remain distinct from the product version.

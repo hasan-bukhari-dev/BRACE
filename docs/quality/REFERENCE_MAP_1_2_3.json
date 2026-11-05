@@ -1,0 +1,6094 @@
+{
+  "scope": "Static import and document references, supplemented by reviewed dynamic ownership below; not a proof of no runtime dependency.",
+  "baseline": "19e2aeb",
+  "edges": [
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import_from",
+      "to": "urllib.parse"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/manual/screenshots/01-workspace.jpg"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/releases/latest"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/QUICK_START.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/USER_MANUAL.pdf"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/manual/USER_MANUAL.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/release/RELEASING.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/DATA_GUIDE.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/NEW_DATA.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/JUDGES_DEMO.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/DATA_SOURCES.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/SCIENTIFIC_PROTOCOL_1_0.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/LIMITATIONS.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/REPRODUCIBILITY.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/ARCHITECTURE.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/LOCAL_API.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/RELEASE_1_2_3.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "LICENSE"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/ATTRIBUTION.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": "docs/RESEARCH_FINAL.md"
+    },
+    {
+      "from": "README.md",
+      "kind": "document_or_ui_reference",
+      "to": ".github/SECURITY.md"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "tempfile"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "contextlib"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "pydantic"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "starlette.concurrency"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.prediction_io"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.preparation"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.assays"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.preparation"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.public_recipes"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_api.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "sqlite3"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "tempfile"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "contextlib"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_core.contracts"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_core.assays"
+    },
+    {
+      "from": "brace_app/dataset_registry.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "threading"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "urllib.parse"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "urllib.error"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "datetime"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "html.parser"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "pydantic"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_api"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_app/discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "threading"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "functools"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.evidence_audit"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.presentation"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.gene_info"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.provenance_origin"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import",
+      "to": "mimetypes"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.frozen_workflow"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.evidence_api"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.molecular_api"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.baseline05"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_registry"
+    },
+    {
+      "from": "brace_app/evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.frozen_workflow"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/evidence_audit.py",
+      "kind": "python_import_from",
+      "to": "brace_core.baseline05"
+    },
+    {
+      "from": "brace_app/export_safety.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/export_safety.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/export_safety.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "starlette.concurrency"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_api"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_core.baseline05"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.release09"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage06_cli"
+    },
+    {
+      "from": "brace_app/frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.evidence_audit"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "functools"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "urllib.parse"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/gene_info.py",
+      "kind": "python_import",
+      "to": "xml.etree.ElementTree"
+    },
+    {
+      "from": "brace_app/local_settings.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "functools"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.gene_info"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.gene_info"
+    },
+    {
+      "from": "brace_app/molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import_from",
+      "to": "datetime"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/persistence.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "gzip"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/preparation.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/presentation.py",
+      "kind": "python_import_from",
+      "to": "copy"
+    },
+    {
+      "from": "brace_app/provenance_origin.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/provenance_origin.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/provenance_origin.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/provenance_origin.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/provenance_origin.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/public_recipes.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/public_recipes.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/public_recipes.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_app/public_recipes.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/public_recipes.py",
+      "kind": "python_import_from",
+      "to": "brace_app.preparation"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "platform"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "importlib.metadata"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "brace_app.version"
+    },
+    {
+      "from": "brace_app/release09.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "fastapi.staticfiles"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "starlette.concurrency"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "starlette.middleware.trustedhost"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "starlette.middleware.base"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "starlette.responses"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.release09"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.local_settings"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.version"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.molecular_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.evidence_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.workspace_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.discovery"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.frozen_workflow"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.provenance_origin"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.frozen_workflow"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_registry"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_registry"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.provenance_origin"
+    },
+    {
+      "from": "brace_app/server.py",
+      "kind": "python_import_from",
+      "to": "brace_app.dataset_registry"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/cohort-declaration.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/identity.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/datasets.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/family.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/journey.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/operation.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/space.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/setup.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/evidence-design.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/guide.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/export.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/theme.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/wordmark.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/trace.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/ace.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/race.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/state.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/ui.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/api.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/study.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/inspector.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "./js/legacy-results.js"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "#evidence"
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "${d.id==="
+    },
+    {
+      "from": "brace_app/static/app.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/embrace/${r.id}"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/interlock.svg"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/js/theme-init.js"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/style.css"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/v6.css"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/workbench.css"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/vendor/plotly-cartesian-3.3.0.min.js"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/vendor/papaparse-5.5.3.min.js"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/app.js"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "#main"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "#study"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/brand-interlock.svg"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/brand-interlock.svg"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/api/templates"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/assets/brand-interlock.svg"
+    },
+    {
+      "from": "brace_app/static/index.html",
+      "kind": "document_or_ui_reference",
+      "to": "/manual"
+    },
+    {
+      "from": "brace_app/static/js/ace-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./guide.js"
+    },
+    {
+      "from": "brace_app/static/js/ace-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/ace-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./identity.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./replay-view.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./charts.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ace-design.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./inspector.js"
+    },
+    {
+      "from": "brace_app/static/js/ace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./legacy-results.js"
+    },
+    {
+      "from": "brace_app/static/js/charts.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/cohort-declaration.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/cohort-declaration.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/datasets.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/datasets.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/datasets.js",
+      "kind": "document_or_ui_reference",
+      "to": "./preparation.js"
+    },
+    {
+      "from": "brace_app/static/js/datasets.js",
+      "kind": "document_or_ui_reference",
+      "to": "./workspace-tools.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./operation.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./trace.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "./legacy-results.js"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "${report}"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "${url}"
+    },
+    {
+      "from": "brace_app/static/js/evidence-design.js",
+      "kind": "document_or_ui_reference",
+      "to": "${report}"
+    },
+    {
+      "from": "brace_app/static/js/export.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/family.js",
+      "kind": "document_or_ui_reference",
+      "to": "./identity.js"
+    },
+    {
+      "from": "brace_app/static/js/guide.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/guide.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/guide.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/templates"
+    },
+    {
+      "from": "brace_app/static/js/inspector.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/journey.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "./charts.js"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "./inspector.js"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "#evidence"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/historical/historical_adaptation_comparison.csv"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/historical/HISTORICAL_PROVENANCE.json"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/cptac/validation_result.json"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/cptac/sample_level.csv"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/cptac/error_cases.csv"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/export/cptac/threshold_curve.csv"
+    },
+    {
+      "from": "brace_app/static/js/legacy-results.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/runs/${encodeURIComponent(d.id)}/export/${encodeURIComponent(a.section)}/${encodeURIComponent(a.filename)}"
+    },
+    {
+      "from": "brace_app/static/js/operation.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/operation.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/prediction-declaration.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/prediction-declaration.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/preparation.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./charts.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./trace.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "./legacy-results.js"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "#evidence"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(c.source_url)}"
+    },
+    {
+      "from": "brace_app/static/js/race.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(c.source_url)}"
+    },
+    {
+      "from": "brace_app/static/js/replay-view.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/setup.js",
+      "kind": "document_or_ui_reference",
+      "to": "./operation.js"
+    },
+    {
+      "from": "brace_app/static/js/setup.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/setup.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/setup.js",
+      "kind": "document_or_ui_reference",
+      "to": "/api/example/public-er/inputs"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/home/about/policies/"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "https://pubmed.ncbi.nlm.nih.gov/"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(c.source_url)}"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(f.url)}"
+    },
+    {
+      "from": "brace_app/static/js/space.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(r.download_url)}"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./cohort-declaration.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./setup.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./prediction-declaration.js"
+    },
+    {
+      "from": "brace_app/static/js/study.js",
+      "kind": "document_or_ui_reference",
+      "to": "./legacy-results.js"
+    },
+    {
+      "from": "brace_app/static/js/trace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./state.js"
+    },
+    {
+      "from": "brace_app/static/js/trace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/trace.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/trace.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(a.url)}"
+    },
+    {
+      "from": "brace_app/static/js/workspace-tools.js",
+      "kind": "document_or_ui_reference",
+      "to": "./ui.js"
+    },
+    {
+      "from": "brace_app/static/js/workspace-tools.js",
+      "kind": "document_or_ui_reference",
+      "to": "./api.js"
+    },
+    {
+      "from": "brace_app/static/js/workspace-tools.js",
+      "kind": "document_or_ui_reference",
+      "to": "${esc(r.url)}"
+    },
+    {
+      "from": "brace_app/static/js/workspace-tools.js",
+      "kind": "document_or_ui_reference",
+      "to": "#${r.mode==="
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "this,g"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "this,I"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "C"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "h,g"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "H"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "L[X](H"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "[01]?\\d|2[0-3]"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "[01]?\\d|2[0-3]"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\\."
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "!0"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "l,n"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "e"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "w[n][1]"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "e,d,v"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "e"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "r,t,a"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "o,i"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\",o"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"transform\",o"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "a,l,s"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "https://plotly.com/"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\\.(.+"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "data:application/octet-stream"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "r,l,a,n"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\",\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\":\"][\",\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "r.value"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\"string\""
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "t,a"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "e"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "s"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "r"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\\d?\\d"
+    },
+    {
+      "from": "brace_app/static/vendor/plotly-cartesian-3.3.0.min.js",
+      "kind": "document_or_ui_reference",
+      "to": "\\d?\\d"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "starlette.concurrency"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import",
+      "to": "tempfile"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.compatibility"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.contracts"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.prediction_io"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.persistence"
+    },
+    {
+      "from": "brace_app/version.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "datetime"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.assays"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "sqlite3"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "tempfile"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "contextlib"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.responses"
+    },
+    {
+      "from": "brace_app/workspace_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "brace_core/__init__.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/__init__.py",
+      "kind": "python_import_from",
+      "to": ".compatibility"
+    },
+    {
+      "from": "brace_core/assays.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "brace_core/assays.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "scipy.special"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "sklearn.model_selection"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "sklearn.pipeline"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "sklearn.feature_selection"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "sklearn.preprocessing"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": "sklearn.linear_model"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/baseline05.py",
+      "kind": "python_import_from",
+      "to": ".metrics05"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import_from",
+      "to": ".compatibility"
+    },
+    {
+      "from": "brace_core/cli.py",
+      "kind": "python_import_from",
+      "to": ".reporting"
+    },
+    {
+      "from": "brace_core/compatibility.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/compatibility.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/compatibility.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/contracts.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/contracts.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "brace_core/contracts.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/contracts.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_core/contracts.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/intake.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/metrics05.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/metrics05.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/metrics05.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_core/metrics05.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": "math"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": "statistics"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/metrics06.py",
+      "kind": "python_import_from",
+      "to": ".metrics05"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/prediction_io.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import_from",
+      "to": "html"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/reporting.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": "typing"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": "scipy.stats"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": "sklearn.decomposition"
+    },
+    {
+      "from": "brace_core/shift07.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "platform"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "scipy"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": "scipy"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": ".contracts"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": ".compatibility"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/signature.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": ".compatibility"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": ".prediction_io"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": ".metrics05"
+    },
+    {
+      "from": "brace_core/stage05_cli.py",
+      "kind": "python_import_from",
+      "to": ".baseline05"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": ".prediction_io"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": ".stage05_cli"
+    },
+    {
+      "from": "brace_core/stage06_cli.py",
+      "kind": "python_import_from",
+      "to": ".metrics06"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": ".intake"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": ".compatibility"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": ".prediction_io"
+    },
+    {
+      "from": "brace_core/stage07_cli.py",
+      "kind": "python_import_from",
+      "to": ".shift07"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "logging"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "multiprocessing"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "threading"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "webbrowser"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "brace_app.version"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "tkinter"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "tkinter"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import",
+      "to": "uvicorn"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "launch"
+    },
+    {
+      "from": "desktop.py",
+      "kind": "python_import_from",
+      "to": "launch"
+    },
+    {
+      "from": "docs/ACCEPTANCE.md",
+      "kind": "document_or_ui_reference",
+      "to": "RELEASE_1_2_3.md"
+    },
+    {
+      "from": "docs/ACCEPTANCE.md",
+      "kind": "document_or_ui_reference",
+      "to": "RELEASE_1_2.md"
+    },
+    {
+      "from": "docs/ACCEPTANCE.md",
+      "kind": "document_or_ui_reference",
+      "to": "quality/NON_DEMO_ACCEPTANCE.json"
+    },
+    {
+      "from": "docs/ATTRIBUTION.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.usm.edu/business/hatchery/index.php"
+    },
+    {
+      "from": "docs/ATTRIBUTION.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.usm.edu/business/hatchery/hatchery-events.php"
+    },
+    {
+      "from": "docs/ATTRIBUTION.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.eventbrite.com/e/hatchathon-2026-student-competitor-registration-tickets-2000993402131"
+    },
+    {
+      "from": "docs/DATASET_WORKFLOW.md",
+      "kind": "document_or_ui_reference",
+      "to": "NEW_DATA.md"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "integrity/geo-search.json"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "integrity/geo-acquisition.json"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/info/download.html"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/books/NBK25497/"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/home/about/policies/"
+    },
+    {
+      "from": "docs/DATA_DISCOVERY.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/info/geo2r.html"
+    },
+    {
+      "from": "docs/DATA_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.md"
+    },
+    {
+      "from": "docs/DATA_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "NEW_DATA.md"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://doi.org/10.1093/carcin/bgt208"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42568"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://doi.org/10.1002/emmm.201100801"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE20711"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "../examples/public_er_pair/README.md"
+    },
+    {
+      "from": "docs/DATA_SOURCES.md",
+      "kind": "document_or_ui_reference",
+      "to": "SCIENTIFIC_PROTOCOL_1_0.md"
+    },
+    {
+      "from": "docs/DEMO.md",
+      "kind": "document_or_ui_reference",
+      "to": "JUDGES_DEMO.md"
+    },
+    {
+      "from": "docs/DEMO.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.md"
+    },
+    {
+      "from": "docs/IMPLEMENTATION_REPORT.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.md"
+    },
+    {
+      "from": "docs/IMPLEMENTATION_REPORT.md",
+      "kind": "document_or_ui_reference",
+      "to": "manual/USER_MANUAL.md"
+    },
+    {
+      "from": "docs/IMPLEMENTATION_REPORT.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATASET_WORKFLOW.md"
+    },
+    {
+      "from": "docs/LIMITATIONS.md",
+      "kind": "document_or_ui_reference",
+      "to": "ACCEPTANCE.md"
+    },
+    {
+      "from": "docs/LOCAL_API.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATASET_WORKFLOW.md"
+    },
+    {
+      "from": "docs/LOCAL_API.md",
+      "kind": "document_or_ui_reference",
+      "to": "API_SCHEMA.json"
+    },
+    {
+      "from": "docs/QUICK_START.md",
+      "kind": "document_or_ui_reference",
+      "to": "NEW_DATA.md"
+    },
+    {
+      "from": "docs/QUICK_START.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATA_GUIDE.md"
+    },
+    {
+      "from": "docs/QUICK_START.md",
+      "kind": "document_or_ui_reference",
+      "to": "LIMITATIONS.md"
+    },
+    {
+      "from": "docs/QUICK_START.md",
+      "kind": "document_or_ui_reference",
+      "to": "USER_GUIDE.md"
+    },
+    {
+      "from": "docs/REPRODUCIBILITY.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATASET_WORKFLOW.md"
+    },
+    {
+      "from": "docs/REPRODUCIBILITY.md",
+      "kind": "document_or_ui_reference",
+      "to": "ARCHITECTURE.md"
+    },
+    {
+      "from": "docs/REPRODUCIBILITY.md",
+      "kind": "document_or_ui_reference",
+      "to": "IMPLEMENTATION_REPORT.md"
+    },
+    {
+      "from": "docs/REPRODUCIBILITY_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "REPRODUCIBILITY.md"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.md"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "manual/USER_MANUAL.md"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#race?run=36ea07908b634e8d94c6cfc770a0ed16"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#race?run=b479e4ed3e0f4a5e8a618525f52de8fd"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#ace?run=de8b59ca3ac041ad9914a1c773cc5e6c"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#cohorts?run=7bff97a65a29485984d549f47077cb9f"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#ace?run=5fb820e295234a918931398ea7e28259"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "http://127.0.0.1:8881/#ace?run=186e9286153f468bb9e0130aca6c3d65"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/research_validation.json"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/geo_challenge_validation.json"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/benchmark.json"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/demo_workspace.json"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/before-race.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/after-race.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/race-1024.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/race-zero-selection.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/race-untestable-target.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/race-desktop.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/gene-measurements.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/race-opposite.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/trace-evidence.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/space-acquired.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/space-acquisition-blocked.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/gse21653-race.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/cancershift-evaluation.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/high-confidence-error.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/ce-inference-withheld.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/ce-projection.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "../work/screenshots/frozen-replay.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/info/geo2r.html"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/geo/info/download.html"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://bioconductor.org/packages/release/bioc/html/limma.html"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.fged.org/projects/miame"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.bmj.com/content/385/bmj-2023-078378"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.bmj.com/content/388/bmj-2024-082505"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://scikit-learn.org/stable/common_pitfalls.html"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://usegalaxy.org"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.cbioportal.org"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.ncbi.nlm.nih.gov/gene/135112"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "images/workbench-current.jpg"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "JUDGES_DEMO.md"
+    },
+    {
+      "from": "docs/RESEARCH_FINAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "RELEASE_1_2.md"
+    },
+    {
+      "from": "docs/RESEARCH_ORIGIN_AND_SCOPE.md",
+      "kind": "document_or_ui_reference",
+      "to": "../docs/ATTRIBUTION.md"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "quality/SCIENTIFIC_CHANGE_REGISTER.json"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "../brace_core/intake.py"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "LOCAL_API.md"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "../tests/test_molecular_api.py"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "../tests/test_evidence_api.py"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "../brace_app/evidence_audit.py"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "../tests/test_embrace.py"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATASET_WORKFLOW.md"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "ARCHITECTURE.md"
+    },
+    {
+      "from": "docs/SCIENTIFIC_PROTOCOL_1_0.md",
+      "kind": "document_or_ui_reference",
+      "to": "quality/INTEGRATION_REGRESSION.json"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "ATTRIBUTION.md"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "../brace_app/static/vendor/PLOTLY_LICENSE.txt"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://cdn.plot.ly/plotly-cartesian-3.3.0.min.js"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "../brace_app/static/vendor/PAPAPARSE_LICENSE.txt"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/mholt/PapaParse"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "../brace_app/static/vendor/MANROPE_OFL.txt"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/google/fonts/tree/main/ofl/manrope"
+    },
+    {
+      "from": "docs/THIRD_PARTY_NOTICES.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATA_SOURCES.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.pdf"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "QUICK_START.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "USER_MANUAL.pdf"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "manual/USER_MANUAL.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "manual/screenshots/"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "DATA_GUIDE.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "REPRODUCIBILITY.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "SCIENTIFIC_PROTOCOL_1_0.md"
+    },
+    {
+      "from": "docs/USER_GUIDE.md",
+      "kind": "document_or_ui_reference",
+      "to": "NEW_DATA.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/01-workspace.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/02-file-guide.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/04-space.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/06-acquired-original.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/08-group-review.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/09-feature-policy.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/10-prepared-selection.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/11-race.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/12-frozen-strip.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/14-trace.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/16-ace.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/17-ace-threshold.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/19-baseline.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/18-ce.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/20-workspace-storage.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/03-unsupported-inputs.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/05-geo-files.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/07-preparation.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/13-gene-reference.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/15-evidence.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/21-ce-pca.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/22-prediction-mapping.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/23-data-library.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/SCIENTIFIC_PROTOCOL_1_0.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_SOURCES.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_GUIDE.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/REPRODUCIBILITY.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/LICENSE"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/24-fresh-er-result.jpg"
+    },
+    {
+      "from": "docs/manual/USER_MANUAL.md",
+      "kind": "document_or_ui_reference",
+      "to": "screenshots/25-frozen-replay.jpg"
+    },
+    {
+      "from": "docs/release/RELEASING.md",
+      "kind": "document_or_ui_reference",
+      "to": "../RELEASE_1_2_3.md"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE20nnn/GSE20711/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE20711_series_matrix.txt.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE20nnn/GSE20711/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE20711_family.soft.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE20711_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE29nnn/GSE29431/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE29431_series_matrix.txt.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE29nnn/GSE29431/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE29431_family.soft.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE29431_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE42nnn/GSE42568/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE42568_series_matrix.txt.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_matrix_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "/geo/series/GSE42nnn/GSE42568/"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "GSE42568_family.soft.gz"
+    },
+    {
+      "from": "examples/public_er_pair/evidence/GSE42568_soft_listing.html",
+      "kind": "document_or_ui_reference",
+      "to": "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "collections"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "gzip"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "statistics"
+    },
+    {
+      "from": "examples/public_er_pair/prepare.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "threading"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "webbrowser"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "socket"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "errno"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import",
+      "to": "uvicorn"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import_from",
+      "to": "brace_app.local_settings"
+    },
+    {
+      "from": "launch.py",
+      "kind": "python_import_from",
+      "to": "brace_app.version"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "importlib.metadata"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "platform"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "packaging/build.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "scripts/accept_non_demo.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "ctypes"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "socket"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "scripts/benchmark_research.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "xml.sax.saxutils"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "reportlab.platypus"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "reportlab.lib.styles"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "reportlab.lib.colors"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "reportlab.lib.utils"
+    },
+    {
+      "from": "scripts/build_manual.py",
+      "kind": "python_import_from",
+      "to": "reportlab.lib.pagesizes"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "socket"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "tempfile"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "scripts/check_distribution.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/check_python.py",
+      "kind": "python_import",
+      "to": "struct"
+    },
+    {
+      "from": "scripts/check_python.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/check_repository.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/check_repository.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "scripts/check_repository.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "scripts/release_smoke.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import_from",
+      "to": "scipy"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import_from",
+      "to": "brace_core.signature"
+    },
+    {
+      "from": "scripts/run_public_race.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "scripts/seal_source.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/seal_source.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/seal_source.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "scipy"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "scripts/validate_research.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "scripts/verify_manual.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/verify_manual.py",
+      "kind": "python_import",
+      "to": "fitz"
+    },
+    {
+      "from": "scripts/verify_manual.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/verify_manual.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/verify_manual.py",
+      "kind": "python_import_from",
+      "to": "PIL"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "urllib.error"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/verify_portable.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "socket"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "time"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "urllib.request"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "urllib.parse"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "uuid"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/verify_product_binary.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/wheelhouse_manifest.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/wheelhouse_manifest.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "scripts/wheelhouse_manifest.py",
+      "kind": "python_import",
+      "to": "platform"
+    },
+    {
+      "from": "scripts/wheelhouse_manifest.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/wheelhouse_manifest.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/conftest.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/conftest.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/conftest.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "gzip"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "concurrent.futures"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app.preparation"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_dataset_workflow.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import_from",
+      "to": "collections"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_design3_integration.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_design3_language.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_design3_language.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_design3_language.py",
+      "kind": "python_import",
+      "to": "importlib.util"
+    },
+    {
+      "from": "tests/test_design3_language.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_design3_language.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import",
+      "to": "importlib.util"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import",
+      "to": "errno"
+    },
+    {
+      "from": "tests/test_desktop_distribution.py",
+      "kind": "python_import",
+      "to": "launch"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "copy"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "threading"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "html.parser"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "concurrent.futures"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "scipy"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.evidence_audit"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.export_safety"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app.embrace"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "test_evidence_api"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "test_race"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "test_race"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_embrace.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_evidence_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_frozen_workflow.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_identity_documentation.py",
+      "kind": "python_import_from",
+      "to": "brace_app.server"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_molecular_api.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "gzip"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "brace_app.preparation"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import_from",
+      "to": "test_race"
+    },
+    {
+      "from": "tests/test_product_consolidation.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import_from",
+      "to": "brace_core.compatibility"
+    },
+    {
+      "from": "tests/test_public_er_pair.py",
+      "kind": "python_import",
+      "to": "prepare"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "scipy"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "brace_core.contracts"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "brace_core"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_race.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "os"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import_from",
+      "to": "brace_app.local_settings"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_release_launch.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import_from",
+      "to": "brace_core.compatibility"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import_from",
+      "to": "brace_core.cli"
+    },
+    {
+      "from": "tests/test_stage04.py",
+      "kind": "python_import_from",
+      "to": "brace_core.reporting"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "copy"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.compatibility"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.prediction_io"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.baseline05"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.metrics05"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage05_cli"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage05_cli"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage05_cli"
+    },
+    {
+      "from": "tests/test_stage05.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage05_cli"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "copy"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import_from",
+      "to": "brace_core.metrics06"
+    },
+    {
+      "from": "tests/test_stage06.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage06_cli"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import",
+      "to": "math"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "brace_core.intake"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "brace_core.compatibility"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "brace_core.shift07"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "brace_core.stage07_cli"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "brace_core.shift07"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage07.py",
+      "kind": "python_import_from",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_stage08_app.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage08_app.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage08_app.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_stage08_app.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage08_app.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import_from",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_stage09_release.py",
+      "kind": "python_import_from",
+      "to": "brace_app.release09"
+    },
+    {
+      "from": "tests/test_startup_conflict.py",
+      "kind": "python_import",
+      "to": "socket"
+    },
+    {
+      "from": "tests/test_startup_conflict.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_startup_conflict.py",
+      "kind": "python_import",
+      "to": "launch"
+    },
+    {
+      "from": "tests/test_state_integrity.py",
+      "kind": "python_import",
+      "to": "shutil"
+    },
+    {
+      "from": "tests/test_state_integrity.py",
+      "kind": "python_import",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_state_integrity.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_state_integrity.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_study_api.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_v5_readonly_routes.py",
+      "kind": "python_import_from",
+      "to": "brace_app.study_api"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import",
+      "to": "io"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import",
+      "to": "zipfile"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import_from",
+      "to": "fastapi"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import_from",
+      "to": "fastapi.testclient"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app"
+    },
+    {
+      "from": "tests/test_v6_discovery.py",
+      "kind": "python_import_from",
+      "to": "brace_app.provenance_origin"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "ast"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "html"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/audit_ui_strings.py",
+      "kind": "python_import_from",
+      "to": "html.parser"
+    },
+    {
+      "from": "verify_release.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "verify_release.py",
+      "kind": "python_import",
+      "to": "hashlib"
+    },
+    {
+      "from": "verify_release.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    }
+  ],
+  "dynamic_ownership": {
+    "packaging/BRACE.spec": "Collects examples/templates/static directories and explicit docs; missing packaged docs fail release build.",
+    "brace_app/server.py": "StaticFiles exposes active static assets. API dispatch reads example paths and allowlisted exports.",
+    "tools/audit_ui_strings.py": "Recursively inventories Python/JS/HTML/JSON/CSS; generated ledger is regenerated, never discarded.",
+    "scripts/seal_source.py": "Seals non-runtime source paths; removal updates the manifest after review.",
+    "scientific_example_directories": "Preserved for runtime, regression and historical provenance; not deleted by filename heuristics."
+  },
+  "cleanup_ledger": "CLEANUP_1_2_3.md"
+}

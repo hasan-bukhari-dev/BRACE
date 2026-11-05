@@ -1,19 +1,15 @@
-# BRACE 1.2.2
+# BRACE 1.2.3 — Clarity & Documentation
 
-One study workflow now connects SPACE, preparation, analysis and evidence. Prepared datasets can be reused in either role without copying their measurement files. Group review uses key-aligned GEO annotations, editable class mappings, exclusions and saved drafts. ACE accepts unfamiliar prediction-column names through a reviewed mapping form.
+Official tool names and plain-language navigation are now consistent. The shared BRACE rectangle and five destinations remain; E and EMBRACE are one evidence workspace.
 
-Large-data preparation offers source-only variance selection for RACE/CE and a fixed identifier-hash panel for baseline training. Targets align to the exact prepared source IDs. Baseline checks reject source-wide variance selection before cross-validation. Feature budgets, exclusions and original hashes remain recorded.
+The README is rewritten, with a researcher manual, 25 authentic application screenshots, editable source, full-resolution figure links and a printable two-page quick start. Help opens the locally bundled manual. Reproduction instructions are consolidated; historical records retain their provenance and clear labels. Two unreferenced legacy UI assets were removed after reference review; scientific fixtures and archives remain intact.
 
-FACE can resolve arbitrary supported human gene identifiers using NCBI Gene, with dates, source hashes and cached function summaries. The bundled GPL570 mapping covers the whole pinned platform, not just demo genes. Ambiguous probes and unverified identifiers do not receive guessed functions. Internet is needed for uncached reference lookups; measurements and statistics remain available offline.
+The walkthrough repaired a prediction-library crash, startup navigation restoration and baseline result labels. Source-trained target evaluation is clearly distinguished from archived or imported predictions. No scientific engine bytes changed from 1.2.2.
 
-Studies can be reused, role-swapped, archived and restored. History is no longer silently capped at 50 runs. Local storage usage, private workspace backups (including cached gene references for offline restoration) and side-by-side recorded-run comparison are available under secondary controls.
+Local scientific checks preserve ER 14/20 and archived CancerShift 668/680. Additional real-cohort preparation, gene references, RACE, CE safeguards, baseline, frozen replay and export checks passed. The documented fixed-panel baseline retains its weak 2/90 target result; it is exploratory execution evidence, not a validated classifier.
 
-Newly retrieved gene references refresh the cached evidence ZIP without changing scientific files. The Windows release gate exercises this cache transition, unfamiliar ACE columns, reversed-role analyses and private backups in the actual executable. Its provider fixture is labelled; the separate live reference acceptance remains recorded.
+Publication requires exact-tag source, executable, portability, native controller and Windows install/uninstall checks. Actual JUnit, checksum and verification receipts accompany the assets. The manual and quick start are included both here and in the Windows package.
 
-## Verification scope
+Agent workflow and PDF review are complete. Independent unfamiliar-user and screen-reader acceptance remain unmeasured; full WCAG compliance is not claimed. Windows installer screenshots were not captured. Only two target normal samples occur in the illustrated baseline. Statistical results remain exploratory research evidence.
 
-Real additional-cohort RACE, FACE, TRACE, CE, baseline training, frozen replay and evidence-member hash checks passed; the receipt is in docs/quality/NON_DEMO_ACCEPTANCE.json. This is exploratory, post-hoc research evidence, not clinical or independent prospective validation. The real baseline target has only two normal samples.
-
-**Not fully visually verified:** interactive Windows browser review was blocked by the Computer Use URL safeguard. DOM handlers are tested separately; they do not replace rendered visual or unfamiliar-user acceptance. Cross-platform source and Windows installer receipts are published as assets by the release workflow.
-
-Close BRACE before running the Windows setup executable. The installer is unsigned; original data stay local. Ordinary evidence ZIPs reference but do not include original uploads. Private workspace backups do include original uploads and should be reviewed before sharing.
+Close BRACE before installing. The installer is unsigned. Ordinary evidence exports omit original uploads; private workspace backups include them and should be reviewed before sharing.

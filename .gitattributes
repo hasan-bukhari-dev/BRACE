@@ -1,5 +1,6 @@
 # Historical evidence and pinned scientific files must retain their exact bytes.
 * -text
+*.pdf binary
 *.png binary
 *.woff2 binary
 *.gz binary

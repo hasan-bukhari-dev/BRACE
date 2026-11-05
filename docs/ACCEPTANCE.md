@@ -1,3 +1,5 @@
+> Historical 1.2.2 acceptance scope. Current maintenance-release evidence is in [RELEASE_1_2_3.md](RELEASE_1_2_3.md).
+
 # Acceptance scope
 
 Current release: 1.2.2. See [consolidation record](RELEASE_1_2.md) and [new-data receipt](quality/NON_DEMO_ACCEPTANCE.json).

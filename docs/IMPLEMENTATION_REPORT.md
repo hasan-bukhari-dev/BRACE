@@ -1,3 +1,5 @@
+> Historical implementation and research record. Setup and screenshots describe their original revision. For current use, follow the [quick start](QUICK_START.md) and [manual source](manual/USER_MANUAL.md).
+
 # BRACE 1.1.0-dev implementation and acceptance report
 
 November 4, 2026. Working branch: `release/brace-integration`. Base commit: `871472bc6a9be8387930218b4340ba3e10b83006`.

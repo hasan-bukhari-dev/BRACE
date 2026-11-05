@@ -1,3 +1,5 @@
+> Historical implementation and research record. Setup and screenshots describe their original revision. For current use, follow the [quick start](QUICK_START.md) and [manual source](manual/USER_MANUAL.md).
+
 # BRACE research reconstruction — November 4, 2026
 
 This is the isolated working copy of local `main` at `1d31e7136636913f999faa09f7f029be6cac2818`. The original checkout was read only. Git's local clone helper was blocked by Windows; the equivalent copy contains all 286 tracked baseline files and independent copied Git objects, with no object alternates and no copied runtime state. Nothing was published, tagged, pushed or substituted from an older release.

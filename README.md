@@ -2,52 +2,55 @@
 
 **Biological Reliability Assessment across Cohorts and Experiments**
 
-A local research workbench for cross-cohort gene associations, saved-prediction evaluation and reproducible evidence.
+A local research workbench for testing cross-cohort associations, evaluating saved predictions and inspecting reproducible evidence.
 
-BRACE 1.1.0 provides three real-data demonstrations: ER association replication, archived CancerShift prediction reliability, and public-cohort measurement comparison. Start with the [judge walkthrough](docs/JUDGES_DEMO.md) or the [scientific and verification record](docs/RESEARCH_FINAL.md). Artificial fixtures are labeled developer software checks, outside the main demonstrations.
+A finding in one study may not hold in another. BRACE freezes source choices, tests compatible target data and records what was calculated. It serves researchers and students working with processed human bulk-expression data and classification predictions; it does not establish mechanism or clinical validity.
 
-[Windows 1.2.2 release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.2.2) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md) · [New-data workflow](docs/NEW_DATA.md)
+![Current BRACE workspace](docs/manual/screenshots/01-workspace.jpg)
 
-![BRACE workbench](docs/images/workbench-current.jpg)
+## Choose your question
+
+| Tool | Official name | Use it to |
+|---|---|---|
+| BRACE | Biological Reliability Assessment across Cohorts and Experiments | Organize studies and saved work |
+| RACE | Replication Assessment of Cohort Effects | Test frozen source associations in a target cohort |
+| ACE | Algorithmic Classifier Evaluation | Evaluate saved predictions, train the supported baseline or replay it |
+| CE | Cohort Evaluation | Compare measurements and distributions |
+| EMBRACE | Evidence Management, Bundling, Reproducibility, Audit & Controlled Exports | Inspect and export evidence; the E navigation destination |
+| SPACE | Study Provenance, Acquisition & Cohort Exploration | Find and acquire official public studies |
+| FACE | Feature Analysis of Cohort Expression | Inspect measurements and dated gene-reference context |
+| TRACE | Transparent Record of Analysis, Computation & Evidence | Inspect recorded methods and calculations |
 
 ## Start
 
-Windows: download the installer, or extract the entire portable ZIP and open `BRACE.exe`. Python is bundled. Keep the controller open while working; **Stop & close** stops its local server.
+[Latest verified Windows release](https://github.com/hasan-bukhari-dev/BRACE/releases/latest) · [Quick start](docs/QUICK_START.md) · [Illustrated PDF manual](docs/USER_MANUAL.pdf) · [Editable manual](docs/manual/USER_MANUAL.md)
 
-From source, use standard 64-bit Python 3.11–3.13:
+Download the Windows x64 setup executable and close BRACE before installing. Alternatively, extract the **entire** portable ZIP and open `BRACE.exe`. Python is bundled. Keep the controller open while working; **Stop & close** stops its server. Binaries are unsigned research software.
 
-- Windows: `SETUP_BRACE_WINDOWS.bat`, then `START_BRACE_WINDOWS.bat`.
-- macOS/Linux: `sh SETUP_BRACE.sh`, then `sh START_BRACE.sh`.
+For source installation, use standard 64-bit CPython 3.11–3.13, not an embedded toolchain interpreter. On Windows run `SETUP_BRACE_WINDOWS.bat`, then `START_BRACE_WINDOWS.bat`. On macOS/Linux run `sh SETUP_BRACE.sh`, then `sh START_BRACE.sh`. For a matching release build use pinned CPython 3.11.9 and [release instructions](docs/release/RELEASING.md).
 
-In Workbench, choose **Add reviewed public ER datasets**, review their biological contrast and processing caveats, check eligibility, then compute from the registered versions. SPACE acquisitions are registered automatically; supported general matrices have an explicit preparation editor. You can also open the saved public result or use guided private-file inputs.
+The connected path is **Question → Data → Preparation → Eligibility → Analysis → Inspection → Evidence**. Open **Data & analysis**, choose a task, add files or acquire a study in SPACE, review the scientific declarations, check eligibility and compute. Downloaded data require preparation. Prepared versions can be reused in either role; completed analyses retain exact identities.
 
-[Persistent dataset workflow](docs/DATASET_WORKFLOW.md) · [Architecture](docs/ARCHITECTURE.md) · [Integration status and acceptance](docs/IMPLEMENTATION_REPORT.md)
+## Inputs and examples
 
-## Tools
+RACE supports unpaired normalized log2 human microarrays with reviewed equivalent groups. CE supports its declared normalized expression types, including supported RNA-seq measurement declarations. The normal/tumor baseline requires the exact supported labels and source-only fitting. ACE also accepts reviewed saved-prediction tables with optional complete probability vectors. [Input formats](docs/DATA_GUIDE.md) · [New data](docs/NEW_DATA.md).
 
-| Tool | Purpose |
-|---|---|
-| RACE | Select source gene associations, freeze them, then test the same contrast in another study |
-| ACE | Evaluate saved predictions or fit the supported source-only baseline |
-| FACE / TRACE | Inspect measurements and the recorded calculation |
-| Dataset checks | Check task eligibility and describe distribution differences |
-| EMBRACE | Export reports, results, methods and hashes |
-| SPACE | Find official GEO candidates and verify files; scientific preparation still requires review |
+Raw FASTQ/CEL, arbitrary model files, raw counts and arbitrary assays are not accepted as analysis-ready inputs. Limits and rejection reasons are explicit; identifier mapping does not manufacture biological equivalence.
 
-The included GSE42568 → GSE20711 example has 101 / 87 tumors and 20 source-frozen associations. Fourteen have matching direction and target statistical support. It remains exploratory, with processing, phenotype and independence limitations. [Methods](docs/SCIENTIFIC_PROTOCOL_1_0.md) · [Data sources](docs/DATA_SOURCES.md) · [Limits](docs/LIMITATIONS.md).
+Three real demonstrations cover ER associations (GSE42568 → GSE20711), archived CancerShift predictions and cohort measurement comparison. The historical ER configuration has **14/20** supported associations from 101 source and 87 target tumors. CancerShift evaluates **680 archived predictions**, with 668 correct; its original model is not rerun. Additional GSE21653 preparation and analysis are recorded separately. These are exploratory examples, not prospective or clinical validation. [Walkthrough](docs/JUDGES_DEMO.md) · [Sources](docs/DATA_SOURCES.md).
 
-## Privacy and checks
+## Interpretation and privacy
 
-Computation runs locally on `127.0.0.1`. Bundled examples work offline after installation. Only explicitly submitted public SPACE fields go to NCBI. Private uploads, runs and credentials are excluded from Git. [Storage and reproduction](docs/REPRODUCIBILITY.md).
+Matching direction plus target BH q ≤ 0.05 defines operational RACE support. Multiple probes may represent one gene. Confidence filtering changes coverage; scores need not be calibrated. PCA separation does not prove model failure. CE withholds unsupported inference. Reference summaries describe known gene functions, not mechanisms established by the experiment. [Methods](docs/SCIENTIFIC_PROTOCOL_1_0.md) · [Limitations](docs/LIMITATIONS.md).
 
-```sh
-python verify_release.py
-python -m pytest -q
-python scripts/release_smoke.py
-```
+Processing runs locally on `127.0.0.1`. Uploaded measurements remain local. Explicit SPACE queries and uncached gene-identifier lookups contact NCBI; cached demonstrations and local statistics work offline. Saved data, runs and browser drafts persist locally. Ordinary evidence exports omit original uploads; private workspace backups include them and cached references. [Storage and reproducibility](docs/REPRODUCIBILITY.md).
 
-The Windows release is unsigned research software. Source, numerical, DOM-handler and installer checks are recorded with each release. The 1.2.2 interactive Windows visual review was blocked by the Computer Use URL safeguard; it is **not fully visually verified**. Unfamiliar-user and screen-reader acceptance remain unmeasured. [Build guide](docs/release/RELEASING.md) · [Current verification](docs/RELEASE_1_2.md).
+## Verify and maintain
 
-## Rights
+Use `python verify_release.py`, `python -m pytest -q`, `python scripts/release_smoke.py` and `python scripts/check_repository.py` in the isolated environment. Evidence exports record hashes, methods and input lineage. Source sealing verifies recorded bytes; checksums are not digital signatures or guarantees of clinical validity. [Architecture](docs/ARCHITECTURE.md) · [API](docs/LOCAL_API.md) · [Verification](docs/RELEASE_1_2_3.md).
 
-BRACE-authored material is **rights reserved**. [License](LICENSE) · [Third-party notices](docs/THIRD_PARTY_NOTICES.md) · [Attribution](docs/ATTRIBUTION.md) · [Contributing](.github/CONTRIBUTING.md) · [Security](.github/SECURITY.md).
+The source product version is **1.2.3**. Download links resolve to the latest actually verified release. Automated source, DOM, binary and installer evidence does not establish unfamiliar-user usability or WCAG compliance.
+
+## Rights and references
+
+BRACE-authored material is **rights reserved**, not MIT-licensed open source. Data and bundled dependencies retain their own terms. [License](LICENSE) · [Notices](docs/THIRD_PARTY_NOTICES.md) · [Attribution](docs/ATTRIBUTION.md) · [Scientific references](docs/RESEARCH_FINAL.md) · [Security](.github/SECURITY.md).

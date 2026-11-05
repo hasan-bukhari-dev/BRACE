@@ -10,7 +10,7 @@ datas += [(str(ROOT/'brace_app/static'), 'brace_app/static'),
           (str(ROOT/'packaging/generated'), 'distribution-notices')]
 for name in ('LICENSE', 'VERSION'):
     datas.append((str(ROOT/name), '.'))
-for name in ('THIRD_PARTY_NOTICES.md', 'DATA_SOURCES.md'):
+for name in ('THIRD_PARTY_NOTICES.md', 'DATA_SOURCES.md', 'USER_MANUAL.pdf', 'QUICK_START.pdf', 'QUICK_START.md'):
     datas.append((str(ROOT/'docs'/name), 'docs'))
 for name in ('PASS03_PUBLIC_REFERENCE.json', 'PASS05_ARCHIVED_REFERENCE.json'):
     datas.append((str(ROOT/'docs'/name), 'docs'))

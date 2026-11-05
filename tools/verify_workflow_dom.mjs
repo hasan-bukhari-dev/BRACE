@@ -24,7 +24,7 @@ globalThis.mockRequest=async(url,options={})=>{
  if(url.endsWith('/prepare')){prepared=JSON.parse(options.body);const saved={id:'e'.repeat(32),name:'Prepared cohort',status:'prepared',source:{type:'prepared'},summary:{manifest:prepared.manifest,n_samples:2,n_features:1000}};records.push(saved);return saved}
  if(url==='/api/dataset-analysis/preflight')return {eligible:true,issues:[]};
  if(url==='/api/predictions/inspect')return {headers:['case','observed','called'],count:2,values:{case:['a','b'],observed:['alpha','beta'],called:['alpha','beta']}};
- if(url==='/api/predictions/import'){records.push({id:p,name:'Mapped table',status:'prepared',source:{type:'mapped'},summary:{kind:'saved_predictions'}});return {id:p}}
+ if(url==='/api/predictions/import'){records.push({id:p,name:'Mapped table',status:'prepared',source:{type:'mapped'},summary:{kind:'saved_predictions',n_samples:2}});return {id:p}}
  throw Error('Unexpected request '+url);
 };
 const {initDatasets,refreshDatasets}=await import(pathToFileURL(path.join(runtime,'datasets.js')).href);
@@ -53,5 +53,6 @@ for(const [key,value] of Object.entries({sample_id:'case',true_label:'observed',
 $('#map-observed').onclick();$('#map-model').value='External model';$('#map-label-source').value='Recorded reference labels';
 const button=$('#prediction-map-form button[type="submit"]');await $('#prediction-map-form').onsubmit(new SubmitEvent('submit',{cancelable:true,submitter:button}));
 assert.equal($('#registry-task').value,'evaluate_predictions');assert.equal($('#registry-source').value,p);
+assert(document.querySelector('#workspace-datasets').textContent.includes('2 prediction records'));
 const ids=[...document.querySelectorAll('[id]')].map(el=>el.id);assert.equal(new Set(ids).size,ids.length);
 console.log(JSON.stringify({status:'PASS',scope:'DOM handlers, not rendered browser or human acceptance',assertions:['role-independent selection','acquired-state explanation','role swap','key-aligned phenotype mapping','explicit exclusions','source-only preparation','ACE column import and selection','unique IDs']}));

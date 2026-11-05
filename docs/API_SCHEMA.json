@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "BRACE Research Workbench",
-    "version": "1.1.0-dev"
+    "version": "1.2.3"
   },
   "paths": {
     "/": {
@@ -25,6 +25,23 @@
       "get": {
         "summary": "Templates",
         "operationId": "templates_api_templates_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manual": {
+      "get": {
+        "summary": "User Manual",
+        "description": "Serve only the packaged, versioned guide; never arbitrary workspace files.",
+        "operationId": "user_manual_manual_get",
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -607,6 +624,52 @@
         }
       }
     },
+    "/api/race/studies/{study_id}/gene-context": {
+      "post": {
+        "summary": "Gene Context",
+        "operationId": "gene_context_api_race_studies__study_id__gene_context_post",
+        "parameters": [
+          {
+            "name": "study_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Study Id"
+            }
+          },
+          {
+            "name": "feature_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Feature Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/ace/studies/{study_id}": {
       "get": {
         "summary": "Ace",
@@ -892,6 +955,76 @@
             "content": {
               "application/json": {
                 "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workspace/storage": {
+      "get": {
+        "summary": "Storage",
+        "operationId": "storage_api_workspace_storage_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workspace/backup": {
+      "post": {
+        "summary": "Backup",
+        "description": "Consistent registry snapshot plus immutable assets and completed runs.",
+        "operationId": "backup_api_workspace_backup_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workspace/backup/{token}": {
+      "get": {
+        "summary": "Download Backup",
+        "operationId": "download_backup_api_workspace_backup__token__get",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -1365,6 +1498,172 @@
         }
       }
     },
+    "/api/studies/{study_id}/clone": {
+      "post": {
+        "summary": "Clone Study",
+        "operationId": "clone_study_api_studies__study_id__clone_post",
+        "parameters": [
+          {
+            "name": "study_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Study Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Name"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/studies/{study_id}/visibility": {
+      "patch": {
+        "summary": "Study Visibility",
+        "operationId": "study_visibility_api_studies__study_id__visibility_patch",
+        "parameters": [
+          {
+            "name": "study_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Study Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Visibility"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predictions/inspect": {
+      "post": {
+        "summary": "Inspect Predictions",
+        "operationId": "inspect_predictions_api_predictions_inspect_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_inspect_predictions_api_predictions_inspect_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/predictions/import": {
+      "post": {
+        "summary": "Import Predictions",
+        "operationId": "import_predictions_api_predictions_import_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_import_predictions_api_predictions_import_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/datasets/import": {
       "post": {
         "summary": "Import Dataset",
@@ -1570,6 +1869,43 @@
         }
       }
     },
+    "/api/datasets/{dataset_id}/reviewed-er-plan": {
+      "get": {
+        "summary": "Reviewed Er Plan",
+        "operationId": "reviewed_er_plan_api_datasets__dataset_id__reviewed_er_plan_get",
+        "parameters": [
+          {
+            "name": "dataset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Dataset Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/dataset-analysis/preflight": {
       "post": {
         "summary": "Preflight",
@@ -1636,6 +1972,23 @@
                 "schema": {
                   "$ref": "#/components/schemas/HTTPValidationError"
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/demo/public-cohorts": {
+      "post": {
+        "summary": "Public Cohort Demo",
+        "description": "One reproducible real-data CE demonstration, using the pinned ER pair.",
+        "operationId": "public_cohort_demo_api_demo_public_cohorts_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           }
@@ -1932,6 +2285,39 @@
         ],
         "title": "Body_import_dataset_api_datasets_import_post"
       },
+      "Body_import_predictions_api_predictions_import_post": {
+        "properties": {
+          "table": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Table"
+          },
+          "mapping": {
+            "type": "string",
+            "title": "Mapping"
+          }
+        },
+        "type": "object",
+        "required": [
+          "table",
+          "mapping"
+        ],
+        "title": "Body_import_predictions_api_predictions_import_post"
+      },
+      "Body_inspect_predictions_api_predictions_inspect_post": {
+        "properties": {
+          "table": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Table"
+          }
+        },
+        "type": "object",
+        "required": [
+          "table"
+        ],
+        "title": "Body_inspect_predictions_api_predictions_inspect_post"
+      },
       "Body_preflight_api_preflight_post": {
         "properties": {
           "mode": {
@@ -2181,6 +2567,36 @@
             "maxLength": 2000,
             "title": "Mapping Reference",
             "default": ""
+          },
+          "feature_policy": {
+            "type": "string",
+            "enum": [
+              "all",
+              "bounded_original_order",
+              "source_variance",
+              "source_features",
+              "identifier_panel"
+            ],
+            "title": "Feature Policy",
+            "default": "all"
+          },
+          "feature_reference_dataset": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Feature Reference Dataset"
+          },
+          "source_feature_cap": {
+            "type": "integer",
+            "maximum": 25000.0,
+            "minimum": 1.0,
+            "title": "Source Feature Cap",
+            "default": 10000
           }
         },
         "additionalProperties": false,
@@ -2463,6 +2879,26 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "Visibility": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0",
+            "title": "Schema Version",
+            "default": "1.0.0"
+          },
+          "archived": {
+            "type": "boolean",
+            "title": "Archived"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "archived"
+        ],
+        "title": "Visibility"
       }
     }
   }

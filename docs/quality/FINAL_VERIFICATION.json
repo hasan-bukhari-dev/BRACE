@@ -1,34 +1,28 @@
 {
-  "release": "1.2.2",
+  "release": "1.2.3",
   "status": "CONDITIONAL",
-  "scientific_engines": "unchanged",
-  "source_manifest": "packaging/source-manifest.csv",
-  "non_demo_acceptance": "NON_DEMO_ACCEPTANCE.json",
-  "local_focused_tests": {
-    "passed": 23,
-    "failed": 0
-  },
-  "dom_handlers": {
+  "condition": "Independent unfamiliar-user usability, screen reader and full WCAG acceptance are not claimed. Tagged binary and installer gates must pass before publication.",
+  "baseline_commit": "19e2aeb1db51fbc2a0f1457896d610e776044484",
+  "scientific_engine_parity": "MAINTENANCE_ENGINE_SHA256.json",
+  "agent_ui_review": {
     "status": "PASS",
-    "tool": "tools/verify_workflow_dom.mjs",
-    "scope": "Actual modules in jsdom; not rendered visual acceptance"
+    "scope": [
+      "SPACE original acquisition to reviewed preparation",
+      "real prediction-column import in a mixed data library",
+      "fresh ER analysis 14/20",
+      "FACE and TRACE exact linkage",
+      "real baseline and frozen replay",
+      "keyboard arrows/Enter and Escape focus restoration",
+      "684 px content width with no page overflow on replay"
+    ],
+    "screenshots": 25,
+    "console_errors_in_final_evidence_view": 0
   },
-  "visual_review": {
-    "status": "BLOCKED",
-    "reason": "Computer Use could not verify the active Windows browser URL and stopped UI control; not bypassed."
-  },
+  "pdf_verification": "PDF_VERIFICATION_1_2_3.json",
+  "additional_real_data": "NON_DEMO_1_2_3.json",
   "independent_human_usability": "NOT RUN",
   "screen_reader": "NOT RUN",
-  "release_gates": "Exact tagged source, full pytest JUnit, cross-platform source checks, DOM handlers, bundled executable, real-data restart, native launcher, installed executable and uninstall must pass in GitHub Actions. Release assets are the authoritative post-build receipts.",
-  "previous_verification": "VERIFICATION_1_1_HISTORY.json",
-  "backup_and_export_regressions": {
-    "status": "PASS",
-    "tests": 40,
-    "reference_cache_restored_offline": true
-  },
-  "cached_reference_export_refresh": {
-    "status": "PASS",
-    "scientific_files_unchanged": true,
-    "regression": "tests/test_product_consolidation.py::test_lookup_refreshes_cached_export_without_changing_statistics"
-  }
+  "windows_installer_visual_screenshots": "NOT CAPTURED; automated install, installed-app and uninstall gates are separate",
+  "release_receipts": "Exact-tag CI, JUnit and Windows assets are authoritative after building.",
+  "history": "VERIFICATION_1_2_2_HISTORY.json"
 }

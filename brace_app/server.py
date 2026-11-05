@@ -93,6 +93,15 @@ def templates():
     return FileResponse(path,filename=path.name,media_type='application/zip')
 
 
+@app.get('/manual')
+def user_manual():
+    """Serve only the packaged, versioned guide; never arbitrary workspace files."""
+    path = BASE/'docs'/'USER_MANUAL.pdf'
+    if not path.is_file():
+        raise HTTPException(404, 'The illustrated manual is not included in this build.')
+    return FileResponse(path, media_type='application/pdf', headers={'Cache-Control':'no-cache'})
+
+
 @app.get('/api/health')
 def health():
     from brace_app.study_api import public_paths

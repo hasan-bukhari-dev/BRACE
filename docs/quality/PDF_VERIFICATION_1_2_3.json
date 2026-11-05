@@ -1,0 +1,226 @@
+{
+  "USER_MANUAL.pdf": {
+    "pages": 27,
+    "sha256": "80d3f15d36dc2a32a2eedd4c97637a333e49a841524daa716304b0413e769c89",
+    "page_checks": [
+      {
+        "page": 1,
+        "text_characters": 927,
+        "links": 26,
+        "render_sha256": "733c6643307a2868e08f3c4c78b46a448675052c92ee43e7d6673ad9c70ca4d3"
+      },
+      {
+        "page": 2,
+        "text_characters": 1239,
+        "links": 1,
+        "render_sha256": "4963cfb415b617d1f4827168851458649445d5a3167aec11378530512d60dc4d"
+      },
+      {
+        "page": 3,
+        "text_characters": 889,
+        "links": 1,
+        "render_sha256": "19c45a3dd1823c070a94107eb0cf17690144e7179b6e34fc74c2e096708d3c46"
+      },
+      {
+        "page": 4,
+        "text_characters": 729,
+        "links": 1,
+        "render_sha256": "386d00e3d9ba0de0ead039e28eb759c209465dd36adcc24aa1525a2439e1db0d"
+      },
+      {
+        "page": 5,
+        "text_characters": 768,
+        "links": 1,
+        "render_sha256": "75aa80eb02982d07b833726a027a1186faf188f817985cf96f131b13686b1e7a"
+      },
+      {
+        "page": 6,
+        "text_characters": 848,
+        "links": 1,
+        "render_sha256": "cabf98101c65b9b2d9dbaa6739d38e8e445ba978800947b9873f8035004859dc"
+      },
+      {
+        "page": 7,
+        "text_characters": 854,
+        "links": 1,
+        "render_sha256": "8f3906b1f4ff03dde249a0a95fa88d232a6576801bf45fe490773e23047076ce"
+      },
+      {
+        "page": 8,
+        "text_characters": 826,
+        "links": 1,
+        "render_sha256": "05a18b9aa7246c46dc58fa2675f5c4134f671ff2b964c4962c1644fe0f069f93"
+      },
+      {
+        "page": 9,
+        "text_characters": 938,
+        "links": 1,
+        "render_sha256": "c9b81b3405b768f417d7008cc6e6a5a18c4398ab7228260e21b1b6aff2a9099b"
+      },
+      {
+        "page": 10,
+        "text_characters": 958,
+        "links": 1,
+        "render_sha256": "c5dca5e1b434154fcada7f52185bd5d7eea0314e60c58984f3da140af890aed6"
+      },
+      {
+        "page": 11,
+        "text_characters": 851,
+        "links": 1,
+        "render_sha256": "9aa0e4d8cbad847605c451ca56ffe3dbad6e18fba79e9e68a3ae6fce3be42b32"
+      },
+      {
+        "page": 12,
+        "text_characters": 882,
+        "links": 1,
+        "render_sha256": "c13111b413a4c4e34e46b9136431f3ee8fcbf1c9236a9fb96de6a740862cbdd2"
+      },
+      {
+        "page": 13,
+        "text_characters": 934,
+        "links": 1,
+        "render_sha256": "c7fb24c8f9d20f5ddfb5ca91a7ab55e599d83dccfdf54cb5c8fe1fd059ed4891"
+      },
+      {
+        "page": 14,
+        "text_characters": 1228,
+        "links": 1,
+        "render_sha256": "d61f003d00a59fb27a764560eac6812024cab66b105ea8a5c11254c67be81691"
+      },
+      {
+        "page": 15,
+        "text_characters": 825,
+        "links": 1,
+        "render_sha256": "741768694506ad28616355dca2e8324c9a6686c88a680803271d7ca0f940f4d3"
+      },
+      {
+        "page": 16,
+        "text_characters": 1235,
+        "links": 1,
+        "render_sha256": "39e382971963eb1578d47dfbf21758d796193242db7505e7895416c44c6c50f0"
+      },
+      {
+        "page": 17,
+        "text_characters": 1089,
+        "links": 1,
+        "render_sha256": "cbc63c89a5186a0dfd9076356504407567a4da3e2969176fbf5678772d86f39e"
+      },
+      {
+        "page": 18,
+        "text_characters": 769,
+        "links": 0,
+        "render_sha256": "aee6c1f006266ed4aac9b62eb2b5f78385b45ce23eea0d19dec7c4ba200e9bdd"
+      },
+      {
+        "page": 19,
+        "text_characters": 296,
+        "links": 1,
+        "render_sha256": "ffc5f9a51ba3150f0d8179b2f9b4e46542bf6b95fa04bb108b5c83b9129ecc5a"
+      },
+      {
+        "page": 20,
+        "text_characters": 295,
+        "links": 1,
+        "render_sha256": "61071bbf1c78a7a7927d0934cbf66d9dc0c1b23bfb735374e7496cedf0013fcd"
+      },
+      {
+        "page": 21,
+        "text_characters": 292,
+        "links": 1,
+        "render_sha256": "f0d80db231455bb02671e185ab1ffd9b9f83dc0853ffce37672e4b9fbbcb6f82"
+      },
+      {
+        "page": 22,
+        "text_characters": 252,
+        "links": 1,
+        "render_sha256": "0bf5fd51df5fc301529c7f3021ee2eab7a25edf33c07a0e33c63dd8781d59c0d"
+      },
+      {
+        "page": 23,
+        "text_characters": 292,
+        "links": 1,
+        "render_sha256": "28eacc2a562d184ae5cfe3aca844b8c816e32a6f3032390ec1349dcd230ead51"
+      },
+      {
+        "page": 24,
+        "text_characters": 329,
+        "links": 1,
+        "render_sha256": "e18c2af5057b691ebc39a796790641cf00515a1674e62160e75d4e9c204bbf71"
+      },
+      {
+        "page": 25,
+        "text_characters": 360,
+        "links": 1,
+        "render_sha256": "62304edebae262240082f4cc7b05f20ac90a90f75c9e37efb23802648ac9f61c"
+      },
+      {
+        "page": 26,
+        "text_characters": 850,
+        "links": 6,
+        "render_sha256": "71cff102a21ab39fb9cf19def9efaf3173bb4509a092c915cc268a4f2708582f"
+      },
+      {
+        "page": 27,
+        "text_characters": 916,
+        "links": 2,
+        "render_sha256": "b6a03d033ce69d880eb1ad6dde66f1be9a8526a769d6184b1630403ff91db567"
+      }
+    ]
+  },
+  "QUICK_START.pdf": {
+    "pages": 2,
+    "sha256": "e8a8ab0cf63a0db9c6a0b47f0ba66a839aff7ed695b12c29596e66633635f268",
+    "page_checks": [
+      {
+        "page": 1,
+        "text_characters": 1111,
+        "links": 0,
+        "render_sha256": "5c5051223d8c99f6bf7b593ebe0ea9d6bc1680dda1b54ee9cdd3fe3723128a8a"
+      },
+      {
+        "page": 2,
+        "text_characters": 1438,
+        "links": 0,
+        "render_sha256": "4465d5923648db0b2a7188d5ef79928fe7cc9013e5802854f4d4eae49c97dcc9"
+      }
+    ]
+  },
+  "screenshots": {
+    "01-workspace.jpg": "046b80330c86e68b00a78914092e0ecd8ea1998b98892724a20505c86520a501",
+    "02-file-guide.jpg": "e94f621d00e3dc944a1e749f5e6a30566f881ca8e3023a91db444890aeb16133",
+    "03-unsupported-inputs.jpg": "dbddbb8b8956824bd77db64b8fc8c1e98fd3fff532088a00173fc9fe49fd74e8",
+    "04-space.jpg": "a4ec1fb98b59fa149915d3c085d62a7fd5f72d26a380ce273bbd6f80f3ac9bf7",
+    "05-geo-files.jpg": "6b056d2348afa1f8d7937d3d9ad65d51e7ef09f22c095987a278d0141762d69e",
+    "06-acquired-original.jpg": "54daf5672bca472776a283e05bd78bc74c605d406a82525d2889079c332c57f5",
+    "07-preparation.jpg": "84b721317955ca10ec4e3b7178bf4bebea8a537997ae6bc1f034058724df1c60",
+    "08-group-review.jpg": "9eec5cd3b564e8227576a32f52b22b403a37f8a5c7b72232fb82895ab06ec379",
+    "09-feature-policy.jpg": "423dad3361d358a16ad6d8045fd72869cce2c3ce01c43a9f3e0487e849d6d413",
+    "10-prepared-selection.jpg": "4d7b3a2c85fc108cfd5db937d680f5efdfe88d57a7d0335e2d7311c21072918e",
+    "11-race.jpg": "509d35beb0c893dbd562f0caf1c3eed969e85f92b4c79fbeb41f9637835f1437",
+    "12-frozen-strip.jpg": "f8c8942ce0d1a5e1df831bce6cc7d73da02a37e279a3b058d855238b856da92a",
+    "13-gene-reference.jpg": "8a8699db64913d301902e4f19be0f36b7cf0f5a6de0f87109e781ceb94c9aafe",
+    "14-trace.jpg": "1428b2c6050d1f620cc36af0466b3fbe7bcf081552014159897492556d17e155",
+    "15-evidence.jpg": "59e2697abb932fc1d267c6e10b5a0cba520ea3dc21cf59c1cb44d31d0f1d4114",
+    "16-ace.jpg": "b2940bd3262551877f93aa46d458b81cc8420072c702df12374b8925521c0628",
+    "17-ace-threshold.jpg": "b993739168f458ccf60b9e760494c52798a52fa875b8070eae25a13d63d48c22",
+    "18-ce.jpg": "4fe2b2ddb3a706843a8d75a66f28cda265f0645bf4604d9c7a7a47643dd2201c",
+    "19-baseline.jpg": "2a944f57a2b24aeb3bfb48d552d00ba25a63f2eb2445ac2ac34dc52529137928",
+    "20-workspace-storage.jpg": "8ecf381eed2c5030449663447c80c0c09a2ece12942ff9ffcbd6f438960609db",
+    "21-ce-pca.jpg": "97cd889523401cb415a761b68d35f88304447c5438e6f312d010160d771653c6",
+    "22-prediction-mapping.jpg": "054cce27c4aca4a22962659c0a71e1b1796d5482ce0eda80f11eb344ee8b6075",
+    "23-data-library.jpg": "9bbfb24bbf062c4750826f7b0dbb8453868f9b9e77fa93368807ab1e642273af",
+    "24-fresh-er-result.jpg": "b59a9e31ac1ac924c7b4040cd63f18bc8bb0b23602c96c45e5d275c6dafa7684",
+    "25-frozen-replay.jpg": "2aa559e034c335318892b606d6d7e8c7a0056bef1ac2ab3c426d125e850424c3"
+  },
+  "status": "PASS",
+  "visual_review": {
+    "scope": "Agent inspection of all rendered pages and full-size changed pages, not independent human acceptance or PDF/UA certification.",
+    "manual_pages": 27,
+    "quick_start_pages": 2,
+    "screenshots": 25,
+    "all_pages_reviewed": true,
+    "orphan_final_page": "Removed before final review",
+    "source": "scripts/build_manual.py plus docs/manual/USER_MANUAL.md"
+  },
+  "capture_scope": "Authentic local application states; final labels and controls checked against the 1.2.3 worktree. Windows installer screenshots not captured."
+}

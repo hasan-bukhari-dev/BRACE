@@ -19,6 +19,11 @@ const label = {
   train_validate: "ACE · source baseline",
   evaluate_predictions: "ACE · saved predictions",
 };
+function datasetSize(summary) {
+  if (!Number.isInteger(summary?.n_samples)) return "";
+  if (summary.kind === "saved_predictions") return `${summary.n_samples.toLocaleString()} prediction records`;
+  return `${summary.n_samples.toLocaleString()} samples` + (Number.isInteger(summary.n_features) ? ` · ${summary.n_features.toLocaleString()} features` : "");
+}
 const issueHTML = (result) =>
   `<p><strong>${result.eligible ? "Task checks passed" : "Analysis blocked"}</strong> · ${esc(result.note || "Review the reasons below.")}</p><ul>${(result.issues || []).map((issue) => `<li><strong>${esc(issue.code)}</strong>: ${esc(issue.message)} ${esc(issue.next_action || "")}</li>`).join("")}</ul><details><summary>Exact input summaries and task decisions</summary><pre>${esc(JSON.stringify(result, null, 2))}</pre></details>`;
 function invalidate() {
@@ -167,7 +172,7 @@ export async function refreshDatasets() {
         .join("");
   const host = $("#registry-list");
   host.innerHTML = records.length
-    ? `<div class="table-scroll" tabindex="0" role="group" aria-label="Scrollable data table"><table><thead><tr><th>Dataset version</th><th>Preparation</th><th>Evidence</th><th>Actions</th></tr></thead><tbody>${records.map((record) => `<tr data-dataset-id="${esc(record.id)}"><th scope="row">${esc(record.name)}</th><td>${record.status === "prepared" ? "Prepared · task checks required" : "Original acquired · preparation required"}${record.summary?.n_samples ? `<br>${record.summary.n_samples} samples · ${record.summary.n_features.toLocaleString()} features` : ""}</td><td>${esc(record.source.accession || record.source.type.replaceAll("_", " "))}${record.summary?.measurement_type ? "<br>" + esc(record.summary.measurement_type.replaceAll("_", " ")) : ""}</td><td><button type="button" data-inspect-dataset="${record.id}">Inspect ${record.status === "acquired" ? "& prepare" : "record"}</button><button type="button" data-rename-dataset="${record.id}">Rename</button></td></tr>`).join("")}</tbody></table></div>`
+    ? `<div class="table-scroll" tabindex="0" role="group" aria-label="Scrollable data table"><table><thead><tr><th>Dataset version</th><th>Preparation</th><th>Evidence</th><th>Actions</th></tr></thead><tbody>${records.map((record) => `<tr data-dataset-id="${esc(record.id)}"><th scope="row">${esc(record.name)}</th><td>${record.status === "prepared" ? "Prepared · task checks required" : "Original acquired · preparation required"}${datasetSize(record.summary) ? `<br>${esc(datasetSize(record.summary))}` : ""}</td><td>${esc(record.source.accession || record.source.type.replaceAll("_", " "))}${record.summary?.measurement_type ? "<br>" + esc(record.summary.measurement_type.replaceAll("_", " ")) : ""}</td><td><button type="button" data-inspect-dataset="${record.id}">Inspect ${record.status === "acquired" ? "& prepare" : "record"}</button><button type="button" data-rename-dataset="${record.id}">Rename</button></td></tr>`).join("")}</tbody></table></div>`
     : "<p>No saved datasets. Add the reviewed example, download an original public file in SPACE, or import prepared files.</p>";
   host
     .querySelectorAll("[data-inspect-dataset]")
@@ -222,7 +227,7 @@ async function rename(id) {
 async function inspect(id) {
   const record = records.find((row) => row.id === id),
     host = $("#registry-detail");
-  host.innerHTML = `<h3>${esc(record.name)}</h3><p class="help">${record.status === "prepared" ? "Prepared version · task checks required" : "Acquired original · preparation required"}${record.summary?.n_samples ? " · " + record.summary.n_samples + " samples · " + record.summary.n_features.toLocaleString() + " features" : ""}</p><details><summary>Dataset identity, assets and preparation lineage</summary><pre>${esc(JSON.stringify(record, null, 2))}</pre></details>`;
+  host.innerHTML = `<h3>${esc(record.name)}</h3><p class="help">${record.status === "prepared" ? "Prepared version · task checks required" : "Acquired original · preparation required"}${datasetSize(record.summary) ? " · " + esc(datasetSize(record.summary)) : ""}</p><details><summary>Dataset identity, assets and preparation lineage</summary><pre>${esc(JSON.stringify(record, null, 2))}</pre></details>`;
   if (record.status !== "acquired") {
     request("/api/datasets/" + id + "/checks")
       .then((checks) => {
@@ -332,7 +337,7 @@ async function inspect(id) {
       await refreshDatasets();
       $("#registry-" + value.manifest.role).value = saved.id;
       invalidate();
-      host.innerHTML = `<p role="status">${esc(saved.name)} prepared and selected as ${esc(value.manifest.role)} · ${saved.summary.n_samples} samples · ${saved.summary.n_features.toLocaleString()} retained features. ${$("#registry-source").value && $("#registry-target").value ? "Both datasets are selected. Review the task checks below." : "Add the other dataset to continue."}</p>`;
+      host.innerHTML = `<p role="status">${esc(saved.name)} selected as ${esc(value.manifest.role)} · ${saved.summary.n_samples} samples · ${saved.summary.n_features.toLocaleString()} retained features. ${$("#registry-source").value && $("#registry-target").value ? "Both datasets are selected. Review the task checks below." : "Add the other dataset to continue."}</p>`;
       $("#registry-analysis").scrollIntoView({block:"start"});
       if ($("#registry-task").value === "diagnose_shift" && $("#registry-source").value && $("#registry-target").value) {
         if (!$("#registry-name").value.trim()) $("#registry-name").value = "Cohort comparison";

@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "19e2aeb1db51fbc2a0f1457896d610e776044484",
+  "baseline_release": "1.2.2",
+  "scope": "Exact brace_core bytes; earlier original-baseline changes remain in SCIENTIFIC_CHANGE_REGISTER.json",
+  "sha256": {
+    "brace_core/__init__.py": "ea5e4ee2253410c467607507c8bff9ddd6c7d54d4d3d10319ffe944a8f5b6984",
+    "brace_core/assays.py": "3268a5f47224a7634e9128f85e5d44205d482ae2aabef2fe272e5ffcb3da0d74",
+    "brace_core/baseline05.py": "847f520c147931c47abda212c3548fd660a0d4e456a3f94207eaf86017d0cfa1",
+    "brace_core/cli.py": "7eed89804a504432b1cb258882bef7ddc4d5170303198509c01da2eb1a99b27d",
+    "brace_core/compatibility.py": "448061ee26ee2f4a95e8c295f3374d9b97e5307b9da7b88500115e0a285404eb",
+    "brace_core/contracts.py": "c8204e2ac448923cbad5309c37c674eb42d12d1e666534e62773a80b40a76d23",
+    "brace_core/intake.py": "4c54e755edca7ae4d501987feba795be5eb535b4335e1eff15015b1547868ede",
+    "brace_core/metrics05.py": "eab32ca9fe0a8c9767eff411f7ba7455439a0022adcc28a21d914daa2ff87257",
+    "brace_core/metrics06.py": "f20b77eb639a8509d2ddffd7d6a15aa12214d9f89c23775902ee4394d317bed2",
+    "brace_core/prediction_io.py": "4c1a3bd20c652de501b9aa7d02629b8102edc387121018570c85efd51e4ff474",
+    "brace_core/reporting.py": "c10775e4baf0c41eb2ad9024b71f3fd0763fdc10127154ac34ee249170d14a9e",
+    "brace_core/shift07.py": "7b257507b8d983f6cf5d510419277ee9fc94afe45255452c28e998e35066b267",
+    "brace_core/signature.py": "3c3977b8699f096f2018c3e544304fed9e3973a3d8dbad7595c52fc45df94c3e",
+    "brace_core/stage05_cli.py": "1432f76f734f59fb831b41781a209b70b6e745c46c6438482cd1e66ba460ec81",
+    "brace_core/stage06_cli.py": "a218e4f463f0645708abb9ddee7c89f65b2f03e54286ed3f5381f5f9500f2240",
+    "brace_core/stage07_cli.py": "20a260b0f86229bd2017bbfd3f72dfe2f57b3578b4a2ce3196564c56febe4461"
+  }
+}
