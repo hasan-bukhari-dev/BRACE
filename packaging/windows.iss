@@ -1,11 +1,11 @@
 #ifndef BuildVersion
-  #define BuildVersion "1.1.1"
+  #define BuildVersion "1.2.0"
 #endif
 [Setup]
 AppId=BRACE-Local-Research-Workbench
 AppName=BRACE
 AppVersion={#BuildVersion}
-VersionInfoVersion=1.1.1.0
+VersionInfoVersion=1.2.0.0
 AppPublisher=BRACE contributors
 AppPublisherURL=https://github.com/hasan-bukhari-dev/BRACE
 AppSupportURL=https://github.com/hasan-bukhari-dev/BRACE/issues

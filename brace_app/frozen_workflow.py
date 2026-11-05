@@ -181,11 +181,12 @@ async def replay(request: Replay):
     if source['mode'] != 'train_validate':
         raise HTTPException(422, 'Select an original source-trained BRACE baseline run.')
     target = registry.lineage_snapshot(request.target_dataset_id)
+    if request.target_dataset_id == source.get('datasets',{}).get('source'):
+        raise HTTPException(422, 'This is the original training dataset. Choose a different target for a transfer evaluation.')
     if not (target.get('summary') or {}).get('manifest'):
         raise HTTPException(422,'Choose a prepared expression target, not an acquired original or prediction table.')
     paths = {kind: registry.asset_path(target['id'], kind) for kind in ('expression', 'metadata', 'manifest')}
-    if target['summary']['manifest']['role'] != 'target':
-        raise HTTPException(422, 'Choose a dataset explicitly prepared for the target role.')
+    target['assigned_role'] = 'target'
     root = server.RUNS / uuid.uuid4().hex
     raw = root / 'input'
     raw.mkdir(parents=True, exist_ok=False)
@@ -195,6 +196,10 @@ async def replay(request: Replay):
                                'frozen_model': source_root / 'validation/stage05/frozen_model.json'}.items():
             filename = kind + original.suffix
             shutil.copyfile(original, raw / filename)
+            if kind == 'target_manifest' and target['summary']['manifest']['role'] != 'target':
+                bound = json.loads((raw / filename).read_text(encoding='utf-8-sig'))
+                bound['role'] = 'target'
+                (raw / filename).write_text(json.dumps(bound),encoding='utf-8')
             hashes[kind] = {'filename': original.name, 'storage_name': filename,
                             'sha256': registry.digest(raw / filename), 'bytes': (raw / filename).stat().st_size}
         def execute():

@@ -125,6 +125,8 @@ let code=fs.readFileSync(process.argv[2],'utf8')
 const preparation=fs.readFileSync(process.argv[2].replace(/datasets[.]js$/, 'preparation.js'),'utf8')
  .replace("import { $, esc } from './ui.js';",'').replace('export function preparationForm','function preparationForm');
 code=code.replace('import { preparationForm } from "./preparation.js";',preparation);
+const tools=fs.readFileSync(process.argv[2].replace(/datasets[.]js$/, 'workspace-tools.js'),'utf8').replace(/^import .*$/gm,'').replace('export function initWorkspaceTools','function initWorkspaceTools');
+code=code.replace('import { initWorkspaceTools } from "./workspace-tools.js";',tools);
 const {taskForStudy}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 const predictions={datasets:{predictions:'saved-prediction-version'}};
 for(const task of ['race','diagnose_shift','train_validate','evaluate_predictions'])

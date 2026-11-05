@@ -1,0 +1,192 @@
+{
+  "race": {
+    "run": "d5b964dc2a474567af3ca1d9aaca2cde",
+    "aggregate": {
+      "direction_concordance": 1.0,
+      "direction_denominator": 20,
+      "direction_matching": 20,
+      "indeterminate": 0,
+      "not_statistically_supported": 0,
+      "opposite": 0,
+      "selected": 20,
+      "source_features_screened": 5000,
+      "source_q_passing": 3577,
+      "supported": 20,
+      "target_testable": 20,
+      "untestable": 0
+    },
+    "source_samples": 263,
+    "target_samples": 87,
+    "face_features": 20,
+    "export_hashes": 29
+  },
+  "gene": {
+    "feature": "205225_at",
+    "symbol": "ESR1",
+    "source": "https://www.ncbi.nlm.nih.gov/gene/2099"
+  },
+  "ce": {
+    "run": "0d5169e3d5c542c597372cd0823b3644",
+    "shared": 5000,
+    "inference": {
+      "available": false,
+      "note": "KS D, medians and source PCA describe deposited measurements. P/q values are withheld for incompatible processing or known dependence. Unknown independence remains a limitation, not an authenticated fact.",
+      "reasons": [
+        "Processing declarations differ; directly comparable measurement scales are not established."
+      ]
+    },
+    "export_hashes": 25
+  },
+  "baseline": {
+    "run": "0f9c543afe664773951a0524f96f5d7c",
+    "n": 90,
+    "metrics": {
+      "n": 90,
+      "n_correct": 2,
+      "accuracy": 0.022222222222222223,
+      "class_order": [
+        "normal",
+        "tumor"
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          0
+        ],
+        [
+          88,
+          0
+        ]
+      ],
+      "per_class": [
+        {
+          "class": "normal",
+          "support": 2,
+          "predicted_count": 90,
+          "tp": 2,
+          "precision": 0.022222222222222223,
+          "recall": 1.0,
+          "f1": 0.043478260869565216,
+          "undefined_reasons": {
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "recall_wilson_95": {
+            "lower": 0.34238022750665315,
+            "upper": 1.0,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 2,
+            "denominator": 2,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          },
+          "precision_wilson_95": {
+            "lower": 0.006115441986325215,
+            "upper": 0.07744526688625371,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 2,
+            "denominator": 90,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          }
+        },
+        {
+          "class": "tumor",
+          "support": 88,
+          "predicted_count": 0,
+          "tp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "undefined_reasons": {
+            "precision": "NO_PREDICTIONS",
+            "recall": null,
+            "f1": null
+          },
+          "recall_wilson_95": {
+            "lower": 0.0,
+            "upper": 0.041827066664892186,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "numerator": 0,
+            "denominator": 88,
+            "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+          },
+          "precision_wilson_95": {
+            "lower": null,
+            "upper": null,
+            "method": "Wilson score",
+            "confidence_level": 0.95,
+            "undefined_reason": "ZERO_DENOMINATOR"
+          }
+        }
+      ],
+      "observed_true_classes": [
+        "normal",
+        "tumor"
+      ],
+      "absent_true_classes": [],
+      "supported_class_macro_f1": 0.021739130434782608,
+      "balanced_accuracy_observed": 0.5,
+      "macro_denominator": 2,
+      "comparison_scope": "all_declared_classes",
+      "selective": {
+        "threshold": 0.95,
+        "retained": 90,
+        "coverage": 1.0,
+        "retained_errors": 88,
+        "selective_accuracy": 0.022222222222222223,
+        "undefined_reason": null,
+        "interpretation": "Threshold is predeclared; model confidence is not clinically calibrated certainty.",
+        "coverage_wilson_95": {
+          "lower": 0.9590643744356734,
+          "upper": 1.0,
+          "method": "Wilson score",
+          "confidence_level": 0.95,
+          "numerator": 90,
+          "denominator": 90,
+          "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+        },
+        "accuracy_wilson_95": {
+          "lower": 0.006115441986325215,
+          "upper": 0.07744526688625371,
+          "method": "Wilson score",
+          "confidence_level": 0.95,
+          "numerator": 2,
+          "denominator": 90,
+          "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+        }
+      },
+      "accuracy_wilson_95": {
+        "lower": 0.006115441986325215,
+        "upper": 0.07744526688625371,
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "numerator": 2,
+        "denominator": 90,
+        "assumption": "Independent Bernoulli observations; descriptive if independence is unverified"
+      },
+      "macro_f1_bootstrap_95": {
+        "lower": null,
+        "upper": null,
+        "method": "stratified percentile bootstrap",
+        "undefined_reason": "INSUFFICIENT_SUPPORT_FOR_BOOTSTRAP",
+        "replicates": 0
+      }
+    },
+    "target_normal_count": 2,
+    "export_hashes": 62
+  },
+  "replay": {
+    "run": "0aa96a8b0b944e6287b88f81fe012dad",
+    "export_hashes": 13
+  },
+  "status": "PASS",
+  "limitations": [
+    "Exploratory post-hoc cohort choice; not independent prospective confirmation.",
+    "Declared processed measurement scale; no raw CEL reprocessing.",
+    "Only two target normal samples; no clinical validation.",
+    "Baseline uses a fixed identifier-hash panel; no expression values selected this panel. Its performance is not a full-transcriptome estimate."
+  ]
+}

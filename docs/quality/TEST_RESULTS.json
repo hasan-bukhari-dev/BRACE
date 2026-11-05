@@ -1,14 +1,11 @@
 {
-  "tests": 354,
-  "failures": 0,
-  "errors": 0,
-  "skipped": 0,
-  "seconds": 300.676,
-  "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/release-tests.xml",
-  "python": "3.12.10 x64",
-  "dependencies": "requirements-release.txt",
-  "warning": "One Starlette test-client httpx deprecation warning in the pinned dependency set.",
-  "junit": "work/release-tests.xml",
-  "log": "work/release-tests.log",
-  "scope": "Final isolated research source copy; not an installer test."
+  "release": "1.2.0",
+  "local_focused": {
+    "passed": 23,
+    "failed": 0,
+    "warning": "Pinned Starlette/httpx deprecation"
+  },
+  "full_suite": "The exact-tag full suite is executed by GitHub Actions; see TEST_RESULTS-Windows.xml in the release assets and Verify source run logs.",
+  "dom_handler_test": "PASS; tools/verify_workflow_dom.mjs",
+  "visual_acceptance": "BLOCKED; not implied by automated tests"
 }

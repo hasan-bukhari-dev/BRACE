@@ -28,9 +28,11 @@ REPORT_FILES={'research_summary.html','HTML_PRESENTATION.json','analysis_methods
 router=APIRouter()
 
 def biological_context(race,methods):
-    if not race or methods['race']['source_manifest']['feature_namespace']!='entrez_gene':return {}
-    catalog=obj(Path(__file__).with_name('gene_context.json'))
-    return {g['feature_id']:catalog[g['feature_id']] for g in race['genes'] if g['feature_id'] in catalog}
+    if not race:return {}
+    from brace_app.gene_info import lookup
+    manifest=methods['race']['source_manifest']
+    records={g['feature_id']:lookup(g['feature_id'],manifest['feature_namespace'],manifest.get('platform')) for g in race['genes']}
+    return {key:value['biological_context'] for key,value in records.items() if value.get('biological_context')}
 
 
 def publish_evidence(root, contents, provenance):

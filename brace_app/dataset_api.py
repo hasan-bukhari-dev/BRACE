@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import io
 import tempfile
 from contextlib import ExitStack
 from pathlib import Path
@@ -36,6 +37,10 @@ class Reviewed(Contract):
     reviewed: Literal[True]
 
 
+class Visibility(Contract):
+    archived: bool
+
+
 class Analysis(Name):
     mode: Literal['race', 'train_validate', 'diagnose_shift', 'evaluate_predictions']
     datasets: dict[Literal['source', 'target', 'predictions'], str]
@@ -50,7 +55,9 @@ class GeneralPreparation(Name):
     excluded_samples: dict[str, str] = Field(default_factory=dict)
     feature_mapping: dict[str, str] = Field(default_factory=dict)
     mapping_reference: str = Field(default='', max_length=2000)
-    feature_policy: Literal['all', 'bounded_original_order'] = 'all'
+    feature_policy: Literal['all', 'bounded_original_order', 'source_variance', 'source_features', 'identifier_panel'] = 'all'
+    feature_reference_dataset: str | None = None
+    source_feature_cap: int = Field(default=10000, ge=1, le=25000, strict=True)
 
 
 class Transformation(Name):
@@ -107,6 +114,92 @@ def create_study(request: Study):
 @router.get('/api/studies/{study_id}')
 def study(study_id: str):
     return registry.get_study(study_id)
+
+
+@router.post('/api/studies/{study_id}/clone')
+def clone_study(study_id: str, request: Name):
+    return registry.create_study(request.name, registry.get_study(study_id)['datasets'])
+
+
+@router.patch('/api/studies/{study_id}/visibility')
+def study_visibility(study_id: str, request: Visibility):
+    record=registry.get_study(study_id)
+    record.pop('datasets',None)
+    record['archived']=request.archived
+    with registry.database() as connection:
+        connection.execute('UPDATE studies SET record=? WHERE id=?',(json.dumps(record),study_id))
+    return registry.get_study(study_id)
+
+
+@router.post('/api/predictions/inspect')
+async def inspect_predictions(table: Annotated[UploadFile, File()]):
+    from brace_app import server
+    from brace_core.intake import _reader
+    with tempfile.TemporaryDirectory(prefix='brace-prediction-preview-') as temporary:
+        path, _ = await server.save_file(table, Path(temporary), 'table', ('.csv', '.tsv'))
+        stream, reader = _reader(path)
+        try:
+            headers = next(reader, [])
+            if not headers or len(set(headers)) != len(headers) or any(not h.strip() for h in headers):
+                raise HTTPException(422, 'Prediction headers must be unique and nonblank.')
+            rows, distinct, count = [], {h: set() for h in headers}, 0
+            for row in reader:
+                count += 1
+                if len(row) != len(headers) or count > 50000:
+                    raise HTTPException(422, 'Use a consistent CSV/TSV table with at most 50,000 rows.')
+                if count <= 8: rows.append(dict(zip(headers, row)))
+                for h, value in zip(headers, row):
+                    if len(distinct[h]) < 101: distinct[h].add(value.strip())
+            return {'headers':headers, 'rows':rows, 'count':count,
+                    'values':{h:sorted(values) if len(values)<=100 else [] for h,values in distinct.items()}}
+        finally:
+            stream.close()
+
+
+@router.post('/api/predictions/import')
+async def import_predictions(table: Annotated[UploadFile, File()], mapping: Annotated[str, Form()]):
+    import csv
+    from brace_app import server
+    from brace_core.intake import _reader
+    from brace_core.prediction_io import load_predictions
+    try:
+        config = json.loads(mapping)
+        if config.get('reviewed') is not True: raise ValueError('Review the class and column mapping.')
+        with tempfile.TemporaryDirectory(prefix='brace-prediction-import-') as temporary:
+            folder = Path(temporary)
+            original, _ = await server.save_file(table, folder, 'original', ('.csv', '.tsv'))
+            stream, reader = _reader(original)
+            try:
+                headers = next(reader)
+                if len(set(headers)) != len(headers): raise ValueError('Duplicate prediction headers.')
+                fields = {key:config[key] for key in ('sample_id','true_label','predicted_label')}
+                probabilities = config.get('probability_columns', {})
+                if not set(fields.values()) | set(probabilities.values()) <= set(headers):
+                    raise ValueError('Mapped columns do not exist in this file.')
+                output = folder/'predictions.tsv'
+                with output.open('w',encoding='utf-8',newline='') as writer_file:
+                    writer = csv.writer(writer_file,delimiter='\t',lineterminator='\n')
+                    columns = list(fields) + ['score_'+str(i) for i in range(len(probabilities))]
+                    writer.writerow(columns)
+                    for i,row in enumerate(reader):
+                        if len(row)!=len(headers) or i>=50000: raise ValueError('Invalid row width or more than 50,000 records.')
+                        values=dict(zip(headers,row))
+                        writer.writerow([values[h] for h in fields.values()]+[values[h] for h in probabilities.values()])
+            finally: stream.close()
+            manifest = {'schema_version':'1.0.0','dataset_id':config['name'],'model_id':config['model_id'],
+                'classes':config['classes'],'probability_columns':{key:'score_'+str(i) for i,key in enumerate(probabilities)},
+                'prediction_origin':'external_model','evaluation_role':'external_exploratory',
+                'independence_declaration':config.get('independence_declaration','unknown'),
+                'label_source_description':config['label_source_description']}
+            manifest_path=folder/'manifest.json';manifest_path.write_text(json.dumps(manifest),encoding='utf-8')
+            predictions=load_predictions(output,manifest_path)
+            return registry.register({'predictions':output,'prediction_manifest':manifest_path,'original':original},
+                name=config['name'],source={'type':'mapped_prediction_import'},
+                summary={'kind':'saved_predictions','n_samples':len(predictions.sample_ids),'classes':list(predictions.classes)},
+                history=[{'operation':'reviewed_prediction_column_mapping','mapping':fields,'probability_columns':probabilities,
+                          'original_sha256':registry.digest(original),'model_executed':False}])
+    except (InputProblem,ValueError,KeyError,StopIteration) as exc:
+        raise HTTPException(422, exc.to_dict() if isinstance(exc,InputProblem) else str(exc)) from exc
 
 
 @router.post('/api/datasets/import')
@@ -176,10 +269,23 @@ def inspect_original(dataset_id: str):
     from brace_core.assays import identifier_hints
     try:
         parsed = series_matrix(registry.asset_path(dataset_id, 'original'))
+        # GEO characteristics rows can shift between samples when fields are
+        # absent. Align by annotation key, never by the physical row position.
+        fields = {}
+        for row in parsed['metadata'].get('!Sample_characteristics_ch1', []):
+            if len(row) != len(parsed['sample_ids']): continue
+            for i,value in enumerate(row):
+                if ':' not in value: continue
+                key,text = value.split(':',1)
+                key=key.strip().casefold();text=text.strip()
+                column=fields.setdefault(key,['']*len(row))
+                if column[i] and column[i] != text:
+                    column[i]='CONFLICT · review original annotations'
+                else: column[i]=text
         return {'schema_version': SCHEMA_VERSION, 'sample_ids': parsed['sample_ids'],
             'feature_count': len(parsed['feature_ids']), 'feature_preview': parsed['feature_ids'][:30],
             'identifier_hints': identifier_hints(parsed['feature_ids']),
-            'metadata': parsed['metadata'], 'eligible': False,
+            'metadata': parsed['metadata'], 'phenotype_fields':[{'name':key,'values':values} for key,values in sorted(fields.items())], 'eligible': False,
             'note': 'Numeric parsing only. Review phenotypes, identifiers, measurement scale and processing before preparing.'}
     except InputProblem as exc:
         raise HTTPException(422, exc.to_dict()) from exc
@@ -231,15 +337,28 @@ def prepare_original(dataset_id: str, request: GeneralPreparation):
     from brace_app.preparation import prepare_general
     try:
         with tempfile.TemporaryDirectory(prefix='brace-prepare-') as temporary:
+            reference_ids = None
+            if request.feature_policy == 'source_features':
+                if not request.feature_reference_dataset:
+                    raise ValueError('Choose a prepared source dataset to align features.')
+                import csv
+                reference = registry.asset_path(request.feature_reference_dataset, 'expression')
+                with reference.open(encoding='utf-8', newline='') as stream:
+                    reader = csv.reader(stream, delimiter='\t' if reference.suffix == '.tsv' else ',')
+                    next(reader)
+                    reference_ids = [row[0] for row in reader]
             paths, report = prepare_general(registry.asset_path(dataset_id, 'original'), Path(temporary),
                 manifest=request.manifest, condition_by_sample=request.condition_by_sample,
                 excluded_samples=request.excluded_samples, feature_mapping=request.feature_mapping,
-                mapping_reference=request.mapping_reference, feature_policy=request.feature_policy)
+                mapping_reference=request.mapping_reference, feature_policy=request.feature_policy,
+                reference_ids=reference_ids, source_feature_cap=request.source_feature_cap)
+            if reference_ids is not None:
+                report['feature_reference_dataset'] = request.feature_reference_dataset
             from brace_app import server
             if any(path.stat().st_size > server.MAX_FILE for path in paths.values()):
                 raise ValueError('Prepared assets exceed the 25 MiB limit. Supply a documented smaller preparation.')
             return registry.register_cohort(paths, name=request.name, source={'type': 'prepared_geo'},
-                history=[report], parent_ids=[dataset_id])
+                history=[report], parent_ids=[dataset_id] + ([request.feature_reference_dataset] if reference_ids is not None else []))
     except (InputProblem, ValueError) as exc:
         raise HTTPException(422, exc.to_dict() if isinstance(exc, InputProblem) else str(exc)) from exc
 
@@ -258,6 +377,8 @@ async def delegate(request: Analysis, compute: bool):
     needed = {'predictions'} if request.mode == 'evaluate_predictions' else {'source', 'target'}
     if set(request.datasets) != needed:
         raise HTTPException(422, 'Select exactly the dataset roles required for this task.')
+    if needed == {'source','target'} and request.datasets['source'] == request.datasets['target']:
+        raise HTTPException(422, 'Choose two different datasets. Comparing a dataset with itself does not test transfer.')
     if request.study_id:
         saved_study = registry.get_study(request.study_id)
         if saved_study['datasets'] != request.datasets or saved_study['name'] != request.name.strip():
@@ -266,12 +387,25 @@ async def delegate(request: Analysis, compute: bool):
         uploads = {}
         for role, dataset_id in request.datasets.items():
             record = registry.get_dataset(dataset_id)
+            if request.mode == 'train_validate' and role == 'source':
+                def outside_cv_selection(node):
+                    return any(h.get('feature_policy')=='source_variance' for h in node.get('preprocessing_history',[])) or any(outside_cv_selection(parent) for parent in node.get('parent_records',[]))
+                if outside_cv_selection(registry.lineage_snapshot(dataset_id)):
+                    raise HTTPException(422, 'This source was variance-filtered before cross-validation. Prepare all features or a fixed identifier panel for baseline training; selection by expression must stay inside the training folds.')
             if record['status']!='prepared':
                 raise HTTPException(422, {'code':'DATASET_PREPARATION_REQUIRED',
                     'message':'This is an acquired original. Inspect its annotations and prepare a reviewed dataset version before analysis.'})
             kinds = ('predictions', 'prediction_manifest') if role == 'predictions' else ('expression', 'metadata', 'manifest')
             for kind in kinds:
                 path = registry.asset_path(dataset_id, kind)
+                if kind == 'manifest':
+                    # Dataset bytes stay immutable. Roles belong to this study;
+                    # only the execution manifest is bound to the selected role.
+                    bound = json.loads(path.read_text(encoding='utf-8-sig'))
+                    if bound['role'] != role:
+                        bound['role'] = role
+                        uploads[role + '_manifest'] = UploadFile(file=io.BytesIO(json.dumps(bound).encode()), filename='manifest.json')
+                        continue
                 # Reads immutable assets; no data download/re-upload through the browser.
                 file = stack.enter_context(path.open('rb'))
                 uploads[kind if role == 'predictions' else role + '_' + kind] = UploadFile(

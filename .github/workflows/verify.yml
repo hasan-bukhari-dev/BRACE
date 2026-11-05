@@ -37,4 +37,11 @@ jobs:
       - run: python scripts/check_repository.py
       - run: python verify_release.py
       - run: python -m pytest -q
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24.16.0
+      - name: Verify workflow DOM handlers
+        run: |
+          npm install --prefix work/dom-test --no-save --no-audit --no-fund jsdom@31.0.0
+          node tools/verify_workflow_dom.mjs
       - run: python scripts/release_smoke.py

@@ -1,16 +1,11 @@
-# Human and device acceptance — NOT RUN
+# Acceptance scope
 
-Automated browser and numerical verification does not establish that an unfamiliar student or researcher understands BRACE. No participants, spoken timings, physical touch devices, screen reader sessions or projector trials were invented for this release.
+Current release: 1.2.0. See [consolidation record](RELEASE_1_2.md) and [new-data receipt](quality/NON_DEMO_ACCEPTANCE.json).
 
-| No-coaching task | Observe | Acceptance question |
-|---|---|---|
-| Open the public example and explain what happened | Saved vs fresh confusion | Can the person explain that opening saved evidence performs no new test? |
-| Rerun the public example | Wrong turns; unclear declarations | Can they name the source, target and ER contrast before computing? |
-| Select an inconclusive gene and inspect FACE/TRACE | Interpretation; return paths | Can they distinguish direction from support and return to the same gene? |
-| Import a small prediction file | File/schema discovery; errors | Can they explain whether BRACE ran their classifier? |
-| Export and reopen evidence | Report vs complete ZIP | Can they find the exact denominator and a limitation? |
-| Search SPACE and shortlist two studies | Eligibility misunderstanding | Do they understand that candidates need preparation and independence review? |
+Automated release gates cover exact source bytes, the full Python suite, actual DOM handlers, bundled executable calculations, saved-result restart, the native launcher, installation, installed execution and uninstall. The tagged release publishes their actual receipts and the full Windows JUnit report. Passing these gates does not establish human usability or clinical validity.
 
-Record exact errors, wrong turns, optional elapsed times and the participant's own explanation, with consent. Use at least one unfamiliar student and one researcher where available; do not coach during the first attempt. Repair observed misunderstandings before claiming ease of use for everyone.
+Interactive Windows visual review is **BLOCKED**: Computer Use could not verify the browser URL and stopped control. It was not bypassed. The release is not fully visually verified. Unfamiliar-user testing, screen-reader review and full WCAG assessment are NOT RUN.
 
-Also pending: final event laptop, clean standard Python 3.13 installation, offline first-install wheel availability, default-port event rehearsal, physical touch and projector readability, and real screen-reader operation. This Windows release was executed with standard CPython 3.11.9, Chrome 156 and isolated local dependencies. Native Chrome 200% zoom, reduced-motion and forced-color emulation were tested; those do not substitute for the pending checks.
+Research scope remains limited to supported processed matrices and prediction tables. Gene lookup is reference information; it neither validates a statistical result nor explains a biological mechanism. Additional cohorts were investigated post-hoc. The real baseline target has only two normal samples; its accuracy is not a clinical performance estimate.
+
+A researcher and a technical user should each attempt an unfamiliar supported dataset without coaching before any claim of independently validated usability. Record wrong turns, task completion and interpretation. No such observations are fabricated here.

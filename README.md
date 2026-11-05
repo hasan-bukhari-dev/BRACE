@@ -6,7 +6,7 @@ A local research workbench for cross-cohort gene associations, saved-prediction 
 
 BRACE 1.1.0 provides three real-data demonstrations: ER association replication, archived CancerShift prediction reliability, and public-cohort measurement comparison. Start with the [judge walkthrough](docs/JUDGES_DEMO.md) or the [scientific and verification record](docs/RESEARCH_FINAL.md). Artificial fixtures are labeled developer software checks, outside the main demonstrations.
 
-[Windows 1.1.0 release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.1.1) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
+[Windows 1.2.0 release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.2.0) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md) · [New-data workflow](docs/NEW_DATA.md)
 
 ![BRACE workbench](docs/images/workbench-current.jpg)
 
@@ -46,7 +46,7 @@ python -m pytest -q
 python scripts/release_smoke.py
 ```
 
-This branch is the unsigned **1.1.0-dev integration preview**. Its Windows portable build and source checks are documented in the implementation report. The linked published V6 installer is the earlier release. This version has not undergone installer/uninstall, macOS/Linux or unfamiliar-user acceptance testing. [Build guide](docs/release/RELEASING.md) · [Remaining acceptance](docs/ACCEPTANCE.md).
+The Windows release is unsigned research software. Source, numerical, DOM-handler and installer checks are recorded with each release. The 1.2.0 interactive Windows visual review was blocked by the Computer Use URL safeguard; it is **not fully visually verified**. Unfamiliar-user and screen-reader acceptance remain unmeasured. [Build guide](docs/release/RELEASING.md) · [Current verification](docs/RELEASE_1_2.md).
 
 ## Rights
 

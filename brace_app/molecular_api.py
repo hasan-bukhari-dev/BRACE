@@ -84,12 +84,13 @@ def cohort_context(c,result,role,preparation):
         independence_declaration=c.manifest['independence_declaration'],preparation=original,
         original_exclusions_known=original is not None,notes=c.manifest.get('sample_origin_notes'))
 
-def annotated(row,annotations,namespace):
+def annotated(row,annotations,namespace,platform=None):
     a=annotations.get(row['feature_id'],{})
-    contexts=obj(Path(__file__).with_name('gene_context.json'))
-    biological_context=contexts.get(row['feature_id']) if namespace=='entrez_gene' else None
-    return {**row,'gene_symbol':a.get('gene_symbol') or (biological_context or {}).get('current_symbol'),'probe_id':a.get('probe_id'),
-            'biological_context':biological_context,
+    from brace_app.gene_info import lookup
+    annotation=lookup(row['feature_id'],namespace,platform)
+    biological_context=annotation.get('biological_context')
+    return {**row,'gene_symbol':a.get('gene_symbol') or annotation.get('gene_symbol') or (biological_context or {}).get('current_symbol'),'probe_id':a.get('probe_id') or (row['feature_id'] if namespace=='probe_id' else None),
+            'biological_context':biological_context, 'identifier_annotation':annotation,
             'feature_namespace':namespace,'annotation_note':a.get('annotation_source','No verified symbol annotation supplied; exact feature identifier retained.')}
 
 @router.get('/api/race/studies/{study_id}/genes')
@@ -98,7 +99,7 @@ def genes(study_id:str):
     source={r['feature_id']:r for r in frozen['selected']}
     rows=[annotated({**r,'source_p':source[r['feature_id']]['p'],'source_hedges_g':source[r['feature_id']]['hedges_g'],
         'source_ci95':source[r['feature_id']]['ci95'],'source_n_positive':source[r['feature_id']]['n_positive'],
-        'source_n_negative':source[r['feature_id']]['n_negative']},annotations,cohorts['source'].manifest['feature_namespace']) for r in result['genes']]
+        'source_n_negative':source[r['feature_id']]['n_negative']},annotations,cohorts['source'].manifest['feature_namespace'],cohorts['source'].manifest.get('platform')) for r in result['genes']]
     return dict(study_id=study_id,hypothesis_hash=result['hypothesis_hash'],aggregate=result['aggregate'],genes=rows,
         positive=result['positive'],negative=result['negative'],condition_definitions=frozen['condition_definitions'],
         cohorts={r:cohort_context(c,result,r,preparation) for r,c in cohorts.items()},feature_coverage=result['feature_coverage'],
@@ -132,7 +133,20 @@ def gene(study_id:str,feature_id:str):
         input_files=methods['input_files'],method_version=methods['version'],software=methods['software'],
         method_descriptions={k:methods[k] for k in ('test','effect','standardized','ci','multiplicity')},
         no_statistical_rerun=True)
-    return dict(study_id=study_id,feature=annotated(selected,annotations,cohorts['source'].manifest['feature_namespace']),
+    return dict(study_id=study_id,feature=annotated(selected,annotations,cohorts['source'].manifest['feature_namespace'],cohorts['source'].manifest.get('platform')),
         positive=result['positive'],negative=result['negative'],condition_definitions=frozen['condition_definitions'],
         cohorts=details,warnings=result['warnings'],trace=trace,
         measurement_comparison='Separate within-cohort distributions and axes. Absolute source and target intensities are not assumed comparable.')
+
+
+@router.post('/api/race/studies/{study_id}/gene-context')
+def gene_context(study_id: str, feature_id: str):
+    from brace_app.gene_info import lookup
+    result, methods, frozen, cohorts, annotations, preparation = context(study_id)
+    if not any(row['feature_id'] == feature_id for row in result['genes']):
+        raise HTTPException(404, 'Feature is not in this frozen signature.')
+    manifest = cohorts['source'].manifest
+    try:
+        return lookup(feature_id, manifest['feature_namespace'], manifest.get('platform'), online=True)
+    except (ValueError, KeyError, TypeError) as exc:
+        raise HTTPException(502, 'The public gene response could not be verified. Statistics remain unchanged; retry the lookup.') from exc

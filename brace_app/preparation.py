@@ -6,6 +6,8 @@ import gzip
 import io
 import json
 import math
+import hashlib
+import numpy as np
 from pathlib import Path
 
 from brace_core.intake import InputProblem, MAX_FEATURES, MAX_SAMPLES
@@ -20,6 +22,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
     values = {}
     features = []
     row_bytes = []
+    variances = []
     expanded = 0
     in_table = False
     ended = False
@@ -62,6 +65,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
                 seen.add(row[0])
                 features.append(row[0])
                 row_bytes.append(len(line))
+                variances.append(float(np.var(numbers)))
                 if include_values and (selected_features is None or row[0] in selected_features):
                     values[row[0]] = row[1:]  # preserve numeric text; no normalization or rounding
                     if len(values) > MAX_FEATURES:
@@ -74,7 +78,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
         if declared and (len(declared) != 1 or declared[0] != samples):
             raise ValueError('GEO table sample identifiers differ from the declared sample accessions.')
         return dict(sample_ids=samples, feature_ids=features, values=values,
-                    metadata=metadata, expanded_bytes=expanded, feature_row_bytes=row_bytes)
+                    metadata=metadata, expanded_bytes=expanded, feature_row_bytes=row_bytes, feature_variances=variances)
     except (OSError, EOFError, UnicodeError, csv.Error, ValueError) as exc:
         raise InputProblem('GEO_PREPARATION_BLOCKED', str(exc),
             'Preserve the acquired original. Supply finite processed expression, sample metadata and a BRACE manifest if this matrix is unsupported.') from exc
@@ -83,10 +87,11 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
 def prepare_general(original: Path, directory: Path, *, manifest: dict,
                     condition_by_sample: dict[str, str], feature_mapping: dict[str, str],
                     mapping_reference: str, excluded_samples: dict[str, str],
-                    feature_policy: str = 'all') -> tuple[dict, dict]:
-    if feature_policy not in ('all', 'bounded_original_order'):
+                    feature_policy: str = 'all', reference_ids: list[str] | None = None,
+                    source_feature_cap: int = 10000) -> tuple[dict, dict]:
+    if feature_policy not in ('all', 'bounded_original_order', 'source_variance', 'source_features', 'identifier_panel'):
         raise ValueError('Unsupported feature policy.')
-    if feature_policy == 'bounded_original_order':
+    if feature_policy != 'all':
         if feature_mapping:
             raise ValueError('Choose a feature mapping or an original-order subset, not both.')
         preview = series_matrix(original)
@@ -94,8 +99,32 @@ def prepare_general(original: Path, directory: Path, *, manifest: dict,
         # Original numeric text is preserved. Original TSV row lengths are a
         # conservative bound for output rows; reserve a full MiB for headers.
         budget = 24 * 1024 * 1024
-        for feature, size in zip(preview['feature_ids'], preview['feature_row_bytes']):
-            if len(retained_ids) == MAX_FEATURES or size > budget:
+        order = list(range(len(preview['feature_ids'])))
+        limit = MAX_FEATURES
+        if feature_policy in ('source_variance','identifier_panel'):
+            if manifest.get('role') != 'source':
+                raise ValueError('Variance selection is source-only. Align the target to a prepared source.')
+            if feature_policy == 'source_variance':
+                order.sort(key=lambda i: (-preview['feature_variances'][i], preview['feature_ids'][i]))
+            else:
+                order.sort(key=lambda i: (hashlib.sha256(preview['feature_ids'][i].encode()).hexdigest(),preview['feature_ids'][i]))
+            if isinstance(source_feature_cap,bool) or not 1 <= source_feature_cap <= 25000:
+                raise ValueError('Source feature budget must be 1–25,000.')
+            limit = min(MAX_FEATURES, source_feature_cap)
+        elif feature_policy == 'source_features':
+            if not reference_ids:
+                raise ValueError('No source feature reference was supplied.')
+            wanted = set(reference_ids)
+            order = [i for i in order if preview['feature_ids'][i] in wanted]
+            if len(order) != len(wanted):
+                raise ValueError('The target lacks source feature IDs. Review the platform/namespace or supply a curated common-ID mapping.')
+        for i in order:
+            feature, size = preview['feature_ids'][i], preview['feature_row_bytes'][i]
+            if len(retained_ids) == limit:
+                break
+            if size > budget:
+                if feature_policy in ('source_features','identifier_panel') and size > budget:
+                    raise ValueError('The complete source feature set exceeds target preparation limits. Prepare a smaller source set before alignment.')
                 break
             retained_ids.append(feature)
             budget -= size
@@ -103,6 +132,12 @@ def prepare_general(original: Path, directory: Path, *, manifest: dict,
             raise ValueError('No original feature fits the bounded preparation limit.')
         feature_mapping = {feature: feature for feature in retained_ids}
         mapping_reference = 'Original-order prefix within 25,000 features and 24 MiB row-text budget; no outcome-based selection or gene mapping'
+        if feature_policy == 'source_variance':
+            mapping_reference = f'Source-only population variance across original source samples, descending; identifier breaks ties; cap {limit} features and 24 MiB. No phenotype labels or target values used.'
+        elif feature_policy == 'source_features':
+            mapping_reference = 'Exact prepared source identifiers; target values and phenotype labels do not select features. Original numeric text preserved.'
+        elif feature_policy == 'identifier_panel':
+            mapping_reference = f'Fixed identifier panel: smallest SHA-256(identifier) values, cap {limit}. No expression values, labels or target data rank features. Computational subset, not a representative biological panel.'
     parsed = series_matrix(original, include_values=True, selected_features=set(feature_mapping) if feature_mapping else None)
     samples = parsed['sample_ids']
     if set(condition_by_sample) | set(excluded_samples) != set(samples) or set(condition_by_sample) & set(excluded_samples):
@@ -140,7 +175,7 @@ def prepare_general(original: Path, directory: Path, *, manifest: dict,
         writer.writerows((sample, condition_by_sample[sample], manifest.get('study_id', '')) for sample in included)
     paths['manifest'].write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
     report = dict(operation='reviewed_geo_series_matrix', automatic_normalization=False,
-        feature_policy=feature_policy,
+        feature_policy=feature_policy, selection_uses_labels=False,
         phenotype_mapping=condition_by_sample, excluded_samples=excluded_samples,
         original_features=len(original_features), retained_features=len(retained),
         unmapped_features=[feature for feature in original_features if feature_mapping and feature not in feature_mapping],

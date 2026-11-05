@@ -228,3 +228,8 @@ The user-level acceptance test acquired the actual GSE42568 and GSE20711 origina
 Actual browser execution prepared 121 source samples with 17,273 probe IDs and 90 target samples with 23,231 probe IDs. CE computed 17,273 shared IDs, retained descriptive measurements, and withheld inference for differing processing. The saved result reopened after a page reload. This path used newly acquired originals and general preparation, not the bundled 101/87-sample, 10,000-feature demo. Patient independence remained unknown. Screenshots are retained under excluded work/screenshots/space-new-data-ce.jpg.
 
 New regression tests cover explicit subset consent, feature-count limits, serialized file-size limits, omitted-ID order, immutable parent lineage and rejection of conflicting mappings. The existing dataset-task JavaScript harness now includes the actual preparation module when testing data-URI imports, preserving its task-kind assertions. Scientific engines were unchanged.
+
+
+## 1.2.0 consolidation
+
+The new product audit and non-demo parity work are recorded in [RELEASE_1_2.md](RELEASE_1_2.md). Historical 1.1.x implementation and verification paragraphs above describe their original checkpoints, not the current release state. The source scientific engines remain unchanged. New controls use study-level role binding, key-aligned phenotype review, task-specific preparation, general public gene context, immutable data reuse and private backup. Live additional-cohort and baseline acceptance receipts are in quality/NON_DEMO_ACCEPTANCE.json. The interactive Windows visual check was blocked by Computer Use URL verification; no visual or unfamiliar-user acceptance is claimed.

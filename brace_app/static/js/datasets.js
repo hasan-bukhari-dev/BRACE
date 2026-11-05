@@ -1,6 +1,8 @@
 import { $, esc, isSoftwareFixture } from "./ui.js";
 import { request } from "./api.js";
 import { preparationForm } from "./preparation.js";
+import { initWorkspaceTools } from "./workspace-tools.js";
+let draftRestored=false;
 let hooks,
   records = [],
   studies = [],
@@ -78,6 +80,7 @@ function taskChanged() {
   invalidate();
   const prediction = $("#registry-task").value === "evaluate_predictions";
   $("#registry-target-field").hidden = prediction;
+  if($("#registry-upload-files"))$("#registry-upload-files").hidden=prediction;
   $("#registry-race").hidden = $("#registry-task").value !== "race";
   const missing = [];
   for (const [role, select] of [
@@ -86,31 +89,33 @@ function taskChanged() {
   ]) {
     const previous = select.value;
     select.innerHTML =
-      '<option value="">Choose a prepared dataset</option>' +
+      '<option value="">Choose a dataset</option>' +
       records
         .filter(
           (record) =>
             record.status === "prepared" && (!isSoftwareFixture(record) || $("#registry-fixtures").checked) &&
             (prediction
               ? record.summary?.kind === "saved_predictions"
-              : record.summary?.manifest?.role === role),
+              : !!record.summary?.manifest),
         )
         .map(
           (record) =>
             `<option value="${record.id}">${esc(record.name)}</option>`,
         )
-        .join("");
-    select.disabled = select.options.length === 1 || !!$("#registry-study").value;
-    if (select.options.length === 1 && (!prediction || role === "source")) missing.push(role);
+        .join("") + records.filter(record=>record.status==='acquired').map(record=>`<option disabled>${esc(record.name)} · preparation required</option>`).join('');
+    const available=[...select.options].filter(option=>option.value && !option.disabled).length;
+    select.disabled = available === 0 || !!$("#registry-study").value;
+    if (available === 0 && (!prediction || role === "source")) missing.push(role);
     if ([...select.options].some((option) => option.value === previous))
       select.value = previous;
   }
   const empty = $("#registry-empty");
   if (empty) {
     empty.hidden = !missing.length;
-    empty.textContent = missing.length ? `No prepared ${missing.join(" or ")} dataset. Acquire a study in SPACE and review its preparation here, or import processed files. Original downloads cannot be analyzed until prepared.` : "";
+    empty.textContent = missing.length ? `No usable ${missing.join(" or ")} dataset yet. Acquire a study in SPACE and review its preparation here, or import processed files. Original downloads cannot be analyzed until prepared.` : "";
     if (missing.length) {
-      for (const original of records.filter(record => record.status === "acquired" && !isSoftwareFixture(record))) {
+      if(prediction){const button=document.createElement('button');button.type='button';button.textContent='Import a prediction table';button.onclick=()=>{$('#prediction-import').open=true;$('#prediction-import').scrollIntoView({block:'start'})};empty.append(document.createElement('br'),button)}
+      for (const original of records.filter(record => record.status === "acquired" && !isSoftwareFixture(record) && !prediction)) {
         const button = document.createElement("button");
         button.type = "button"; button.textContent = "Prepare " + (original.source.accession || original.name);
         button.onclick = async () => { await inspect(original.id); $("#registry-detail").scrollIntoView({block:"start"}); };
@@ -133,6 +138,7 @@ export async function refreshDatasets() {
     studySelect.innerHTML =
       '<option value="">New study</option>' +
       studies
+        .filter(study=>!study.archived || $('#registry-archived')?.checked)
         .map(
           (study) => `<option value="${study.id}">${esc(study.name)}</option>`,
         )
@@ -153,7 +159,7 @@ export async function refreshDatasets() {
     replayTarget.innerHTML =
       '<option value="">Choose a prepared target</option>' +
       records
-        .filter((record) => record.summary?.manifest?.role === "target" && (!isSoftwareFixture(record) || $("#registry-fixtures").checked))
+        .filter((record) => !!record.summary?.manifest && (!isSoftwareFixture(record) || $("#registry-fixtures").checked))
         .map(
           (record) =>
             `<option value="${record.id}">${esc(record.name)}</option>`,
@@ -162,7 +168,7 @@ export async function refreshDatasets() {
   const host = $("#registry-list");
   host.innerHTML = records.length
     ? `<div class="table-scroll" tabindex="0" role="group" aria-label="Scrollable data table"><table><thead><tr><th>Dataset version</th><th>Preparation</th><th>Evidence</th><th>Actions</th></tr></thead><tbody>${records.map((record) => `<tr data-dataset-id="${esc(record.id)}"><th scope="row">${esc(record.name)}</th><td>${record.status === "prepared" ? "Prepared · task checks required" : "Original acquired · preparation required"}${record.summary?.n_samples ? `<br>${record.summary.n_samples} samples · ${record.summary.n_features.toLocaleString()} features` : ""}</td><td>${esc(record.source.accession || record.source.type.replaceAll("_", " "))}${record.summary?.measurement_type ? "<br>" + esc(record.summary.measurement_type.replaceAll("_", " ")) : ""}</td><td><button type="button" data-inspect-dataset="${record.id}">Inspect ${record.status === "acquired" ? "& prepare" : "record"}</button><button type="button" data-rename-dataset="${record.id}">Rename</button></td></tr>`).join("")}</tbody></table></div>`
-    : "<p>No datasets registered yet. Add the reviewed example, acquire a public original in SPACE, or import prepared files.</p>";
+    : "<p>No saved datasets. Add the reviewed example, download an original public file in SPACE, or import prepared files.</p>";
   host
     .querySelectorAll("[data-inspect-dataset]")
     .forEach(
@@ -174,8 +180,13 @@ export async function refreshDatasets() {
     .forEach(
       (button) => (button.onclick = () => rename(button.dataset.renameDataset)),
     );
+  for(const id of ['compare-left','compare-right'])if($('#'+id))$('#'+id).innerHTML='<option value="">Choose a saved analysis</option>'+history.runs.map(run=>`<option value="${run.id}">${esc(run.name)} · ${esc(run.mode)}</option>`).join('');
   filterDatasetRows();
   taskChanged();
+  if(!draftRestored){draftRestored=true;try{const draft=JSON.parse(localStorage.getItem('brace-study-draft')||'{}');
+    if(draft['registry-task']){$('#registry-task').value=draft['registry-task'];taskChanged()}
+    for(const [id,value] of Object.entries(draft)){const el=$('#'+id);if(el)el.type==='checkbox'?el.checked=false:el.value=value}
+  }catch{}}
 }
 function filterDatasetRows() {
   const query = $("#registry-search").value.trim().toLowerCase(), status = $("#registry-status").value;
@@ -327,8 +338,8 @@ async function inspect(id) {
         if (!$("#registry-name").value.trim()) $("#registry-name").value = "Cohort comparison";
         $("#registry-analysis").requestSubmit($("#registry-check"));
       }
-    });
-    if ($("#registry-source").value && !$("#registry-target").value) $("#prep-role").value = "target";
+    }, $("#registry-source").value || null);
+    if ($("#registry-source").value && !$("#registry-target").value) {$("#prep-role").value = "target";$("#prep-role").onchange()}
     $("#registry-prepare").onsubmit = async (event) => {
       event.preventDefault();
       if (hooks.isBusy()) return;
@@ -360,7 +371,7 @@ async function inspect(id) {
 export function initDatasets(callbacks) {
   hooks = callbacks;
   const host = $("#workspace-datasets");
-  host.innerHTML = `<h2>Data & analysis</h2><p>1. Add data → 2. Review preparation → 3. Check and run. Your files and results stay saved locally.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><p class="help">Reviewed example: GSE42568 → GSE20711, ER-positive versus ER-negative tumors. Processing and ER assays differ; donor independence remains unknown. Suitable for exploratory association testing, not normal/tumor baseline training.</p><div class="registry-filters"><label for="registry-search">Find a dataset<input id="registry-search" type="search" placeholder="Name, accession or version ID"></label><label for="registry-status">Preparation<select id="registry-status"><option value="">All versions</option><option value="prepared">Prepared</option><option value="acquired">Acquired originals</option></select></label><label class="check"><input id="registry-fixtures" type="checkbox">Include software checks</label><p id="registry-count" role="status"></p></div><div id="registry-list"></div><p id="registry-no-match" hidden>No dataset versions match. Clear the search or change the preparation filter.</p><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Run an analysis</h3><div id="registry-empty" role="status" hidden></div><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
+  host.innerHTML = `<h2>Data & analysis</h2><p>Choose a question, add data, review, then analyze. Saved files can be reused in either role.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><div class="registry-filters"><label for="registry-search">Find a dataset<input id="registry-search" type="search" placeholder="Name, accession or version ID"></label><label for="registry-status">Preparation<select id="registry-status"><option value="">All versions</option><option value="prepared">Prepared</option><option value="acquired">Acquired originals</option></select></label><label class="check"><input id="registry-fixtures" type="checkbox">Include software checks</label><label class="check"><input id="registry-archived" type="checkbox">Show archived studies</label><p id="registry-count" role="status"></p></div><div id="registry-list"></div><p id="registry-no-match" hidden>No dataset versions match. Clear the search or change the preparation filter.</p><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Run an analysis</h3><div id="registry-empty" role="status" hidden></div><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
     label,
   )
     .map(([key, text]) => `<option value="${key}">${text}</option>`)
@@ -368,6 +379,7 @@ export function initDatasets(callbacks) {
       "",
     )}</select><div class="cohort-grid"><div><label for="registry-source">Source / prediction dataset</label><select id="registry-source"></select></div><div id="registry-target-field"><label for="registry-target">Target dataset</label><select id="registry-target"></select></div></div><details id="registry-race"><summary>Review biological contrast and exploratory processing policy</summary><p>Use exact prepared metadata labels for the same biological contrast in both studies. Create a reviewed phenotype version first if the vocabularies differ.</p><div class="cohort-grid"><div><label for="registry-positive">Positive-group label</label><input id="registry-positive"><label for="registry-positive-definition">Positive-group biological definition</label><input id="registry-positive-definition"></div><div><label for="registry-negative">Negative-group label</label><input id="registry-negative"><label for="registry-negative-definition">Negative-group biological definition</label><input id="registry-negative-definition"></div></div><label class="check"><input id="registry-processing-review" type="checkbox">I accept exploratory within-study effect comparisons despite declared processing differences.</label><label for="registry-selection-count">Source selection cap</label><input id="registry-selection-count" type="number" min="1" max="1000" step="1" value="20"><p class="help">Freeze up to this many source features with BH q ≤ 0.05, ranked by absolute Hedges’ g. 20 preserves the historical example. Choose before inspecting the target; the 1–1000 range is a software limit, not a biological optimum.</p><label class="check"><input id="registry-review" type="checkbox">I reviewed the source and target biological group definitions and processing limitations.</label></details><div class="actions"><button id="registry-check" type="submit">Check selected datasets</button><button id="registry-run" type="button" class="primary" disabled>Compute checked analysis</button></div></form><div id="registry-checks" aria-live="polite"></div><details><summary>Apply a previously frozen BRACE baseline</summary><p>Reuses an existing source-trained JSON freeze. No fitting on the new target. Unlabeled targets produce predictions with no accuracy metrics.</p><form id="registry-replay"><label for="registry-replay-name">Replay study name</label><input id="registry-replay-name" required maxlength="200"><label for="registry-freeze">Original source-trained run</label><select id="registry-freeze" required></select><label for="registry-replay-target">Target dataset version</label><select id="registry-replay-target" required></select><button>Apply frozen baseline</button></form></details>`;
   document.addEventListener("brace:start-dataset-analysis", event => {
+    $("#registry-study").value="";$("#registry-study").onchange();$("#registry-name").value="";
     $("#registry-task").value = event.detail; taskChanged();
     $("#workspace-datasets").scrollIntoView({block:"start"});
   });
@@ -385,6 +397,16 @@ export function initDatasets(callbacks) {
   for (const selector of [".registry-filters", "#registry-list", "#registry-no-match"]) savedData.append(host.querySelector(selector));
   $("#registry-analysis").after(savedData);
   $("#registry-analysis").before($("#registry-detail"));
+  initWorkspaceTools(host,refreshDatasets,hooks.message);
+  $("#registry-task").insertAdjacentHTML('afterend','<div class="actions"><button type="button" id="registry-upload-files">Import expression files</button><button type="button" id="registry-swap">Swap source and target</button><button type="button" id="registry-clone">Use as a new study</button></div>');
+  $("#registry-upload-files").onclick=()=>document.dispatchEvent(new CustomEvent('brace:upload-expression',{detail:$('#registry-task').value}));
+  $('#registry-swap').onclick=()=>{if($('#registry-study').value){hooks.message('Choose Use as a new study before changing saved assignments.','blocked');return}const source=$('#registry-source').value;$('#registry-source').value=$('#registry-target').value;$('#registry-target').value=source;invalidate()};
+  $('#registry-clone').onclick=()=>{const name=$('#registry-name').value,source=$('#registry-source').value,target=$('#registry-target').value;$('#registry-study').value='';$('#registry-study').onchange();$('#registry-name').value=name+' · new study';$('#registry-source').value=source;$('#registry-target').value=target;invalidate();$('#registry-name').focus()};
+  const saveDraft=()=>{try{const fields=[...$('#registry-analysis').querySelectorAll('input[id],select[id]')].filter(el=>el.id!=='registry-study');localStorage.setItem('brace-study-draft',JSON.stringify(Object.fromEntries(fields.map(el=>[el.id,el.type==='checkbox'?false:el.value]))))}catch{}};
+  $('#registry-analysis').addEventListener('input',saveDraft);$('#registry-analysis').addEventListener('change',saveDraft);
+  $('#registry-archived').onchange=()=>refreshDatasets().catch(error=>hooks.message(error.message,'failed'));
+  $('#registry-study').insertAdjacentHTML('afterend','<details><summary>Study options</summary><button type="button" id="registry-archive">Archive / restore selected study</button><p>Archived studies keep their files. Show archived studies to restore them.</p></details>');
+  $('#registry-archive').onclick=async()=>{const id=$('#registry-study').value,study=studies.find(row=>row.id===id);if(!study){hooks.message('Choose a saved study first.','blocked');return}try{await request('/api/studies/'+id+'/visibility',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({archived:!study.archived})});await refreshDatasets();$('#registry-study').value='';$('#registry-study').onchange();hooks.message(study.archived?'Study restored.':'Study archived. Files retained.','ready')}catch(error){hooks.message(error.message,'failed')}};
   $("#registry-search").oninput = filterDatasetRows;
   $("#registry-status").onchange = filterDatasetRows;
   $("#registry-fixtures").onchange = () => refreshDatasets().catch(error => hooks.message(error.message, "failed"));

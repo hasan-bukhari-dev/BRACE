@@ -12,7 +12,7 @@ import shutil
 import sqlite3
 import tempfile
 import uuid
-from contextlib import contextmanager
+from contextlib import contextmanager, closing
 from pathlib import Path
 
 from fastapi import HTTPException
@@ -37,7 +37,7 @@ def registry_root() -> Path:
 @contextmanager
 def database():
     root = registry_root()
-    with sqlite3.connect(root / 'registry.sqlite3', timeout=30) as connection:
+    with closing(sqlite3.connect(root / 'registry.sqlite3', timeout=30)) as connection, connection:
         connection.execute('PRAGMA foreign_keys=ON')
         version = connection.execute('PRAGMA user_version').fetchone()[0]
         if version not in (0, 1):
@@ -250,14 +250,15 @@ def provenance_for_mode(records: dict, mode: str) -> dict:
     if mode != 'diagnose_shift':
         return records
     # Unlabeled evidence carries structural lineage, never phenotype values/counts.
-    record_fields = ('schema_version', 'id', 'name', 'source', 'assets', 'status',
+    record_fields = ('schema_version', 'id', 'name', 'source', 'assets', 'status', 'assigned_role',
                      'parent_dataset_ids', 'created_utc', 'modified_utc')
     summary_fields = ('cohort_id', 'role', 'n_samples', 'n_features', 'sample_ids',
                       'feature_namespace', 'measurement_type', 'platform', 'processing_description',
                       'independence_declaration', 'missing_values', 'input_files')
     history_fields = ('operation', 'version', 'recipe_sha256', 'mapping_sha256',
                       'feature_selection', 'automatic_normalization', 'original_features',
-                      'retained_features', 'unmapped_features', 'feature_mapping', 'mapping_reference')
+                      'retained_features', 'unmapped_features', 'feature_mapping', 'mapping_reference',
+                      'feature_policy', 'feature_reference_dataset', 'selection_uses_labels')
     def structural_record(record):
         return {**{key: record[key] for key in record_fields if key in record},
                    'summary': {key: value for key, value in (record.get('summary') or {}).items() if key in summary_fields},
@@ -277,6 +278,12 @@ def register_run_inputs(paths: dict[str, Path], hashes: dict, mode: str, title: 
         role_paths = {kind: paths[kind if role == 'predictions' else role + '_' + kind] for kind in kinds}
         if role in datasets:
             for kind, path in role_paths.items():
+                if kind == 'manifest':
+                    original = json.loads(asset_path(datasets[role], kind).read_text(encoding='utf-8-sig'))
+                    bound = json.loads(path.read_text(encoding='utf-8-sig'))
+                    if bound != {**original, 'role': role}:
+                        raise HTTPException(409, 'Study-bound manifest changes more than the dataset role.')
+                    continue
                 if digest(asset_path(datasets[role], kind)) != digest(path):
                     raise HTTPException(409, 'Selected dataset version does not match these analysis inputs.')
         else:
@@ -295,4 +302,4 @@ def register_run_inputs(paths: dict[str, Path], hashes: dict, mode: str, title: 
         raise HTTPException(409, 'Study name differs from the saved study. Create a new study for a new research question.')
     return {'schema_version': SCHEMA_VERSION, 'study_id': study['id'],
             'datasets': datasets, 'created_utc': utc_now(),
-            'dataset_provenance': provenance_for_mode({role: lineage_snapshot(dataset_id) for role, dataset_id in datasets.items()}, mode)}
+            'dataset_provenance': provenance_for_mode({role: {**lineage_snapshot(dataset_id), 'assigned_role': role} for role, dataset_id in datasets.items()}, mode)}

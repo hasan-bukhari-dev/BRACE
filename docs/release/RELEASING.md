@@ -1,6 +1,8 @@
-# Build and release BRACE 1.1.0
+# Build and release BRACE 1.2.0
 
 The repository is `https://github.com/hasan-bukhari-dev/BRACE`. BRACE-authored material is rights reserved; datasets and dependencies retain their own terms. Do not label the project MIT/open source or claim blanket data redistribution permissions.
+
+Current verification limits, including the blocked interactive visual review, are recorded in [RELEASE_1_2.md](../RELEASE_1_2.md). Do not infer human acceptance from a successful build.
 
 ## Source checks
 
@@ -22,7 +24,7 @@ On Windows, Inno Setup 6 compiles `packaging/windows.iss`. Install is per user w
 
 1. Commit only the reviewed source payload. `.gitattributes` disables automatic newline conversion so pinned historical evidence retains exact bytes. Never commit `.venv`, `runs`, local credentials or build products.
 2. `Verify source` runs the actual regression and smoke suite on Windows, Ubuntu and macOS. Wait for actual results; a workflow file is not evidence that its jobs passed.
-3. Tag the reviewed commit `v1.1.0` and push that tag.
+3. Tag the reviewed commit `v1.2.0` and push that tag.
 4. Dispatch `Build release` for the tag. The default builds Windows only and verifies real public-data computation, restart recovery, the native controller and installer lifecycle. The optional `all` builds each platform on its own runner and verifies the bundled backend separately. Mac/Linux are experimental until their native GUI/device acceptance is completed.
 5. The workflow creates a **Windows release** only after its build checks pass, attaching actual binaries, receipts, checksums and the tagged source ZIP. Publication is gated on those checks. Never repoint a published tag to quietly replace a failed release.
 
@@ -34,7 +36,7 @@ Initial binaries are unsigned unless an actual signing process is configured and
 
 Dependencies are pinned by version, but binary bit-for-bit reproducibility across runners, timestamps and toolchains is not claimed. Record the exact tagged commit, package hashes, platform, Python and installed dependency licence metadata for each release.
 
-## 1.1.0-dev integration preview
+## 1.2.0-dev integration preview
 
 The application version is read from VERSION through brace_app/version.py. Existing scientific method versions remain unchanged. Build with the pinned runtime/build dependencies, run the complete regression suite, then run scripts/verify_portable.py against the bundled executable in a new isolated output directory. A portable verification is not installer/uninstall acceptance. Do not replace the published V6 tag/assets. New platform binaries, installer lifecycle and human accessibility/usability acceptance require their own receipts before promoting this preview. See ../IMPLEMENTATION_REPORT.md for actual completed checks and remaining gates.
 
