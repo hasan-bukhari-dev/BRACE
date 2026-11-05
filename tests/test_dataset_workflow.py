@@ -16,6 +16,18 @@ from brace_app import server, dataset_registry as registry
 BASE = Path(__file__).resolve().parents[1]
 
 
+def test_public_cohort_demo_is_real_descriptive_and_reopens(client):
+    response = client.post('/api/demo/public-cohorts')
+    assert response.status_code == 200, response.text
+    result = response.json()
+    assert result['mode'] == 'diagnose_shift'
+    assert result['shift']['feature_coverage']['shared'] == 10000
+    assert result['shift']['inference']['available'] is False
+    assert all(row['ks_bh_q_exploratory'] is None for row in result['shift']['gene_shifts'])
+    assert client.get('/api/runs/' + result['id']).status_code == 200
+    assert client.get('/api/embrace/' + result['id']).status_code == 200
+
+
 @pytest.fixture
 def client(tmp_path, monkeypatch):
     monkeypatch.setattr(server, 'RUNS', tmp_path / 'runs')

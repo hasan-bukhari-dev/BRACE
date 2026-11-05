@@ -58,6 +58,14 @@ def main():
             past = json.loads(get('/api/example/cptac'))
             assert past['validation']['n'] == 680 and past['validation']['metrics']['n_correct'] == 668
             checks.append('Original historical prediction evidence: 668/680')
+            cohorts = post('/api/demo/public-cohorts')
+            assert cohorts['shift']['feature_coverage']['shared'] == 10000
+            assert cohorts['shift']['inference']['available'] is False
+            assert all(g['ks_bh_q_exploratory'] is None for g in cohorts['shift']['gene_shifts'])
+            assert json.loads(get('/api/runs/'+cohorts['id']))['id'] == cohorts['id']
+            with zipfile.ZipFile(io.BytesIO(get('/api/embrace/'+cohorts['id']))) as z:
+                assert z.testzip() is None
+            checks.append('Real public CE demo computes 10,000 shared features, withholds invalid inference, reopens and exports')
             synthetic = post('/api/demo/synthetic')
             assert synthetic['kind'] == 'synthetic' and synthetic['shift']['feature_coverage']['shared'] == 120
             checks.append('Frozen scientific stack performs actual synthetic source-CV/model/target/shift computation')

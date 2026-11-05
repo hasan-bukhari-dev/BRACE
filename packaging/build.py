@@ -1,5 +1,6 @@
 """Build the current platform's bundled app and record actual build dependencies."""
 from pathlib import Path
+import argparse
 import hashlib
 import importlib.metadata as metadata
 import json
@@ -51,9 +52,14 @@ def notices():
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--incremental', action='store_true', help='Reuse PyInstaller analysis; release builds clean by default')
+    options = parser.parse_args()
     notices()
-    subprocess.run([sys.executable, '-m', 'PyInstaller', '--noconfirm', '--clean',
-                    str(ROOT/'packaging/BRACE.spec')], cwd=ROOT, check=True)
+    command = [sys.executable, '-m', 'PyInstaller', '--noconfirm']
+    if not options.incremental:
+        command.append('--clean')
+    subprocess.run(command + [str(ROOT/'packaging/BRACE.spec')], cwd=ROOT, check=True)
     version = (ROOT/'VERSION').read_text().strip()
     system = {'win32': 'windows', 'darwin': 'macos'}.get(sys.platform, 'linux')
     arch = {'amd64': 'x64', 'x86_64': 'x64', 'aarch64': 'arm64'}.get(platform.machine().lower(), platform.machine().lower())

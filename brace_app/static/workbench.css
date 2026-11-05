@@ -179,6 +179,7 @@ pre{font-size:12px;line-height:1.55;border-radius:4px;max-width:100%;overflow:au
 .warn-item strong{font:11px/1.5 ui-monospace,Consolas,monospace;color:var(--muted)}
 .warn-item p{margin:4px 0}
 .face-inspector{padding:20px}
+#face-inspector,#sample-dialog{margin:16px auto;max-height:calc(100dvh - 32px)}
 .face-heading{position:sticky;top:-20px;background:var(--surface);z-index:5;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:12px}
 .face-heading h2{font-size:24px;margin:4px 0}
 .face-heading .eyebrow{font-size:13px;letter-spacing:normal;margin:0}

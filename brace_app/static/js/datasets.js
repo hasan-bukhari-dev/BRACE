@@ -1,4 +1,4 @@
-import { $, esc } from "./ui.js";
+import { $, esc, isSoftwareFixture } from "./ui.js";
 import { request } from "./api.js";
 let hooks,
   records = [],
@@ -88,7 +88,7 @@ function taskChanged() {
       records
         .filter(
           (record) =>
-            record.status === "prepared" &&
+            record.status === "prepared" && (!isSoftwareFixture(record) || $("#registry-fixtures").checked) &&
             (prediction
               ? record.summary?.kind === "saved_predictions"
               : record.summary?.manifest?.role === role),
@@ -136,7 +136,7 @@ export async function refreshDatasets() {
     replayTarget.innerHTML =
       '<option value="">Choose a prepared target</option>' +
       records
-        .filter((record) => record.summary?.manifest?.role === "target")
+        .filter((record) => record.summary?.manifest?.role === "target" && (!isSoftwareFixture(record) || $("#registry-fixtures").checked))
         .map(
           (record) =>
             `<option value="${record.id}">${esc(record.name)}</option>`,
@@ -165,7 +165,7 @@ function filterDatasetRows() {
   let count = 0;
   document.querySelectorAll("#registry-list [data-dataset-id]").forEach(row => {
     const record = records.find(item => item.id === row.dataset.datasetId);
-    const match = (!status || record.status === status) && (row.textContent + " " + record.id).toLowerCase().includes(query);
+    const match = (!isSoftwareFixture(record) || $("#registry-fixtures").checked) && (!status || record.status === status) && (row.textContent + " " + record.id).toLowerCase().includes(query);
     row.hidden = !match; if (match) count++;
   });
   $("#registry-count").textContent = count + " / " + records.length + " dataset versions";
@@ -324,7 +324,7 @@ async function inspect(id) {
 export function initDatasets(callbacks) {
   hooks = callbacks;
   const host = $("#workspace-datasets");
-  host.innerHTML = `<h2>Dataset library</h2><p>Dataset versions and study results are saved locally. Task eligibility is checked against the selected pair and contrast.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><p class="help">Reviewed example: GSE42568 → GSE20711, ER-positive versus ER-negative tumors. Processing and ER assays differ; donor independence remains unknown. Suitable for exploratory association testing, not normal/tumor baseline training.</p><div class="registry-filters"><label for="registry-search">Find a dataset<input id="registry-search" type="search" placeholder="Name, accession or version ID"></label><label for="registry-status">Preparation<select id="registry-status"><option value="">All versions</option><option value="prepared">Prepared</option><option value="acquired">Acquired originals</option></select></label><p id="registry-count" role="status"></p></div><div id="registry-list"></div><p id="registry-no-match" hidden>No dataset versions match. Clear the search or change the preparation filter.</p><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Analyze registered datasets</h3><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
+  host.innerHTML = `<h2>Dataset library</h2><p>Dataset versions and study results are saved locally. Task eligibility is checked against the selected pair and contrast.</p><div class="actions"><button id="registry-public">Add reviewed public ER datasets</button><button id="registry-space">Discover datasets in SPACE ↗</button></div><p class="help">Reviewed example: GSE42568 → GSE20711, ER-positive versus ER-negative tumors. Processing and ER assays differ; donor independence remains unknown. Suitable for exploratory association testing, not normal/tumor baseline training.</p><div class="registry-filters"><label for="registry-search">Find a dataset<input id="registry-search" type="search" placeholder="Name, accession or version ID"></label><label for="registry-status">Preparation<select id="registry-status"><option value="">All versions</option><option value="prepared">Prepared</option><option value="acquired">Acquired originals</option></select></label><label class="check"><input id="registry-fixtures" type="checkbox">Include software checks</label><p id="registry-count" role="status"></p></div><div id="registry-list"></div><p id="registry-no-match" hidden>No dataset versions match. Clear the search or change the preparation filter.</p><div id="registry-detail"></div><details><summary>Import a prepared expression dataset</summary><form id="registry-import"><label for="registry-import-name">Dataset display name</label><input id="registry-import-name" required maxlength="200"><label for="registry-expression">Processed expression (CSV/TSV)</label><input id="registry-expression" type="file" accept=".csv,.tsv" required><label for="registry-metadata">Sample metadata (CSV/TSV)</label><input id="registry-metadata" type="file" accept=".csv,.tsv" required><label for="registry-manifest">BRACE dataset manifest (JSON)</label><input id="registry-manifest" type="file" accept=".json" required><button>Validate and register dataset</button></form></details><form id="registry-analysis"><h3>Analyze registered datasets</h3><label for="registry-study">Study</label><select id="registry-study"><option value="">New study</option></select><label for="registry-name">Study name</label><input id="registry-name" required maxlength="200" placeholder="Name this research question"><label for="registry-task">Scientific task</label><select id="registry-task">${Object.entries(
     label,
   )
     .map(([key, text]) => `<option value="${key}">${text}</option>`)
@@ -333,6 +333,7 @@ export function initDatasets(callbacks) {
     )}</select><div class="cohort-grid"><div><label for="registry-source">Source / prediction dataset</label><select id="registry-source"></select></div><div id="registry-target-field"><label for="registry-target">Target dataset</label><select id="registry-target"></select></div></div><details id="registry-race"><summary>Review biological contrast and exploratory processing policy</summary><p>Use exact prepared metadata labels for the same biological contrast in both studies. Create a reviewed phenotype version first if the vocabularies differ.</p><div class="cohort-grid"><div><label for="registry-positive">Positive-group label</label><input id="registry-positive"><label for="registry-positive-definition">Positive-group biological definition</label><input id="registry-positive-definition"></div><div><label for="registry-negative">Negative-group label</label><input id="registry-negative"><label for="registry-negative-definition">Negative-group biological definition</label><input id="registry-negative-definition"></div></div><label class="check"><input id="registry-processing-review" type="checkbox">I accept exploratory within-study effect comparisons despite declared processing differences.</label><label for="registry-selection-count">Source selection cap</label><input id="registry-selection-count" type="number" min="1" max="1000" step="1" value="20"><p class="help">Freeze up to this many source features with BH q ≤ 0.05, ranked by absolute Hedges’ g. 20 preserves the historical example. Choose before inspecting the target; the 1–1000 range is a software limit, not a biological optimum.</p><label class="check"><input id="registry-review" type="checkbox">I reviewed the source and target biological group definitions and processing limitations.</label></details><div class="actions"><button id="registry-check" type="submit">Check selected datasets</button><button id="registry-run" type="button" class="primary" disabled>Compute checked analysis</button></div></form><div id="registry-checks" aria-live="polite"></div><details><summary>Apply a previously frozen BRACE baseline</summary><p>Reuses an existing source-trained JSON freeze. No fitting on the new target. Unlabeled targets produce predictions with no accuracy metrics.</p><form id="registry-replay"><label for="registry-replay-name">Replay study name</label><input id="registry-replay-name" required maxlength="200"><label for="registry-freeze">Original source-trained run</label><select id="registry-freeze" required></select><label for="registry-replay-target">Target dataset version</label><select id="registry-replay-target" required></select><button>Apply frozen baseline</button></form></details>`;
   $("#registry-search").oninput = filterDatasetRows;
   $("#registry-status").onchange = filterDatasetRows;
+  $("#registry-fixtures").onchange = () => refreshDatasets().catch(error => hooks.message(error.message, "failed"));
   $("#registry-analysis").addEventListener("input", invalidate);
   $("#registry-task").onchange = taskChanged;
   $("#registry-study").onchange = () => {

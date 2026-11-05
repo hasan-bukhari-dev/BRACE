@@ -1,4 +1,4 @@
-# Build and release BRACE V6
+# Build and release BRACE 1.1.0
 
 The repository is `https://github.com/hasan-bukhari-dev/BRACE`. BRACE-authored material is rights reserved; datasets and dependencies retain their own terms. Do not label the project MIT/open source or claim blanket data redistribution permissions.
 
@@ -22,9 +22,9 @@ On Windows, Inno Setup 6 compiles `packaging/windows.iss`. Install is per user w
 
 1. Commit only the reviewed source payload. `.gitattributes` disables automatic newline conversion so pinned historical evidence retains exact bytes. Never commit `.venv`, `runs`, local credentials or build products.
 2. `Verify source` runs the actual regression and smoke suite on Windows, Ubuntu and macOS. Wait for actual results; a workflow file is not evidence that its jobs passed.
-3. Tag the reviewed commit `v1.0.0-v6` and push that tag.
-4. Dispatch `Build release` for the tag. The default builds Windows only. The optional `all` builds each platform on its own runner and verifies the bundled backend separately. Mac/Linux are experimental until their native GUI/device acceptance is completed.
-5. The workflow creates a **draft prerelease** only after its build checks pass, attaching actual binaries, receipts, checksums and the tagged source ZIP. Review the concrete result before publication. Never repoint a published tag to quietly replace a failed release.
+3. Tag the reviewed commit `v1.1.0` and push that tag.
+4. Dispatch `Build release` for the tag. The default builds Windows only and verifies real public-data computation, restart recovery, the native controller and installer lifecycle. The optional `all` builds each platform on its own runner and verifies the bundled backend separately. Mac/Linux are experimental until their native GUI/device acceptance is completed.
+5. The workflow creates a **Windows release** only after its build checks pass, attaching actual binaries, receipts, checksums and the tagged source ZIP. Publication is gated on those checks. Never repoint a published tag to quietly replace a failed release.
 
 Initial binaries are unsigned unless an actual signing process is configured and verified. Do not claim Windows code signing, Apple notarization or universal OS compatibility. A checksum detects changed bytes; it is not a vendor signature. Source/data runtime remains the preserved local Python/FastAPI workbench.
 
@@ -37,3 +37,5 @@ Dependencies are pinned by version, but binary bit-for-bit reproducibility acros
 ## 1.1.0-dev integration preview
 
 The application version is read from VERSION through brace_app/version.py. Existing scientific method versions remain unchanged. Build with the pinned runtime/build dependencies, run the complete regression suite, then run scripts/verify_portable.py against the bundled executable in a new isolated output directory. A portable verification is not installer/uninstall acceptance. Do not replace the published V6 tag/assets. New platform binaries, installer lifecycle and human accessibility/usability acceptance require their own receipts before promoting this preview. See ../IMPLEMENTATION_REPORT.md for actual completed checks and remaining gates.
+
+For local development, `python packaging/build.py --incremental` reuses PyInstaller analysis and recollects changed resources. Release workflow builds remain clean. Never overwrite a published tag; choose a new version for a correction.

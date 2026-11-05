@@ -64,7 +64,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/app.js:48",
+    "source": "brace_app/static/app.js:49",
     "matches": [
       "unsupported"
     ],
@@ -72,7 +72,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/app.js:75",
+    "source": "brace_app/static/app.js:76",
     "matches": [
       "completed"
     ],
@@ -80,7 +80,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/app.js:75",
+    "source": "brace_app/static/app.js:76",
     "matches": [
       "completed"
     ],

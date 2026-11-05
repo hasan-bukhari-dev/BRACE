@@ -201,3 +201,17 @@ The skill's strict preservation and banned-phrase checks passed for the edited l
 4. Fresh CancerShift ensemble inference remains unsupported without its genuine fitted models, reference bundles and compatible input/preprocessing pipeline. Raw counts/FASTQ, single-cell, arbitrary model binaries and unsupported assays remain outside the implemented analysis paths.
 
 This copy provides working, traceable exploratory workflows within those boundaries. It does not establish clinical readiness, causal biomarkers, universally calibrated classifier scores or external independent scientific validation.
+
+## BRACE 1.1.0 release finalization
+
+The later release pass adds a single real-data CE preset and keeps three main demonstrations: the original public ER association pair, the archived CancerShift predictions, and descriptive comparison of the public ER cohorts. FACE and TRACE inspect the RACE example. Artificial fixtures remain explicit developer checks and are excluded from normal library/history views by default; no user records were deleted.
+
+ACE/RACE setup now stays inside its chosen tool. Frozen-strip genes open FACE. Inspector geometry stays anchored while data load. Inspectors update their current navigation state instead of adding close/reopen Back loops; a direct analysis link has a Workbench fallback. These changes were exercised in the compiled executable, not just the source server.
+
+The full suite passed 354 tests. Nine focused checks passed after the final Back fix. The built Windows executable recomputed real public RACE (14/20), exposed FACE/TRACE, verified every evidence ZIP member hash, preserved GEO acquisition ancestry, reopened the run after restarting, and applied its controlled frozen baseline. The native controller self-test passed on the Windows host. All 42 bundled static assets matched the final source byte-for-byte. The setup.exe compiled successfully. Earlier statements that packaging tools were unavailable describe the earlier reconstruction phase and are superseded by these actual build receipts.
+
+The portability verifier was updated from its stale EMBRACE 0.8.0 expectation to the implemented, documented 0.8.1 format, with an additional required biological-context artifact check. The scientific algorithms did not change in this release pass.
+
+Installer install/uninstall is checked in an isolated GitHub runner rather than replacing and removing the user's existing installation during local QA. The release workflow publishes v1.1.0 only after executable, real-data portability, native-controller and installer checks pass. Those workflow receipts, release checksums and exact tagged source are the remote acceptance evidence. No independent human usability, clinical or other-platform package validation is claimed.
+
+Use [the judge walkthrough](JUDGES_DEMO.md). The source launcher uses port 8883 and an isolated `runs/release-demo` workspace. Published Windows users should run the installer, which bundles Python and keeps runtime data outside installed resources.

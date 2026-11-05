@@ -4,9 +4,9 @@
 
 A local research workbench for cross-cohort gene associations, saved-prediction evaluation and reproducible evidence.
 
-This isolated research working copy is based on `main` at `1d31e71`. Open **OPEN_RESEARCH_FINAL.bat**. See [the consolidated reconstruction and verification record](docs/RESEARCH_FINAL.md) for the changes, measured results, local evidence and remaining limits. Existing release links below describe the upstream baseline, not a newly published release.
+BRACE 1.1.0 provides three real-data demonstrations: ER association replication, archived CancerShift prediction reliability, and public-cohort measurement comparison. Start with the [judge walkthrough](docs/JUDGES_DEMO.md) or the [scientific and verification record](docs/RESEARCH_FINAL.md). Artificial fixtures are labeled developer software checks, outside the main demonstrations.
 
-[Published V6 Windows release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.0.0-v6) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
+[Windows 1.1.0 release](https://github.com/hasan-bukhari-dev/BRACE/releases/tag/v1.1.0) · [User guide](docs/USER_GUIDE.md) · [Input formats](docs/DATA_GUIDE.md)
 
 ![BRACE workbench](docs/images/workbench-current.jpg)
 

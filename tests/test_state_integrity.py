@@ -6,6 +6,27 @@ from pathlib import Path
 import pytest
 
 
+def test_setup_remains_in_selected_tool_and_fixtures_are_explicit(tmp_path):
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required for UI routing checks')
+    source = Path(__file__).resolve().parents[1] / 'brace_app/static/js/ui.js'
+    script = tmp_path / 'setup-routing.mjs'
+    script.write_text('''
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const {setupView,isSoftwareFixture}=await import('data:text/javascript;base64,'+Buffer.from(fs.readFileSync(process.argv[2],'utf8')).toString('base64'));
+assert.equal(setupView('evaluate_predictions'),'ace');assert.equal(setupView('train_validate'),'ace');
+assert.equal(setupView('race'),'race');assert.equal(setupView('diagnose_shift'),'cohorts');
+assert.equal(isSoftwareFixture({kind:'synthetic'}),true);
+assert.equal(isSoftwareFixture({source:{type:'synthetic_example'}}),true);
+assert.equal(isSoftwareFixture({name:'ARTIFICIAL software QA - boundary'}),true);
+assert.equal(!!isSoftwareFixture({kind:'historical',name:'CancerShift archive'}),false);
+assert.equal(!!isSoftwareFixture({name:'Artificial intelligence classifier',source:{type:'imported_file'}}),false);
+''', encoding='utf-8')
+    result = subprocess.run([node, str(script), str(source)], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+
+
 def test_external_run_link_never_leaves_old_result_under_new_url(tmp_path):
     node=shutil.which('node')
     if not node:pytest.skip('Node is required to execute the browser navigation module')
@@ -14,18 +35,18 @@ def test_external_run_link_never_leaves_old_result_under_new_url(tmp_path):
     script.write_text('''
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const events={};let reloads=0;
+const events={};let reloads=0,pushes=0;
 globalThis.testState={view:'race',data:{id:'old-run'},entry:false,runUI:{}};
 globalThis.window={addEventListener(name,fn){events[name]=fn}};
 globalThis.location={hash:'#race?run=old-run',href:'http://localhost/#race?run=old-run',reload(){reloads++}};
-globalThis.history={state:null,replaceState(s,title,url){this.state=s;if(url?.startsWith('#'))location.hash=url},pushState(){}};
-globalThis.document={querySelector(){return {}},getElementById(){return {}},addEventListener(){}};
+globalThis.history={state:null,replaceState(s,title,url){this.state=s;if(url?.startsWith('#'))location.hash=url},pushState(s,title,url){pushes++;this.state=s;if(url?.startsWith('#'))location.hash=url}};
+const backButton={};globalThis.document={querySelector(){return backButton},getElementById(){return {}},addEventListener(){}};
 globalThis.MutationObserver=class{observe(){}};
 globalThis.scrollY=0;globalThis.requestAnimationFrame=fn=>fn();globalThis.scrollTo=()=>{};
 let code=fs.readFileSync(process.argv[2],'utf8').replace("import {state,save} from './state.js';","const state=globalThis.testState;const save=()=>{};");
-const {initJourney}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const {initJourney,recordJourney}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 let release;initJourney(()=>new Promise(resolve=>{release=resolve}));
-events.hashchange();assert.equal(reloads,0);
+assert.equal(backButton.disabled,false);assert.match(backButton.textContent,/Workbench/);testState.faceOpen=true;testState.selectedGene='2099';recordJourney();testState.faceOpen=false;recordJourney();assert.equal(pushes,0,'inspectors must not add a close/reopen Back loop');events.hashchange();assert.equal(reloads,0);
 location.hash='#ace?run=new-run';history.state=null;events.hashchange();assert.equal(reloads,1);
 // A normal Back/Forward restore keeps the existing in-memory input files.
 const restoring=events.popstate({state:{brace:{view:'ace',runId:'new-run'},braceIndex:1}});
@@ -99,7 +120,7 @@ def test_saved_dataset_study_retains_its_task_kind(tmp_path):
     script.write_text('''
 import fs from 'node:fs';import assert from 'node:assert/strict';
 let code=fs.readFileSync(process.argv[2],'utf8')
- .replace('import { $, esc } from "./ui.js";', 'const $=()=>{},esc=String;')
+ .replace('import { $, esc, isSoftwareFixture } from "./ui.js";', 'const $=()=>{},esc=String,isSoftwareFixture=()=>false;')
  .replace('import { request } from "./api.js";', 'const request=()=>{};');
 const {taskForStudy}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 const predictions={datasets:{predictions:'saved-prediction-version'}};

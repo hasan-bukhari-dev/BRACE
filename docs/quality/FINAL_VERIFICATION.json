@@ -10,17 +10,17 @@
   "automated": {
     "status": "PASS",
     "pytest": {
-      "tests": 352,
+      "tests": 354,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
-      "seconds": 217.612,
-      "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/full-unslop-final-tests.xml",
+      "seconds": 300.676,
+      "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/release-tests.xml",
       "python": "3.12.10 x64",
       "dependencies": "requirements-release.txt",
       "warning": "One Starlette test-client httpx deprecation warning in the pinned dependency set.",
-      "junit": "work/full-unslop-final-tests.xml",
-      "log": "work/full-unslop-final-tests.log",
+      "junit": "work/release-tests.xml",
+      "log": "work/release-tests.log",
       "scope": "Final isolated research source copy; not an installer test."
     },
     "actual_javascript_state_navigation_operation_tests": {
@@ -30,7 +30,7 @@
     },
     "dependency_check": "PASS: no broken requirements",
     "standard_python_launcher_guard": "PASS",
-    "repository_tracked_payload_check": "PASS: 296 source payload files including manifest; staged payload rechecked before commit",
+    "repository_tracked_payload_check": "PASS: 297 source files including manifest",
     "whitespace_check": "PASS: CRLF-aware Git policy"
   },
   "matrix": {
@@ -95,7 +95,7 @@
     }
   },
   "ui_audit": {
-    "generated_rows": 8689,
+    "generated_rows": 8736,
     "source_files": 72,
     "lint_findings": 37,
     "review_records": 37,
@@ -114,9 +114,16 @@
   ],
   "boundary_ui_evidence": "work/boundary_ui.json",
   "packaging": {
-    "status": "NOT_BUILT",
-    "reason": "PyInstaller and Inno Setup compiler unavailable in the isolated environment. Existing portable reports describe baseline artifacts only.",
-    "source_application": "Launched and exercised with standard CPython 3.12.10 x64"
+    "status": "WINDOWS_BUILT_AND_VERIFIED_LOCALLY",
+    "version": "1.1.0",
+    "portable": "release-assets/BRACE-1.1.0-windows-x64-portable.zip",
+    "installer": "release-assets/BRACE-1.1.0-windows-x64-setup.exe",
+    "native_controller": "PASS",
+    "real_data_portability": "PASS",
+    "limits": [
+      "Local installer registration/uninstall not run against the existing user installation; GitHub Actions checks this in an isolated runner.",
+      "Unsigned build; no macOS/Linux package acceptance or independent human usability study."
+    ]
   },
   "unsupported_or_uncertain": [
     "Fresh CancerShift ensemble inference: genuine fitted models/reference bundles not located.",
@@ -126,7 +133,7 @@
   "source_seal": {
     "status": "PASS",
     "manifest": "packaging/source-manifest.csv",
-    "files": 295,
+    "files": 296,
     "verification_command": ".venv\\Scripts\\python.exe verify_release.py",
     "payload_scan": "PASS: all manifest files, including new untracked source; runtime/private paths excluded; no credential patterns found.",
     "note": "Manifest resealed and verified after this record was finalized; manifest excludes itself."
@@ -166,5 +173,42 @@
       "limits": "Preservation and phrase tools cover the edited labels, not independent scientific verification. Prose structure/readability/diff metrics flag concatenated independent UI labels; those genre-mismatched flags were reviewed in rendered context rather than used as a quality score."
     }
   },
-  "readiness": "SOURCE_READY_FOR_REVIEW; no remote push or installer certification"
+  "readiness": "Windows release candidate verified locally; remote publication and installer lifecycle gated by Actions",
+  "release_1_1_0": {
+    "version": "1.1.0",
+    "source_tests": "354 passed",
+    "focused_checks": "9 passed after final Back fix",
+    "real_demos": [
+      "RACE: GSE42568 to GSE20711",
+      "ACE: 680 archived CPTAC predictions",
+      "CE: real public ER cohort comparison"
+    ],
+    "fixes": [
+      "Frozen-strip genes open FACE",
+      "ACE and RACE intake stay in the selected tool",
+      "Direct-link Back returns to Workbench",
+      "Inspector open/close does not add Back loops",
+      "Software fixtures excluded from ordinary lists by default; opt-in access retained",
+      "Inspectors remain anchored while measurements load"
+    ],
+    "compiled_checks": [
+      "Bundled runtime starts from unrelated writable cwd with project Python paths removed",
+      "Pinned real public result available: 14/20",
+      "Original historical prediction evidence: 668/680",
+      "Real public CE demo computes 10,000 shared features, withholds invalid inference, reopens and exports",
+      "Frozen scientific stack performs actual synthetic source-CV/model/target/shift computation",
+      "Actual computed EMBRACE ZIP CRC and every recorded artifact SHA-256 agree",
+      "Public preparation and additive V6 endpoints present"
+    ],
+    "portable_verification": "work/final-portable-acceptance-v2/verification.json: PASS; all ZIP hashes, 14/20 real recomputation, restart, lineage, frozen application",
+    "native_controller": {
+      "status": "PASS",
+      "ready": true,
+      "native_window": true
+    },
+    "compiled_static_parity": "42 static files matched source byte-for-byte",
+    "installer": "Compiled locally; install/uninstall verification is gated in the release workflow",
+    "publication": "Requested by user; workflow receipts and published release are the authoritative remote status",
+    "judge_walkthrough": "docs/JUDGES_DEMO.md"
+  }
 }

@@ -78,7 +78,9 @@ def main(app: Path, output: Path, port: int):
             for row in csv.DictReader(io.StringIO(archive.read('FILE_SHA256_MANIFEST.csv').decode())):
                 assert hashlib.sha256(archive.read(row['path'])).hexdigest() == row['sha256']
             assert json.loads(archive.read('reproducibility_manifest.json'))['study_name'] == body['name']
-            assert json.loads(archive.read('reproducibility_manifest.json'))['embrace_version']=='brace-embrace/0.8.0'
+            assert json.loads(archive.read('reproducibility_manifest.json'))['embrace_version']=='brace-embrace/0.8.1'
+            assert 'BIOLOGICAL_CONTEXT.json' in archive.namelist()
+            assert json.loads(archive.read('BIOLOGICAL_CONTEXT.json'))
             lineage=json.loads(archive.read('DATASET_LINEAGE.json'))
             assert lineage['source']['parent_records'][0]['source']['url'].startswith('https://ftp.ncbi.nlm.nih.gov/')
             assert lineage['source']['parent_records'][0]['assets']['original']['sha256']

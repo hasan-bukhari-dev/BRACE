@@ -27,7 +27,8 @@ def main():
     # the exact port that was reserved, including an automatic fallback.
     os.environ['BRACE_PORT']=str(port)
     address=f'http://127.0.0.1:{port}'
-    print('\n BRACE 1.0 Hatchathon · Research Workbench')
+    from brace_app.version import VERSION
+    print('\n BRACE '+VERSION+' · Research Workbench')
     if port!=8765:print(' Using an available local port; other services were left running.')
     print(' Local address: '+address)
     print(' Press Ctrl+C to stop.\n')

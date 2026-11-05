@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing tag to build
         required: true
-        default: v1.0.0-v6
+        default: v1.1.0
       platforms:
         description: Windows first; select all for separately verified experimental builds
         type: choice
@@ -52,6 +52,13 @@ jobs:
       - name: Verify Windows binary
         if: runner.os == 'Windows'
         run: python scripts/check_distribution.py dist/BRACE/BRACE.exe --output release-assets/WINDOWS_BINARY_VERIFICATION.json
+      - name: Verify Windows real-data portability and restart
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          python scripts/verify_portable.py --app dist/BRACE/BRACE.exe --out "${{ runner.temp }}/brace-portable-acceptance" --port 8877
+          if($LASTEXITCODE -ne 0){throw 'Real-data portability check failed'}
+          Copy-Item -LiteralPath "${{ runner.temp }}/brace-portable-acceptance/verification.json" -Destination release-assets/WINDOWS_PORTABLE_VERIFICATION.json
       - name: Verify Linux binary
         if: runner.os == 'Linux'
         run: python scripts/check_distribution.py dist/BRACE/BRACE --output release-assets/LINUX_BINARY_VERIFICATION.json
@@ -71,8 +78,8 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          $compiler='C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
-          if(-not(Test-Path -LiteralPath $compiler)){throw 'Inno Setup 6 is required; no unverified installer fallback'}
+          $compiler=@('C:\Program Files (x86)\Inno Setup 6\ISCC.exe','C:\Program Files (x86)\Inno Setup 7\ISCC.exe','C:\Program Files\Inno Setup 6\ISCC.exe','C:\Program Files\Inno Setup 7\ISCC.exe') | Where-Object {Test-Path -LiteralPath $_} | Select-Object -First 1
+          if(-not $compiler){throw 'Inno Setup 6 is required; no unverified installer fallback'}
           & $compiler packaging/windows.iss
           if($LASTEXITCODE -ne 0){throw 'Installer compile failed'}
           $setup=(Get-ChildItem release-assets/*-setup.exe).FullName
@@ -116,6 +123,8 @@ jobs:
           merge-multiple: true
       - name: Add exact tagged source archive
         run: git archive --format=zip --prefix=BRACE/ --output=release-assets/BRACE-source.zip HEAD
-      - name: Create concrete draft only after verification
+      - name: Checksum the exact source archive
+        run: sha256sum release-assets/BRACE-source.zip > release-assets/SHA256SUMS-source.txt
+      - name: Publish the verified Windows release
         run: |
-          gh release create "$RELEASE_TAG" --verify-tag --prerelease --title "BRACE ${RELEASE_TAG#v}" --notes-file docs/release/RELEASE_BODY.md release-assets/*
+          gh release create "$RELEASE_TAG" --verify-tag --latest --title "BRACE ${RELEASE_TAG#v}" --notes-file docs/release/RELEASE_BODY.md release-assets/*

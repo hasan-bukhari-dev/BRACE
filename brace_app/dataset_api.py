@@ -296,3 +296,11 @@ async def preflight(request: Analysis):
 @router.post('/api/dataset-analysis/run')
 async def analyze(request: Analysis):
     return await delegate(request, True)
+
+
+@router.post('/api/demo/public-cohorts')
+async def public_cohort_demo():
+    """One reproducible real-data CE demonstration, using the pinned ER pair."""
+    pair = reviewed_public(Reviewed(reviewed=True))
+    return await analyze(Analysis(name='Public cohort comparison: GSE42568 to GSE20711',
+        mode='diagnose_shift', datasets={role: record['id'] for role, record in pair['datasets'].items()}))
