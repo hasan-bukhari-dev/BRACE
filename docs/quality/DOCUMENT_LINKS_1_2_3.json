@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "sources": 30,
-  "local_references": 123,
+  "local_references": 102,
   "missing": [],
-  "scope": "Local Markdown file targets; remote URLs and heading anchors are not network-verified."
+  "scope": "Local Markdown targets must exist in the Git/source-manifest payload; remote URLs and heading anchors are not network-verified."
 }

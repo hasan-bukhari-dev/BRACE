@@ -47,3 +47,5 @@ Agent-run interface review covered acquisition/preparation, real prediction impo
 ## Remaining limits
 
 Independent unfamiliar-user usability, screen-reader acceptance and full WCAG compliance remain unmeasured. Windows setup screenshots were not captured; the verified installer lifecycle has its own automated evidence. Workspace restore uses BRACE_RUNS_DIR into a separate empty folder, rather than an in-app restore wizard. Raw reads, arbitrary model execution and universal assay support remain outside scope. Studies are exploratory; patient independence and calibration are not authenticated. Only two target normal samples occur in the illustrated baseline. No clinical or prospective-validation claim is made.
+
+Clean-runner verification exposed unpublished work/ links in the historical research report. Those references retain their original local paths as labelled text; the documentation gate now verifies membership in the actual Git/source-manifest payload, preventing developer-only files from masking missing release links.

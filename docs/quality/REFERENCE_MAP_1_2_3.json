@@ -3,31 +3,6 @@
   "baseline": "19e2aeb",
   "edges": [
     {
-      "from": "tools/check_documentation.py",
-      "kind": "python_import_from",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/check_documentation.py",
-      "kind": "python_import_from",
-      "to": "urllib.parse"
-    },
-    {
-      "from": "tools/check_documentation.py",
-      "kind": "python_import",
-      "to": "argparse"
-    },
-    {
-      "from": "tools/check_documentation.py",
-      "kind": "python_import",
-      "to": "json"
-    },
-    {
-      "from": "tools/check_documentation.py",
-      "kind": "python_import",
-      "to": "re"
-    },
-    {
       "from": "README.md",
       "kind": "document_or_ui_reference",
       "to": "docs/manual/screenshots/01-workspace.jpg"
@@ -3415,111 +3390,6 @@
     {
       "from": "docs/RESEARCH_FINAL.md",
       "kind": "document_or_ui_reference",
-      "to": "../work/research_validation.json"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/geo_challenge_validation.json"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/benchmark.json"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/demo_workspace.json"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/before-race.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/after-race.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/race-1024.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/race-zero-selection.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/race-untestable-target.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/race-desktop.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/gene-measurements.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/race-opposite.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/trace-evidence.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/space-acquired.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/space-acquisition-blocked.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/gse21653-race.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/cancershift-evaluation.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/high-confidence-error.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/ce-inference-withheld.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/ce-projection.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
-      "to": "../work/screenshots/frozen-replay.jpg"
-    },
-    {
-      "from": "docs/RESEARCH_FINAL.md",
-      "kind": "document_or_ui_reference",
       "to": "https://www.ncbi.nlm.nih.gov/geo/info/geo2r.html"
     },
     {
@@ -6066,6 +5936,41 @@
       "from": "tools/audit_ui_strings.py",
       "kind": "python_import_from",
       "to": "html.parser"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import_from",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import_from",
+      "to": "urllib.parse"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "argparse"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "json"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "re"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "csv"
+    },
+    {
+      "from": "tools/check_documentation.py",
+      "kind": "python_import",
+      "to": "subprocess"
     },
     {
       "from": "verify_release.py",
