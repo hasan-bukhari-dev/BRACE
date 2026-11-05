@@ -16,8 +16,8 @@
     "sha256": "34fb82920a0123c6d6a2e7bd9006be83b0f390272ffbbadf4c72ba4ae564b231"
   },
   "brace_app/embrace.py": {
-    "literal_count": 791,
-    "sha256": "83fa8cf08a5f2ccdd28c6f3bb4cba540b3cb8e8082e3f1728040b2eaf4ee890e"
+    "literal_count": 797,
+    "sha256": "5146e01ecebfde5d6ea53b71d2a89facedc26548285336f38f6b6b580e46ef92"
   },
   "brace_app/evidence_api.py": {
     "literal_count": 335,

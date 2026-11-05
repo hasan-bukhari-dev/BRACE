@@ -175,3 +175,39 @@ def test_registry_baseline_rejects_variance_prefilter_outside_cv(client):
     response=client.post('/api/dataset-analysis/preflight',json={'name':'Prefilter leakage guard','mode':'train_validate',
         'datasets':{role:record['id'] for role,record in records.items()}})
     assert response.status_code==422 and 'before cross-validation' in response.text
+
+
+def test_lookup_refreshes_cached_export_without_changing_statistics(client,monkeypatch):
+    from test_race import api_files,CONFIG
+    references={}
+    def lookup(feature,namespace,platform=None,online=False):
+        if online:
+            references[feature]={'current_symbol':'TEST_ONLY','name':'Controlled reference fixture',
+                'function_excerpt':'Not biological evidence.','source_url':'https://example.invalid/reference',
+                'retrieved_date':'2026-11-05','source_snapshot_sha256':'a'*64,'note':'Software check only.'}
+        return {'feature_id':feature,'feature_namespace':namespace,**({'biological_context':references[feature]} if feature in references else {})}
+    monkeypatch.setattr(gene_info,'lookup',lookup)
+    config={**CONFIG,'positive':'tumor','negative':'normal','source_conditions':{'normal':'Technical normal class','tumor':'Technical tumor class'},'target_conditions':{'normal':'Technical normal class','tumor':'Technical tumor class'}}
+    import csv
+    files=api_files()
+    for role in ['source','target']:
+        rows=list(csv.DictReader(io.StringIO(files[role+'_metadata'][1].decode())))
+        stream=io.StringIO();writer=csv.writer(stream)
+        writer.writerow(['feature_id',*[row['sample_id'] for row in rows]])
+        writer.writerow(['TEST_FEATURE',*[10+.05*i if row['condition']=='tumor' else 1+.05*i for i,row in enumerate(rows)]])
+        files[role+'_expression']=(role+'_expression.csv',stream.getvalue().encode())
+    response=client.post('/api/race',data={'name':'ARTIFICIAL software QA export refresh','race_config':json.dumps(config)},files=files)
+    assert response.status_code==200,response.text
+    run=response.json();feature=run['race']['genes'][0]['feature_id']
+    root=server.RUNS/run['id'];scientific={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'race').iterdir() if p.is_file()}
+    before=client.get('/api/embrace/'+run['id']).content
+    with zipfile.ZipFile(io.BytesIO(before)) as archive:assert feature not in json.loads(archive.read('BIOLOGICAL_CONTEXT.json'))
+    assert client.post('/api/race/studies/'+run['id']+'/gene-context',params={'feature_id':feature}).status_code==200
+    after=client.get('/api/embrace/'+run['id']).content
+    with zipfile.ZipFile(io.BytesIO(after)) as archive:
+        context=json.loads(archive.read('BIOLOGICAL_CONTEXT.json'))[feature]
+        assert context['current_symbol']=='TEST_ONLY' and context['identifier_mapping']['feature_id']==feature
+        manifest=json.loads(archive.read('reproducibility_manifest.json'))
+        for name,entry in manifest['artifact_sha256'].items():assert hashlib.sha256(archive.read(name)).hexdigest()==entry['sha256']
+    assert before!=after
+    assert scientific=={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'race').iterdir() if p.is_file()}

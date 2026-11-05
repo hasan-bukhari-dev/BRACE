@@ -1,4 +1,4 @@
-# BRACE 1.2.1
+# BRACE 1.2.2
 
 One study workflow now connects SPACE, preparation, analysis and evidence. Prepared datasets can be reused in either role without copying their measurement files. Group review uses key-aligned GEO annotations, editable class mappings, exclusions and saved drafts. ACE accepts unfamiliar prediction-column names through a reviewed mapping form.
 
@@ -7,6 +7,8 @@ Large-data preparation offers source-only variance selection for RACE/CE and a f
 FACE can resolve arbitrary supported human gene identifiers using NCBI Gene, with dates, source hashes and cached function summaries. The bundled GPL570 mapping covers the whole pinned platform, not just demo genes. Ambiguous probes and unverified identifiers do not receive guessed functions. Internet is needed for uncached reference lookups; measurements and statistics remain available offline.
 
 Studies can be reused, role-swapped, archived and restored. History is no longer silently capped at 50 runs. Local storage usage, private workspace backups (including cached gene references for offline restoration) and side-by-side recorded-run comparison are available under secondary controls.
+
+Newly retrieved gene references refresh the cached evidence ZIP without changing scientific files. The Windows release gate exercises this cache transition, unfamiliar ACE columns, reversed-role analyses and private backups in the actual executable. Its provider fixture is labelled; the separate live reference acceptance remains recorded.
 
 ## Verification scope
 

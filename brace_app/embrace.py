@@ -268,7 +268,12 @@ def _finalize(root):
         for name,entry in previous['published_artifact_sha256'].items():
             p=within(root,root/'embrace'/name)
             if not p.is_file() or record(p.read_bytes())!=entry:raise ValueError('Published evidence changed: '+name)
-        if previous.get('embrace_version')==VERSION:return bundle
+        references_unchanged=True
+        if config['mode']=='race':
+            current_context=biological_context(obj(root/'race/race_result.json'),{'race':obj(root/'race/race_methods.json')})
+            saved_context=root/'embrace/BIOLOGICAL_CONTEXT.json'
+            references_unchanged=saved_context.is_file() and saved_context.read_bytes()==json_bytes(current_context)
+        if previous.get('embrace_version')==VERSION and references_unchanged:return bundle
     for directory in ('validation','validation/stage05','shift','race'):
         folder=root/directory
         if folder.exists():

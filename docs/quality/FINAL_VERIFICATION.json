@@ -1,5 +1,5 @@
 {
-  "release": "1.2.1",
+  "release": "1.2.2",
   "status": "CONDITIONAL",
   "scientific_engines": "unchanged",
   "source_manifest": "packaging/source-manifest.csv",
@@ -23,7 +23,12 @@
   "previous_verification": "VERIFICATION_1_1_HISTORY.json",
   "backup_and_export_regressions": {
     "status": "PASS",
-    "tests": 39,
+    "tests": 40,
     "reference_cache_restored_offline": true
+  },
+  "cached_reference_export_refresh": {
+    "status": "PASS",
+    "scientific_files_unchanged": true,
+    "regression": "tests/test_product_consolidation.py::test_lookup_refreshes_cached_export_without_changing_statistics"
   }
 }

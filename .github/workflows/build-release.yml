@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing tag to build
         required: true
-        default: v1.2.1
+        default: v1.2.2
       platforms:
         description: Windows first; select all for separately verified experimental builds
         type: choice
@@ -59,6 +59,14 @@ jobs:
       - name: Verify Windows binary
         if: runner.os == 'Windows'
         run: python scripts/check_distribution.py dist/BRACE/BRACE.exe --output release-assets/WINDOWS_BINARY_VERIFICATION.json
+      - name: Verify Windows new-data product paths
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $verification = Join-Path $env:RUNNER_TEMP 'brace-product-verification'
+          python scripts/verify_product_binary.py dist/BRACE/BRACE.exe $verification --offline-reference
+          if($LASTEXITCODE -ne 0){throw 'New-data product verification failed'}
+          Copy-Item -LiteralPath (Join-Path $verification 'BINARY_NON_DEMO_ACCEPTANCE.json') -Destination release-assets/WINDOWS_PRODUCT_VERIFICATION.json
       - name: Verify Windows real-data portability and restart
         if: runner.os == 'Windows'
         shell: pwsh

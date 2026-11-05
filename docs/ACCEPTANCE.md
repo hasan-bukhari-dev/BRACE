@@ -1,6 +1,6 @@
 # Acceptance scope
 
-Current release: 1.2.1. See [consolidation record](RELEASE_1_2.md) and [new-data receipt](quality/NON_DEMO_ACCEPTANCE.json).
+Current release: 1.2.2. See [consolidation record](RELEASE_1_2.md) and [new-data receipt](quality/NON_DEMO_ACCEPTANCE.json).
 
 Automated release gates cover exact source bytes, the full Python suite, actual DOM handlers, bundled executable calculations, saved-result restart, the native launcher, installation, installed execution and uninstall. The tagged release publishes their actual receipts and the full Windows JUnit report. Passing these gates does not establish human usability or clinical validity.
 
