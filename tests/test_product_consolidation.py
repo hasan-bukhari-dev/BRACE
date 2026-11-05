@@ -99,17 +99,27 @@ def test_gene_functions_are_general_cached_and_not_guessed(client,monkeypatch):
     assert len(calls)==1
     unmapped=gene_info.lookup('novel-probe','probe_id','GPL_UNKNOWN',online=True)
     assert unmapped['status']=='unmapped' and len(calls)==1
+    saved=client.post('/api/workspace/backup').json()
+    restored=server.RUNS.parent/'restored';restored.mkdir()
+    with zipfile.ZipFile(io.BytesIO(client.get(saved['url']).content)) as archive:
+        archive.extractall(restored)  # Own generated test archive; no external ZIP input.
+    monkeypatch.setattr(server,'RUNS',restored)
+    monkeypatch.setattr(discovery,'public_bytes',lambda *args,**kwargs:pytest.fail('Restored lookup must remain offline'))
+    assert gene_info.lookup('672','entrez_gene')['biological_context']==result['biological_context']
 
 
 def test_private_backup_is_consistent_and_has_originals(client,tmp_path):
     original=tmp_path/'original.gz';original.write_bytes(b'private technical fixture')
     record=registry.register({'original':original},name='Backup fixture',source={'type':'technical_test'})
+    reference=server.RUNS/'_annotations'/'reference.json';reference.parent.mkdir()
+    reference.write_text('{"record":"cached public gene reference"}')
     response=client.post('/api/workspace/backup')
     assert response.status_code==200,response.text
     with zipfile.ZipFile(io.BytesIO(client.get(response.json()['url']).content)) as z:
         manifest=json.loads(z.read('BACKUP_MANIFEST.json'))
         assert any(record['id'] in name for name in z.namelist())
         assert '_workspace/registry.sqlite3' in z.namelist()
+        assert z.read('_annotations/reference.json')==reference.read_bytes()
         for name,sha in manifest['sha256'].items():assert hashlib.sha256(z.read(name)).hexdigest()==sha
     assert client.get('/api/workspace/storage').json()['bytes']>0
     assert client.get('/api/workspace/backup/not-a-token').status_code==404

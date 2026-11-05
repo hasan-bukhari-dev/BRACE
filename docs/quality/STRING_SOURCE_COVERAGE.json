@@ -16,8 +16,8 @@
     "sha256": "34fb82920a0123c6d6a2e7bd9006be83b0f390272ffbbadf4c72ba4ae564b231"
   },
   "brace_app/embrace.py": {
-    "literal_count": 784,
-    "sha256": "30b96156935966ec438ecc8ece92ddb2a36915de04baf06c1d3ac2233cf56936"
+    "literal_count": 791,
+    "sha256": "83fa8cf08a5f2ccdd28c6f3bb4cba540b3cb8e8082e3f1728040b2eaf4ee890e"
   },
   "brace_app/evidence_api.py": {
     "literal_count": 335,
@@ -232,8 +232,8 @@
     "sha256": "5a78de23ac782026445dcf657c62dc901c697f1cb3483878c42f2853786c4644"
   },
   "brace_app/workspace_api.py": {
-    "literal_count": 88,
-    "sha256": "a81edd0506e98040e3cb06c68f4575ccca4f0dcede8af51daf7fc1c272cb9ffe"
+    "literal_count": 94,
+    "sha256": "d35126fa9cddef50e666b9f5ed363af1d5c7037d5f942e82cf0aec8559dd0a9b"
   },
   "brace_core/__init__.py": {
     "literal_count": 1,

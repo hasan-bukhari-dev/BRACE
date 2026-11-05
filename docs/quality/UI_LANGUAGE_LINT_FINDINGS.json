@@ -16,7 +16,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/embrace.py:85",
+    "source": "brace_app/embrace.py:87",
     "matches": [
       "completed"
     ],
@@ -24,7 +24,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/embrace.py:242",
+    "source": "brace_app/embrace.py:244",
     "matches": [
       "completed"
     ],

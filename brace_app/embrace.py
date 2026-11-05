@@ -32,7 +32,9 @@ def biological_context(race,methods):
     from brace_app.gene_info import lookup
     manifest=methods['race']['source_manifest']
     records={g['feature_id']:lookup(g['feature_id'],manifest['feature_namespace'],manifest.get('platform')) for g in race['genes']}
-    return {key:value['biological_context'] for key,value in records.items() if value.get('biological_context')}
+    return {key:{**value['biological_context'], 'identifier_mapping':{
+                field:value[field] for field in ('feature_id','feature_namespace','entrez_id','gene_symbol','mapping_sha256','mapping_source') if field in value}}
+            for key,value in records.items() if value.get('biological_context')}
 
 
 def publish_evidence(root, contents, provenance):

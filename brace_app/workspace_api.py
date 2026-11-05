@@ -63,6 +63,7 @@ def backup():
             with registry.database() as db,closing(sqlite3.connect(snapshot)) as copy,copy:
                 db.backup(copy)
                 records=[json.loads(row[0]) for row in copy.execute('SELECT record FROM datasets')]
+                study_ids={row[0] for row in copy.execute('SELECT id FROM studies')}
             with zipfile.ZipFile(partial,'w',zipfile.ZIP_DEFLATED) as archive:
                 def add(path,name):
                     data=path.read_bytes();archive.writestr(name,data);hashes[name]=hashlib.sha256(data).hexdigest()
@@ -73,9 +74,13 @@ def backup():
                         add(path,'_workspace/'+record['id']+'/'+asset['storage_name'])
                 for run in existing_runs()['runs']:
                     if not run['has_result']:continue
+                    if run.get('study_id') and run['study_id'] not in study_ids:continue
                     root=server.safe_run_dir(run['id']);server.finalize_run(root)
                     for path in root.rglob('*'):
-                        if path.is_file() and not path.is_symlink():add(path,path.relative_to(server.RUNS).as_posix())
+                        if path.is_file() and not path.is_symlink() and path.suffix!='.tmp':add(path,path.relative_to(server.RUNS).as_posix())
+                references=server.RUNS/'_annotations'
+                for path in references.glob('*.json') if references.is_dir() else []:
+                    if path.is_file() and not path.is_symlink():add(path,path.relative_to(server.RUNS).as_posix())
                 archive.writestr('BACKUP_MANIFEST.json',json.dumps({'sha256':hashes,'scope':'Private local backup: original uploads included. Stop BRACE before restoring into a separate empty workspace.','restore':'Extract into a new empty directory and set BRACE_RUNS_DIR to that directory. Keep the existing workspace until the restored studies open correctly.'},indent=2))
             partial.replace(destination)
         return {'url':'/api/workspace/backup/'+token,'bytes':destination.stat().st_size,'files':len(hashes)}

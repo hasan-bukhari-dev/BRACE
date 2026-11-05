@@ -1,5 +1,5 @@
 {
-  "release": "1.2.0",
+  "release": "1.2.1",
   "status": "CONDITIONAL",
   "scientific_engines": "unchanged",
   "source_manifest": "packaging/source-manifest.csv",
@@ -20,5 +20,10 @@
   "independent_human_usability": "NOT RUN",
   "screen_reader": "NOT RUN",
   "release_gates": "Exact tagged source, full pytest JUnit, cross-platform source checks, DOM handlers, bundled executable, real-data restart, native launcher, installed executable and uninstall must pass in GitHub Actions. Release assets are the authoritative post-build receipts.",
-  "previous_verification": "VERIFICATION_1_1_HISTORY.json"
+  "previous_verification": "VERIFICATION_1_1_HISTORY.json",
+  "backup_and_export_regressions": {
+    "status": "PASS",
+    "tests": 39,
+    "reference_cache_restored_offline": true
+  }
 }
