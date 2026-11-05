@@ -48,11 +48,19 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/preparation.py:78",
+    "source": "brace_app/preparation.py:80",
     "matches": [
       "unsupported"
     ],
     "literal_or_template": "Preserve the acquired original. Supply finite processed expression, sample metadata and a BRACE manifest if this matrix is unsupported.",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/preparation.py:88",
+    "matches": [
+      "unsupported"
+    ],
+    "literal_or_template": "Unsupported feature policy.",
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
@@ -88,7 +96,7 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
-    "source": "brace_app/static/js/datasets.js:320",
+    "source": "brace_app/static/js/datasets.js:356",
     "matches": [
       "unsupported"
     ],

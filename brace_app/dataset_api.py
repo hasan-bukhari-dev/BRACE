@@ -50,6 +50,7 @@ class GeneralPreparation(Name):
     excluded_samples: dict[str, str] = Field(default_factory=dict)
     feature_mapping: dict[str, str] = Field(default_factory=dict)
     mapping_reference: str = Field(default='', max_length=2000)
+    feature_policy: Literal['all', 'bounded_original_order'] = 'all'
 
 
 class Transformation(Name):
@@ -233,7 +234,7 @@ def prepare_original(dataset_id: str, request: GeneralPreparation):
             paths, report = prepare_general(registry.asset_path(dataset_id, 'original'), Path(temporary),
                 manifest=request.manifest, condition_by_sample=request.condition_by_sample,
                 excluded_samples=request.excluded_samples, feature_mapping=request.feature_mapping,
-                mapping_reference=request.mapping_reference)
+                mapping_reference=request.mapping_reference, feature_policy=request.feature_policy)
             from brace_app import server
             if any(path.stat().st_size > server.MAX_FILE for path in paths.values()):
                 raise ValueError('Prepared assets exceed the 25 MiB limit. Supply a documented smaller preparation.')

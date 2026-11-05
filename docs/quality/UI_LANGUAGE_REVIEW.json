@@ -42,10 +42,22 @@
     "reason": "The bounded GEO parser rejected a specific format or numeric defect. The recovery instruction preserves the original acquisition and requests documented canonical inputs."
   },
   {
+    "source_file": "brace_app/preparation.py",
+    "literal_sha256": "dbab3950eeadae384f5c3f62bb7a1d6693aa39669620ba671b56b5a139380e5e",
+    "decision": "keep_with_context",
+    "reason": "Unsupported feature policy is a precise rejection of an unknown preparation API option. It does not claim scientific validation or describe a product capability as completed."
+  },
+  {
     "source_file": "brace_app/release09.py",
     "literal_sha256": "00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
     "decision": "keep_with_context",
     "reason": "Noun identifying the saved analysis in the legacy identity table, not an ambiguous action. Current EMBRACE report uses Run ID."
+  },
+  {
+    "source_file": "brace_app/static/app.js",
+    "literal_sha256": "7c4836fbc086ec41ae13e55f55ffff3c39726c206296b110fed447e762ae97a4",
+    "decision": "keep_with_context",
+    "reason": "Reviewed the capability table after adding keyboard-focus attributes. The match remains the internal capabilities.unsupported property; the rendered Not implemented heading lists enforced input boundaries, not a scientific result or a vague promise."
   },
   {
     "source_file": "brace_app/static/app.js",
@@ -214,11 +226,5 @@
     "literal_sha256": "4ddb3e96801a1ee2b77dc5247c0db478d5f97a93b90e7cdb09f5f51d43764b08",
     "decision": "keep_with_context",
     "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
-  },
-  {
-    "source_file": "brace_app/static/app.js",
-    "literal_sha256": "7c4836fbc086ec41ae13e55f55ffff3c39726c206296b110fed447e762ae97a4",
-    "decision": "keep_with_context",
-    "reason": "Reviewed the capability table after adding keyboard-focus attributes. The match remains the internal capabilities.unsupported property; the rendered Not implemented heading lists enforced input boundaries, not a scientific result or a vague promise."
   }
 ]

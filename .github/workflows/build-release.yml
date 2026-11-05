@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing tag to build
         required: true
-        default: v1.1.0
+        default: v1.1.1
       platforms:
         description: Windows first; select all for separately verified experimental builds
         type: choice

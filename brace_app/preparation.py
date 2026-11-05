@@ -19,6 +19,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
     samples = []
     values = {}
     features = []
+    row_bytes = []
     expanded = 0
     in_table = False
     ended = False
@@ -60,6 +61,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
                     raise ValueError('GEO matrix contains missing or nonfinite values. Supply documented preprocessing.')
                 seen.add(row[0])
                 features.append(row[0])
+                row_bytes.append(len(line))
                 if include_values and (selected_features is None or row[0] in selected_features):
                     values[row[0]] = row[1:]  # preserve numeric text; no normalization or rounding
                     if len(values) > MAX_FEATURES:
@@ -72,7 +74,7 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
         if declared and (len(declared) != 1 or declared[0] != samples):
             raise ValueError('GEO table sample identifiers differ from the declared sample accessions.')
         return dict(sample_ids=samples, feature_ids=features, values=values,
-                    metadata=metadata, expanded_bytes=expanded)
+                    metadata=metadata, expanded_bytes=expanded, feature_row_bytes=row_bytes)
     except (OSError, EOFError, UnicodeError, csv.Error, ValueError) as exc:
         raise InputProblem('GEO_PREPARATION_BLOCKED', str(exc),
             'Preserve the acquired original. Supply finite processed expression, sample metadata and a BRACE manifest if this matrix is unsupported.') from exc
@@ -80,7 +82,27 @@ def series_matrix(path: Path, include_values: bool = False, selected_features: s
 
 def prepare_general(original: Path, directory: Path, *, manifest: dict,
                     condition_by_sample: dict[str, str], feature_mapping: dict[str, str],
-                    mapping_reference: str, excluded_samples: dict[str, str]) -> tuple[dict, dict]:
+                    mapping_reference: str, excluded_samples: dict[str, str],
+                    feature_policy: str = 'all') -> tuple[dict, dict]:
+    if feature_policy not in ('all', 'bounded_original_order'):
+        raise ValueError('Unsupported feature policy.')
+    if feature_policy == 'bounded_original_order':
+        if feature_mapping:
+            raise ValueError('Choose a feature mapping or an original-order subset, not both.')
+        preview = series_matrix(original)
+        retained_ids = []
+        # Original numeric text is preserved. Original TSV row lengths are a
+        # conservative bound for output rows; reserve a full MiB for headers.
+        budget = 24 * 1024 * 1024
+        for feature, size in zip(preview['feature_ids'], preview['feature_row_bytes']):
+            if len(retained_ids) == MAX_FEATURES or size > budget:
+                break
+            retained_ids.append(feature)
+            budget -= size
+        if not retained_ids:
+            raise ValueError('No original feature fits the bounded preparation limit.')
+        feature_mapping = {feature: feature for feature in retained_ids}
+        mapping_reference = 'Original-order prefix within 25,000 features and 24 MiB row-text budget; no outcome-based selection or gene mapping'
     parsed = series_matrix(original, include_values=True, selected_features=set(feature_mapping) if feature_mapping else None)
     samples = parsed['sample_ids']
     if set(condition_by_sample) | set(excluded_samples) != set(samples) or set(condition_by_sample) & set(excluded_samples):
@@ -118,6 +140,7 @@ def prepare_general(original: Path, directory: Path, *, manifest: dict,
         writer.writerows((sample, condition_by_sample[sample], manifest.get('study_id', '')) for sample in included)
     paths['manifest'].write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
     report = dict(operation='reviewed_geo_series_matrix', automatic_normalization=False,
+        feature_policy=feature_policy,
         phenotype_mapping=condition_by_sample, excluded_samples=excluded_samples,
         original_features=len(original_features), retained_features=len(retained),
         unmapped_features=[feature for feature in original_features if feature_mapping and feature not in feature_mapping],

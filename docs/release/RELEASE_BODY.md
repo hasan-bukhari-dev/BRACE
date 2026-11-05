@@ -1,9 +1,11 @@
-BRACE 1.1.0 — Local research workbench
+# BRACE 1.1.1
 
-Windows: download BRACE-1.1.0-windows-x64-setup.exe. The portable ZIP is an alternative; extract the entire folder and run BRACE.exe. Python is bundled.
+SPACE now leads directly into guided preparation and analysis. Ordinary fields replace mandatory JSON editing. GEO organism, platform and processing text are prefilled from the original annotations for review; scientific eligibility is never inferred from a search result.
 
-Three main real-data demonstrations: ER association replication (GSE42568 → GSE20711), archived CancerShift prediction reliability, and descriptive comparison of the public ER cohorts. FACE, TRACE and evidence exports inspect the same recorded results. Artificial fixtures are explicitly labeled developer software checks and excluded from ordinary dataset lists by default.
+- One Data & analysis area holds preparation, dataset selection, checks and execution; saved versions are secondary.
+- Empty dataset choices explain what is missing and offer preparation of downloaded originals.
+- CE does not require phenotype labels. Source/target handoff preserves the selected task and selects the prepared version.
+- An explicit original-order subset can respect both the 25,000-feature and file-size limits. Retained and omitted IDs, source bytes and transformation history are recorded. This subset is exploratory, not a representative gene panel.
+- Raw counts and unknown processing still require appropriate preprocessing/review. BRACE does not infer patient independence or silently normalize data.
 
-This release fixes ACE/RACE setup routing, frozen-gene inspection and Back/step clarity. Its workflow verifies the executable, native launcher, installer, installed application and uninstall before publishing. Verification receipts and SHA-256 checksums accompany the artifacts.
-
-Unsigned exploratory research software. Scores are not assumed calibrated. Cross-cohort associations do not establish causation, donor independence or clinical utility. The original CancerShift ensemble is not executed. See docs/JUDGES_DEMO.md and docs/RESEARCH_FINAL.md in the source archive.
+Install the Windows setup executable. The installer is unsigned. Existing local data are retained. This is research software, not a clinical diagnostic device.

@@ -178,6 +178,49 @@ def test_general_preparation_is_explicit_versioned_and_reports_losses(client, tm
     assert client.post(f"/api/datasets/{original['id']}/prepare", json=ambiguous).status_code == 422
 
 
+def test_guided_large_matrix_subset_is_explicit_and_auditable(client, tmp_path):
+    text = '!series_matrix_table_begin\nID_REF\tS1\tS2\n'
+    text += ''.join(f'probe{i}\t{i + 1}\t{i + 2}\n' for i in range(25002))
+    text += '!series_matrix_table_end\n'
+    original = register_matrix(tmp_path, text)
+    manifest = json.loads((BASE / 'examples/synthetic_valid/source_manifest.json').read_text())
+    manifest.update(labels='unlabeled', feature_namespace='probe_id', platform='GPL_TEST')
+    body = {'name': 'Explicit subset technical check', 'reviewed': True, 'manifest': manifest,
+            'condition_by_sample': {'S1': '', 'S2': ''}}
+    endpoint = f"/api/datasets/{original['id']}/prepare"
+    # A large file is never silently truncated by the legacy/default path.
+    assert client.post(endpoint, json=body).status_code == 422
+    response = client.post(endpoint, json={**body, 'feature_policy': 'bounded_original_order'})
+    assert response.status_code == 200, response.text
+    prepared = response.json()
+    assert prepared['summary']['n_features'] == 25000
+    history = prepared['preprocessing_history'][0]
+    assert history['unmapped_features'] == ['probe25000', 'probe25001']
+    assert history['feature_policy'] == 'bounded_original_order'
+    assert history['automatic_normalization'] is False
+    assert prepared['parent_dataset_ids'] == [original['id']]
+    assert client.post(endpoint, json={**body, 'feature_policy': 'bounded_original_order',
+        'feature_mapping': {'probe0': 'GENE'}}).status_code == 422
+    assert client.post(endpoint, json={**body, 'feature_policy': 'silent_filter'}).status_code == 422
+
+
+def test_bounded_preparation_respects_serialized_file_size(tmp_path):
+    from brace_app.preparation import prepare_general
+    original = tmp_path / 'large.gz'
+    number = '1.' + '0' * 600
+    text = '!series_matrix_table_begin\nID_REF\tS1\tS2\n'
+    text += ''.join(f'probe{i}\t{number}\t{number}\n' for i in range(23000))
+    text += '!series_matrix_table_end\n'
+    original.write_bytes(gzip.compress(text.encode()))
+    paths, report = prepare_general(original, tmp_path, manifest={'labels': 'unlabeled'},
+        condition_by_sample={'S1': '', 'S2': ''}, excluded_samples={},
+        feature_mapping={}, mapping_reference='', feature_policy='bounded_original_order')
+    assert paths['expression'].stat().st_size < 25 * 1024 * 1024
+    assert 1 < report['retained_features'] < 23000
+    assert report['unmapped_features'][0] == f"probe{report['retained_features']}"
+    assert report['original_features'] == 23000
+
+
 def test_unsupported_matrix_preserves_original_and_explains_blocker(client, tmp_path):
     original = register_matrix(tmp_path, '!series_matrix_table_begin\nID_REF\tS1\tS2\ngene\tNA\t2\n!series_matrix_table_end\n')
     response = client.get(f"/api/datasets/{original['id']}/inspect")

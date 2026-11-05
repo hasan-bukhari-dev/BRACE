@@ -215,3 +215,16 @@ The portability verifier was updated from its stale EMBRACE 0.8.0 expectation to
 Installer install/uninstall is checked in an isolated GitHub runner rather than replacing and removing the user's existing installation during local QA. The release workflow publishes v1.1.0 only after executable, real-data portability, native-controller and installer checks pass. Those workflow receipts, release checksums and exact tagged source are the remote acceptance evidence. No independent human usability, clinical or other-platform package validation is claimed.
 
 Use [the judge walkthrough](JUDGES_DEMO.md). The source launcher uses port 8883 and an isolated `runs/release-demo` workspace. Published Windows users should run the installer, which bundles Python and keeps runtime data outside installed resources.
+
+
+## 1.1.1: repair the new-data workflow
+
+User screenshots exposed a task-blocking gap in 1.1.0: an acquired GEO original was not a prepared dataset, the next step demanded JSON, and empty role-filtered selectors did not explain the missing preparation. The previous release assessment overstated practical new-data usability.
+
+The Data & analysis area now combines preparation, selection, checks and execution. Saved versions are secondary. SPACE transfers the exact acquired dataset identity and selected task to a guided form. GEO organism, platform and processing annotations are prefilled, not scientifically certified. Users review measurement scale, identifier namespace and patient independence. CE can retain all samples without phenotype labels. Other expression tasks can select a recorded phenotype annotation; exact classes remain subject to existing task checks. Advanced JSON remains available for exclusions, curated mappings and recipes.
+
+The user-level acceptance test acquired the actual GSE42568 and GSE20711 originals through SPACE. Their 54,675 features exceeded the prepared feature limit; an initial 25,000-feature attempt also exceeded the file-size limit. The explicit bounded-original-order policy now preserves the largest original-order prefix within 25,000 features and a conservative 24 MiB row-text budget. It records all retained/omitted IDs and preserves numeric text, without normalization or outcome-based ranking. It is an exploratory subset, not a representative gene panel. Curated mappings remain preferable for biological gene-level interpretation.
+
+Actual browser execution prepared 121 source samples with 17,273 probe IDs and 90 target samples with 23,231 probe IDs. CE computed 17,273 shared IDs, retained descriptive measurements, and withheld inference for differing processing. The saved result reopened after a page reload. This path used newly acquired originals and general preparation, not the bundled 101/87-sample, 10,000-feature demo. Patient independence remained unknown. Screenshots are retained under excluded work/screenshots/space-new-data-ce.jpg.
+
+New regression tests cover explicit subset consent, feature-count limits, serialized file-size limits, omitted-ID order, immutable parent lineage and rejection of conflicting mappings. The existing dataset-task JavaScript harness now includes the actual preparation module when testing data-URI imports, preserving its task-kind assertions. Scientific engines were unchanged.

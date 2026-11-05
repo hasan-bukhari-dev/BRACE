@@ -122,6 +122,9 @@ import fs from 'node:fs';import assert from 'node:assert/strict';
 let code=fs.readFileSync(process.argv[2],'utf8')
  .replace('import { $, esc, isSoftwareFixture } from "./ui.js";', 'const $=()=>{},esc=String,isSoftwareFixture=()=>false;')
  .replace('import { request } from "./api.js";', 'const request=()=>{};');
+const preparation=fs.readFileSync(process.argv[2].replace(/datasets[.]js$/, 'preparation.js'),'utf8')
+ .replace("import { $, esc } from './ui.js';",'').replace('export function preparationForm','function preparationForm');
+code=code.replace('import { preparationForm } from "./preparation.js";',preparation);
 const {taskForStudy}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 const predictions={datasets:{predictions:'saved-prediction-version'}};
 for(const task of ['race','diagnose_shift','train_validate','evaluate_predictions'])
