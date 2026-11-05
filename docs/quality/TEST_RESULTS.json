@@ -1,11 +1,14 @@
 {
-  "tests": 336,
+  "tests": 351,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "seconds": 526.273,
-  "command": "python -m pytest -q --brace-clean-temp",
-  "python": "3.12.10",
+  "seconds": 207.539,
+  "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/ui-ready-tests.xml",
+  "python": "3.12.10 x64",
   "dependencies": "requirements-release.txt",
-  "warning": "Starlette test-client deprecation for httpx; existing pinned dependency set"
+  "warning": "One Starlette test-client httpx deprecation warning in the pinned dependency set.",
+  "junit": "work/ui-ready-tests.xml",
+  "log": "work/ui-ready-tests.log",
+  "scope": "Final isolated research source copy; not an installer test."
 }

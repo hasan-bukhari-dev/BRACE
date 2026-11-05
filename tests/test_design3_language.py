@@ -23,7 +23,15 @@ def test_nested_javascript_template_labels_are_not_lost():
     assert any(v.startswith('Result ${') for v in values)
     regex=audit.js_literals('const x=value.replace(/[&<>"\']/g, c=>"escaped"); const y="Undefined";')
     assert [v for _,v,_ in regex]==['escaped','Undefined']
-def test_scientific_engine_source_bytes_are_unchanged():
+def test_scientific_engine_changes_are_explicit_and_hash_bound():
     hashes=json.loads((ROOT/'docs/quality/BASELINE_CODE_SHA256.json').read_text())
+    changes=json.loads((ROOT/'docs/quality/SCIENTIFIC_CHANGE_REGISTER.json').read_text())
     for name,sha in hashes.items():
-        if name.startswith('brace_core/'):assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,name
+        if not name.startswith('brace_core/'):continue
+        current=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+        if name in changes:
+            entry=changes[name]
+            assert entry['baseline_sha256']==sha and entry['current_sha256']==current,name
+            assert entry['method_versions'] and len(entry['reason'])>60
+            assert all((ROOT/test.split('::')[0]).is_file() for test in entry['regression_tests'])
+        else:assert current==sha,name

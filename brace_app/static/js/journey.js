@@ -12,5 +12,8 @@ export function initJourney(fn){restore=fn;active=true;document.querySelector('#
  document.addEventListener('input',()=>queueMicrotask(()=>{if(active&&!restoring)history.replaceState({...history.state,brace:snapshot()},'',location.href)}));
  document.addEventListener('brace:before-context',()=>{if(active&&!restoring)history.replaceState({...history.state,brace:snapshot()},'',location.href)});
  const mo=new MutationObserver(()=>queueMicrotask(recordJourney));for(const id of ['face-inspector','sample-dialog'])mo.observe(document.getElementById(id),{attributes:true,attributeFilter:['open']});
+ // A pasted/bookmarked hash has no BRACE history snapshot. Reload through the
+ // checked startup resolver instead of leaving a previous run under a new URL.
+ window.addEventListener('hashchange',()=>{if(!restoring&&location.hash!==url(snapshot()))location.reload()});
  window.addEventListener('popstate',async e=>{const n=++token,s=e.state?.brace;if(!s)return;restoring=true;try{await restore(s,()=>n===token);document.querySelector('#journey-back').disabled=!(e.state?.braceIndex>0);if(n===token){save();requestAnimationFrame(()=>scrollTo(0,s.scroll||0))}}finally{if(n===token)restoring=false}});
 }

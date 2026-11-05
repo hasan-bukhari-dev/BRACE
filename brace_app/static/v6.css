@@ -31,3 +31,29 @@
 body #context:not([hidden]){display:flex}
 #status-live[data-state=ready]:not(:empty){display:block}
 @media(max-width:600px){#workspace-datasets .actions{display:flex;flex-direction:column;align-items:stretch}}
+
+/* Keep scientific records in view; reveal full explanations on request. */
+body[data-view=race] #main{padding-top:16px}
+body[data-view=race] .operation-card{margin:8px 0;padding:0 10px;border-radius:0;border-width:0 0 1px;background:transparent}
+body[data-view=race] .operation-card summary{min-height:32px;padding:6px 0}
+body[data-view=race] #context{margin:8px 0;padding:8px 12px}
+body[data-view=race] h1{font-size:clamp(21px,2vw,28px);margin:14px 0}
+body[data-view=race] .race-headline{gap:12px;margin-bottom:12px}
+body[data-view=race] .experiment-bridge,body[data-view=race] .race-verdict{padding:14px 16px;min-height:0}
+body[data-view=race] .result-sentence{font-size:17px;line-height:1.4;margin:0 0 8px}
+body[data-view=race] .signature-panel{padding:10px 14px;margin-bottom:10px}
+body[data-view=race] .signature-strip{gap:4px}
+body[data-view=race] .signature-gene{min-height:36px}
+body[data-view=race] .race-split{align-items:start;gap:18px}
+body[data-view=race] .compact-gene-table{font-size:12px}
+body[data-view=race] .compact-gene-table td,body[data-view=race] .compact-gene-table th{padding:7px 9px}
+body[data-view=race] .gene-list-panel>.table-scroll,body[data-view=race] #race-table>.table-scroll{max-height:520px;overflow:auto}
+.selection-method{margin:12px 0;font-size:13px;line-height:1.6}
+.selection-method summary{font-weight:650;cursor:pointer;padding:9px 0}
+.selection-method p{max-width:100ch}
+.inference-notice{border-left:3px solid var(--target);padding:10px 14px;background:var(--raised)}
+#selection-count,#registry-selection-count{max-width:120px}
+body[data-view=study]{background-image:none}
+.home-hero{background:url('/assets/ribbons.svg') no-repeat center bottom/100% 120px}
+.current-study:after,.study-tile:after{display:none}
+@media(max-width:900px){body[data-view=race] .race-headline,body[data-view=race] .race-split{grid-template-columns:1fr}body[data-view=race] .gene-preview{position:static}}

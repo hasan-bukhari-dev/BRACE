@@ -5,6 +5,7 @@ ROOT = Path(SPECPATH).parent
 datas = [(str(ROOT/name), name) for name in ('examples', 'templates')]
 datas += [(str(ROOT/'brace_app/static'), 'brace_app/static'),
           (str(ROOT/'brace_app/task_capabilities.json'), 'brace_app'),
+          (str(ROOT/'brace_app/gene_context.json'), 'brace_app'),
           (str(ROOT/'packaging/brace.ico'), '.'),
           (str(ROOT/'packaging/generated'), 'distribution-notices')]
 for name in ('LICENSE', 'VERSION'):

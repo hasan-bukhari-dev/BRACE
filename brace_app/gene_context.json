@@ -1,0 +1,182 @@
+{
+  "135112": {
+    "current_symbol": "NCOA7",
+    "name": "nuclear receptor coactivator 7",
+    "function_excerpt": "Enables nuclear receptor binding activity and transcription coactivator activity. Involved in positive regulation of transcription by RNA polymerase II. Predicted to be …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/135112",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "7091": {
+    "current_symbol": "TLE4",
+    "name": "TLE family member 4, transcriptional corepressor",
+    "function_excerpt": "Predicted to enable transcription corepressor activity. Predicted to be involved in negative regulation of canonical Wnt signaling pathway and negative regulation of …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/7091",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "29968": {
+    "current_symbol": "PSAT1",
+    "name": "phosphoserine aminotransferase 1",
+    "function_excerpt": "This gene encodes a member of the class-V pyridoxal-phosphate-dependent aminotransferase family. The encoded protein is a phosphoserine aminotransferase and decreased expression may …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/29968",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "56935": {
+    "current_symbol": "SMCO4",
+    "name": "single-pass membrane protein with coiled-coil domains 4",
+    "function_excerpt": "Predicted to be located in membrane. [provided by Alliance of Genome Resources, Jul 2025]",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/56935",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "10477": {
+    "current_symbol": "UBE2E3",
+    "name": "ubiquitin conjugating enzyme E2 E3",
+    "function_excerpt": "The modification of proteins with ubiquitin is an important cellular mechanism for targeting abnormal or short-lived proteins for degradation. Ubiquitination involves at …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/10477",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "140885": {
+    "current_symbol": "SIRPA",
+    "name": "signal regulatory protein alpha",
+    "function_excerpt": "The protein encoded by this gene is a member of the signal-regulatory-protein (SIRP) family, and also belongs to the immunoglobulin superfamily. SIRP …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/140885",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "5336": {
+    "current_symbol": "PLCG2",
+    "name": "phospholipase C gamma 2",
+    "function_excerpt": "The protein encoded by this gene is a transmembrane signaling enzyme that catalyzes the conversion of 1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate to 1D-myo-inositol 1,4,5-trisphosphate (IP3) …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/5336",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "5621": {
+    "current_symbol": "PRNP",
+    "name": "prion protein (Kanno blood group)",
+    "function_excerpt": "The protein encoded by this gene is a membrane glycosylphosphatidylinositol-anchored glycoprotein that tends to aggregate into rod-like structures. The encoded protein contains …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/5621",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "84441": {
+    "current_symbol": "MAML2",
+    "name": "mastermind like transcriptional coactivator 2",
+    "function_excerpt": "The protein encoded by this gene is a member of the Mastermind-like family of proteins. All family members are proline and glutamine-rich, …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/84441",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "55816": {
+    "current_symbol": "DOK5",
+    "name": "docking protein 5",
+    "function_excerpt": "The protein encoded by this gene is a member of the DOK family of membrane proteins, which are adapter proteins involved in …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/55816",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "5997": {
+    "current_symbol": "RGS2",
+    "name": "regulator of G protein signaling 2",
+    "function_excerpt": "Regulator of G protein signaling (RGS) family members are regulatory molecules that act as GTPase activating proteins (GAPs) for G alpha subunits …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/5997",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "4067": {
+    "current_symbol": "LYN",
+    "name": "LYN proto-oncogene, Src family tyrosine kinase",
+    "function_excerpt": "This gene encodes a tyrosine protein kinase, which maybe involved in the regulation of mast cell degranulation, and erythroid differentiation. Alternatively spliced …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/4067",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "10402": {
+    "current_symbol": "ST3GAL6",
+    "name": "ST3 beta-galactoside alpha-2,3-sialyltransferase 6",
+    "function_excerpt": "The protein encoded by this gene is a member of the sialyltransferase family. Members of this family are enzymes that transfer sialic …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/10402",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "54947": {
+    "current_symbol": "LPCAT2",
+    "name": "lysophosphatidylcholine acyltransferase 2",
+    "function_excerpt": "This gene encodes a member of the lysophospholipid acyltransferase family. The encoded enzyme may function in two ways: to catalyze the biosynthesis …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/54947",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "157506": {
+    "current_symbol": "RDH10",
+    "name": "retinol dehydrogenase 10",
+    "function_excerpt": "This gene encodes a retinol dehydrogenase, which converts all-trans-retinol to all-trans-retinal, with preference for NADP as a cofactor. Studies in mice suggest …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/157506",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "51191": {
+    "current_symbol": "HERC5",
+    "name": "HECT and RLD domain containing E3 ubiquitin protein ligase 5",
+    "function_excerpt": "This gene is a member of the HERC family of ubiquitin ligases and encodes a protein with a HECT domain and five …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/51191",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "834": {
+    "current_symbol": "CASP1",
+    "name": "caspase 1",
+    "function_excerpt": "This gene encodes a protein which is a member of the cysteine-aspartic acid protease (caspase) family. Sequential activation of caspases plays a …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/834",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "29015": {
+    "current_symbol": "SLC43A3",
+    "name": "solute carrier family 43 member 3",
+    "function_excerpt": "Enables adenine transmembrane transporter activity; guanine transmembrane transporter activity; and xenobiotic transmembrane transporter activity. Involved in hypoxanthine transport. Located in basolateral plasma …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/29015",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "5918": {
+    "current_symbol": "RARRES1",
+    "name": "retinoic acid receptor responder 1",
+    "function_excerpt": "This gene was identified as a retinoid acid (RA) receptor-responsive gene. It encodes a type 1 membrane protein. The expression of this …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/5918",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  },
+  "8424": {
+    "current_symbol": "BBOX1",
+    "name": "gamma-butyrobetaine hydroxylase 1",
+    "function_excerpt": "This gene encodes gamma butyrobetaine hydroxylase which catalyzes the formation of L-carnitine from gamma-butyrobetaine, the last step in the L-carnitine biosynthetic pathway. …",
+    "source_url": "https://www.ncbi.nlm.nih.gov/gene/8424",
+    "retrieved_date": "2026-11-04",
+    "source_snapshot_sha256": "563d8dd795f4f2dc4bc49b4f0e0f4fd8ca00807a1c30b03e2521e44df14298f1",
+    "note": "NCBI Gene context excerpt; not an experimental finding or causal explanation. Original probe mapping remains the pinned GPL570 snapshot."
+  }
+}

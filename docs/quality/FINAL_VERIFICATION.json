@@ -1,0 +1,150 @@
+{
+  "recorded_utc": "2026-11-05T03:05:25.392536+00:00",
+  "scope": "Agent-led scientific, browser and software verification of the isolated source application; no human usability, clinical or installer certification.",
+  "baseline": {
+    "commit": "1d31e7136636913f999faa09f7f029be6cac2818",
+    "original_git_clean": true,
+    "original_main_matches_origin_main": true,
+    "remote_changes": "None"
+  },
+  "automated": {
+    "status": "PASS",
+    "pytest": {
+      "tests": 351,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 207.539,
+      "command": ".venv\\Scripts\\python.exe -m pytest -q --junitxml=work/ui-ready-tests.xml",
+      "python": "3.12.10 x64",
+      "dependencies": "requirements-release.txt",
+      "warning": "One Starlette test-client httpx deprecation warning in the pinned dependency set.",
+      "junit": "work/ui-ready-tests.xml",
+      "log": "work/ui-ready-tests.log",
+      "scope": "Final isolated research source copy; not an installer test."
+    },
+    "actual_javascript_state_navigation_operation_tests": {
+      "passed": 3,
+      "failed": 0,
+      "included_in_pytest": true
+    },
+    "dependency_check": "PASS: no broken requirements",
+    "standard_python_launcher_guard": "PASS",
+    "repository_tracked_payload_check": "PASS: 295 staged/tracked source payload files, including the manifest",
+    "whitespace_check": "PASS: CRLF-aware Git policy"
+  },
+  "matrix": {
+    "A_software_correctness": {
+      "status": "PASS",
+      "evidence": [
+        "work/final-tests.xml",
+        "work/final-tests.log"
+      ]
+    },
+    "B_scientific_correctness": {
+      "status": "PASS_WITH_DECLARED_LIMITS",
+      "evidence": [
+        "work/research_validation.json"
+      ],
+      "limits": "Numerical checks do not authenticate biological declarations, independence, causal interpretation or clinical validity."
+    },
+    "C_data_reproducibility": {
+      "status": "PASS_WITH_DECLARED_LIMITS",
+      "evidence": [
+        "work/research_validation.json",
+        "work/geo_challenge_validation.json",
+        "work/demo_workspace.json"
+      ],
+      "limits": "Exact source assets and declarations retained locally; full reproduction needs matching input files."
+    },
+    "D_product_usability": {
+      "status": "AGENT_WORKFLOWS_PASSED_WITH_GAPS",
+      "evidence": [
+        "work/screenshots",
+        "docs/RESEARCH_FINAL.md"
+      ],
+      "gaps": [
+        "Direct browser file-picker upload unverified because extension file-URL permission was unavailable; multipart import APIs passed.",
+        "No independent human usability study."
+      ]
+    },
+    "E_scientific_comprehension": {
+      "status": "AGENT_REVIEW_COMPLETED",
+      "evidence": [
+        "docs/RESEARCH_FINAL.md",
+        "brace_app/gene_context.json",
+        "work/screenshots"
+      ],
+      "limits": "No unfamiliar human researcher study or screen-reader certification."
+    },
+    "F_reliability_security": {
+      "status": "PASS_WITH_DECLARED_SCOPE",
+      "evidence": [
+        "work/final-tests.xml",
+        "docs/RESEARCH_FINAL.md"
+      ],
+      "limits": "No external penetration-test certification or new installer build."
+    },
+    "G_performance": {
+      "status": "MEASURED_REPRESENTATIVE_WORKLOAD",
+      "evidence": [
+        "work/benchmark.json"
+      ],
+      "limits": "Warm filesystem caches; implementation caps are not measured maximum throughput."
+    }
+  },
+  "ui_audit": {
+    "generated_rows": 8608,
+    "source_files": 72,
+    "lint_findings": 37,
+    "review_records": 37,
+    "status": "PASS: regenerated audit artifacts; contextual review checked by automated suite"
+  },
+  "browser_checks": [
+    "SPACE live GEO discovery, acquisition and persisted original inspection",
+    "GSE21653 exact-byte plan review, explicit label exclusions, preparation, assignment, preflight, RACE and evidence",
+    "Oversized GSE103512 acquisition failure with actionable limit",
+    "Guided public example: setup, input checks, compute, reopen and saved-run switching",
+    "RACE table filters, opposite estimate, FACE measurements, TRACE, exported evidence and 1024-pixel layout",
+    "CancerShift imported evaluation, overview, zero-support prostate cell, high-score wrong case and confidence extremes",
+    "Synthetic baseline and frozen replay through real APIs; frozen replay browser heading and method receipt",
+    "CE descriptive feature and source-PCA views with withheld p/q",
+    "Clearly marked artificial zero-selection and untestable-target UI states"
+  ],
+  "boundary_ui_evidence": "work/boundary_ui.json",
+  "packaging": {
+    "status": "NOT_BUILT",
+    "reason": "PyInstaller and Inno Setup compiler unavailable in the isolated environment. Existing portable reports describe baseline artifacts only.",
+    "source_application": "Launched and exercised with standard CPython 3.12.10 x64"
+  },
+  "unsupported_or_uncertain": [
+    "Fresh CancerShift ensemble inference: genuine fitted models/reference bundles not located.",
+    "Donor independence and phenotype/processing equivalence require scientific verification.",
+    "Direct browser file-picker import, human usability/screen-reader review and maximum-capacity benchmark remain unverified."
+  ],
+  "source_seal": {
+    "status": "PASS",
+    "manifest": "packaging/source-manifest.csv",
+    "files": 294,
+    "verification_command": ".venv\\Scripts\\python.exe verify_release.py",
+    "payload_scan": "PASS: all manifest files, including new untracked source; runtime/private paths excluded; no credential patterns found.",
+    "note": "Manifest resealed and verified after this record was finalized; manifest excludes itself."
+  },
+  "report": "docs/RESEARCH_FINAL.md",
+  "ui_refinement": {
+    "status": "PASS",
+    "shared_rectangle": "Retained at explicit user request",
+    "identity": "Full family names, purpose labels and semantic family colors; no scientific calculation changes in this pass.",
+    "browser_checks": [
+      "Desktop and laptop layouts; 390-pixel narrow view without page overflow",
+      "Light and dark themes",
+      "Prediction error inspection; FACE measurements; SPACE dialog; evidence navigation",
+      "Escape closes search and restores trigger focus"
+    ],
+    "screenshots": "work/screenshots/unslop-*.jpg",
+    "focused_regressions": "7 passed; work/ui-focused-tests.xml",
+    "final_suite": "351 passed; work/ui-ready-tests.xml",
+    "push": "Not performed",
+    "limits": "Earlier browser-upload, human usability, capacity and installer gaps remain."
+  }
+}

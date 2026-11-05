@@ -1,0 +1,100 @@
+/* Operational surfaces: keep BRACE's identity; give the evidence priority. */
+body{background-image:none;font-size:14px;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button{border-radius:5px;box-shadow:none;min-height:36px;transition:background .12s,border-color .12s}
+button:hover{transform:none;box-shadow:none}
+button.primary{background:var(--accent);color:var(--accent-ink);box-shadow:none;background-image:none}
+button:disabled{cursor:not-allowed}
+:where(button,a,input,select,textarea,summary):focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+input,select,textarea{border-radius:4px;min-height:36px}
+input[type=checkbox],input[type=radio]{min-height:0;accent-color:var(--accent)}
+summary{cursor:pointer;line-height:1.5}
+main{max-width:1500px;padding:20px 28px 36px}
+h1,h2,h3{letter-spacing:normal;line-height:1.3}
+h1{font-size:26px}h2{font-size:21px}h3{font-size:17px}
+.help,small,.filename{font-size:12px;line-height:1.55}
+.panel-kicker,.section-label,.study-role{letter-spacing:.05em;font-size:11px}
+.app-header{box-shadow:none;background:var(--surface);padding-block:10px}
+#wordmark-plate{display:block!important;border-radius:5px}
+.wordmark button{border-radius:0;border-bottom:2px solid transparent;min-height:46px}
+.wordmark button[aria-current=page]{border-bottom-color:var(--nav-accent);background:transparent!important}
+.wordmark button:not([aria-current=page]){border-bottom-color:transparent!important}
+.wordmark button[aria-current=page] .letter-caption{text-decoration:none}
+.wordmark .letter-caption{font-size:11px}
+.wordmark .glyph{font-size:22px}
+.nav-purpose{font-size:12px;text-align:left;padding:6px 28px;min-height:30px}
+.view.active{animation:none}
+.journey-toolbar{margin-bottom:12px}
+.operation-card,body[data-view=race] .operation-card{border:0;border-bottom:1px solid var(--line);background:transparent;border-radius:0;padding:6px 0;margin:0 0 12px}
+.operation-card summary{min-height:32px}
+.operation-card summary small{font-size:12px}
+#context{border-radius:4px;box-shadow:none}
+.home-hero{background:none;text-align:left;padding:18px 0 24px;max-width:950px;margin:0}
+.hero-lockup{justify-content:flex-start;margin:0;max-width:none}
+.hero-lockup>img{width:64px;height:64px}
+.hero-word{font-size:42px;line-height:1.1}
+.brand-expansion{font-size:11px;letter-spacing:.02em;max-width:600px}
+.home-hero h2{font-size:28px;margin:22px 0 10px}
+.home-hero>p{margin:0;max-width:700px;font-size:15px}
+.hero-actions{justify-content:flex-start;margin-top:22px;gap:10px}
+.hero-actions .large{font-size:14px;padding:9px 14px;min-height:40px}
+.home-footnote{font-size:12px;margin-top:14px}
+.section-rule{justify-content:flex-start;margin:12px 0;font-size:11px;letter-spacing:.05em}
+.home-actions{gap:0;border-block:1px solid var(--line);margin:0 0 12px}
+.task-entry{border:0;border-radius:0;background:transparent;padding:16px;text-align:left;box-shadow:none}
+.task-entry+.task-entry{border-left:1px solid var(--line)}
+.task-entry:hover{background:var(--selected)}
+.task-entry strong{font-size:15px}.task-entry small{font-size:12px}
+.tool-monogram{border-radius:4px;box-shadow:none}
+.current-study,.study-tile,.candidate,.distribution-layout,.accuracy-panel,.confidence-panel,.prediction-field-panel,.evidence-receipt,.run-receipt,#data-entry{border-radius:6px;box-shadow:none}
+.current-study:before,.study-tile:before{display:none}
+.workbench-heading h2{font-size:26px;letter-spacing:normal}
+.study-tile h3{font-size:22px;letter-spacing:normal}
+#study-summary:has(.current-study) .workbench-heading{display:none}
+body[data-view=study] #context{display:none!important}
+.current-study{padding:20px;margin-top:16px}
+.current-study .section-heading h2{font-size:24px;margin:4px 0}
+.current-study .section-heading{margin-bottom:10px}
+.study-pair{gap:16px;margin:16px 0}
+.study-tile{padding:16px}
+.study-tile h3{margin:8px 0;font-size:22px}
+.workbench-actions{gap:10px;margin-top:16px}
+.workbench-actions button{min-height:40px}
+.workbench-history{margin-top:24px}
+.workbench-actions button:nth-child(2){background:var(--surface);border-color:var(--control-line);color:var(--text)}
+.race-headline .experiment-bridge,.race-headline .race-verdict{border-radius:5px;background:var(--surface)}
+.race-headline .race-verdict{border-left:3px solid var(--supported)}
+.race-headline .race-verdict .help{font-size:12px!important}
+.experiment-bridge .sample-exclusions,.sample-exclusions summary{font-size:12px}
+.gene-list-panel,.gene-preview,.signature-panel{border-radius:5px;box-shadow:none}
+body[data-view=race] .compact-gene-table{font-size:13px}
+body[data-view=race] .compact-gene-table td,body[data-view=race] .compact-gene-table th{padding:8px 10px;font-size:13px}
+.compact-gene-table .outcome-text{font-size:12px}
+.table-scroll{border-radius:4px;scrollbar-gutter:stable;overscroll-behavior:contain}
+table{font-variant-numeric:tabular-nums}
+th{font-size:12px;text-transform:none;letter-spacing:normal;text-align:left}
+td{font-size:13px}
+thead th{position:sticky;top:0;background:var(--raised);z-index:2}
+tbody tr:hover{background:var(--selected)}
+tr[aria-selected=true]{background:var(--selected)}
+.table-scroll:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.cohort-grid fieldset,.settings,.check-receipt,.comparison-rail>section,.candidate-summary{border-radius:5px;box-shadow:none}
+.cohort-grid fieldset{padding:18px}
+#setup-navigation{border-radius:5px;box-shadow:0 2px 8px var(--backdrop)}
+.space-dialog h2{font-size:24px}.candidate{padding:18px}
+dialog{border-radius:8px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+dialog .close{min-height:36px}
+.family-name:hover,.family-name:focus-visible{letter-spacing:normal}
+.family-suffix,.family-prefix{transition:none}
+.family-prefix{opacity:1}
+.family-name,.family-lockup{font-weight:700}
+.family-lockup[data-family=SPACE]{color:var(--brand-0)}
+.family-lockup[data-family=FACE]{color:var(--brand-2)}
+.family-lockup[data-family=TRACE],.family-lockup[data-family=EMBRACE]{color:var(--brand-4)}
+.primary .family-lockup{color:inherit}
+button:hover .family-suffix,a:hover .family-suffix{box-shadow:none}
+.app-footer{margin-top:24px;font-size:12px}
+@media(max-width:1000px){main{padding-inline:20px}.app-header{flex-wrap:wrap;gap:10px}.header-tools{margin-left:auto}.wordmark{order:3;width:100%;justify-content:space-between}.wordmark button{flex:1}.home-hero{max-width:none}}
+@media(max-width:600px){main{padding:14px 12px 28px}.hero-word{font-size:34px}.hero-lockup>img{width:48px;height:48px}.home-hero h2{font-size:24px}.brand-expansion{font-size:10px}.home-actions{grid-template-columns:1fr}.task-entry+.task-entry{border-left:0;border-top:1px solid var(--line)}.hero-actions{display:grid;grid-template-columns:1fr;width:100%}.hero-actions button{width:100%}.wordmark .letter-caption{font-size:10px}.operation-card>summary{align-items:start;flex-wrap:wrap}.operation-card summary small{display:block;margin:2px 0 0}.operation-more{margin-left:auto}.cohort-grid,.comparison-rail,.gate-grid{grid-template-columns:1fr}.section-heading{flex-wrap:wrap;gap:10px}.actions{flex-wrap:wrap}dialog{padding:18px}.study-pair{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{.app-header,.journey-toolbar,.app-footer{display:none}main{max-width:none;padding:0}.table-scroll{max-height:none!important;overflow:visible}thead th{position:static}}

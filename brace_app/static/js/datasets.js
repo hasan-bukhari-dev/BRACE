@@ -49,6 +49,7 @@ function payload() {
       [negative]: negativeDefinition,
     };
     race_config = {
+      selection_count: Number($("#registry-selection-count").value),
       positive,
       negative,
       source_conditions: definitions,
@@ -268,6 +269,18 @@ async function inspect(id) {
       null,
       2,
     );
+    if(record.source.accession === "GSE21653") {
+      $("#registry-prepare").insertAdjacentHTML("beforebegin", '<button type="button" id="load-reviewed-er-plan">Review the pinned GSE21653 ER preparation plan</button><div id="reviewed-er-plan-summary"></div>');
+      $("#load-reviewed-er-plan").onclick=async()=>{
+        try {
+          const plan=await request("/api/datasets/"+id+"/reviewed-er-plan");
+          $("#registry-preparation").value=JSON.stringify(plan.preparation,null,2);
+          $("#registry-prepare-review").checked=false;
+          const s=plan.summary;
+          $("#reviewed-er-plan-summary").innerHTML=`<p><strong>${s.included}/${s.original_samples} tumors included:</strong> ${s.conditions.ER_positive} ER-positive and ${s.conditions.ER_negative} ER-negative; ${s.excluded} explicit ER-IHC NA exclusions. ${s.retained_features.toLocaleString()} source-mapped features retained.</p><p>${esc(s.limitations)}</p><p>Read the exact labels, exclusions and mapping below, then confirm the review to prepare. Loading this plan has not changed or analyzed the original.</p>`;
+        } catch(error) {hooks.message(error.message,"blocked")}
+      };
+    }
     $("#registry-prepare").onsubmit = async (event) => {
       event.preventDefault();
       if (hooks.isBusy()) return;
@@ -305,7 +318,7 @@ export function initDatasets(callbacks) {
     .map(([key, text]) => `<option value="${key}">${text}</option>`)
     .join(
       "",
-    )}</select><div class="cohort-grid"><div><label for="registry-source">Source / prediction dataset</label><select id="registry-source"></select></div><div id="registry-target-field"><label for="registry-target">Target dataset</label><select id="registry-target"></select></div></div><details id="registry-race"><summary>Review biological contrast and exploratory processing policy</summary><p>Use exact prepared metadata labels for the same biological contrast in both studies. Create a reviewed phenotype version first if the vocabularies differ.</p><div class="cohort-grid"><div><label for="registry-positive">Positive-group label</label><input id="registry-positive"><label for="registry-positive-definition">Positive-group biological definition</label><input id="registry-positive-definition"></div><div><label for="registry-negative">Negative-group label</label><input id="registry-negative"><label for="registry-negative-definition">Negative-group biological definition</label><input id="registry-negative-definition"></div></div><label class="check"><input id="registry-processing-review" type="checkbox">I accept exploratory within-study effect comparisons despite declared processing differences.</label><label class="check"><input id="registry-review" type="checkbox">I reviewed the source and target biological group definitions and processing limitations.</label></details><div class="actions"><button id="registry-check" type="submit">Check selected datasets</button><button id="registry-run" type="button" class="primary" disabled>Compute checked analysis</button></div></form><div id="registry-checks" aria-live="polite"></div><details><summary>Apply a previously frozen BRACE baseline</summary><p>Reuses an existing source-trained JSON freeze. No fitting on the new target. Unlabeled targets produce predictions with no accuracy metrics.</p><form id="registry-replay"><label for="registry-replay-name">Replay study name</label><input id="registry-replay-name" required maxlength="200"><label for="registry-freeze">Original source-trained run</label><select id="registry-freeze" required></select><label for="registry-replay-target">Target dataset version</label><select id="registry-replay-target" required></select><button>Apply frozen baseline</button></form></details>`;
+    )}</select><div class="cohort-grid"><div><label for="registry-source">Source / prediction dataset</label><select id="registry-source"></select></div><div id="registry-target-field"><label for="registry-target">Target dataset</label><select id="registry-target"></select></div></div><details id="registry-race"><summary>Review biological contrast and exploratory processing policy</summary><p>Use exact prepared metadata labels for the same biological contrast in both studies. Create a reviewed phenotype version first if the vocabularies differ.</p><div class="cohort-grid"><div><label for="registry-positive">Positive-group label</label><input id="registry-positive"><label for="registry-positive-definition">Positive-group biological definition</label><input id="registry-positive-definition"></div><div><label for="registry-negative">Negative-group label</label><input id="registry-negative"><label for="registry-negative-definition">Negative-group biological definition</label><input id="registry-negative-definition"></div></div><label class="check"><input id="registry-processing-review" type="checkbox">I accept exploratory within-study effect comparisons despite declared processing differences.</label><label for="registry-selection-count">Source selection cap</label><input id="registry-selection-count" type="number" min="1" max="1000" step="1" value="20"><p class="help">Freeze up to this many source features with BH q ≤ 0.05, ranked by absolute Hedges’ g. 20 preserves the historical example. Choose before inspecting the target; the 1–1000 range is a software limit, not a biological optimum.</p><label class="check"><input id="registry-review" type="checkbox">I reviewed the source and target biological group definitions and processing limitations.</label></details><div class="actions"><button id="registry-check" type="submit">Check selected datasets</button><button id="registry-run" type="button" class="primary" disabled>Compute checked analysis</button></div></form><div id="registry-checks" aria-live="polite"></div><details><summary>Apply a previously frozen BRACE baseline</summary><p>Reuses an existing source-trained JSON freeze. No fitting on the new target. Unlabeled targets produce predictions with no accuracy metrics.</p><form id="registry-replay"><label for="registry-replay-name">Replay study name</label><input id="registry-replay-name" required maxlength="200"><label for="registry-freeze">Original source-trained run</label><select id="registry-freeze" required></select><label for="registry-replay-target">Target dataset version</label><select id="registry-replay-target" required></select><button>Apply frozen baseline</button></form></details>`;
   $("#registry-analysis").addEventListener("input", invalidate);
   $("#registry-task").onchange = taskChanged;
   $("#registry-study").onchange = () => {

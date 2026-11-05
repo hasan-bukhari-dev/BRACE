@@ -150,6 +150,12 @@
     "reason": "Rejected configuration, format, field, organism, method or capability; not an assertion that a biological effect is false."
   },
   {
+    "source_file": "brace_core/shift07.py",
+    "literal_sha256": "7f6d9f751c80252e72b8c4ae01e55381d7649aa06b66db4008755c918d368cdb",
+    "decision": "keep_with_context",
+    "reason": "Unsupported names the specific paired/clustered inference method that BRACE does not implement. The current branch withholds p/q values and retains descriptive measurements; this is a bounded capability statement, not a claim about biological validity."
+  },
+  {
     "source_file": "brace_core/signature.py",
     "literal_sha256": "5903a57dedc7147a9a6fd9013cc6ddac95c0d71c0a08779a4d9f640d6853a6b4",
     "decision": "keep_with_context",

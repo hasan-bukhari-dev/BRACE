@@ -86,7 +86,10 @@ def cohort_context(c,result,role,preparation):
 
 def annotated(row,annotations,namespace):
     a=annotations.get(row['feature_id'],{})
-    return {**row,'gene_symbol':a.get('gene_symbol'),'probe_id':a.get('probe_id'),
+    contexts=obj(Path(__file__).with_name('gene_context.json'))
+    biological_context=contexts.get(row['feature_id']) if namespace=='entrez_gene' else None
+    return {**row,'gene_symbol':a.get('gene_symbol') or (biological_context or {}).get('current_symbol'),'probe_id':a.get('probe_id'),
+            'biological_context':biological_context,
             'feature_namespace':namespace,'annotation_note':a.get('annotation_source','No verified symbol annotation supplied; exact feature identifier retained.')}
 
 @router.get('/api/race/studies/{study_id}/genes')
@@ -100,6 +103,7 @@ def genes(study_id:str):
         positive=result['positive'],negative=result['negative'],condition_definitions=frozen['condition_definitions'],
         cohorts={r:cohort_context(c,result,r,preparation) for r,c in cohorts.items()},feature_coverage=result['feature_coverage'],
         warnings=result['warnings'],evaluation_role=result['evaluation_role'],
+        selection_rule=frozen['selection_rule'],method_descriptions={k:methods[k] for k in ('test','effect','standardized','ci','multiplicity')},
         shift_available=False,shift_note='This RACE run does not compute PCA or distribution shift. Existing shift results remain available in ACE for runs that computed them.')
 
 @router.get('/api/race/studies/{study_id}/gene')

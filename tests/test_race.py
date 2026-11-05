@@ -11,6 +11,27 @@ from brace_core import signature as race
 
 CONFIG=dict(positive='positive',negative='negative',source_conditions={'positive':'ER positive tumor','negative':'ER negative tumor'},target_conditions={'positive':'ER positive tumor','negative':'ER negative tumor'})
 
+@pytest.mark.parametrize('value',[0,1001,-1,True,1.5,'20',None])
+def test_selection_count_rejects_invalid_values(value):
+    with pytest.raises(ValueError,match='Selection count'):
+        race.settings(dict(CONFIG,selection_count=value))
+
+def test_explicit_cap_is_source_only_and_bound_to_freeze(tmp_path):
+    s=cohort('source');t=cohort('target')
+    cfg=dict(CONFIG,selection_count=1)
+    frozen=race.discover(s,cfg)
+    result=race.run(s,t,cfg,tmp_path/'one')
+    assert result['aggregate']['selected']==1
+    assert result['aggregate']['source_q_passing']==2
+    assert result['selection_rule']['max_genes']==1
+    assert result['method_version']=='brace-race/0.2.0'
+    changed=replace(t,values=t.values*-2)
+    race.run(s,changed,cfg,tmp_path/'changed')
+    assert (tmp_path/'changed/selected_signature.json').read_bytes()==frozen
+    with pytest.raises(ValueError,match='selection count'):
+        race.replicate(frozen,t,CONFIG)
+    assert race.discover(s,CONFIG)==race.discover(s,dict(CONFIG,selection_count=20))
+
 def cohort(role,values=None,features=('a','b','noise')):
     values=np.array(values if values is not None else [[i+10,i+10,i%3] for i in range(6)]+[[i,i,i%3] for i in range(6)],dtype=float)
     ids=tuple(role+str(i).zfill(2) for i in range(len(values)))

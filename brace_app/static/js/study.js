@@ -28,7 +28,7 @@ function body(){
  for(const name of tasks[state.mode].files){const file=files.get(name);if(!file)throw Error('Select the required '+name.replaceAll('_',' ')+' file.');if(file.size>25*1024*1024)throw Error(file.name+' exceeds 25 MiB. Prepare a documented smaller input and select it again; the limit is unchanged.');result.set(name,file)}
  if(state.mode==='race'){
   const positive=$('#positive').value.trim(),negative=$('#negative').value.trim();if(!$('#equivalence').checked)throw Error('Review the biological group definitions in both studies and confirm their equivalence.');
-  const definitions={[positive]:$('#positive-definition').value.trim(),[negative]:$('#negative-definition').value.trim()};result.set('race_config',JSON.stringify({positive,negative,source_conditions:definitions,target_conditions:definitions,allow_processing_difference:$('#processing-review').checked,evaluation_role:'exploratory',design:'unpaired',covariates:[]}));
+  const definitions={[positive]:$('#positive-definition').value.trim(),[negative]:$('#negative-definition').value.trim()};result.set('race_config',JSON.stringify({selection_count:Number($('#selection-count').value),positive,negative,source_conditions:definitions,target_conditions:definitions,allow_processing_difference:$('#processing-review').checked,evaluation_role:'exploratory',design:'unpaired',covariates:[]}));
  }return result;
 }
 export function initStudy({message,busy,completed,capabilities,changed}){

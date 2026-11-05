@@ -243,6 +243,15 @@ def prepare_original(dataset_id: str, request: GeneralPreparation):
         raise HTTPException(422, exc.to_dict() if isinstance(exc, InputProblem) else str(exc)) from exc
 
 
+@router.get('/api/datasets/{dataset_id}/reviewed-er-plan')
+def reviewed_er_plan(dataset_id: str):
+    from brace_app.public_recipes import er_21653_plan
+    try:
+        return er_21653_plan(dataset_id)
+    except (InputProblem, ValueError) as exc:
+        raise HTTPException(422, exc.to_dict() if isinstance(exc, InputProblem) else str(exc)) from exc
+
+
 async def delegate(request: Analysis, compute: bool):
     from brace_app import server, study_api
     needed = {'predictions'} if request.mode == 'evaluate_predictions' else {'source', 'target'}

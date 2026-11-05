@@ -23,6 +23,33 @@ def comp(mode='diagnose_shift'):
 def test_bh_known_values():
     assert _bh([.01,.02,.5])==pytest.approx([.03,.03,.5])
 
+def test_different_processing_withholds_inference_preserves_measurements(tmp_path):
+    from dataclasses import replace
+    c=comp()
+    target=replace(c.target,manifest=dict(c.target.manifest,processing_description='Different processing'))
+    compared=evaluate_compatibility(c.source,target,'diagnose_shift',scientific_role='unlabeled_shift_only')
+    result=analyze_shift(compared)
+    assert result['inference']['available'] is False
+    assert all(r['ks_p_exploratory'] is None and r['ks_bh_q_exploratory'] is None for r in result['gene_shifts'])
+    assert all(r['ks_d'] is not None and r['target_median'] is not None for r in result['gene_shifts'])
+    # Full CLI and API exports are also exercised by the integration suite.
+    assert any(w['code']=='SHIFT_INFERENCE_WITHHELD' for w in result['warnings'])
+
+def test_rank_one_pca_does_not_invent_second_axis_distances():
+    from brace_core.shift07 import _pca
+    sx=np.array([[i,2*i,3*i] for i in range(8)],dtype=float)
+    tx=np.array([[2,1,7],[4,3,10]],dtype=float)
+    result,distances=_pca(sx,tx,('a','b','c'),list(map(str,range(8))),['t1','t2'])
+    assert result['available'] is False
+    assert result['reason']=='SOURCE_PCA_RANK_BELOW_TWO' and distances is None
+
+def test_repeated_patients_withhold_shift_tests():
+    from dataclasses import replace
+    c=comp();md={s:dict(m,patient_id='same') for s,m in c.source.metadata.items()}
+    result=analyze_shift(replace(c,source=replace(c.source,metadata=md)))
+    assert not result['inference']['available']
+    assert all(r['ks_bh_q_exploratory'] is None for r in result['gene_shifts'])
+
 def test_bh_missing_preserved():
     assert _bh([None,.01])==[None,.01]
 

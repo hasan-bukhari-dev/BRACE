@@ -89,6 +89,9 @@ def test_public_registry_pipeline_keeps_science_and_lineage(client):
         assert lineage['source']['parent_records'][0]['source']['url'].startswith('https://ftp.ncbi.nlm.nih.gov/')
         assert lineage['source']['parent_records'][0]['assets']['original']['sha256']
         assert json.loads(archive.read('race/race_result.json'))['aggregate'] == run['race']['aggregate']
+        context=json.loads(archive.read('BIOLOGICAL_CONTEXT.json'))
+        assert context[gene]['source_url']=='https://www.ncbi.nlm.nih.gov/gene/'+gene
+        assert context[gene]['retrieved_date']=='2026-11-04'
     # A second computation can share a persisted study while retaining a distinct run ID.
     repeat = client.post('/api/dataset-analysis/run', json={**body, 'study_id': run['study_id']}).json()
     assert repeat['id'] != run['id'] and repeat['study_id'] == run['study_id']
@@ -223,13 +226,27 @@ def test_damaged_gzip_is_blocked_without_losing_acquisition(client, tmp_path):
     assert registry.asset_path(original['id'], 'original').read_bytes() == path.read_bytes()
 
 
-def test_general_geo_numeric_preparation_reaches_real_ce_and_race(client, tmp_path):
+def test_general_geo_numeric_preparation_reaches_real_ce_and_race(client, tmp_path, monkeypatch):
+    from brace_app import discovery
     prepared = {}
     for role in ('source', 'target'):
         samples = [role + str(index) for index in range(6)]
         text = '!series_matrix_table_begin\nID_REF\t' + '\t'.join(samples) + '\n'
         text += 'probeA\t1\t1.1\t1.2\t4\t4.1\t4.2\nprobeB\t2\t2.1\t2.2\t5\t5.1\t5.2\n!series_matrix_table_end\n'
-        original = register_matrix(tmp_path, text)
+        # Only the external transport is a synthetic fixture. Exercise the actual
+        # discovery listing, acquisition, registry, preparation and compute APIs.
+        accession='GSE12345' if role=='source' else 'GSE12346'
+        filename=accession+'_series_matrix.txt.gz'
+        original_bytes=gzip.compress(text.encode())
+        def public_bytes(url,limit=2*1024*1024):
+            if url.endswith(filename):return original_bytes
+            return ('<a href="'+filename+'">matrix</a>').encode()
+        monkeypatch.setattr(discovery,'public_bytes',public_bytes)
+        listing=client.get('/api/discovery/study/'+accession)
+        assert listing.status_code==200 and not listing.json()['eligible']
+        receipt=client.post('/api/discovery/acquire',json={'accession':accession,'filename':filename})
+        assert receipt.status_code==200 and not receipt.json()['eligible']
+        original=client.get('/api/datasets/'+receipt.json()['dataset_id']).json()
         manifest = json.loads((BASE / 'examples/synthetic_valid/source_manifest.json').read_text())
         manifest.update(role=role, cohort_id='technical_' + role, feature_namespace='entrez_gene',
                         measurement_type='microarray_log2_normalized', platform='GPL570')
@@ -239,6 +256,7 @@ def test_general_geo_numeric_preparation_reaches_real_ce_and_race(client, tmp_pa
             'feature_mapping': {'probeA': '101', 'probeB': '102'}, 'mapping_reference': 'Technical one-to-one fixture v1'})
         assert response.status_code == 200, response.text
         prepared[role] = response.json()['id']
+        assert response.json()['parent_dataset_ids']==[original['id']]
     body = {'name': 'General-format technical check', 'mode': 'diagnose_shift', 'datasets': prepared}
     assert client.post('/api/dataset-analysis/preflight', json=body).json()['eligible']
     result = client.post('/api/dataset-analysis/run', json=body)
@@ -249,3 +267,33 @@ def test_general_geo_numeric_preparation_reaches_real_ce_and_race(client, tmp_pa
     result = client.post('/api/dataset-analysis/run', json=body)
     assert result.status_code == 200, result.text
     assert result.json()['race']['aggregate']['selected'] == 2
+
+
+def test_reviewed_er_plan_rejects_other_originals(client, tmp_path):
+    original=register_matrix(tmp_path,'not the reviewed GSE21653 bytes')
+    response=client.get('/api/datasets/'+original['id']+'/reviewed-er-plan')
+    assert response.status_code==422 and 'exact reviewed' in response.json()['detail']
+    assert registry.get_dataset(original['id'])['status']=='acquired'
+
+
+def test_reviewed_er_plan_requires_exact_explicit_annotations(monkeypatch, tmp_path):
+    from brace_app import public_recipes as recipe
+    original=tmp_path/'original.gz';original.write_bytes(b'transport fixture')
+    real_digest=registry.digest
+    monkeypatch.setattr(registry,'asset_path',lambda *args:original)
+    monkeypatch.setattr(registry,'digest',lambda p:recipe.GSE21653_SHA256 if p==original else real_digest(p))
+    ids=['GSM'+str(i) for i in range(266)]
+    er=['er ihc: 1']*150+['er ihc: 0']*113+['er ihc: NA']*3
+    mapping=BASE/'examples/public_er_pair/prepared/selected_features.tsv'
+    import csv
+    with mapping.open(encoding='utf-8',newline='') as stream:features=[r['probe_id'] for r in csv.DictReader(stream,delimiter='\t')]
+    metadata={'!Sample_platform_id':[['GPL570']*266],
+        '!Sample_data_processing':[['RMA using a quantile normalization']*266],
+        '!Sample_characteristics_ch1':[er,['tissue: breast cancer tumor']*266]}
+    monkeypatch.setattr(recipe,'series_matrix',lambda p:dict(sample_ids=ids,feature_ids=features,metadata=metadata))
+    plan=recipe.er_21653_plan('fixture')
+    assert plan['summary']['included']==263 and plan['summary']['retained_features']==10000
+    assert len(plan['preparation']['excluded_samples'])==3
+    assert 'reviewed' not in plan['preparation']  # loading never approves or computes
+    er[0]='er ihc: unknown'
+    with pytest.raises(ValueError,match='Unrecognized ER IHC'):recipe.er_21653_plan('fixture')

@@ -6,6 +6,56 @@ from pathlib import Path
 import pytest
 
 
+def test_external_run_link_never_leaves_old_result_under_new_url(tmp_path):
+    node=shutil.which('node')
+    if not node:pytest.skip('Node is required to execute the browser navigation module')
+    source=Path(__file__).resolve().parents[1]/'brace_app/static/js/journey.js'
+    script=tmp_path/'journey-integrity.mjs'
+    script.write_text('''
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const events={};let reloads=0;
+globalThis.testState={view:'race',data:{id:'old-run'},entry:false,runUI:{}};
+globalThis.window={addEventListener(name,fn){events[name]=fn}};
+globalThis.location={hash:'#race?run=old-run',href:'http://localhost/#race?run=old-run',reload(){reloads++}};
+globalThis.history={state:null,replaceState(s,title,url){this.state=s;if(url?.startsWith('#'))location.hash=url},pushState(){}};
+globalThis.document={querySelector(){return {}},getElementById(){return {}},addEventListener(){}};
+globalThis.MutationObserver=class{observe(){}};
+globalThis.scrollY=0;globalThis.requestAnimationFrame=fn=>fn();globalThis.scrollTo=()=>{};
+let code=fs.readFileSync(process.argv[2],'utf8').replace("import {state,save} from './state.js';","const state=globalThis.testState;const save=()=>{};");
+const {initJourney}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+let release;initJourney(()=>new Promise(resolve=>{release=resolve}));
+events.hashchange();assert.equal(reloads,0);
+location.hash='#ace?run=new-run';history.state=null;events.hashchange();assert.equal(reloads,1);
+// A normal Back/Forward restore keeps the existing in-memory input files.
+const restoring=events.popstate({state:{brace:{view:'ace',runId:'new-run'},braceIndex:1}});
+events.hashchange();assert.equal(reloads,1);release();await restoring;
+console.log('Actual navigation module: external run link and history isolation passed');
+''',encoding='utf-8')
+    result=subprocess.run([node,str(script),str(source)],capture_output=True,text=True,timeout=20)
+    assert result.returncode==0,result.stderr
+
+
+def test_operation_receipt_distinguishes_training_evaluation_and_replay(tmp_path):
+    node=shutil.which('node')
+    if not node:pytest.skip('Node is required to execute the operation module')
+    source=Path(__file__).resolve().parents[1]/'brace_app/static/js/operation.js'
+    script=tmp_path/'operation-integrity.mjs'
+    script.write_text('''
+import fs from 'node:fs';import assert from 'node:assert/strict';
+globalThis.testState={view:'ace',entry:false,operationExpanded:false};
+let code=fs.readFileSync(process.argv[2],'utf8').replace("import {state} from './state.js';","const state=globalThis.testState;").replace("import {esc} from './ui.js';","const esc=String;");
+const {operationSummary}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const host={firstElementChild:{}};
+testState.data={id:'evaluation',validation:{},mode:'evaluate_predictions'};operationSummary(host);assert.match(host.innerHTML,/Saved prediction evaluation/);
+testState.data={id:'training',validation:{},mode:'train_validate'};operationSummary(host);assert.match(host.innerHTML,/Source-trained expression baseline/);
+testState.data={id:'replay',validation:{},replay:{},mode:'replay_frozen'};operationSummary(host);assert.match(host.innerHTML,/Frozen baseline application/);assert.doesNotMatch(host.innerHTML,/Saved prediction evaluation/);
+console.log('Actual operation module: three scientific operations remain distinct');
+''',encoding='utf-8')
+    result=subprocess.run([node,str(script),str(source)],capture_output=True,text=True,timeout=20)
+    assert result.returncode==0,result.stderr
+
+
 def test_reopen_never_borrows_draft_or_previous_cohort_identity(tmp_path):
     node = shutil.which('node')
     if not node:

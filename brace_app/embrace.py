@@ -22,10 +22,15 @@ from brace_app.evidence_audit import audit
 from brace_core.signature import FILES as RACE_FILES
 from brace_app.presentation import warning_view,uncertainty_view
 
-VERSION='brace-embrace/0.8.0'
+VERSION='brace-embrace/0.8.1'
 REPORT_FILES={'research_summary.html','HTML_PRESENTATION.json','analysis_methods.json','compatibility_summary.json','warning_exclusion_records.json',
-              'consistency_audit.json','CSV_TEXT_ENCODING.json','FILE_SHA256_MANIFEST.csv','REPRODUCE.md','PRIVACY.md','race_config.json','confusion_matrix.csv'}
+              'consistency_audit.json','CSV_TEXT_ENCODING.json','FILE_SHA256_MANIFEST.csv','REPRODUCE.md','PRIVACY.md','race_config.json','confusion_matrix.csv','BIOLOGICAL_CONTEXT.json'}
 router=APIRouter()
+
+def biological_context(race,methods):
+    if not race or methods['race']['source_manifest']['feature_namespace']!='entrez_gene':return {}
+    catalog=obj(Path(__file__).with_name('gene_context.json'))
+    return {g['feature_id']:catalog[g['feature_id']] for g in race['genes'] if g['feature_id'] in catalog}
 
 
 def publish_evidence(root, contents, provenance):
@@ -187,7 +192,15 @@ def report(config,validation,shift,race,methods,compat,warnings,check):
             table(['Rank','Feature ID','Source effect','Source p','Source q','Target effect','Target p','Target q','Direction','Evidence / reason'],[
                 [g['selection_rank'],g['feature_id'],g['source_effect'],s['p'],g['source_q'],g['effect'],g['p'],g['q'],g['direction_agreement'],g['classification']+(' · '+g['reason'] if g['reason'] else '')]
                 for g,s in zip(genes,frozen['selected'])]),
+            '<p>The source selection cap is declared before target testing, not a biological optimum. Source FDR eligibility, ranking, cap and displayed row count are separate decisions. Post-target cap comparisons are exploratory sensitivity analyses. Hedges’ g is a standardized difference, not accuracy. BH q is an adjusted p value; FDR concerns an expected false-discovery proportion under its assumptions, not a probability that a particular hypothesis is true.</p>',
             '<p>None means unavailable, never an assumed zero. Exact source/target group sizes, Hedges’ g, pointwise intervals and reasons remain in race/*.json and CSV. Pointwise intervals are not simultaneous or adjusted for source selection. No model transfer is established.</p>']
+    if race:
+        contexts=biological_context(race,methods)
+        if contexts:
+            sections+=['<h2>Dated biological context, separate from the experiment</h2><p>These NCBI Gene excerpts describe known or predicted function, not a causal conclusion from BRACE. Original probe mappings retain their own provenance. Full dated records are in BIOLOGICAL_CONTEXT.json.</p><ul>']
+            for gid,c in contexts.items():
+                sections+=['<li><a href="'+e(c['source_url'])+'">'+e(c['current_symbol'])+' (Entrez '+e(gid)+')</a>: '+e(c['name'])+'. '+e(c['function_excerpt'])+' Retrieved '+e(c['retrieved_date'])+'.</li>']
+            sections+=['</ul>']
     if a:
         m=a['metrics'];stage=methods.get('source_model_result');source=stage['outputs']['source_cv'] if stage else None
         def metricrows(x):return [[x['n'],x['n_correct'],x['n']-x['n_correct'],x['accuracy'],x['balanced_accuracy_observed'],x['supported_class_macro_f1'],x['macro_denominator'],', '.join(x['absent_true_classes']) or 'None']]
@@ -280,7 +293,7 @@ def _finalize(root):
             methods['source_model_configuration']=obj(root/'validation/stage05/frozen_model.json')['config']
         if not shift:compat=dict(note='This evaluation checks supplied labels and predictions; original training measurements are not reconstructed.',declared_prediction_provenance=validation['provenance'],source_cv_available=False)
     if shift:
-        compat=shift['compatibility'];methods['shift']=dict(science_version=shift['science_version'],provenance=shift.get('provenance'),pca={k:v for k,v in shift['pca'].items() if k!='samples'})
+        compat=shift['compatibility'];methods['shift']=dict(science_version=shift['science_version'],provenance=shift.get('provenance'),pca={k:v for k,v in shift['pca'].items() if k!='samples'},inference=shift.get('inference'))
         methods['scientific_methods']['shift']=shift['science_version']
     scientific=original_files(root,bool(race));raw_records={p.relative_to(root).as_posix():record(p.read_bytes()) for p in scientific}
     contents={p.relative_to(root).as_posix():p.read_bytes() for p in scientific if p.name!='FILE_SHA256_MANIFEST.csv'}
@@ -303,6 +316,7 @@ def _finalize(root):
         'REPRODUCE.md':reproduction(config['mode'],config.get('kind')=='historical').encode(),
         'PRIVACY.md':b'Original uploaded files, environment variables and executable models are excluded. Derived identifiers, scores, saved calculation records and declared provenance remain. Review them before sharing; identifiers/labels can still contain sensitive information. Hashes do not authenticate acquisition, legal permission or row independence.\n'}
     if race:additions['race_config.json']=json_bytes(methods['race']['config'])
+    if race:additions['BIOLOGICAL_CONTEXT.json']=json_bytes(biological_context(race,methods))
     if config.get('dataset_provenance'):
         additions['DATASET_LINEAGE.json']=json_bytes(config['dataset_provenance'])
     if config.get('public_data_document'):

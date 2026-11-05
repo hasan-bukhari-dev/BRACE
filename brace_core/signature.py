@@ -28,12 +28,15 @@ class RaceBlocked(ValueError):
         super().__init__('; '.join(i.message for i in issues if i.severity=='block'))
 
 def settings(config):
-    allowed={'positive','negative','source_conditions','target_conditions','design','covariates','allow_processing_difference','evaluation_role'}
+    allowed={'positive','negative','source_conditions','target_conditions','design','covariates','allow_processing_difference','evaluation_role','selection_count'}
     if not isinstance(config,dict) or set(config)-allowed:
         raise ValueError('Unsupported RACE configuration fields')
     c=dict(config)
     c.setdefault('design','unpaired');c.setdefault('covariates',[])
     c.setdefault('allow_processing_difference',False);c.setdefault('evaluation_role','exploratory')
+    c.setdefault('selection_count',20)
+    if type(c['selection_count']) is not int or not 1<=c['selection_count']<=1000:
+        raise ValueError('Selection count must be an integer from 1 to 1000; this is an implementation limit, not a biological optimum')
     if c['design']!='unpaired' or c['covariates'] or c['evaluation_role']!='exploratory':
         raise ValueError('Only unpaired, unadjusted exploratory RACE is supported; locked claims are unavailable')
     if type(c['allow_processing_difference']) is not bool: raise ValueError('Processing acknowledgement must be boolean')
@@ -133,14 +136,15 @@ def discover(source,config):
     if any(i.severity=='block' for i in issues):raise RaceBlocked(issues)
     rows=screen(source,config)
     qualifying=sorted((r for r in rows if r['q'] is not None and r['q']<=.05 and r['hedges_g'] is not None),key=lambda r:(-abs(r['hedges_g']),r['feature_id']))
-    ranks={r['feature_id']:i+1 for i,r in enumerate(qualifying[:20])}
+    limit=config['selection_count']
+    ranks={r['feature_id']:i+1 for i,r in enumerate(qualifying[:limit])}
     for r in rows:r.update(selected=r['feature_id'] in ranks,selection_rank=ranks.get(r['feature_id']))
-    frozen=dict(method_version=VERSION,source_id=source.cohort_id,source_input_hashes=source.input_files,
+    frozen=dict(method_version=VERSION if limit==20 else 'brace-race/0.2.0',source_id=source.cohort_id,source_input_hashes=source.input_files,
         source_sample_ids=sorted(source.sample_ids),source_patient_ids=sorted({source.metadata[s].get('patient_id','') for s in source.sample_ids}-{''}),
         positive=config['positive'],negative=config['negative'],condition_definitions=config['source_conditions'],
-        selection_rule=dict(source_bh_q_max=.05,max_genes=20,rank='descending absolute Hedges g, then feature ID'),
+        selection_rule=dict(source_bh_q_max=.05,max_genes=limit,rank='descending absolute Hedges g, then feature ID'),
         screened_family=[r['feature_id'] for r in rows],screen=rows,
-        selected=[dict(r,source_sign=int(np.sign(r['effect']))) for r in qualifying[:20]],
+        selected=[dict(r,source_sign=int(np.sign(r['effect']))) for r in qualifying[:limit]],
         source_manifest=source.manifest,software=dict(python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__),
         random_seed=None)
     frozen['hypothesis_hash']=digest(frozen)
@@ -150,6 +154,8 @@ def replicate(snapshot,target,config):
     frozen=json.loads(snapshot);claim=frozen.pop('hypothesis_hash')
     if digest(frozen)!=claim:raise ValueError('Frozen hypothesis hash mismatch')
     config=settings(config)
+    if config['selection_count']!=frozen['selection_rule']['max_genes']:
+        raise ValueError('Target selection count differs from the frozen source rule')
     if any(frozen[k]!=config[k] for k in ('positive','negative')) or frozen['condition_definitions']!=config['source_conditions']:
         raise ValueError('Target testing configuration differs from frozen contrast')
     issues=cohort_issues(target,config,False)
@@ -205,7 +211,9 @@ def run(source,target,config,out):
         opposite=sum(r['classification']=='opposite_direction' for r in genes),
         not_statistically_supported=sum(r['q']>.05 for r in testable),untestable=len(genes)-len(testable),
         indeterminate=sum(r['classification']=='indeterminate' for r in genes))
-    methods=dict(version=VERSION,config=config,source_family_size=len(frozen['screen']),target_family_size=len(genes),
+    methods=dict(version=frozen['method_version'],config=config,source_family_size=len(frozen['screen']),target_family_size=len(genes),
+        selection_rule=frozen['selection_rule'],
+        selection_interpretation='Selection count is a declared source-only cap, not a biological optimum or display limit. Sensitivity runs after viewing the target remain exploratory; do not select a favorable cap as independent confirmation.',
         undefined_tests='p=1 for family correction, q=null in displayed row; never selected or supported',
         test='Two-sided Welch t; unpaired, unadjusted; minimum 2/group; either zero within-group variance is untestable',
         effect='positive-group mean minus negative-group mean in deposited normalized log-intensity units; not labeled log2 fold change',
@@ -215,7 +223,8 @@ def run(source,target,config,out):
         independence='Unverified declarations remain exploratory; repeated patients, overlap and paired designs blocked',
         software=frozen['software'],source_manifest=source.manifest,target_manifest=target.manifest,
         input_files=dict(source=source.input_files,target=target.input_files),source_hypothesis_hash=frozen['hypothesis_hash'])
-    result=dict(method_version=VERSION,status='completed_with_warnings' if issues else 'completed',eligible=True,
+    result=dict(method_version=frozen['method_version'],status='completed_with_warnings' if issues else 'completed',eligible=True,
+        selection_rule=frozen['selection_rule'],
         evaluation_role='exploratory',validated_evidence_claim=False,hypothesis_hash=frozen['hypothesis_hash'],
         positive=config['positive'],negative=config['negative'],aggregate=aggregate,source_screen=frozen['screen'],genes=genes,
         warnings=[i.to_dict() for i in issues],input_files=methods['input_files'],

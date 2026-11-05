@@ -11,7 +11,7 @@ from scipy.stats import ks_2samp
 from sklearn.decomposition import PCA
 from .contracts import Compatibility
 
-VERSION='brace-shift/0.7.0'
+VERSION='brace-shift/0.7.1'
 MAX_PCA_FEATURES=250
 
 
@@ -44,7 +44,7 @@ def _matrix(comp:Compatibility):
     return sx,tx
 
 
-def _rows(sx,tx,features):
+def _rows(sx,tx,features,inference_available=True):
     a_med=np.median(sx,axis=0);b_med=np.median(tx,axis=0)
     q25=np.percentile(sx,25,axis=0);q75=np.percentile(sx,75,axis=0)
     iqr=q75-q25
@@ -63,7 +63,8 @@ def _rows(sx,tx,features):
                        'median_shift_per_source_iqr':_finite_float(std) if std is not None else None,
                        'standardized_shift_reason':'ZERO_SOURCE_IQR' if std is None else None,
                        'ks_d':float(ks_results[i].statistic),
-                       'ks_p_exploratory':pvalues[i], 'ks_bh_q_exploratory':qvalues[i]})
+                       'ks_p_exploratory':pvalues[i] if inference_available else None,
+                       'ks_bh_q_exploratory':qvalues[i] if inference_available else None})
     result.sort(key=lambda row:(-row['ks_d'], -abs(row['median_difference_target_minus_source']),row['feature_id']))
     return result
 
@@ -84,14 +85,18 @@ def _pca(sx,tx,features,source_ids,target_ids):
     zt=(tx[:,selected]-mu)/sd
     pca=PCA(n_components=2,svd_solver='full')
     ps=pca.fit_transform(zs)
+    # A second numerical axis can exist even when the source has rank one.
+    # Dividing that axis by an arbitrary epsilon produces enormous distances.
+    if pca.singular_values_[1] <= pca.singular_values_[0]*1e-10:
+        return {'available':False,'reason':'SOURCE_PCA_RANK_BELOW_TWO',
+                'source_fitted':True,'samples':[]},None
     pt=pca.transform(zt)
     # Euclidean distance in the source PC coordinate system, normalized by
     # source PC standard deviation. This is a heuristic distance, not a risk.
     source_origin=ps.mean(axis=0)
     axis_sd=ps.std(axis=0)
-    sd_ok=np.maximum(axis_sd,1e-12)
-    ds=np.linalg.norm((ps-source_origin)/sd_ok,axis=1)
-    dt=np.linalg.norm((pt-source_origin)/sd_ok,axis=1)
+    ds=np.linalg.norm((ps-source_origin)/axis_sd,axis=1)
+    dt=np.linalg.norm((pt-source_origin)/axis_sd,axis=1)
     cut=float(np.percentile(ds,95))
     points=[]
     for cohort,ids,p,d in [('source',source_ids,ps,ds),('target',target_ids,pt,dt)]:
@@ -183,7 +188,17 @@ def analyze_shift(comp:Compatibility,classes=('normal','tumor'), prediction_rows
     sx,tx=_matrix(comp)
     mode=comp.mode
     pca,distances=_pca(sx,tx,comp.shared_features,comp.source.sample_ids,comp.target.sample_ids)
-    features=_rows(sx,tx,comp.shared_features)
+    inference_reasons=[]
+    if any(i.code=='PROCESSING_DIFFERENCE' for i in comp.issues):
+        inference_reasons.append('Processing declarations differ; directly comparable measurement scales are not established.')
+    if set(comp.source.sample_ids)&set(comp.target.sample_ids) or any(i.code in ('PATIENT_OVERLAP','KNOWN_NONINDEPENDENCE') for i in comp.issues):
+        inference_reasons.append('Known overlapping or dependent observations invalidate the independent-sample test.')
+    for cohort in (comp.source,comp.target):
+        patients=[cohort.metadata[s].get('patient_id') for s in cohort.sample_ids]
+        known=[p for p in patients if p]
+        if len(set(known))!=len(known) or any(cohort.metadata[s].get('pair_id') for s in cohort.sample_ids):
+            inference_reasons.append(cohort.role+' contains repeated patients or declared pairs; clustered/paired inference is unsupported.')
+    features=_rows(sx,tx,comp.shared_features,not inference_reasons)
     result={'stage':'07','science_version':VERSION,'mode':mode,'result_origin':'new_expression_computation',
             'data_type':'user_or_synthetic_expression_as_declared_in_manifests',
             'compatibility':comp.to_dict(),
@@ -191,8 +206,13 @@ def analyze_shift(comp:Compatibility,classes=('normal','tumor'), prediction_rows
                                 'source_only':len(comp.source.feature_ids)-len(comp.shared_features),
                                 'target_only':len(comp.target.feature_ids)-len(comp.shared_features)},
             'gene_shifts':features,'pca':pca,
+            'inference':{'available':not inference_reasons,'reasons':inference_reasons,
+                         'note':'KS D, medians and source PCA describe deposited measurements. P/q values are withheld for incompatible processing or known dependence. Unknown independence remains a limitation, not an authenticated fact.'},
             'warnings':[{'code':i.code,'severity':i.severity,'message':i.message} for i in comp.issues],
             'interpretation':'Descriptive shift only; cohort differences do not establish causes of model errors, technical batch effects or biological mechanisms.'}
+    if inference_reasons:
+        result['warnings'].append({'code':'SHIFT_INFERENCE_WITHHELD','severity':'warning',
+                                  'message':'P/q values withheld. '+' '.join(inference_reasons)})
     if mode=='train_validate':
         result['label_based_exploratory']={'class_composition':{
             'source':_class_composition(comp.source,classes),'target':_class_composition(comp.target,classes)},

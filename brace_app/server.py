@@ -75,7 +75,10 @@ async def reject_foreign_write_origins(request, call_next):
             except (ValueError,UnicodeError) as exc:
                 return JSONResponse({'detail':{'code':'INVALID_JSON','message':str(exc)}},status_code=422)
             request._body=body
-    return await call_next(request)
+    response = await call_next(request)
+    if request.url.path.startswith('/assets/'):
+        response.headers['Cache-Control'] = 'no-cache'
+    return response
 app.mount('/assets', StaticFiles(directory=STATIC), name='assets')
 
 
@@ -98,7 +101,7 @@ def health():
         public_available=True
     except HTTPException:
         public_available=False
-    return {'status':'ok','version':VERSION,'scope':'research_only','network':'localhost_only',
+    return {'status':'ok','version':VERSION,'scope':'research_only','network':'localhost_only','process_id':os.getpid(),
             'geo_expression_data_available':public_available,
             'note':'Approved public ER example is a saved exploratory computation; CPTAC predictions remain archived historical evidence.'}
 
@@ -133,7 +136,8 @@ def mini_shift(raw):
             'feature_coverage':raw.get('feature_coverage'), 'pca':raw.get('pca'),
             'gene_shifts':raw.get('gene_shifts',[]), 'label_based_exploratory':raw.get('label_based_exploratory'),
             'error_association':raw.get('error_association'), 'warnings':raw.get('warnings',[]),
-            'provenance':raw.get('provenance'), 'interpretation':raw.get('interpretation','')}
+            'provenance':raw.get('provenance'), 'interpretation':raw.get('interpretation',''),
+            'inference':raw.get('inference')}
 
 
 @app.get('/api/example/cptac')

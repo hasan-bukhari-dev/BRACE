@@ -1,0 +1,31 @@
+{
+  "brace_core/signature.py": {
+    "method_versions": [
+      "brace-race/0.1.0 (historical cap 20)",
+      "brace-race/0.2.0 (declared nondefault cap)"
+    ],
+    "reason": "Replace the hard-coded selection cap with a validated source-only integer parameter. Preserve historical default source selection and numerical calculations; reject a replay cap that differs from the frozen rule.",
+    "regression_tests": [
+      "tests/test_race.py::test_explicit_cap_is_source_only_and_bound_to_freeze",
+      "tests/test_public_er_pair.py",
+      "scripts/validate_research.py"
+    ],
+    "baseline_sha256": "c7f5679565b57c364a5339e9dee4dff99c16ef557d76ace2cebf06efd80dcd44",
+    "current_sha256": "3c3977b8699f096f2018c3e544304fed9e3973a3d8dbad7595c52fc45df94c3e",
+    "baseline_commit": "1d31e7136636913f999faa09f7f029be6cac2818"
+  },
+  "brace_core/shift07.py": {
+    "method_versions": [
+      "brace-shift/0.7.1"
+    ],
+    "reason": "Withhold independent-sample p/q values when processing differs or known dependence is present. Preserve descriptive KS D and measurements. Refuse rank-one two-axis PCA distances instead of dividing a degenerate axis by epsilon.",
+    "regression_tests": [
+      "tests/test_stage07.py::test_different_processing_withholds_inference_preserves_measurements",
+      "tests/test_stage07.py::test_rank_one_pca_does_not_invent_second_axis_distances",
+      "tests/test_stage07.py::test_repeated_patients_withhold_shift_tests"
+    ],
+    "baseline_sha256": "4a47a361261420893f509943534efe4da688617fb3fb7511a25e1b8620d1064d",
+    "current_sha256": "7b257507b8d983f6cf5d510419277ee9fc94afe45255452c28e998e35066b267",
+    "baseline_commit": "1d31e7136636913f999faa09f7f029be6cac2818"
+  }
+}
