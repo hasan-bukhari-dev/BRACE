@@ -105,8 +105,8 @@ jobs:
           $info=(Get-Item -LiteralPath $setup).VersionInfo
           $numeric=@($info.FileMajorPart,$info.FileMinorPart,$info.FileBuildPart,$info.FilePrivatePart) -join '.'
           @{expected=$releaseVersion;file_version=$info.FileVersion;product_version=$info.ProductVersion;numeric_file_version=$numeric} | ConvertTo-Json -Compress | Write-Output
-          if($info.FileVersion -ne $releaseVersion -or $info.ProductVersion -ne $releaseVersion -or $numeric -ne "$releaseVersion.0"){throw 'Installer PE version mismatch'}
-          @{status='PASS';version=$releaseVersion;file_version=$info.FileVersion;product_version=$info.ProductVersion;numeric_file_version=$numeric;filename=(Split-Path $setup -Leaf)} | ConvertTo-Json | Set-Content -LiteralPath release-assets/WINDOWS_INSTALLER_VERSION.json -Encoding utf8
+          if($info.FileVersion.Trim() -ne $releaseVersion -or $info.ProductVersion.Trim() -ne $releaseVersion -or $numeric -ne "$releaseVersion.0"){throw 'Installer PE version mismatch'}
+          @{status='PASS';version=$releaseVersion;file_version=$info.FileVersion.Trim();product_version=$info.ProductVersion.Trim();numeric_file_version=$numeric;filename=(Split-Path $setup -Leaf)} | ConvertTo-Json | Set-Content -LiteralPath release-assets/WINDOWS_INSTALLER_VERSION.json -Encoding utf8
           $destination=Join-Path $env:RUNNER_TEMP 'BRACE-installed-check'
           $process=Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART',('/DIR="'+$destination+'"')) -WindowStyle Hidden -Wait -PassThru
           if($process.ExitCode -ne 0){throw 'Installer failed'}
