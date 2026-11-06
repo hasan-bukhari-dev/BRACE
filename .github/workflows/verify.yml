@@ -52,6 +52,7 @@ jobs:
           if($LASTEXITCODE -ne 0){throw 'Installer version compiler smoke failed'}
           $info=(Get-Item -LiteralPath (Join-Path $env:RUNNER_TEMP 'brace-version-smoke.exe')).VersionInfo
           $numeric=@($info.FileMajorPart,$info.FileMinorPart,$info.FileBuildPart,$info.FilePrivatePart) -join '.'
+          @{expected=$releaseVersion;file_version=$info.FileVersion;product_version=$info.ProductVersion;numeric_file_version=$numeric} | ConvertTo-Json -Compress | Write-Output
           if($info.FileVersion -ne $releaseVersion -or $info.ProductVersion -ne $releaseVersion -or $numeric -ne "$releaseVersion.0"){throw 'Installer version fields disagree with VERSION'}
       - run: python verify_release.py
       - run: python -m pytest -q
