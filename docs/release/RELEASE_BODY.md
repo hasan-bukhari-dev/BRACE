@@ -1,4 +1,4 @@
-# BRACE 1.2.3 — Clarity & Documentation
+# BRACE 1.2.4 — Clarity & Documentation
 
 Official tool names and plain-language navigation are now consistent. The shared BRACE rectangle and five destinations remain; E and EMBRACE are one evidence workspace.
 
@@ -13,3 +13,7 @@ Publication requires exact-tag source, executable, portability, native controlle
 Agent workflow and PDF review are complete. Independent unfamiliar-user and screen-reader acceptance remain unmeasured; full WCAG compliance is not claimed. Windows installer screenshots were not captured. Only two target normal samples occur in the illustrated baseline. Statistical results remain exploratory research evidence.
 
 Close BRACE before installing. The installer is unsigned. Ordinary evidence exports omit original uploads; private workspace backups include them and should be reviewed before sharing.
+
+## Installer correction
+
+Final asset inspection found that 1.2.3 still used a hard-coded 1.2.2 installer label. That tag is preserved. Version 1.2.4 binds AppVersion, filename and Windows PE version fields to VERSION and checks them before publication. The interface and scientific engines are unchanged from 1.2.3; the manual is regenerated for 1.2.4.

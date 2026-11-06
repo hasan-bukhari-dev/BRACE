@@ -1,11 +1,14 @@
 #ifndef BuildVersion
-  #define BuildVersion "1.2.2"
+  #error "Pass BuildVersion from the authoritative VERSION file."
 #endif
 [Setup]
 AppId=BRACE-Local-Research-Workbench
 AppName=BRACE
 AppVersion={#BuildVersion}
-VersionInfoVersion=1.2.2.0
+VersionInfoVersion={#BuildVersion}.0
+VersionInfoTextVersion={#BuildVersion}
+VersionInfoProductVersion={#BuildVersion}.0
+VersionInfoProductTextVersion={#BuildVersion}
 AppPublisher=BRACE contributors
 AppPublisherURL=https://github.com/hasan-bukhari-dev/BRACE
 AppSupportURL=https://github.com/hasan-bukhari-dev/BRACE/issues

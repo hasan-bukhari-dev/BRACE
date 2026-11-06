@@ -1,8 +1,8 @@
-# Build and release BRACE 1.2.3
+# Build and release BRACE 1.2.4
 
 The repository is `https://github.com/hasan-bukhari-dev/BRACE`. BRACE-authored material is rights reserved; datasets and dependencies retain their own terms. Do not label the project MIT/open source or claim blanket data redistribution permissions.
 
-Current verification, agent workflow review and remaining independent-usability limits are recorded in [RELEASE_1_2_3.md](../RELEASE_1_2_3.md). Do not infer human acceptance from a successful build.
+Current verification, agent workflow review and remaining independent-usability limits are recorded in [RELEASE_1_2_4.md](../RELEASE_1_2_4.md). Do not infer human acceptance from a successful build.
 
 ## Source checks
 
@@ -18,13 +18,13 @@ Use `python scripts/check_distribution.py dist/BRACE/BRACE.exe` on Windows, `dis
 
 The controller's `--launcher-self-test` creates a real native window, waits for the server, then closes it safely and writes a receipt into `BRACE_DATA_DIR`. Use an isolated scratch folder and `BRACE_NO_BROWSER=1` in automation. `--headless` runs the same bundled server without the controller. Neither changes the computation.
 
-On Windows, Inno Setup 6 compiles `packaging/windows.iss`. Install is per user without administrator privileges; run data are outside the installed resources and are not removed on uninstall. The release workflow tests install, the installed executable and uninstall in the build runner. Inspect the controller and installer on a real target laptop before broad distribution.
+On Windows, Inno Setup 6 compiles `packaging/windows.iss` with `/DBuildVersion=` set to the trimmed VERSION file. The compiler rejects a missing version. AppVersion, setup filename and PE file/product version fields share that value. Source CI compiles the Setup directives without application files to verify the version fields before tagging; release CI additionally checks the actual installer filename and PE fields before installing. See the [official preprocessor options](https://jrsoftware.org/ishelp/topic_isppcc.htm). Install is per user without administrator privileges; run data are outside the installed resources and are not removed on uninstall. The release workflow tests install, the installed executable and uninstall in the build runner. Inspect the controller and installer on a real target laptop before broad distribution.
 
 ## GitHub workflow
 
 1. Commit only the reviewed source payload. `.gitattributes` disables automatic newline conversion so pinned historical evidence retains exact bytes. Never commit `.venv`, `runs`, local credentials or build products.
 2. `Verify source` runs the actual regression and smoke suite on Windows, Ubuntu and macOS. Wait for actual results; a workflow file is not evidence that its jobs passed.
-3. Tag the reviewed commit `v1.2.3` and push that tag.
+3. Tag the reviewed commit `v1.2.4` and push that tag.
 4. Dispatch `Build release` for the tag. The default builds Windows only and verifies real public-data computation, restart recovery, the native controller and installer lifecycle. The optional `all` builds each platform on its own runner and verifies the bundled backend separately. Mac/Linux are experimental until their native GUI/device acceptance is completed.
 5. The workflow creates a **Windows release** only after its build checks pass, attaching actual binaries, receipts, checksums and the tagged source ZIP. Publication is gated on those checks. Never repoint a published tag to quietly replace a failed release.
 

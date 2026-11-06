@@ -36,6 +36,23 @@ jobs:
       - run: python -m pip install -r requirements-release.txt
       - run: python scripts/check_repository.py
       - run: python tools/check_documentation.py
+      - name: Verify installer version binding before tagging
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $releaseVersion=(Get-Content -LiteralPath VERSION -Raw).Trim()
+          $compiler=@('C:\Program Files (x86)\Inno Setup 6\ISCC.exe','C:\Program Files (x86)\Inno Setup 7\ISCC.exe','C:\Program Files\Inno Setup 6\ISCC.exe','C:\Program Files\Inno Setup 7\ISCC.exe') | Where-Object {Test-Path -LiteralPath $_} | Select-Object -First 1
+          if(-not $compiler){throw 'Inno compiler required for version verification'}
+          # Compile only the actual Setup directives, without application files or execution.
+          $fixture=Join-Path $env:RUNNER_TEMP 'brace-version-smoke.iss'
+          $settings=((Get-Content -LiteralPath packaging/windows.iss -Raw) -split '\[Files\]',2)[0]
+          $settings=$settings -replace '(?m)^SourceDir=\.\.\r?$',('SourceDir='+(Get-Location).Path)
+          [IO.File]::WriteAllText($fixture,$settings)
+          & $compiler "/DBuildVersion=$releaseVersion" "/O$env:RUNNER_TEMP" '/Fbrace-version-smoke' $fixture
+          if($LASTEXITCODE -ne 0){throw 'Installer version compiler smoke failed'}
+          $info=(Get-Item -LiteralPath (Join-Path $env:RUNNER_TEMP 'brace-version-smoke.exe')).VersionInfo
+          $numeric=@($info.FileMajorPart,$info.FileMinorPart,$info.FileBuildPart,$info.FilePrivatePart) -join '.'
+          if($info.FileVersion -ne $releaseVersion -or $info.ProductVersion -ne $releaseVersion -or $numeric -ne "$releaseVersion.0"){throw 'Installer version fields disagree with VERSION'}
       - run: python verify_release.py
       - run: python -m pytest -q
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4

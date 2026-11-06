@@ -1,5 +1,5 @@
 {
-  "release": "1.2.3",
+  "release": "1.2.4",
   "status": "CONDITIONAL",
   "condition": "Independent unfamiliar-user usability, screen reader and full WCAG acceptance are not claimed. Tagged binary and installer gates must pass before publication.",
   "baseline_commit": "19e2aeb1db51fbc2a0f1457896d610e776044484",
@@ -18,11 +18,12 @@
     "screenshots": 25,
     "console_errors_in_final_evidence_view": 0
   },
-  "pdf_verification": "PDF_VERIFICATION_1_2_3.json",
+  "pdf_verification": "PDF_VERIFICATION_1_2_4.json",
   "additional_real_data": "NON_DEMO_1_2_3.json",
   "independent_human_usability": "NOT RUN",
   "screen_reader": "NOT RUN",
   "windows_installer_visual_screenshots": "NOT CAPTURED; automated install, installed-app and uninstall gates are separate",
   "release_receipts": "Exact-tag CI, JUnit and Windows assets are authoritative after building.",
-  "history": "VERIFICATION_1_2_2_HISTORY.json"
+  "history": "VERIFICATION_1_2_2_HISTORY.json",
+  "packaging_correction": "Published 1.2.3 tag preserved. Installer version now supplied from VERSION and verified by source compiler smoke plus actual-package PE/filename gates."
 }

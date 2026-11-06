@@ -2,7 +2,7 @@
 
 From Research Data to Verifiable Evidence
 
-Product version: 1.2.3. Scientific scope remains research-only.
+Product version: 1.2.4. Scientific scope remains research-only.
 
 ## 1. Start with a research question
 
@@ -152,7 +152,7 @@ FACE - Feature Analysis of Cohort Expression
 
 TRACE - Transparent Record of Analysis, Computation & Evidence
 
-Plain-language actions remain primary. E and EMBRACE open one evidence workspace. SPACE belongs to acquisition; FACE and TRACE inspect the active result. Method identifiers and artifact schema versions retain their historical names independently of product release 1.2.3.
+Plain-language actions remain primary. E and EMBRACE open one evidence workspace. SPACE belongs to acquisition; FACE and TRACE inspect the active result. Method identifiers and artifact schema versions retain their historical names independently of product release 1.2.4.
 
 ## Official file listing
 
@@ -198,9 +198,9 @@ Saved data contains acquired originals, prepared expression versions and saved p
 
 ## References, rights and verification
 
-[Scientific methods and limitations](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/SCIENTIFIC_PROTOCOL_1_0.md), [original data sources](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_SOURCES.md), [input contracts](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_GUIDE.md) and [reproduction instructions](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/REPRODUCIBILITY.md) provide the full technical record.
+[Scientific methods and limitations](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/SCIENTIFIC_PROTOCOL_1_0.md), [original data sources](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/DATA_SOURCES.md), [input contracts](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/DATA_GUIDE.md) and [reproduction instructions](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/REPRODUCIBILITY.md) provide the full technical record.
 
-BRACE-authored material is rights reserved. Data and dependencies retain their own terms: read [the license](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/LICENSE) and [third-party notices](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/THIRD_PARTY_NOTICES.md).
+BRACE-authored material is rights reserved. Data and dependencies retain their own terms: read [the license](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/LICENSE) and [third-party notices](https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/THIRD_PARTY_NOTICES.md).
 
 Screens show the actual local workbench, with guide annotations identified separately. Windows setup behavior is covered by installer lifecycle checks rather than fabricated installer screenshots. Automated and agent walkthroughs do not constitute independent unfamiliar-user acceptance, screen-reader testing or a WCAG compliance audit. The baseline example has only two target normal samples. Additional-cohort checks are exploratory post-hoc execution evidence, not clinical or prospective validation.
 

@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing tag to build
         required: true
-        default: v1.2.3
+        default: v1.2.4
       platforms:
         description: Windows first; select all for separately verified experimental builds
         type: choice
@@ -96,9 +96,16 @@ jobs:
         run: |
           $compiler=@('C:\Program Files (x86)\Inno Setup 6\ISCC.exe','C:\Program Files (x86)\Inno Setup 7\ISCC.exe','C:\Program Files\Inno Setup 6\ISCC.exe','C:\Program Files\Inno Setup 7\ISCC.exe') | Where-Object {Test-Path -LiteralPath $_} | Select-Object -First 1
           if(-not $compiler){throw 'Inno Setup 6 is required; no unverified installer fallback'}
-          & $compiler packaging/windows.iss
+          $releaseVersion=(Get-Content -LiteralPath VERSION -Raw).Trim()
+          if($releaseVersion -notmatch '^\d+\.\d+\.\d+$'){throw 'Installer requires a stable numeric VERSION'}
+          & $compiler "/DBuildVersion=$releaseVersion" packaging/windows.iss
           if($LASTEXITCODE -ne 0){throw 'Installer compile failed'}
-          $setup=(Get-ChildItem release-assets/*-setup.exe).FullName
+          $setup=Join-Path (Get-Location) "release-assets/BRACE-$releaseVersion-windows-x64-setup.exe"
+          if(-not(Test-Path -LiteralPath $setup)){throw 'Versioned installer filename mismatch'}
+          $info=(Get-Item -LiteralPath $setup).VersionInfo
+          $numeric=@($info.FileMajorPart,$info.FileMinorPart,$info.FileBuildPart,$info.FilePrivatePart) -join '.'
+          if($info.FileVersion -ne $releaseVersion -or $info.ProductVersion -ne $releaseVersion -or $numeric -ne "$releaseVersion.0"){throw 'Installer PE version mismatch'}
+          @{status='PASS';version=$releaseVersion;file_version=$info.FileVersion;product_version=$info.ProductVersion;numeric_file_version=$numeric;filename=(Split-Path $setup -Leaf)} | ConvertTo-Json | Set-Content -LiteralPath release-assets/WINDOWS_INSTALLER_VERSION.json -Encoding utf8
           $destination=Join-Path $env:RUNNER_TEMP 'BRACE-installed-check'
           $process=Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART',('/DIR="'+$destination+'"')) -WindowStyle Hidden -Wait -PassThru
           if($process.ExitCode -ne 0){throw 'Installer failed'}

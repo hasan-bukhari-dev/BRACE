@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "BRACE Research Workbench",
-    "version": "1.2.3"
+    "version": "1.2.4"
   },
   "paths": {
     "/": {

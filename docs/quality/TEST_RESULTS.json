@@ -1,5 +1,5 @@
 {
-  "release": "1.2.3",
+  "release": "1.2.4",
   "baseline": {
     "commit": "19e2aeb1db51fbc2a0f1457896d610e776044484",
     "windows_ci_passed": 367,
@@ -18,5 +18,12 @@
   "science": "PASS; fresh real ER 14/20, archived predictions 668/680, independent reference errors below 4e-14",
   "additional_data": "PASS; NON_DEMO_1_2_3.json",
   "full_suite": "Exact tagged CI is authoritative for final test count, including the subsequent baseline-heading regression. Windows JUnit and binary/installer receipts accompany the release.",
-  "visual": "Agent walkthrough PASS; independent human usability and screen reader NOT RUN"
+  "visual": "Agent walkthrough PASS; independent human usability and screen reader NOT RUN",
+  "verified_1_2_3_source": {
+    "commit": "8a2c5ec30b06042d4266967b9f46901e9353a968",
+    "windows_passed": 371,
+    "macos_linux_passed": 370,
+    "source_run": 42130885141
+  },
+  "installer_version_gate": "Actual compiler/PE checks required before the 1.2.4 tag and release; previous lifecycle checks did not detect the stale installer label."
 }

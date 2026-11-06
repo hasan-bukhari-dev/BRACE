@@ -80,7 +80,7 @@
     {
       "from": "README.md",
       "kind": "document_or_ui_reference",
-      "to": "docs/RELEASE_1_2_3.md"
+      "to": "docs/RELEASE_1_2_4.md"
     },
     {
       "from": "README.md",
@@ -3323,6 +3323,11 @@
       "to": "USER_GUIDE.md"
     },
     {
+      "from": "docs/RELEASE_1_2_4.md",
+      "kind": "document_or_ui_reference",
+      "to": "RELEASE_1_2_3.md"
+    },
+    {
       "from": "docs/REPRODUCIBILITY.md",
       "kind": "document_or_ui_reference",
       "to": "DATASET_WORKFLOW.md"
@@ -3710,32 +3715,32 @@
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/SCIENTIFIC_PROTOCOL_1_0.md"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/SCIENTIFIC_PROTOCOL_1_0.md"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_SOURCES.md"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/DATA_SOURCES.md"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/DATA_GUIDE.md"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/DATA_GUIDE.md"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/REPRODUCIBILITY.md"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/REPRODUCIBILITY.md"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/LICENSE"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/LICENSE"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
       "kind": "document_or_ui_reference",
-      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.3/docs/THIRD_PARTY_NOTICES.md"
+      "to": "https://github.com/hasan-bukhari-dev/BRACE/blob/v1.2.4/docs/THIRD_PARTY_NOTICES.md"
     },
     {
       "from": "docs/manual/USER_MANUAL.md",
@@ -3750,7 +3755,12 @@
     {
       "from": "docs/release/RELEASING.md",
       "kind": "document_or_ui_reference",
-      "to": "../RELEASE_1_2_3.md"
+      "to": "../RELEASE_1_2_4.md"
+    },
+    {
+      "from": "docs/release/RELEASING.md",
+      "kind": "document_or_ui_reference",
+      "to": "https://jrsoftware.org/ishelp/topic_isppcc.htm"
     },
     {
       "from": "examples/public_er_pair/evidence/GSE20711_matrix_listing.html",
