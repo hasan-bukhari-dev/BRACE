@@ -1,0 +1,40 @@
+/* Shared product navigation; operational pages keep the same controls compact. */
+.app-header{height:auto;min-height:76px;justify-content:space-between;gap:16px;padding:10px max(24px,calc((100vw - 1400px)/2))}
+.brand-lockup{font-size:34px;letter-spacing:-1px;gap:12px}
+.brand-lockup img{width:64px;height:50px}
+.header-tools{margin-left:auto}
+.tool-navigation{padding:24px 24px 0;background:var(--surface);border-bottom:1px solid var(--line)}
+.tool-navigation #wordmark{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;width:100%;max-width:900px;margin:0 auto;flex:none;order:initial}
+.tool-navigation #wordmark button{min-width:0;min-height:112px;padding:12px 6px 16px;gap:12px;border-radius:0;border-bottom:3px solid transparent;align-content:start}
+.tool-navigation #wordmark .glyph{width:100%;height:64px;font-size:52px;line-height:1;font-weight:750;border-radius:0}
+.tool-navigation #wordmark .letter-caption{font-size:13px;line-height:1.4;white-space:normal;text-align:center;color:var(--muted)}
+.tool-navigation #wordmark button[aria-current=page]{border-bottom-color:var(--text)}
+.tool-navigation #wordmark button[aria-current=page] .letter-caption{color:var(--text);font-weight:800}
+.tool-navigation #wordmark button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;z-index:1}
+.tool-navigation #wordmark-plate{border-radius:6px}
+.tool-navigation #navigation-purpose{max-width:900px;min-height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto;padding:12px 8px 16px;border:0;background:transparent;font-size:13px;line-height:1.6;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;color:var(--text)}
+body:not([data-view=study]) .tool-navigation{padding-top:12px}
+body:not([data-view=study]) .tool-navigation #wordmark button{min-height:70px;padding:6px;gap:6px}
+body:not([data-view=study]) .tool-navigation #wordmark .glyph{height:38px;font-size:32px}
+body:not([data-view=study]) .tool-navigation #navigation-purpose{min-height:48px;padding:8px;font-size:12px}
+.home-hero .hero-lockup>img{width:56px;height:56px}
+.home-hero .hero-word{font-size:34px}
+.home-actions .tool-monogram{width:66px;min-width:66px;height:44px;font-size:17px;letter-spacing:.02em}
+html{scroll-padding-top:100px}
+@media(max-width:600px){
+ .app-header{min-height:68px;padding:8px 14px;gap:8px;flex-wrap:nowrap}
+ .brand-lockup{font-size:26px;gap:7px}.brand-lockup img{width:46px;height:38px}
+ .header-tools{gap:0}.header-tools .icon-button{width:36px;min-width:36px;padding:7px}
+ .tool-navigation{padding:16px 12px 0}
+ .tool-navigation #wordmark button{min-height:92px;padding:8px 2px;gap:8px}
+ .tool-navigation #wordmark .glyph{height:48px;font-size:36px}
+ .tool-navigation #wordmark .letter-caption{font-size:10px;min-height:28px;display:block;max-width:none}
+ .tool-navigation #navigation-purpose{min-height:80px;padding:10px 4px;font-size:12px}
+ body:not([data-view=study]) .tool-navigation #navigation-purpose{min-height:64px;font-size:11px}
+ .home-hero .hero-lockup>img{width:48px;height:48px}
+}
+@media(prefers-reduced-motion:reduce){.tool-navigation #wordmark-plate{transition:none}}
+@media(forced-colors:active){.tool-navigation #wordmark button[aria-current=page]{border-bottom-color:Highlight}.tool-navigation #navigation-purpose{color:CanvasText}}
+@media print{.tool-navigation{display:none}}
+.tool-navigation .caption-short{display:none}
+@media(max-width:380px){.tool-navigation #wordmark .letter-caption{font-size:10px;line-height:1.5;padding-inline:1px;overflow-wrap:normal}.tool-navigation .caption-long{display:none}.tool-navigation .caption-short{display:inline}.tool-navigation #wordmark .glyph{font-size:32px}}

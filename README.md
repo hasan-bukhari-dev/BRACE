@@ -49,7 +49,7 @@ Processing runs locally on `127.0.0.1`. Uploaded measurements remain local. Expl
 
 Use `python verify_release.py`, `python -m pytest -q`, `python scripts/release_smoke.py` and `python scripts/check_repository.py` in the isolated environment. Evidence exports record hashes, methods and input lineage. Source sealing verifies recorded bytes; checksums are not digital signatures or guarantees of clinical validity. [Architecture](docs/ARCHITECTURE.md) · [API](docs/LOCAL_API.md) · [Verification](docs/RELEASE_1_2_4.md).
 
-The source product version is **1.2.4**. Download links resolve to the latest actually verified release. Automated source, DOM, binary and installer evidence does not establish unfamiliar-user usability or WCAG compliance.
+The source product version is **1.2.5**. Download links resolve to the latest actually verified release. Automated source, DOM, binary and installer evidence does not establish unfamiliar-user usability or WCAG compliance.
 
 ## Rights and references
 

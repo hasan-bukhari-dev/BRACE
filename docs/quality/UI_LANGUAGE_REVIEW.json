@@ -72,10 +72,22 @@
     "reason": "Real persisted completion state, integrity violation of a previously saved result, or explicit absence/requirement of completed evidence; never assigned by the failure branch."
   },
   {
+    "source_file": "brace_app/static/app.js",
+    "literal_sha256": "2b9ece4c604b6e66565419fe2219747e24ebf557e1507060d071f4a4b4c309d6",
+    "decision": "keep_with_context",
+    "reason": "Negated completion reports a failed public-cohort request. It does not assert a successful analysis or replace the underlying scientific result."
+  },
+  {
     "source_file": "brace_app/static/js/datasets.js",
     "literal_sha256": "3c744500eb4dcc8b404a11d1ffe9c460a48c382dcd94dbc256ba4c7d44d60940",
     "decision": "keep_with_context",
     "reason": "The parser error is shown explicitly before a preparation recovery instruction; no scientific unsuitability or successful preparation is inferred from a format rejection."
+  },
+  {
+    "source_file": "brace_app/static/js/demo-assistant.js",
+    "literal_sha256": "62b9e0de020465968ceb1912371d3628d3b35d4494af84d7d4100d851f1ac3c7",
+    "decision": "keep_with_context",
+    "reason": "Requested demo shortcut ranks archived incorrect predictions by their recorded maximum class score. The resulting inspector explicitly states scores are not calibrated probabilities; this is not a claim of model reliability."
   },
   {
     "source_file": "brace_app/static/js/guide.js",

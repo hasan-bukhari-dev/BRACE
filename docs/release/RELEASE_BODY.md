@@ -1,19 +1,13 @@
-# BRACE 1.2.4 — Clarity & Documentation
+# BRACE 1.2.5 — Workbench navigation and guided assistant
 
-Official tool names and plain-language navigation are now consistent. The shared BRACE rectangle and five destinations remain; E and EMBRACE are one evidence workspace.
+This release candidate enlarges and centers the existing B R A C E navigation below the application header. Highlighting a destination displays its official full name beneath the module. The active page remains separately marked while another tool is previewed. Analysis views use a smaller version of the same navigation.
 
-The README is rewritten, with a researcher manual, 25 authentic application screenshots, editable source, full-resolution figure links and a printable two-page quick start. Help opens the locally bundled manual. Reproduction instructions are consolidated; historical records retain their provenance and clear labels. Two unreferenced legacy UI assets were removed after reference review; scientific fixtures and archives remain intact.
+The BRACE logo is larger. The question controls now display RACE, ACE and CE. Existing analysis, preparation, discovery, inspection and evidence controls remain available. Keyboard navigation, reduced-motion behavior and light/dark themes are retained.
 
-The walkthrough repaired a prediction-library crash, startup navigation restoration and baseline result labels. Source-trained target evaluation is clearly distinguished from archived or imported predictions. No scientific engine bytes changed from 1.2.2.
+A floating guided assistant provides editable preset requests for reviewed public-data preparation, archived CancerShift prediction inspection, cohort comparison and evidence review. It is a deterministic demo, not live RAG. Its compact launcher expands on hover and opens on click; pointer exit collapses the panel after a short delay while preserving drafts, keyboard interaction and active requests. The CancerShift shortcut waits for evaluation records before selecting the highest-scoring incorrect prediction.
 
-Local scientific checks preserve ER 14/20 and archived CancerShift 668/680. Additional real-cohort preparation, gene references, RACE, CE safeguards, baseline, frozen replay and export checks passed. The documented fixed-panel baseline retains its weak 2/90 target result; it is exploratory execution evidence, not a validated classifier.
+Scientific engines, bundled datasets, statistical methods and numerical artifacts are unchanged. Saved examples and archived predictions retain their provenance and interpretation limits.
 
-Publication requires exact-tag source, executable, portability, native controller and Windows install/uninstall checks. Actual JUnit, checksum and verification receipts accompany the assets. The manual and quick start are included both here and in the Windows package.
+Source verification and remaining release gates are recorded in RELEASE_1_2_5.md. This source preparation does not establish that a Windows executable or installer has been built or verified. Publish v1.2.5 only after the exact-tag build workflow and platform acceptance checks pass.
 
-Agent workflow and PDF review are complete. Independent unfamiliar-user and screen-reader acceptance remain unmeasured; full WCAG compliance is not claimed. Windows installer screenshots were not captured. Only two target normal samples occur in the illustrated baseline. Statistical results remain exploratory research evidence.
-
-Close BRACE before installing. The installer is unsigned. Ordinary evidence exports omit original uploads; private workspace backups include them and should be reviewed before sharing.
-
-## Installer correction
-
-Final asset inspection found that 1.2.3 still used a hard-coded 1.2.2 installer label. That tag is preserved. Version 1.2.4 binds AppVersion, filename and Windows PE version fields to VERSION and checks them before publication. The interface and scientific engines are unchanged from 1.2.3; the manual is regenerated for 1.2.4.
+The illustrated 1.2.4 manual remains available as the previous interface edition; see the 1.2.5 navigation supplement for the changed application shell. Independent unfamiliar-user and screen-reader testing, physical-device acceptance and full WCAG conformance are not claimed.

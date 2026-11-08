@@ -1,10 +1,12 @@
-const keys=['study','race','ace','cohorts','evidence'],names=['BRACE · Research workspace','RACE · Test associations','ACE · Evaluate classifiers','CE · Compare cohorts','EMBRACE · Evidence & exports'];
+import {identities} from './identity.js';
+const keys=['study','race','ace','cohorts','evidence'];
+const tools=['BRACE','RACE','ACE','CE','EMBRACE'];
 export function initWordmark(commit){
  const nav=document.querySelector('#wordmark'),buttons=[...nav.querySelectorAll('[data-view]')],plate=document.querySelector('#wordmark-plate');let selected='study',preview=null;
- const paint=key=>{const i=keys.indexOf(key),a=buttons[i].querySelector('.glyph').getBoundingClientRect(),b=buttons.at(-1).querySelector('.glyph').getBoundingClientRect(),r=nav.getBoundingClientRect();plate.style.transform=`translate(${a.left-r.left}px,${a.top-r.top}px)`;plate.style.width=(b.right-a.left)+'px';plate.style.height=a.height+'px';nav.dataset.preview=key;buttons.forEach((el,j)=>el.classList.toggle('prefix-muted',j<i));document.querySelector('#navigation-purpose').textContent=names[i];};
+ const paint=key=>{const i=keys.indexOf(key),a=buttons[i].querySelector('.glyph').getBoundingClientRect(),b=buttons.at(-1).querySelector('.glyph').getBoundingClientRect(),r=nav.getBoundingClientRect();plate.style.transform=`translate(${a.left-r.left}px,${a.top-r.top}px)`;plate.style.width=(b.right-a.left)+'px';plate.style.height=a.height+'px';nav.dataset.preview=key;buttons.forEach((el,j)=>el.classList.toggle('prefix-muted',j<i));document.querySelector('#navigation-purpose').textContent=tools[i]+' — '+identities[tools[i]];};
  buttons.forEach((b,i)=>{b.onclick=()=>{preview=null;commit(keys[i])};b.onpointerenter=()=>{preview=keys[i];paint(preview)};b.onfocus=()=>{preview=keys[i];paint(preview)};b.onkeydown=e=>{let n;if(e.key==='ArrowRight')n=(i+1)%5;if(e.key==='ArrowLeft')n=(i+4)%5;if(e.key==='Home')n=0;if(e.key==='End')n=4;if(e.key==='Escape'){preview=null;paint(selected)}if(n!==undefined){e.preventDefault();buttons[n].focus()}}});
- nav.onpointerleave=()=>{preview=null;paint(selected)};nav.addEventListener('focusout',e=>{if(!nav.contains(e.relatedTarget)){preview=null;paint(selected)}});new ResizeObserver(()=>paint(preview||selected)).observe(nav);document.fonts.ready.then(()=>paint(preview||selected));
+ nav.onpointerleave=()=>{const focused=buttons.indexOf(document.activeElement);preview=focused<0?null:keys[focused];paint(preview||selected)};nav.addEventListener('focusout',e=>{if(!nav.contains(e.relatedTarget)){preview=null;paint(selected)}});new ResizeObserver(()=>paint(preview||selected)).observe(nav);document.fonts.ready.then(()=>paint(preview||selected));
  requestAnimationFrame(()=>paint(preview||selected));
  window.addEventListener('load',()=>paint(preview||selected),{once:true});
- return {select(key){selected=key;buttons.forEach(b=>{const on=b.dataset.view===key;b.setAttribute('aria-current',on?'page':'false');b.classList.toggle('selected',on)});paint(preview||selected)}};
+ return {select(key){selected=key;preview=null;buttons.forEach(b=>{const on=b.dataset.view===key;b.setAttribute('aria-current',on?'page':'false');b.classList.toggle('selected',on)});paint(selected)}};
 }

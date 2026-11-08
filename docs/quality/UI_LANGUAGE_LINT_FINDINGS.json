@@ -96,11 +96,27 @@
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
+    "source": "brace_app/static/app.js:94",
+    "matches": [
+      "completed"
+    ],
+    "literal_or_template": "The public cohort comparison could not be completed.",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
     "source": "brace_app/static/js/datasets.js:372",
     "matches": [
       "unsupported"
     ],
     "literal_or_template": "<p role=\"alert\">${esc(error.message)} The original acquisition is retained. Import a documented processed expression matrix, metadata and manifest if this format is unsupported.</p>",
+    "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
+  },
+  {
+    "source": "brace_app/static/js/demo-assistant.js:3",
+    "matches": [
+      "confident"
+    ],
+    "literal_or_template": "Find CancerShift\u2019s most confident error",
     "review": "Context required: unsupported means rejected input capability; completed is a genuine persisted state or a negated failure. Significant/robust/reliable require method-context review; no automatic replacement."
   },
   {
