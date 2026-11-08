@@ -80,16 +80,20 @@
     "sha256": "68363e84b6adf82886fab519ccde1e35b6b2102cc635933fab673e419950286d"
   },
   "brace_app/static/app.js": {
-    "literal_count": 469,
-    "sha256": "f75276b9ff4ea8a9903d2d81a0e94c5e31af57fd41351fb9c5717479393f19f9"
+    "literal_count": 533,
+    "sha256": "a8ac8bcbc11dae8284289b7f52c188c8738371d1a713ca85e3f6ba961b718192"
+  },
+  "brace_app/static/assistant.css": {
+    "literal_count": 2,
+    "sha256": "5ee7d96871449d3cdc961d2998b2f334bfe2db8baa534e50d9e492956b6a8d5c"
   },
   "brace_app/static/design-tokens.css": {
     "literal_count": 0,
     "sha256": "7759bd267975c8909a3c7dba7e47186c9222c3165432a4cdaf7e0c95d00941d8"
   },
   "brace_app/static/index.html": {
-    "literal_count": 150,
-    "sha256": "f7dab306c9224adb191189a0450acc61f5ad70233b29805a8f14641a07efd775"
+    "literal_count": 156,
+    "sha256": "bed392353419cf9ccb0671da8b1b0cf44d2a0313eaf6357d40ae8d9a3ca17d3c"
   },
   "brace_app/static/js/ace-design.js": {
     "literal_count": 91,
@@ -114,6 +118,10 @@
   "brace_app/static/js/datasets.js": {
     "literal_count": 432,
     "sha256": "742dc939d412002a08e010d6433fe832b75140904cb2beb7f6773bb512266159"
+  },
+  "brace_app/static/js/demo-assistant.js": {
+    "literal_count": 120,
+    "sha256": "b7af29cba56f8b6665f5c0d7afb844d70c6310d725751b5cfac3ba43ffc3eacb"
   },
   "brace_app/static/js/evidence-design.js": {
     "literal_count": 79,
@@ -200,12 +208,16 @@
     "sha256": "7a5b34cda1668c411ba055f34a1c9e8b29876b9afb53f1eec246d249755bc327"
   },
   "brace_app/static/js/wordmark.js": {
-    "literal_count": 32,
-    "sha256": "efa7aa53b7ea691730ce27c8a2d6eaebb1b0d6c7da50367d84955268b64451b8"
+    "literal_count": 34,
+    "sha256": "6c6874eaec401014cd932415f7224c1abadb9cf76592904866a4a0deb68cf996"
   },
   "brace_app/static/js/workspace-tools.js": {
     "literal_count": 105,
     "sha256": "ee58ab1213132bf033ae712ee437987f41cc0381c0611b755f5def19ec6b968c"
+  },
+  "brace_app/static/navigation.css": {
+    "literal_count": 3,
+    "sha256": "7ba508bd36979b5bf893e454bc2a886622cfdc9230e98574a1dc53afd49903e9"
   },
   "brace_app/static/style.css": {
     "literal_count": 28,

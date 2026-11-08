@@ -63,4 +63,5 @@ jobs:
         run: |
           npm install --prefix work/dom-test --no-save --no-audit --no-fund jsdom@31.0.0
           node tools/verify_workflow_dom.mjs
+          node tools/verify_navigation_dom.mjs
       - run: python scripts/release_smoke.py

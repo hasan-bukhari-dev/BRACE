@@ -1,8 +1,8 @@
-# Build and release BRACE 1.2.4
+# Build and release BRACE 1.2.5
 
 The repository is `https://github.com/hasan-bukhari-dev/BRACE`. BRACE-authored material is rights reserved; datasets and dependencies retain their own terms. Do not label the project MIT/open source or claim blanket data redistribution permissions.
 
-Current verification, agent workflow review and remaining independent-usability limits are recorded in [RELEASE_1_2_4.md](../RELEASE_1_2_4.md). Do not infer human acceptance from a successful build.
+Current verification, agent workflow review and remaining independent-usability limits are recorded in [RELEASE_1_2_5.md](../RELEASE_1_2_5.md). Do not infer human acceptance from a successful build.
 
 ## Source checks
 
@@ -24,7 +24,7 @@ On Windows, Inno Setup 6 compiles `packaging/windows.iss` with `/DBuildVersion=`
 
 1. Commit only the reviewed source payload. `.gitattributes` disables automatic newline conversion so pinned historical evidence retains exact bytes. Never commit `.venv`, `runs`, local credentials or build products.
 2. `Verify source` runs the actual regression and smoke suite on Windows, Ubuntu and macOS. Wait for actual results; a workflow file is not evidence that its jobs passed.
-3. Tag the reviewed commit `v1.2.4` and push that tag.
+3. Tag the reviewed commit `v1.2.5` and push that tag.
 4. Dispatch `Build release` for the tag. The default builds Windows only and verifies real public-data computation, restart recovery, the native controller and installer lifecycle. The optional `all` builds each platform on its own runner and verifies the bundled backend separately. Mac/Linux are experimental until their native GUI/device acceptance is completed.
 5. The workflow creates a **Windows release** only after its build checks pass, attaching actual binaries, receipts, checksums and the tagged source ZIP. Publication is gated on those checks. Never repoint a published tag to quietly replace a failed release.
 
@@ -41,3 +41,11 @@ For local development, `python packaging/build.py --incremental` reuses PyInstal
 ## Maintain the illustrated documentation
 
 Install requirements-docs.txt into a separate authoring environment. Edit docs/manual/USER_MANUAL.md and docs/QUICK_START.md. Capture actual final-interface screens in docs/manual/screenshots; keep original captures, and identify guide overlays separately. Run `python scripts/build_manual.py`, then `python scripts/verify_manual.py`. Review every rendered page in work/manual-review, inspect full-size figures and verify text extraction and internal links before accepting the PDF bytes. The verifier deliberately leaves visual review pending; automation cannot approve its own layout. Do not ship draft output or screenshots from another revision. The Windows binary check fetches the local manual and requires a PDF response.
+
+## 1.2.5 interface documentation
+
+Read [the navigation supplement](../NAVIGATION_1_2_5.md). The bundled illustrated manual is the previous 1.2.4 interface edition; it has not been regenerated for this source candidate. Do not describe its screenshots as 1.2.5 verification.
+
+## Version-specific 1.2.5 handoff
+
+After Verify source succeeds on the current main commit, release-1.2.5-handoff.yml checks VERSION and the sealed source, creates v1.2.5 once, and dispatches the existing Build release workflow. It does not move existing tags or publish assets itself. Build release retains the binary and installer acceptance gates. The handoff is inert for other versions and existing tags.

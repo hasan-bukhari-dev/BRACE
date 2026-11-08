@@ -1,0 +1,53 @@
+name: Release 1.2.5 after verified main
+on:
+  workflow_run:
+    workflows: [Verify source]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: release-1.2.5-handoff
+  cancel-in-progress: false
+jobs:
+  handoff:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Verify source and start the existing release build once
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERIFIED_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          version=$(tr -d '\r\n' < VERSION)
+          if [ "$version" != '1.2.5' ]; then
+            echo 'This handoff applies only to version 1.2.5.'
+            exit 0
+          fi
+          latest=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')
+          if [ "$latest" != "$VERIFIED_SHA" ]; then
+            echo 'Main advanced; its newer source checks must finish first.'
+            exit 0
+          fi
+          python3 verify_release.py
+          tag="v$version"
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" >/dev/null 2>&1; then
+            echo 'Version tag already exists; no tag is moved and no duplicate build is dispatched.'
+            exit 0
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$tag" -f sha="$VERIFIED_SHA"
+          gh workflow run build-release.yml --repo "$GITHUB_REPOSITORY" --ref main -f tag="$tag" -f platforms=windows
+          echo 'Existing verified Windows release workflow dispatched.'
